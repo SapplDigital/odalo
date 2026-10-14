@@ -9,7 +9,9 @@ import outfitUrl from '@fontsource-variable/outfit/files/outfit-latin-wght-norma
 import serifUrl from '@fontsource/instrument-serif/files/instrument-serif-latin-400-italic.woff2?url';
 
 interface Props { lang: Lang; title: string; description: string; noindex?: boolean; home?: boolean }
-const { lang, title, description, noindex = false, home = false } = Astro.props;
+const { lang, title, description, home = false } = Astro.props;
+// PUBLIC_NOINDEX=true (set for the demo deployment) keeps every page out of search engines.
+const noindex = Astro.props.noindex || import.meta.env.PUBLIC_NOINDEX === 'true';
 const t = tr(lang);
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');

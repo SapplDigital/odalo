@@ -32,6 +32,16 @@ npm run preview    # http://localhost:4321 — serves dist/
 
 On Windows PowerShell the commands are identical (`cd` into the project, then the same `npm` commands).
 
+## Hosted demo (GitHub Pages)
+
+`.github/workflows/pages.yml` builds and publishes the site on every push to the default branch:
+**https://sappldigital.github.io/odalo/** (root redirects to `/en/`, `/es/` or `/de/`).
+One-time setup: repo **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+The demo build sets `PUBLIC_NOINDEX=true` (meta `noindex` + `Disallow: /` in `robots.txt`) because the content is placeholder.
+Note: the site is public on the internet even though it is unindexed. To build the same way locally:
+`SITE_URL=https://sappldigital.github.io SITE_BASE=/odalo/ PUBLIC_NOINDEX=true npm run build`
+(run `preview` with the same variables to serve it under `/odalo/`).
+
 ## Checks
 
 ```bash
@@ -52,6 +62,7 @@ Playwright uses the browser at `/opt/pw-browsers/chromium` when present (cloud s
 |---|---|---|
 | `SITE_URL` | `https://odalo.example` | Absolute origin for canonical, hreflang, sitemap, OG tags. **Placeholder, not a real domain.** |
 | `SITE_BASE` | `/` | Sub-path hosting (e.g. `/odalo/` on GitHub Pages). |
+| `PUBLIC_NOINDEX` | unset | `true` adds `noindex` to every page and disallows all crawling in `robots.txt` (used for the demo deployment). |
 | `PUBLIC_AUDIT_ENDPOINT` | unset | Audit-form delivery URL. Unset = **simulated** submission (nothing is sent, and the UI says so). |
 
 ## Project map

@@ -120,6 +120,10 @@ Unthrottled desktop and a 4× CPU / ~1.6 Mbps / 150 ms profile, headless Chromiu
 - Touch was verified with emulation, not a physical device.
 - No CI workflow committed.
 
+## 7a. Hosted demo
+
+GitHub Pages via Actions (`.github/workflows/pages.yml`) at https://sappldigital.github.io/odalo/ with `SITE_BASE=/odalo/`, `SITE_URL=https://sappldigital.github.io` and `PUBLIC_NOINDEX=true`. The sub-path build was smoke-tested locally (mobile emulation: root redirect, all internal links under `/odalo/`, fonts, language switch, plan preselect, mosaic details, no failed requests). Before launch, remove `PUBLIC_NOINDEX`, point `SITE_URL`/`SITE_BASE` at the real domain, and add the production hosting/redirect setup.
+
 ## 8. Visual review artifacts (doc 06 deliverables)
 
 `docs/review/` (regenerate with `npm run shots`): homepage at 1440/834/390 (+ es/de), service, audit, plans, work, case study and about pages; the service mosaic at rest and in all four desktop expansions; open details; keyboard focus; mobile inline details; mobile menu; 320 px reflow; 200 % text; reduced motion; form error and simulated-success states. See `docs/review/README.md`. Not produced: a standalone component sheet/Figma, brand-asset crop guidance and an inventory spreadsheet (the content files are the inventory).

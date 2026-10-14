@@ -1,3 +1,9 @@
 import type { APIRoute } from 'astro';
-export const GET: APIRoute = ({ site }) =>
-  new Response(`User-agent: *\nAllow: /\n\nSitemap: ${site?.origin ?? ''}${import.meta.env.BASE_URL.replace(/\/$/, '')}/sitemap.xml\n`, { headers: { 'Content-Type': 'text/plain' } });
+
+// PUBLIC_NOINDEX=true (demo deployment) disallows everything and omits the sitemap.
+export const GET: APIRoute = ({ site }) => {
+  const body = import.meta.env.PUBLIC_NOINDEX === 'true'
+    ? 'User-agent: *\nDisallow: /\n'
+    : `User-agent: *\nAllow: /\n\nSitemap: ${site?.origin ?? ''}${import.meta.env.BASE_URL.replace(/\/$/, '')}/sitemap.xml\n`;
+  return new Response(body, { headers: { 'Content-Type': 'text/plain' } });
+};
