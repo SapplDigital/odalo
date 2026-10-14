@@ -57,14 +57,14 @@ const current = rest.split('/')[0];
   .hdr__cta { min-height: 48px; padding-inline: 24px; white-space: nowrap; }
 
   @media (max-width: 1119px) {
-    .js .hdr__toggle { display: inline-flex; }
-    .js .hdr__panel { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 8px; background: var(--paper); padding: 12px var(--margin) 24px; border-bottom: 1px solid var(--line); box-shadow: 0 18px 30px -20px rgb(19 35 56 / 0.35); max-height: calc(100dvh - var(--header-h)); overflow-y: auto; }
-    .js .hdr__panel[hidden] { display: none; }
-    .js .hdr__links { flex-direction: column; align-items: stretch; }
-    .js .hdr__links a { font-size: 1.25rem; padding-inline: 4px; border-bottom: 1px solid var(--line); border-radius: 0; }
-    .js .hdr__tools { justify-content: space-between; flex-wrap: wrap; padding-top: 8px; }
-    .no-js .hdr__in { flex-wrap: wrap; padding-block: 8px; }
-    .no-js .hdr__panel { flex-wrap: wrap; justify-content: flex-start; }
+    :global(.js) .hdr__toggle { display: inline-flex; }
+    :global(.js) .hdr__panel { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 8px; background: var(--paper); padding: 12px var(--margin) 24px; border-bottom: 1px solid var(--line); box-shadow: 0 18px 30px -20px rgb(19 35 56 / 0.35); max-height: calc(100dvh - var(--header-h)); overflow-y: auto; }
+    :global(.js) .hdr__panel[hidden] { display: none; }
+    :global(.js) .hdr__links { flex-direction: column; align-items: stretch; }
+    :global(.js) .hdr__links a { font-size: 1.25rem; padding-inline: 4px; border-bottom: 1px solid var(--line); border-radius: 0; }
+    :global(.js) .hdr__tools { justify-content: space-between; flex-wrap: wrap; padding-top: 8px; }
+    :global(.no-js) .hdr__in { flex-wrap: wrap; padding-block: 8px; }
+    :global(.no-js) .hdr__panel { flex-wrap: wrap; justify-content: flex-start; }
   }
 </style>
 <script>

@@ -42,18 +42,18 @@ const t = tr(lang);
   </div>
 </section>
 <style>
-  .hero { padding-block: var(--s6) var(--section); }
+  .hero { padding-block: var(--s6) var(--s8); }
   .hero__grid { display: grid; gap: var(--s7); align-items: stretch; }
   .hero__text { display: grid; gap: var(--s5); align-content: center; padding-block: var(--s4); }
   .hero__body { font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.375rem); color: var(--ink); }
   .hero__cta { display: flex; flex-wrap: wrap; gap: var(--s3) var(--s4); margin-top: var(--s2); }
 
   .hero__mosaic {
-    display: grid; gap: var(--gutter); min-height: 22rem;
-    grid-template-columns: 1fr 1fr; grid-template-rows: 9rem 10.5rem 6rem;
+    display: grid; gap: var(--gutter);
+    grid-template-columns: 1fr 1fr; grid-template-rows: 9.5rem 10.5rem 6rem;
   }
   .piece { position: relative; overflow: hidden; border-radius: var(--r-small); min-width: 0; }
-  .piece :global(svg), .piece svg { width: 100%; height: 100%; }
+  .piece :global(svg), .piece svg { position: absolute; inset: 0; width: 100%; height: 100%; }
   .p-work { grid-column: 1; grid-row: 1; }
   .p-geo { grid-column: 2; grid-row: 1; border-top-right-radius: 28px; }
   .p-video { grid-column: 1 / -1; grid-row: 2; }
@@ -63,19 +63,19 @@ const t = tr(lang);
   .chip--dark { background: var(--coral); color: var(--ink-deep); }
 
   @media (min-width: 768px) {
-    .hero__mosaic { grid-template-rows: 11rem 13rem 7.5rem; min-height: 0; }
+    .hero__mosaic { grid-template-rows: 12rem 13rem 7rem; }
   }
   @media (min-width: 1024px) {
     .hero { padding-top: var(--s7); }
     .hero__grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s8); }
-    .hero__mosaic { grid-template-rows: minmax(0, 1.1fr) minmax(0, 1.3fr) minmax(0, 0.75fr); min-height: 34rem; }
+    .hero__mosaic { grid-template-rows: minmax(0, 0.95fr) minmax(0, 1.2fr) minmax(0, 0.6fr); height: clamp(30rem, 34vw, 35rem); align-self: center; }
     .p-work { border-top-left-radius: var(--r-big); }
   }
 
   /* Supporting visuals assemble once, then settle. Text and CTAs are never animated. */
-  .js .piece { animation: assemble 0.9s cubic-bezier(0.22, 0.8, 0.3, 1) both; }
-  .js .p-geo { animation-delay: 0.08s; } .js .p-video { animation-delay: 0.16s; }
-  .js .p-lang { animation-delay: 0.24s; } .js .p-shape { animation-delay: 0.32s; }
+  :global(.js) .piece { animation: assemble 0.9s cubic-bezier(0.22, 0.8, 0.3, 1) both; }
+  :global(.js) .p-geo { animation-delay: 0.08s; } :global(.js) .p-video { animation-delay: 0.16s; }
+  :global(.js) .p-lang { animation-delay: 0.24s; } :global(.js) .p-shape { animation-delay: 0.32s; }
   @keyframes assemble { from { opacity: 0; transform: translate(var(--ax, 0), var(--ay, 18px)); } to { opacity: 1; transform: none; } }
   .p-geo { --ax: 14px; --ay: 0px; } .p-lang { --ax: -14px; --ay: 0px; } .p-shape { --ax: 14px; --ay: 14px; }
 </style>

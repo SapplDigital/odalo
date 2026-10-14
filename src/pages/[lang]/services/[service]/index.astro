@@ -1,0 +1,85 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import PageHero from '../../../../components/PageHero.astro';
+import Art from '../../../../components/Art.astro';
+import Process from '../../../../components/Process.astro';
+import WorkMosaic from '../../../../components/WorkMosaic.astro';
+import Faq from '../../../../components/Faq.astro';
+import FinalCta from '../../../../components/FinalCta.astro';
+import { languages, href, formatPrice, type Lang } from '../../../../i18n';
+import { tr } from '../../../../i18n/ui';
+import { services, serviceById } from '../../../../content/services';
+import { planById } from '../../../../content/plans';
+
+export function getStaticPaths() {
+  return languages.flatMap((lang) => services.map((s) => ({ params: { lang, service: s.id } })));
+}
+const lang = Astro.params.lang as Lang;
+const s = serviceById(Astro.params.service!)!;
+const t = tr(lang);
+const plan = planById(s.relatedPlan)!;
+const summaries = t.plans.summaries as Record<string, string>;
+const tone = ({ web: 'ink', local: 'sand', video: 'coral', ads: 'slate' } as const)[s.id];
+const artTone = ({ ink: 'slate', sand: 'coral', coral: 'sand', slate: 'ink' } as const)[tone];
+---
+<Base lang={lang} title={`${s.name[lang]} — Odalo`} description={s.outcome[lang]}>
+  <PageHero lang={lang} eyebrow={`${s.number} — ${t.common.services}`} title={{ a: s.name[lang] }} lead={s.outcome[lang]}
+    crumbs={[{ label: t.nav.services, to: `${href(lang)}#services` }, { label: s.name[lang] }]}>
+    <Fragment slot="actions">
+      <a class="btn btn--coral" href={`${href(lang, 'audit/')}?service=${s.id}`} data-track="audit_cta" data-location="service">{t.common.requestAudit}</a>
+      <a class="btn btn--ghost" href={`${href(lang, 'plans/')}#plan-${plan.id}`}>{t.common.seePlans}</a>
+    </Fragment>
+    <div slot="aside" class="svc-art c-tl"><Art variant={s.art} tone={artTone} /></div>
+  </PageHero>
+
+  <section class="section deliver" aria-labelledby="del-h">
+    <div class="wrap deliver__grid">
+      <div class={`deliver__lead deliver__lead--${tone} c-br ${tone === 'ink' || tone === 'slate' ? 'on-dark' : ''}`}>
+        <h2 id="del-h" class="h-tile">{t.common.deliverables}</h2>
+        <p>{s.detail[lang]}</p>
+      </div>
+      <ul class="deliver__list">
+        {s.deliverables[lang].map((d, i) => <li class={`piece piece--${i % 4}`}><span class="piece__n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>{d}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <Process lang={lang} />
+  <WorkMosaic lang={lang} ids={s.relatedProjects} explainer={false} id="related-work" heading={false} />
+
+  <section class="section relplan" aria-labelledby="rp-h">
+    <div class="wrap relplan__in">
+      <h2 id="rp-h" class="h-section">{t.services.pageH2Plans}</h2>
+      <div class="relplan__card c-tr">
+        <p class="eyebrow">{t.common.examplePrices}</p>
+        <h3 class="h-tile">{plan.name} — {formatPrice(plan.price, lang)}<span class="relplan__per">{t.common.perMonth}</span></h3>
+        <p>{summaries[plan.id]}</p>
+        <a class="btn btn--ink" href={`${href(lang, 'audit/')}?plan=${plan.id}&service=${s.id}`} data-track="plan_select" data-plan={plan.id}>{t.plans.ctaPlan.replace('{plan}', plan.name)}</a>
+      </div>
+    </div>
+  </section>
+
+  <Faq lang={lang} ids={s.faqIds} heading={{ a: t.services.pageH2Faq, em: '' }} id="svc-faq" />
+  <FinalCta lang={lang} />
+</Base>
+<style>
+  .svc-art { aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--r-small); }
+  .c-tl { border-top-left-radius: var(--r-big); } .c-br { border-bottom-right-radius: var(--r-big); } .c-tr { border-top-right-radius: var(--r-big); }
+  .deliver__grid { display: grid; gap: var(--gutter); }
+  .deliver__lead { padding: var(--pad); display: grid; gap: var(--s4); align-content: start; border-radius: var(--r-small); }
+  .deliver__lead.c-br { border-bottom-right-radius: var(--r-big); }
+  .deliver__lead--ink { background: var(--ink); color: var(--paper); } .deliver__lead--sand { background: var(--sand); }
+  .deliver__lead--coral { background: var(--coral); color: var(--ink-deep); } .deliver__lead--slate { background: var(--slate); color: var(--paper); }
+  .deliver__lead p { max-width: 46ch; font-size: 1.125rem; }
+  .deliver__list { display: grid; gap: var(--gutter); grid-template-columns: 1fr; }
+  .piece { padding: var(--pad); border-radius: var(--r-small); display: grid; gap: var(--s3); align-content: space-between; min-height: 9rem; font-weight: 600; font-size: 1.1875rem; line-height: 1.3; }
+  .piece__n { font-weight: 800; font-size: 0.9375rem; letter-spacing: 0.1em; opacity: 0.8; }
+  .piece--0 { background: var(--sand); } .piece--1 { background: var(--paper); box-shadow: inset 0 0 0 2px var(--ink); border-top-right-radius: 56px; }
+  .piece--2 { background: var(--paper); box-shadow: inset 0 0 0 2px var(--ink); border-bottom-left-radius: 56px; } .piece--3 { background: var(--sand); border-top-left-radius: 56px; }
+  .relplan__in { display: grid; gap: var(--s6); }
+  .relplan__card { background: var(--sand); padding: var(--pad); border-radius: var(--r-small); display: grid; gap: var(--s3); justify-items: start; max-width: 40rem; }
+  .relplan__card.c-tr { border-top-right-radius: var(--r-big); }
+  .relplan__per { font-size: 1rem; font-weight: 500; margin-left: 4px; }
+  @media (min-width: 768px) { .deliver__list { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1024px) { .deliver__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); } }
+</style>

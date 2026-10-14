@@ -1,0 +1,79 @@
+---
+import { plans, planById } from '../content/plans';
+import { href, formatPrice, type Lang } from '../i18n';
+import { tr } from '../i18n/ui';
+interface Props { lang: Lang; detailed?: boolean }
+const { lang, detailed = false } = Astro.props;
+const t = tr(lang);
+const corners: Record<string, string> = { base: 'c-tl', local: 'c-bl', captacion: 'c-br', '360': 'c-tr' };
+const summaries = t.plans.summaries as Record<string, string>;
+---
+<div class="plans">
+  {plans.map((p) => {
+    const parent = p.builtOn ? planById(p.builtOn)! : null;
+    return (
+      <article id={`plan-${p.id}`} class:list={['plan', `plan--${p.id}`, corners[p.id], { 'plan--feat on-dark': p.featured }]} aria-labelledby={`plan-${p.id}-h`}>
+        <header class="plan__head">
+          <h3 id={`plan-${p.id}-h`} class="plan__name">{p.name}</h3>
+          {p.featured && <span class="pill">{t.common.featured}</span>}
+        </header>
+        <p class="plan__price"><span class="plan__amount">{formatPrice(p.price, lang)}</span><span class="plan__per">{t.common.perMonth}</span></p>
+        <p class="plan__example">{t.common.examplePrices}</p>
+        <p class="plan__sum">{summaries[p.id]}</p>
+        <div class="plan__inc">
+          {parent && <p class="plan__built">{t.plans.builtOn.replace('{plan}', parent.name)}</p>}
+          <ul class="plan__list">{p.own[lang].map((i) => <li>{i}</li>)}</ul>
+          {detailed && (
+            <div class="plan__not">
+              <p class="plan__built">{t.plans.exclusions}</p>
+              <ul class="plan__list plan__list--no">{p.notIncluded[lang].map((i) => <li>{i}</li>)}</ul>
+            </div>
+          )}
+        </div>
+        <a class:list={['btn', p.featured ? 'btn--coral' : 'btn--ink', 'plan__cta']} href={`${href(lang, 'audit/')}?plan=${p.id}`} data-track="plan_select" data-plan={p.id}>
+          {t.plans.ctaPlan.replace('{plan}', p.name)}
+        </a>
+      </article>
+    );
+  })}
+</div>
+<style>
+  .plans { display: grid; gap: var(--gutter); grid-template-columns: 1fr; }
+  .plan { background: var(--paper); color: var(--ink); padding: var(--pad); display: grid; gap: var(--s3); align-content: start; border-radius: var(--r-small); min-width: 0; scroll-margin-top: calc(var(--header-h) + 16px); }
+  .c-tl { border-top-left-radius: var(--r-big); } .c-bl { border-bottom-left-radius: var(--r-big); } .c-br { border-bottom-right-radius: var(--r-big); } .c-tr { border-top-right-radius: var(--r-big); }
+  .plan--feat { background: var(--ink); color: var(--paper); }
+  .plan__head { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--s3); min-height: 40px; }
+  .plan__name { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+  .plan__price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px; line-height: 1; }
+  .plan__amount { font-size: clamp(2.75rem, 2rem + 2.4vw, 4rem); font-weight: 800; letter-spacing: -0.04em; }
+  .plan__per { font-size: 1.125rem; font-weight: 500; color: var(--slate-text); }
+  .plan--feat .plan__per { color: var(--coral-light); }
+  .plan__example { font-size: 0.875rem; font-weight: 600; color: var(--rust-text); letter-spacing: 0.02em; }
+  .plan--feat .plan__example { color: var(--coral-light); }
+  .plan__sum { max-width: 36ch; }
+  .plan__inc { display: grid; gap: var(--s3); margin-block: var(--s2) var(--s3); }
+  .plan__built { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-text); }
+  .plan--feat .plan__built { color: var(--sand); }
+  .plan__list { display: grid; gap: 8px; font-size: 1.0625rem; }
+  .plan__list li { position: relative; padding-left: 26px; line-height: 1.4; }
+  .plan__list li::before { content: ''; position: absolute; left: 0; top: 0.4em; width: 12px; height: 12px; background: var(--coral); border-radius: 0 6px 0 6px; }
+  .plan__list--no li::before { background: none; border-radius: 0; height: 2px; top: 0.7em; background: var(--slate); width: 12px; }
+  .plan--feat .plan__list--no li::before { background: var(--sand); }
+  .plan__cta { align-self: end; margin-top: auto; justify-self: start; }
+  .plan--feat .plan__cta { font-size: 1.125rem; }
+
+  @media (min-width: 768px) {
+    .plans { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .plan--360 { grid-column: 1 / -1; }
+  }
+  @media (min-width: 1024px) {
+    .plans { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+    .plan--base { grid-column: span 3; } .plan--local { grid-column: span 4; } .plan--captacion { grid-column: span 5; }
+    .plan--captacion { padding-block: calc(var(--pad) + 12px); }
+    .plan--360 { grid-column: 1 / -1; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--s8); }
+    .plan--360 .plan__head, .plan--360 .plan__price, .plan--360 .plan__example, .plan--360 .plan__sum { grid-column: 1; }
+    .plan--360 .plan__inc { grid-column: 2; grid-row: 1 / span 5; margin: 0; align-content: center; }
+    .plan--360 .plan__list { grid-template-columns: 1fr 1fr; gap: 10px 24px; }
+    .plan--360 .plan__cta { grid-column: 1; }
+  }
+</style>

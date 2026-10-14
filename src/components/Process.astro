@@ -1,0 +1,60 @@
+---
+import { type Lang } from '../i18n';
+import { tr } from '../i18n/ui';
+interface Props { num?: string; lang: Lang }
+const { num, lang } = Astro.props;
+const t = tr(lang);
+const looks = ['sand', 'paper', 'sand', 'ink'] as const;
+const corners = ['c-tl', '', 'c-br', 'c-tr'];
+---
+<section id="process" class="proc section" aria-labelledby="proc-h">
+  <div class="wrap">
+    <header class="proc__head">
+      <p class="eyebrow">{num ? `${num} — ` : ''}{t.nav.process}</p>
+      <h2 id="proc-h" class="h-section">{t.process.h2.a} <em>{t.process.h2.em}</em></h2>
+    </header>
+    <ol class="steps" data-draw>
+      {t.process.steps.map((s, i) => (
+        <li class:list={['step', `step--${looks[i]}`, corners[i], { 'on-dark': looks[i] === 'ink' }]} style={`--i:${i}`}>
+          <span class="step__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="h-tile step__title"><span class="sr-only">{i + 1}. </span>{s.t}</h3>
+          <p>{s.d}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+<style>
+  .proc { background: var(--paper); }
+  .proc__head { display: grid; gap: var(--s4); margin-bottom: var(--s7); max-width: 60rem; }
+  .steps { --S: 44px; --bar: 4px; display: grid; gap: var(--gutter); grid-template-columns: 1fr; position: relative; padding-left: 20px; }
+  .step { position: relative; padding: var(--pad); border-radius: var(--r-small); display: grid; gap: var(--s3); align-content: start; }
+  .step--sand { background: var(--sand); } .step--paper { background: var(--paper); box-shadow: inset 0 0 0 2px var(--ink); } .step--ink { background: var(--ink); color: var(--paper); }
+  .c-tl { border-top-left-radius: var(--r-big); } .c-br { border-bottom-right-radius: var(--r-big); } .c-tr { border-top-right-radius: var(--r-big); }
+  .step__num { font-weight: 800; font-size: clamp(2.25rem, 1.8rem + 1.4vw, 3rem); line-height: 1; letter-spacing: -0.03em; color: var(--rust-text); }
+  .step--ink .step__num { color: var(--coral-light); }
+  .step p { max-width: 34ch; }
+
+  /* Connector — mobile/tablet: a vertical rail with a node per step */
+  .steps::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: var(--bar); background: var(--coral); border-radius: 2px; transform-origin: top; transition: transform 1s ease; }
+  .step::before { content: ''; position: absolute; left: -20px; top: 28px; width: 20px; height: var(--bar); background: var(--coral); }
+  :global(.js) .steps:not(.is-in)::before { transform: scaleY(0); }
+  :global(.js) .steps:not(.is-in) .step::before { opacity: 0; }
+  .step::before { transition: opacity 0.4s ease calc(0.25s * var(--i)); }
+
+  @media (min-width: 1024px) {
+    .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); padding-left: 0; padding-bottom: 0; margin-top: 0; align-items: start; gap: var(--gutter); }
+    .steps::before { display: none; }
+    .step { margin-top: calc(var(--i) * var(--S)); min-height: 17rem; }
+    .step::before { left: calc(var(--gutter) / -2); right: calc(var(--gutter) / -2); top: calc(var(--bar) * -1); width: auto; height: var(--bar); transform-origin: left; }
+    .step:first-child::before { left: 0; }
+    .step:last-child::before { right: 0; }
+    .step:not(:last-child)::after { content: ''; position: absolute; top: calc(var(--bar) * -1); right: calc(var(--gutter) / -2 - var(--bar) / 2); width: var(--bar); height: calc(var(--S) + var(--bar)); background: var(--coral); transform-origin: top; transition: transform 0.35s ease calc(0.25s * var(--i) + 0.3s); }
+    :global(.js) .steps:not(.is-in) .step::before { opacity: 1; transform: scaleX(0); }
+    .step::before { transition: transform 0.35s ease calc(0.25s * var(--i)); }
+    :global(.js) .steps:not(.is-in) .step::after { transform: scaleY(0); }
+    .steps { padding-bottom: 0; }
+    .proc .wrap { padding-bottom: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { .steps::before, .step::before, .step::after { transition: none !important; } }
+</style>

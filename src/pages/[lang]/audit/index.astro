@@ -1,0 +1,48 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import AuditForm from '../../../components/AuditForm.astro';
+import { languages, type Lang } from '../../../i18n';
+import { tr } from '../../../i18n/ui';
+import { site } from '../../../config/site';
+export function getStaticPaths() { return languages.map((lang) => ({ params: { lang } })); }
+const lang = Astro.params.lang as Lang;
+const t = tr(lang);
+const { email, phone } = site.contact;
+---
+<Base lang={lang} title={t.meta.audit.title} description={t.meta.audit.description}>
+  <PageHero lang={lang} eyebrow={t.nav.audit} title={t.audit.h1} lead={t.audit.lead} crumbs={[{ label: t.nav.audit }]} />
+  <section class="section au" aria-label={t.audit.h1.a}>
+    <div class="wrap au__grid">
+      <div class="au__form"><AuditForm lang={lang} /></div>
+      <aside class="au__side">
+        <div class="au__next on-dark c-tl">
+          <h2 class="au__h">{t.audit.expectH}</h2>
+          <ol>{t.audit.expect.map((e, i) => <li><span aria-hidden="true">{i + 1}</span>{e}</li>)}</ol>
+          <p class="au__np">{t.audit.noPromise}</p>
+        </div>
+        <div class="au__alt">
+          <h2 class="au__h au__h--alt">{t.audit.altH}</h2>
+          {email || phone ? (
+            <ul>{email && <li><a href={`mailto:${email}`}>{email}</a></li>}{phone && <li><a href={`tel:${phone}`}>{phone}</a></li>}</ul>
+          ) : <p>{t.audit.altPending}</p>}
+        </div>
+      </aside>
+    </div>
+  </section>
+</Base>
+<style>
+  .au { padding-top: var(--s6); }
+  .au__grid { display: grid; gap: var(--s8); }
+  .au__side { display: grid; gap: var(--gutter); align-content: start; }
+  .au__next { background: var(--ink); color: var(--paper); padding: var(--pad); border-radius: var(--r-small); display: grid; gap: var(--s4); }
+  .au__next.c-tl { border-top-left-radius: var(--r-big); padding-top: calc(var(--pad) + 16px); }
+  .au__h { font-size: 0.8125rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--coral-light); }
+  .au__h--alt { color: var(--rust-text); }
+  .au__next ol { display: grid; gap: var(--s3); }
+  .au__next li { display: grid; grid-template-columns: 32px 1fr; gap: 12px; align-items: start; }
+  .au__next li span { width: 32px; height: 32px; border-radius: 50%; background: var(--coral); color: var(--ink-deep); font-weight: 800; display: inline-flex; align-items: center; justify-content: center; }
+  .au__np { font-size: 0.9375rem; color: var(--sand); }
+  .au__alt { background: var(--sand); padding: var(--pad); border-radius: var(--r-small); border-bottom-right-radius: 56px; display: grid; gap: 8px; }
+  @media (min-width: 1024px) { .au__grid { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: var(--s9); } .au__side { position: sticky; top: calc(var(--header-h) + 24px); align-self: start; } }
+</style>

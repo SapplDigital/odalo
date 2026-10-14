@@ -113,6 +113,7 @@ const en = {
     conditionsH: 'Commercial conditions',
     conditionsLead: 'These points are not settled yet. They stay editable and are not commitments.',
     ctaPlan: 'Choose {plan}',
+    builtOn: 'Everything in {plan}, plus:',
     summaries: {
       base: 'Hosting and care for a clear, reliable website.',
       local: 'Base, plus the local visibility to be found nearby.',
@@ -355,6 +356,7 @@ const es: Dict = {
     conditionsH: 'Condiciones comerciales',
     conditionsLead: 'Estos puntos aún no están definidos. Siguen siendo editables y no son compromisos.',
     ctaPlan: 'Elegir {plan}',
+    builtOn: 'Todo en {plan}, más:',
     summaries: {
       base: 'Alojamiento y cuidado para una web clara y fiable.',
       local: 'Base, más la visibilidad local para que te encuentren cerca.',
@@ -586,6 +588,7 @@ const de: Dict = {
     conditionsH: 'Kommerzielle Bedingungen',
     conditionsLead: 'Diese Punkte sind noch nicht festgelegt. Sie bleiben editierbar und sind keine Zusagen.',
     ctaPlan: '{plan} wählen',
+    builtOn: 'Alles aus {plan}, plus:',
     summaries: {
       base: 'Hosting und Pflege für eine klare, zuverlässige Website.',
       local: 'Base, plus die lokale Sichtbarkeit, um in der Nähe gefunden zu werden.',

@@ -57,7 +57,7 @@ const ogImage = `${origin}${base}/og.png`;
         try { localStorage.setItem('odalo.lang', a.dataset.setLang || ''); } catch { /* storage unavailable */ }
       });
       // Scroll reveal; content is fully visible without JS or with reduced motion.
-      const els = document.querySelectorAll<HTMLElement>('[data-reveal]');
+      const els = document.querySelectorAll<HTMLElement>('[data-reveal],[data-draw]');
       if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
         const io = new IntersectionObserver((entries) => {
           for (const en of entries) if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }

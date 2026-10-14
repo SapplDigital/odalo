@@ -2,6 +2,12 @@
 import Base from '../../layouts/Base.astro';
 import Hero from '../../components/Hero.astro';
 import ServiceMosaic from '../../components/ServiceMosaic.astro';
+import WorkMosaic from '../../components/WorkMosaic.astro';
+import Process from '../../components/Process.astro';
+import Plans from '../../components/Plans.astro';
+import About from '../../components/About.astro';
+import Faq from '../../components/Faq.astro';
+import FinalCta from '../../components/FinalCta.astro';
 import { languages, type Lang } from '../../i18n';
 import { tr } from '../../i18n/ui';
 
@@ -14,4 +20,10 @@ const t = tr(lang);
 <Base lang={lang} title={t.meta.home.title} description={t.meta.home.description} home>
   <Hero lang={lang} />
   <ServiceMosaic lang={lang} />
+  <WorkMosaic lang={lang} num="02" />
+  <Process lang={lang} num="03" />
+  <Plans lang={lang} num="04" />
+  <About lang={lang} num="05" />
+  <Faq lang={lang} />
+  <FinalCta lang={lang} />
 </Base>

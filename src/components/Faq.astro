@@ -1,0 +1,43 @@
+---
+import { faqs, faqById } from '../content/faqs';
+import type { Lang } from '../i18n';
+import { tr } from '../i18n/ui';
+interface Props { lang: Lang; ids?: string[]; heading?: { a: string; em: string }; id?: string; level?: 1 | 2 }
+const { lang, ids, heading, id = 'faq' } = Astro.props;
+const t = tr(lang);
+const items = (ids ? ids.map((i) => faqById(i)!) : faqs).filter(Boolean);
+const h = heading ?? t.faq.h2;
+---
+<section id={id} class="faq section" aria-labelledby={`${id}-h`}>
+  <div class="wrap faq__grid">
+    <header class="faq__head">
+      <p class="eyebrow">{t.nav.faq}</p>
+      <h2 id={`${id}-h`} class="h-section">{h.a} <em>{h.em}</em></h2>
+    </header>
+    <div class="faq__list">
+      {items.map((f) => (
+        <details class="qa" name={`${id}-group`}>
+          <summary><span>{f.q[lang]}</span><span class="qa__ico" aria-hidden="true"></span></summary>
+          <div class="qa__a"><p>{f.a[lang]}</p></div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+<style>
+  .faq__grid { display: grid; gap: var(--s7); }
+  .faq__head { display: grid; gap: var(--s4); align-content: start; }
+  .faq__list { border-top: 2px solid var(--ink); }
+  .qa { border-bottom: 1px solid var(--line); }
+  .qa summary { display: flex; justify-content: space-between; align-items: center; gap: var(--s4); min-height: 64px; padding: 14px 4px; cursor: pointer; font-weight: 600; font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.3125rem); list-style: none; }
+  .qa summary::-webkit-details-marker { display: none; }
+  .qa summary:hover { color: var(--rust-text); }
+  .qa__ico { position: relative; width: 44px; height: 44px; flex: none; border: 2px solid var(--ink); border-radius: 999px; }
+  .qa__ico::before, .qa__ico::after { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 2px; background: var(--ink); transform: translate(-50%, -50%); transition: transform 0.2s ease; }
+  .qa__ico::after { transform: translate(-50%, -50%) rotate(90deg); }
+  .qa[open] .qa__ico::after { transform: translate(-50%, -50%) rotate(0deg); }
+  .qa[open] .qa__ico { background: var(--coral); border-color: var(--coral); }
+  .qa__a { padding: 0 4px 24px; max-width: 62ch; animation: qa-in 0.22s ease-out; }
+  @keyframes qa-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+  @media (min-width: 1024px) { .faq__grid { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--s8); } .faq__head { position: sticky; top: calc(var(--header-h) + 24px); align-self: start; } }
+</style>

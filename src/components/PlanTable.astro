@@ -1,0 +1,49 @@
+---
+import { plans, features } from '../content/plans';
+import type { Lang } from '../i18n';
+import { tr } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = tr(lang);
+---
+<div class="cmp" role="region" aria-label={t.plans.comparisonCaption} tabindex="0">
+  <table>
+    <caption class="sr-only">{t.plans.comparisonCaption}. {t.common.examplePrices}.</caption>
+    <thead>
+      <tr>
+        <th scope="col">{t.plans.feature}</th>
+        {plans.map((p) => <th scope="col" class:list={{ 'is-feat': p.featured }}>{p.name}{p.featured && <span class="sr-only"> ({t.common.featured})</span>}</th>)}
+      </tr>
+    </thead>
+    <tbody>
+      {features.map((f) => (
+        <tr>
+          <th scope="row">{f.label[lang]}</th>
+          {plans.map((p) => {
+            const v = f.values[p.id];
+            return (
+              <td class:list={{ 'is-feat': p.featured }}>
+                {v === true ? (<><span class="yes" aria-hidden="true"></span><span class="sr-only">{t.common.yes}</span></>)
+                  : v === false ? (<><span class="no" aria-hidden="true"></span><span class="sr-only">{t.common.no}</span></>)
+                  : <span class="val">{v[lang]}</span>}
+              </td>
+            );
+          })}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+<style>
+  .cmp { position: relative; overflow-x: auto; background: var(--paper); border-radius: var(--r-small); border-bottom-right-radius: var(--r-big); }
+  table { width: 100%; border-collapse: collapse; min-width: 40rem; font-size: 1rem; }
+  th, td { padding: 14px 16px; text-align: center; border-bottom: 1px solid var(--line); line-height: 1.35; }
+  thead th { font-weight: 800; font-size: 1.125rem; background: var(--paper); position: sticky; top: 0; border-bottom: 2px solid var(--ink); }
+  tbody th { text-align: left; font-weight: 500; min-width: 12rem; }
+  .is-feat { background: rgb(32 59 87 / 0.07); }
+  thead th.is-feat { background: var(--ink); color: var(--paper); }
+  .yes { display: inline-block; width: 14px; height: 14px; background: var(--coral); border-radius: 0 7px 0 7px; }
+  .no { display: inline-block; width: 14px; height: 2px; background: var(--slate); vertical-align: middle; }
+  .val { font-weight: 600; }
+  .cmp:focus-visible { outline-offset: 2px; }
+</style>

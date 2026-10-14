@@ -1,0 +1,261 @@
+---
+import { services } from '../content/services';
+import { plans } from '../content/plans';
+import { languages, languageNames, href, type Lang } from '../i18n';
+import { tr } from '../i18n/ui';
+import { site } from '../config/site';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = tr(lang);
+const f = t.audit.fields;
+const i18n = JSON.stringify({ ...t.audit.errors, sending: t.audit.sending, submit: t.audit.submit });
+const live = !!site.auditEndpoint;
+---
+<div class="af" data-audit data-lang={lang} data-endpoint={site.auditEndpoint ?? ''} data-i18n={i18n}>
+  {!live && <p class="af__demo" role="note">{t.audit.demoNotice}</p>}
+
+  <form class="af__form" method="post" novalidate data-form>
+    <div class="af__summary" role="alert" tabindex="-1" hidden data-summary>
+      <p data-summary-title>{t.audit.errors.summary}</p>
+      <ul data-summary-list></ul>
+    </div>
+
+    <div class="af__grid">
+      <div class="field">
+        <label for="f-name">{f.name} <span class="req">({t.common.required})</span></label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name" />
+        <p class="err" id="e-name" hidden></p>
+      </div>
+      <div class="field">
+        <label for="f-email">{f.email} <span class="req">({t.common.required})</span></label>
+        <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="e-email" />
+        <p class="err" id="e-email" hidden></p>
+      </div>
+      <div class="field af__wide">
+        <label for="f-business">{f.business} <span class="req">({t.common.required})</span></label>
+        <input id="f-business" name="business" type="text" autocomplete="organization" required aria-describedby="e-business" />
+        <p class="err" id="e-business" hidden></p>
+      </div>
+      <div class="field af__wide">
+        <label for="f-need">{f.need} <span class="req">({t.common.required})</span></label>
+        <textarea id="f-need" name="need" rows="5" required aria-describedby="e-need"></textarea>
+        <p class="err" id="e-need" hidden></p>
+      </div>
+      <div class="field af__wide">
+        <label for="f-website">{f.website} <span class="opt">({t.common.optional})</span></label>
+        <input id="f-website" name="website" type="url" inputmode="url" autocomplete="url" placeholder="https://" aria-describedby="h-website e-website" />
+        <p class="hint" id="h-website">{f.websiteHint}</p>
+        <p class="err" id="e-website" hidden></p>
+      </div>
+      <div class="field">
+        <label for="f-service">{f.service} <span class="opt">({t.common.optional})</span></label>
+        <select id="f-service" name="service">
+          <option value="">{f.noPref}</option>
+          {services.map((s) => <option value={s.id}>{s.name[lang]}</option>)}
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-plan">{f.plan} <span class="opt">({t.common.optional})</span></label>
+        <select id="f-plan" name="plan">
+          <option value="">{f.noPref}</option>
+          {plans.map((p) => <option value={p.id}>{p.name} · {t.common.examplePrices.toLowerCase()}</option>)}
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-country">{f.country} <span class="opt">({t.common.optional})</span></label>
+        <input id="f-country" name="country" type="text" autocomplete="country-name" />
+      </div>
+      <div class="field">
+        <label for="f-language">{f.language} <span class="opt">({t.common.optional})</span></label>
+        <select id="f-language" name="language">
+          {languages.map((l) => <option value={l} selected={l === lang}>{languageNames[l].native}</option>)}
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-phone">{f.phone} <span class="opt">({t.common.optional})</span></label>
+        <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" />
+      </div>
+    </div>
+
+    <div class="af__checks">
+      <div class="check">
+        <input id="f-privacy" name="privacy" type="checkbox" required aria-describedby="e-privacy" />
+        <label for="f-privacy">{f.privacy} <a href={href(lang, 'privacy/')}>{t.audit.privacyLink}</a> <span class="req">({t.common.required})</span></label>
+        <p class="err" id="e-privacy" hidden></p>
+      </div>
+      <div class="check">
+        <input id="f-marketing" name="marketing" type="checkbox" />
+        <label for="f-marketing">{f.marketing}</label>
+      </div>
+    </div>
+
+    <div class="af__actions">
+      <button class="btn btn--coral" type="submit" data-submit>{t.audit.submit}</button>
+    </div>
+  </form>
+
+  <div class="af__result" role="status" aria-live="polite" tabindex="-1" hidden data-result>
+    <h2 class="af__rh" data-result-title></h2>
+    <p data-result-text></p>
+    <button type="button" class="btn btn--ghost" data-retry hidden>{t.audit.retry}</button>
+  </div>
+  <template data-msg-simulated><span data-t={t.audit.simulatedSuccessH}></span><span data-x={t.audit.simulatedSuccess}></span></template>
+  <template data-msg-delivered><span data-t={t.audit.successH}></span><span data-x={t.audit.success}></span></template>
+  <template data-msg-failed><span data-t={t.audit.failureH}></span><span data-x={t.audit.failure}></span></template>
+</div>
+
+<style>
+  .af { display: grid; gap: var(--s5); }
+  .af__demo { background: var(--sand); border-left: 6px solid var(--coral); padding: 14px 18px; border-radius: 4px; font-size: 1rem; max-width: 60ch; }
+  .af__form { display: grid; gap: var(--s6); }
+  .af__grid { display: grid; gap: var(--s5) var(--s5); grid-template-columns: 1fr; }
+  @media (min-width: 768px) { .af__grid { grid-template-columns: 1fr 1fr; } .af__wide { grid-column: 1 / -1; } }
+  .field { display: grid; gap: 6px; align-content: start; }
+  label { font-weight: 600; font-size: 1.0625rem; line-height: 1.3; }
+  .req, .opt { font-weight: 400; color: var(--slate-text); font-size: 0.9375rem; }
+  input[type='text'], input[type='email'], input[type='url'], input[type='tel'], select, textarea {
+    width: 100%; min-height: 52px; padding: 12px 16px; font: inherit; font-size: 1.0625rem; color: var(--ink);
+    background: #fff; border: 2px solid var(--slate); border-radius: 6px; border-bottom-right-radius: 6px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  textarea { resize: vertical; min-height: 8.5rem; line-height: 1.5; }
+  input:hover, select:hover, textarea:hover { border-color: var(--ink); }
+  input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; border-color: var(--ink); }
+  input[aria-invalid='true'], textarea[aria-invalid='true'], select[aria-invalid='true'] { border-color: #a3281c; background: #fff7f5; box-shadow: inset 6px 0 0 #a3281c; }
+  input:disabled, select:disabled, textarea:disabled { background: #eceff0; border-color: #b9c3ca; color: #5a6b78; cursor: not-allowed; }
+  .hint { font-size: 0.9375rem; color: var(--slate-text); }
+  .err { color: #a3281c; font-weight: 600; font-size: 0.9375rem; display: flex; gap: 8px; }
+  .err::before { content: '!'; flex: none; width: 20px; height: 20px; border-radius: 50%; background: #a3281c; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8125rem; line-height: 1; margin-top: 2px; }
+  .err[hidden] { display: none; }
+  .af__checks { display: grid; gap: var(--s4); }
+  .check { display: grid; grid-template-columns: 28px 1fr; gap: 4px 12px; align-items: start; }
+  .check input { width: 26px; height: 26px; margin: 2px 0 0; accent-color: var(--ink); }
+  .check label { font-weight: 400; font-size: 1rem; }
+  .check .err { grid-column: 2; }
+  .af__summary { border: 2px solid #a3281c; background: #fff7f5; padding: 16px 20px; border-radius: 4px; color: #7c1d14; font-weight: 600; }
+  .af__summary[hidden] { display: none; }
+  .af__summary ul { margin-top: 8px; display: grid; gap: 2px; }
+  .af__summary a { color: inherit; display: inline-flex; min-height: 32px; align-items: center; }
+  .af__actions .btn { min-width: 14rem; }
+  .af__result { padding: var(--pad); border-radius: var(--r-small); border-bottom-right-radius: 64px; background: var(--sand); display: grid; gap: var(--s3); max-width: 62ch; }
+  .af__result[hidden] { display: none; }
+  .af__result[data-kind='failed'] { background: #fff7f5; border: 2px solid #a3281c; }
+  .af__result[data-kind='delivered'] { background: var(--ink); color: var(--paper); }
+  .af__rh { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; }
+  .af__result .btn { justify-self: start; }
+</style>
+
+<script>
+  import { submitAudit, type AuditPayload } from '../lib/submit';
+  import { track } from '../lib/analytics';
+
+  const root = document.querySelector<HTMLElement>('[data-audit]');
+  if (root) {
+    const form = root.querySelector<HTMLFormElement>('[data-form]')!;
+    const summary = root.querySelector<HTMLElement>('[data-summary]')!;
+    const list = summary.querySelector<HTMLElement>('[data-summary-list]')!;
+    const result = root.querySelector<HTMLElement>('[data-result]')!;
+    const retry = result.querySelector<HTMLButtonElement>('[data-retry]')!;
+    const btn = root.querySelector<HTMLButtonElement>('[data-submit]')!;
+    const msgs = (k: string) => {
+      const tpl = root.querySelector<HTMLTemplateElement>(`[data-msg-${k}]`)!.content;
+      return { t: tpl.querySelector<HTMLElement>('[data-t]')!.dataset.t!, x: tpl.querySelector<HTMLElement>('[data-x]')!.dataset.x! };
+    };
+    const lang = root.dataset.lang || 'en';
+    const E = JSON.parse(root.dataset.i18n || '{}') as Record<string, string>;
+    const lab = btn.textContent || '';
+
+    // Preselect from ?plan= and ?service= (stable ids). Unknown ids are ignored.
+    const q = new URLSearchParams(location.search);
+    for (const key of ['plan', 'service'] as const) {
+      const sel = form.elements.namedItem(key) as HTMLSelectElement | null;
+      const v = q.get(key);
+      if (sel && v && [...sel.options].some((o) => o.value === v)) sel.value = v;
+    }
+
+    let started = false;
+    form.addEventListener('input', () => { if (!started) { started = true; track('form_start', { lang }); } });
+
+    const val = (n: string) => (form.elements.namedItem(n) as HTMLInputElement).value.trim();
+    const showErr = (id: string, field: HTMLElement, msg: string) => {
+      const p = document.getElementById(id)!; p.textContent = msg; p.hidden = false; field.setAttribute('aria-invalid', 'true');
+    };
+    const clearErr = (field: HTMLElement, id: string) => { const p = document.getElementById(id); if (p) p.hidden = true; field.removeAttribute('aria-invalid'); };
+
+    function validate(): { id: string; el: HTMLElement; msg: string }[] {
+      const out: { id: string; el: HTMLElement; msg: string }[] = [];
+      const el = (n: string) => form.elements.namedItem(n) as HTMLElement;
+      const rules: [string, boolean, string][] = [
+        ['name', !val('name'), E.name!],
+        ['business', !val('business'), E.business!],
+        ['need', !val('need'), E.need!],
+      ];
+      const email = val('email');
+      if (!email) out.push({ id: 'email', el: el('email'), msg: E.email! });
+      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) out.push({ id: 'email', el: el('email'), msg: E.emailInvalid! });
+      for (const [id, bad, msg] of rules) if (bad) out.push({ id, el: el(id), msg });
+      const site = val('website');
+      if (site) {
+        try { const u = new URL(/^[a-z]+:\/\//i.test(site) ? site : `https://${site}`); if (!/^https?:$/.test(u.protocol) || !u.hostname.includes('.')) throw 0; }
+        catch { out.push({ id: 'website', el: el('website'), msg: E.websiteInvalid! }); }
+      }
+      if (!(el('privacy') as HTMLInputElement).checked) out.push({ id: 'privacy', el: el('privacy'), msg: E.privacy! });
+      // keep DOM order for focus + summary
+      return out.sort((a, b) => (a.el.compareDocumentPosition(b.el) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1));
+    }
+
+    function render(errors: ReturnType<typeof validate>) {
+      for (const n of ['name', 'email', 'business', 'need', 'website', 'privacy']) {
+        const el = form.elements.namedItem(n) as HTMLElement; clearErr(el, `e-${n}`);
+      }
+      list.replaceChildren();
+      for (const e of errors) {
+        showErr(`e-${e.id}`, e.el, e.msg);
+        const li = document.createElement('li'); const a = document.createElement('a');
+        a.href = `#${e.el.id}`; a.textContent = e.msg;
+        a.addEventListener('click', (ev) => { ev.preventDefault(); e.el.focus(); });
+        li.append(a); list.append(li);
+      }
+      summary.hidden = errors.length === 0;
+    }
+
+    form.addEventListener('blur', (e) => {
+      const t = e.target as HTMLElement;
+      if (t.getAttribute?.('aria-invalid') === 'true') render(validate());
+    }, true);
+
+    let busy = false;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (busy) return;
+      result.hidden = true;
+      const errors = validate();
+      render(errors);
+      if (errors.length) { summary.focus(); errors[0]!.el.focus(); return; }
+
+      busy = true;
+      btn.setAttribute('aria-busy', 'true'); btn.setAttribute('aria-disabled', 'true'); btn.textContent = E.sending!;
+      const payload: AuditPayload = {
+        name: val('name'), email: val('email'), business: val('business'), need: val('need'),
+        website: val('website'), country: val('country'), language: val('language'), service: val('service'), plan: val('plan'), phone: val('phone'),
+        privacyAccepted: (form.elements.namedItem('privacy') as HTMLInputElement).checked,
+        marketingOptIn: (form.elements.namedItem('marketing') as HTMLInputElement).checked,
+        pageLanguage: lang,
+      };
+      const r = await submitAudit(payload, root.dataset.endpoint || null);
+      busy = false;
+      btn.removeAttribute('aria-busy'); btn.removeAttribute('aria-disabled'); btn.textContent = lab;
+      const m = msgs(r.status);
+      result.dataset.kind = r.status;
+      result.querySelector('[data-result-title]')!.textContent = m.t;
+      result.querySelector('[data-result-text]')!.textContent = m.x;
+      retry.hidden = r.status !== 'failed';
+      result.hidden = false;
+      result.focus();
+      if (r.status === 'delivered') { track('form_submit_confirmed', { lang, plan: payload.plan, service: payload.service }); form.reset(); }
+      if (r.status === 'failed') track('form_submit_failed', { lang });
+      // 'simulated' is deliberately not tracked as a confirmed submission.
+    });
+    retry.addEventListener('click', () => { result.hidden = true; form.requestSubmit(); });
+  }
+</script>

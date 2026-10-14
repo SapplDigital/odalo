@@ -1,0 +1,44 @@
+---
+import { href, type Lang } from '../i18n';
+import { tr } from '../i18n/ui';
+interface Crumb { label: string; to?: string }
+interface Props { lang: Lang; eyebrow?: string; title: { a: string; em?: string }; lead?: string; crumbs?: Crumb[]; tone?: 'paper' | 'sand' }
+const { lang, eyebrow, title, lead, crumbs = [], tone = 'paper' } = Astro.props;
+const t = tr(lang);
+---
+<section class:list={['ph', `ph--${tone}`]}>
+  <div class="wrap ph__in">
+    {crumbs.length > 0 && (
+      <nav class="ph__crumbs" aria-label={t.a11y.breadcrumb}>
+        <ol>
+          <li><a href={href(lang)}>Odalo</a></li>
+          {crumbs.map((c, i) => <li>{c.to && i < crumbs.length - 1 ? <a href={c.to}>{c.label}</a> : <span aria-current="page">{c.label}</span>}</li>)}
+        </ol>
+      </nav>
+    )}
+    <div class="ph__grid">
+      <div class="ph__text">
+        {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+        <h1 class="h-hero ph__h">{title.a}{title.em && <> <em>{title.em}</em></>}</h1>
+        {lead && <p class="lead ph__lead">{lead}</p>}
+        <div class="ph__actions"><slot name="actions" /></div>
+      </div>
+      <div class="ph__aside"><slot name="aside" /></div>
+    </div>
+  </div>
+</section>
+<style>
+  .ph { padding-block: var(--s6) var(--s8); }
+  .ph--sand { background: var(--sand); }
+  .ph__crumbs ol { display: flex; flex-wrap: wrap; gap: 4px 8px; font-size: 0.9375rem; margin-bottom: var(--s6); }
+  .ph__crumbs li + li::before { content: '/'; margin-right: 8px; opacity: 0.5; }
+  .ph__crumbs a { display: inline-flex; align-items: center; min-height: 32px; }
+  .ph__grid { display: grid; gap: var(--s7); align-items: center; }
+  .ph__text { display: grid; gap: var(--s5); align-content: center; }
+  .ph__h { font-size: clamp(2.5rem, 1.5rem + 3.6vw, 5.25rem); }
+  .ph__lead { font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.375rem); }
+  .ph__actions { display: flex; flex-wrap: wrap; gap: var(--s3) var(--s4); }
+  .ph__actions:empty { display: none; }
+  .ph__aside:empty { display: none; }
+  @media (min-width: 1024px) { .ph { padding-top: var(--s7); } .ph__grid:has(.ph__aside > *) { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s8); } }
+</style>

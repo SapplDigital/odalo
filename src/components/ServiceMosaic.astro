@@ -119,7 +119,7 @@ const rows = [services.slice(0, 2), services.slice(2, 4)];
   .c-bl { border-bottom-left-radius: var(--r-big); }
 
   .tile__top { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--s4); }
-  .tile__num { font-weight: 800; font-size: 1.0625rem; letter-spacing: 0.08em; opacity: 0.9; }
+  .tile__num { font-weight: 800; font-size: 1.0625rem; letter-spacing: 0.08em; }
   .tile--ink .tile__num { color: var(--coral-light); }
   .tile__art {
     width: clamp(88px, 22vw, 132px); aspect-ratio: 4 / 3; overflow: hidden; flex: none;
@@ -152,7 +152,7 @@ const rows = [services.slice(0, 2), services.slice(2, 4)];
   .tile__link:hover { text-decoration-color: var(--coral); }
   .tile--coral .tile__link:hover { text-decoration-color: var(--ink-deep); }
   .tile[data-selected='true']::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 8px; background: currentColor; opacity: 0.85; }
-  .no-js .tile__explore { display: none; }
+  :global(.no-js) .tile__explore { display: none; }
 
   .tile.is-active .tile__art { transform: translate(-6px, 6px); filter: saturate(1.15) brightness(1.04); }
 

@@ -1,0 +1,33 @@
+---
+import PlansMosaic from './PlansMosaic.astro';
+import PlanTable from './PlanTable.astro';
+import type { Lang } from '../i18n';
+import { tr } from '../i18n/ui';
+interface Props { num?: string; lang: Lang; asPage?: boolean }
+const { num, lang, asPage = false } = Astro.props;
+const t = tr(lang);
+---
+<section id="plans" class="plans-sec section" aria-labelledby="plans-h">
+  <div class="wrap">
+    <header class="plans-sec__head">
+      <p class="eyebrow">{num ? `${num} — ` : ''}{t.nav.plans}</p>
+      {asPage
+        ? <h1 id="plans-h" class="h-section">{t.plans.h2.a} <em>{t.plans.h2.em}</em> <span class="pill pill--line plans-sec__ex">{t.common.examplePrices}</span></h1>
+        : <h2 id="plans-h" class="h-section">{t.plans.h2.a} <em>{t.plans.h2.em}</em> <span class="pill pill--line plans-sec__ex">{t.common.examplePrices}</span></h2>}
+      {asPage && <p class="lead">{t.plans.pageLead}</p>}
+      <p class="plans-sec__note">{t.plans.note}</p>
+    </header>
+    <PlansMosaic lang={lang} detailed={asPage} />
+    <div class="plans-sec__cmp">
+      <h3 class="h-tile">{t.plans.compare}</h3>
+      <PlanTable lang={lang} />
+    </div>
+  </div>
+</section>
+<style>
+  .plans-sec { background: var(--sand); }
+  .plans-sec__head { display: grid; gap: var(--s4); margin-bottom: var(--s7); max-width: 62rem; }
+  .plans-sec__ex { vertical-align: middle; font-size: 0.875rem; margin-left: 8px; font-family: var(--font-sans); font-weight: 600; letter-spacing: 0.02em; }
+  .plans-sec__note { max-width: 62ch; color: var(--ink); }
+  .plans-sec__cmp { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s5); margin-top: var(--s8); }
+</style>

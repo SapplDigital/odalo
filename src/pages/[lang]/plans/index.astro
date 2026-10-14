@@ -1,0 +1,34 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Plans from '../../../components/Plans.astro';
+import Faq from '../../../components/Faq.astro';
+import FinalCta from '../../../components/FinalCta.astro';
+import { languages, type Lang } from '../../../i18n';
+import { tr } from '../../../i18n/ui';
+import { pendingConditions } from '../../../content/plans';
+export function getStaticPaths() { return languages.map((lang) => ({ params: { lang } })); }
+const lang = Astro.params.lang as Lang;
+const t = tr(lang);
+---
+<Base lang={lang} title={t.meta.plans.title} description={t.meta.plans.description}>
+  <Plans lang={lang} asPage />
+  <section class="section cond" aria-labelledby="cond-h">
+    <div class="wrap cond__in">
+      <div>
+        <h2 id="cond-h" class="h-section">{t.plans.conditionsH}</h2>
+        <p class="lead">{t.plans.conditionsLead}</p>
+      </div>
+      <ul class="cond__list">
+        {pendingConditions[lang].map((c) => <li><span>{c}</span> <span class="pill pill--line">{t.common.pending}</span></li>)}
+      </ul>
+    </div>
+  </section>
+  <Faq lang={lang} ids={['plan-includes', 'ad-spend', 'change-plan', 'one-service']} heading={t.plans.faqH ? { a: t.plans.faqH, em: '' } : undefined} id="plans-faq" />
+  <FinalCta lang={lang} />
+</Base>
+<style>
+  .cond__in { display: grid; gap: var(--s7); }
+  .cond__list { border-top: 2px solid var(--ink); }
+  .cond__list li { display: flex; justify-content: space-between; gap: var(--s4); align-items: center; flex-wrap: wrap; padding: 14px 4px; border-bottom: 1px solid var(--line); font-weight: 500; }
+  @media (min-width: 1024px) { .cond__in { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--s8); } }
+</style>

@@ -1,0 +1,48 @@
+---
+import { href, type Lang } from '../i18n';
+import { tr } from '../i18n/ui';
+import { site } from '../config/site';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = tr(lang);
+const { email, phone } = site.contact;
+---
+<section class="fin" aria-labelledby="fin-h">
+  <div class="wrap fin__grid">
+    <div class="fin__main on-dark c-tl">
+      <h2 id="fin-h" class="h-section">{t.cta.h2.a} <em>{t.cta.h2.em}</em></h2>
+      <p class="fin__body">{t.cta.body}</p>
+      <div class="fin__row">
+        <a class="btn btn--coral" href={href(lang, 'audit/')} data-track="audit_cta" data-location="final">{t.cta.button}</a>
+        <div class="fin__contact">
+          <h3 class="fin__h">{t.cta.contact}</h3>
+          {email || phone ? (
+            <ul>{email && <li><a href={`mailto:${email}`}>{email}</a></li>}{phone && <li><a href={`tel:${phone}`}>{phone}</a></li>}</ul>
+          ) : <p>{t.cta.contactPending}</p>}
+        </div>
+      </div>
+    </div>
+    <div class="fin__art c-br" aria-hidden="true">
+      <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <rect width="200" height="200" fill="var(--coral)" />
+        <path d="M0 200V70a130 130 0 0 1 130 130Z" fill="var(--ink)" />
+        <circle cx="150" cy="56" r="34" fill="var(--paper)" />
+        <path d="M200 200h-70a70 70 0 0 1 70-70Z" fill="var(--slate)" />
+      </svg>
+    </div>
+  </div>
+</section>
+<style>
+  .fin { padding-block: var(--section); }
+  .fin__grid { display: grid; gap: var(--gutter); }
+  .fin__main { background: var(--ink); color: var(--paper); padding: calc(var(--pad) + 8px) var(--pad); display: grid; gap: var(--s5); align-content: center; border-radius: var(--r-small); }
+  .fin__main.c-tl { border-top-left-radius: var(--r-big); }
+  .fin__body { font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.375rem); max-width: 44ch; }
+  .fin__row { display: flex; flex-wrap: wrap; gap: var(--s5) var(--s7); align-items: flex-start; }
+  .fin__h { font-size: 0.8125rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--coral-light); margin-bottom: 6px; }
+  .fin__contact { max-width: 30ch; font-size: 1rem; }
+  .fin__art { min-height: 12rem; overflow: hidden; border-radius: var(--r-small); }
+  .fin__art.c-br { border-bottom-right-radius: var(--r-big); }
+  .fin__art svg { width: 100%; height: 100%; }
+  @media (min-width: 1024px) { .fin__grid { grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); } .fin__main { padding: var(--s9) var(--s8); } }
+</style>

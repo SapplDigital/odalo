@@ -1,0 +1,16 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import WorkMosaic from '../../../components/WorkMosaic.astro';
+import FinalCta from '../../../components/FinalCta.astro';
+import { languages, type Lang } from '../../../i18n';
+import { tr } from '../../../i18n/ui';
+export function getStaticPaths() { return languages.map((lang) => ({ params: { lang } })); }
+const lang = Astro.params.lang as Lang;
+const t = tr(lang);
+---
+<Base lang={lang} title={t.meta.work.title} description={t.meta.work.description}>
+  <PageHero lang={lang} eyebrow={t.nav.work} title={t.work.h2} lead={t.work.indexLead} crumbs={[{ label: t.nav.work }]} />
+  <WorkMosaic lang={lang} heading={false} id="projects" />
+  <FinalCta lang={lang} />
+</Base>
