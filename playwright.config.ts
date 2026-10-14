@@ -1,7 +1,7 @@
 import { defineConfig } from '@playwright/test';
 import { existsSync } from 'node:fs';
 
-const exe = ['/opt/pw-browsers/chromium', '/opt/pw-browsers/chromium-1194/chrome-linux/chrome'].find((p) => existsSync(p));
+const exe = process.env.CHROMIUM_PATH || ['/opt/pw-browsers/chromium', '/opt/pw-browsers/chromium-1194/chrome-linux/chrome'].find((p) => existsSync(p));
 
 export default defineConfig({
   testDir: './tests',
