@@ -1,0 +1,340 @@
+---
+import Art from './Art.astro';
+import { services } from '../content/services';
+import { planById } from '../content/plans';
+import { href, type Lang } from '../i18n';
+import { tr } from '../i18n/ui';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = tr(lang);
+
+/** Tile styling per position (A,B,C,D). Corner choices alternate the signature curve. */
+const looks = [
+  { tone: 'ink', corner: 'c-tl', art: 'ink' },
+  { tone: 'sand', corner: 'c-br', art: 'sand' },
+  { tone: 'coral', corner: 'c-tr', art: 'coral' },
+  { tone: 'slate', corner: 'c-bl', art: 'slate' },
+] as const;
+const rows = [services.slice(0, 2), services.slice(2, 4)];
+---
+<section id="services" class="svc section" aria-labelledby="svc-h">
+  <div class="wrap">
+    <header class="svc__head">
+      <p class="eyebrow">01 — {t.services.mosaicLabel}</p>
+      <h2 id="svc-h" class="h-section">{t.services.h2.a} <em>{t.services.h2.em}</em></h2>
+      <p class="lead svc__intro">{t.services.intro}</p>
+    </header>
+
+    <div class="mosaic" data-mosaic data-active="">
+      {rows.map((row, ri) => (
+        <div class:list={['row', ri === 0 ? 'row--top' : 'row--bot']}>
+          {row.map((s, ci) => {
+            const i = ri * 2 + ci;
+            const look = looks[i]!;
+            return (
+              <article
+                class:list={['tile', `tile--${look.tone}`, look.corner, { 'on-dark': look.tone === 'ink' || look.tone === 'slate', 'on-coral': look.tone === 'coral' }]}
+                data-tile data-service={s.id}
+              >
+                <div class="tile__top">
+                  <span class="tile__num" aria-hidden="true">{s.number}</span>
+                  <div class="tile__art"><Art variant={s.art} tone={look.art === 'ink' ? 'slate' : look.art === 'slate' ? 'ink' : look.art === 'sand' ? 'coral' : 'sand'} /></div>
+                </div>
+                <h3 class="h-tile tile__title">{s.name[lang]}</h3>
+                <p class="tile__text">{s.outcome[lang]}</p>
+                <div class="tile__actions">
+                  <button type="button" class="tile__explore" aria-expanded="false" aria-controls="svc-detail" data-explore={s.id}>
+                    <span class="tile__ico" aria-hidden="true"></span>{t.common.explore}<span class="sr-only">: {s.name[lang]}</span>
+                  </button>
+                  <a class="tile__link" href={href(lang, `services/${s.id}/`)} data-track="service_visit" data-service={s.id}>{t.common.fullService}<span class="sr-only">: {s.name[lang]}</span></a>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      ))}
+    </div>
+
+    <div class="detail-slot" data-detail-slot>
+      <div class="detail" id="svc-detail" data-detail hidden role="region" aria-label={t.services.detailsLabel}>
+        {services.map((s, i) => {
+          const look = looks[i]!;
+          const plan = planById(s.relatedPlan)!;
+          return (
+            <div class:list={['detail__panel', `detail__panel--${look.tone}`, { 'on-dark': look.tone === 'ink' || look.tone === 'slate', 'on-coral': look.tone === 'coral' }]} data-detail-for={s.id} hidden>
+              <div class="detail__main">
+                <p class="eyebrow">{s.number} — {t.common.services}</p>
+                <h3 class="h-tile" tabindex="-1" id={`svc-detail-${s.id}`}>{s.name[lang]}</h3>
+                <p class="detail__text">{s.detail[lang]}</p>
+                <p class="detail__rel"><span>{t.common.relatedPlan}:</span> <a href={`${href(lang, 'plans/')}#plan-${plan.id}`}>{plan.name}</a></p>
+                <a class="detail__full" href={href(lang, `services/${s.id}/`)}>{t.common.fullService}</a>
+              </div>
+              <div class="detail__list">
+                <h4 class="detail__h">{t.common.deliverables}</h4>
+                <ul>{s.deliverables[lang].map((d) => <li>{d}</li>)}</ul>
+              </div>
+              <button type="button" class="detail__close" data-close aria-label={`${t.common.closeDetails}: ${s.name[lang]}`}>
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+          );
+        })}
+        <p class="sr-only" role="status" aria-live="polite" data-detail-status></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .svc__head { display: grid; gap: var(--s4); margin-bottom: var(--s7); max-width: 62rem; }
+  .svc__intro { color: var(--slate-text); }
+
+  /* ---- Mosaic geometry: a fixed-height, two-row composition ---- */
+  .mosaic {
+    --ta: 7fr; --tb: 5fr; --ba: 5fr; --bb: 7fr;
+    --rest-top: 0.5833; --rest-bot: 0.4167;
+    --row-h: 26rem;
+    display: grid; gap: var(--gutter);
+  }
+  .mosaic[data-active='web']   { --ta: 8fr; --tb: 4fr; }
+  .mosaic[data-active='local'] { --ta: 5fr; --tb: 7fr; }
+  .mosaic[data-active='video'] { --ba: 7fr; --bb: 5fr; }
+  .mosaic[data-active='ads']   { --ba: 4fr; --bb: 8fr; }
+  .row { display: grid; gap: var(--gutter); grid-template-columns: 1fr; }
+
+  .tile {
+    position: relative; display: flex; flex-direction: column; gap: var(--s3);
+    padding: var(--pad); min-width: 0; overflow: hidden;
+    border-radius: var(--r-small); isolation: isolate;
+  }
+  .tile--ink { background: var(--ink); color: var(--paper); }
+  .tile--sand { background: var(--sand); color: var(--ink); }
+  .tile--coral { background: var(--coral); color: var(--ink-deep); }
+  .tile--slate { background: var(--slate); color: var(--paper); }
+  .c-tl, .c-tr, .c-br, .c-bl { border-radius: var(--r-small); }
+  .c-tl { border-top-left-radius: var(--r-big); }
+  .c-tr { border-top-right-radius: var(--r-big); }
+  .c-br { border-bottom-right-radius: var(--r-big); }
+  .c-bl { border-bottom-left-radius: var(--r-big); }
+
+  .tile__top { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--s4); }
+  .tile__num { font-weight: 800; font-size: 1.0625rem; letter-spacing: 0.08em; opacity: 0.9; }
+  .tile--ink .tile__num { color: var(--coral-light); }
+  .tile__art {
+    width: clamp(88px, 22vw, 132px); aspect-ratio: 4 / 3; overflow: hidden; flex: none;
+    border-radius: var(--r-small) 28px var(--r-small) var(--r-small);
+    transition: transform 0.38s cubic-bezier(0.22, 0.8, 0.3, 1), filter 0.38s;
+  }
+  .tile--sand .tile__art { border-radius: 28px var(--r-small) var(--r-small) var(--r-small); }
+  .tile--slate .tile__art { border-radius: var(--r-small) var(--r-small) 28px var(--r-small); }
+  .tile__title { margin-top: auto; text-wrap: balance; }
+  .tile__text { font-size: 1.0625rem; line-height: 1.5; max-width: 38ch; text-wrap: pretty; }
+  .tile__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 4px var(--s4); margin-top: var(--s2); }
+
+  .tile__explore {
+    display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 18px;
+    border: 2px solid currentColor; border-radius: 999px; background: transparent; color: inherit;
+    font: 600 1rem/1.2 var(--font-sans); cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+  }
+  .tile__ico { position: relative; width: 14px; height: 14px; flex: none; }
+  .tile__ico::before, .tile__ico::after { content: ''; position: absolute; background: currentColor; border-radius: 1px; }
+  .tile__ico::before { left: 0; right: 0; top: 6px; height: 2px; }
+  .tile__ico::after { top: 0; bottom: 0; left: 6px; width: 2px; transition: transform 0.15s; }
+  .tile__explore[aria-expanded='true'] .tile__ico::after { transform: scaleY(0); }
+  .tile__explore:hover, .tile.is-active .tile__explore, .tile__explore[aria-expanded='true'] { background: var(--fill); color: var(--on-fill); }
+  .tile--ink { --fill: var(--paper); --on-fill: var(--ink); }
+  .tile--sand { --fill: var(--ink); --on-fill: var(--paper); }
+  .tile--coral { --fill: var(--ink-deep); --on-fill: var(--coral); }
+  .tile--slate { --fill: var(--paper); --on-fill: var(--ink); }
+  .tile__link { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; text-underline-offset: 5px; text-decoration-thickness: 2px; }
+  .tile__link:hover { text-decoration-color: var(--coral); }
+  .tile--coral .tile__link:hover { text-decoration-color: var(--ink-deep); }
+  .tile[data-selected='true']::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 8px; background: currentColor; opacity: 0.85; }
+  .no-js .tile__explore { display: none; }
+
+  .tile.is-active .tile__art { transform: translate(-6px, 6px); filter: saturate(1.15) brightness(1.04); }
+
+  /* ---- Desktop: moving shared edges, fixed total height ---- */
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    .mosaic { --row-h: 29rem; }
+    .tile { --pad: 26px; }
+    .tile__art { width: 96px; }
+  }
+  @media (min-width: 1280px) { .mosaic { --row-h: 25rem; } }
+  @media (min-width: 1024px) {
+    .row { height: var(--row-h); }
+    .row--top { grid-template-columns: minmax(0, var(--ta)) minmax(0, var(--tb)); }
+    .row--bot { grid-template-columns: minmax(0, var(--ba)) minmax(0, var(--bb)); }
+    .row { transition: grid-template-columns 0.38s cubic-bezier(0.22, 0.8, 0.3, 1); }
+    /* text keeps a minimum measure so it does not reflow while edges travel */
+    .tile > * { min-width: 0; }
+    .tile__top, .tile__title, .tile__text, .tile__actions { min-width: 12.5rem; }
+  }
+  /* ---- Tablet: two columns, calmer movement ---- */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .mosaic { --ta: 6.5fr; --tb: 5.5fr; --ba: 5.5fr; --bb: 6.5fr; --rest-top: 0.5417; --rest-bot: 0.4583; --row-h: 27rem; }
+    .mosaic[data-active='web']   { --ta: 7.5fr; --tb: 4.5fr; }
+    .mosaic[data-active='local'] { --ta: 5.5fr; --tb: 6.5fr; }
+    .mosaic[data-active='video'] { --ba: 6.5fr; --bb: 5.5fr; }
+    .mosaic[data-active='ads']   { --ba: 4.5fr; --bb: 7.5fr; }
+    .row { height: var(--row-h); }
+    .row--top { grid-template-columns: minmax(0, var(--ta)) minmax(0, var(--tb)); }
+    .row--bot { grid-template-columns: minmax(0, var(--ba)) minmax(0, var(--bb)); }
+    .row { transition: grid-template-columns 0.3s ease-out; }
+  }
+  /* ---- Mobile: one column in reading order; details open inline below the tile ---- */
+  @media (max-width: 767px) {
+    .tile { min-height: 18rem; }
+    .row { gap: var(--gutter); }
+    .tile__title { margin-top: var(--s4); }
+  }
+
+  /* ---- Shared detail region ---- */
+  .detail-slot { margin-top: var(--gutter); }
+  .detail[hidden], .detail__panel[hidden] { display: none; }
+  .detail__panel {
+    position: relative; display: grid; gap: var(--s6) var(--s7); padding: var(--pad); padding-right: calc(var(--pad) + 40px);
+    border-radius: var(--r-small); animation: det-in 0.22s ease-out;
+  }
+  .detail__panel--ink { background: var(--ink); color: var(--paper); border-top-left-radius: var(--r-big); }
+  .detail__panel--sand { background: var(--sand); color: var(--ink); border-bottom-right-radius: var(--r-big); }
+  .detail__panel--coral { background: var(--coral); color: var(--ink-deep); border-top-right-radius: var(--r-big); }
+  .detail__panel--slate { background: var(--slate); color: var(--paper); border-bottom-left-radius: var(--r-big); }
+  @media (min-width: 768px) { .detail__panel { grid-template-columns: 1.2fr 1fr; padding-block: var(--s7); } }
+  .detail__main { display: grid; gap: var(--s3); align-content: start; }
+  .detail__panel--ink .eyebrow, .detail__panel--slate .eyebrow { color: var(--coral-light); }
+  .detail__panel--coral .eyebrow { color: var(--ink-deep); }
+  .detail__panel--slate .eyebrow { color: var(--sand); }
+  .detail__text { max-width: 52ch; }
+  .detail__rel { font-weight: 500; }
+  .detail__rel a, .detail__full { font-weight: 700; }
+  .detail__full { display: inline-flex; align-items: center; min-height: 44px; width: fit-content; }
+  .detail__h { font-size: 0.8125rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; margin-bottom: var(--s3); }
+  .detail__list ul { display: grid; gap: var(--s3); }
+  .detail__list li { position: relative; padding-left: 28px; line-height: 1.45; }
+  .detail__list li::before { content: ''; position: absolute; left: 0; top: 0.42em; width: 12px; height: 12px; background: currentColor; border-radius: 0 6px 0 6px; }
+  .detail__close {
+    position: absolute; top: 12px; right: 12px; width: 44px; height: 44px; border-radius: 999px;
+    border: 2px solid currentColor; background: transparent; color: inherit; font: 400 1.75rem/1 var(--font-sans); cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .detail__close:hover { background: var(--fill, currentColor); }
+  .detail__panel--ink .detail__close:hover, .detail__panel--slate .detail__close:hover { background: var(--paper); color: var(--ink); }
+  .detail__panel--sand .detail__close:hover { background: var(--ink); color: var(--paper); }
+  .detail__panel--coral .detail__close:hover { background: var(--ink-deep); color: var(--coral); }
+  @keyframes det-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .tile.is-active .tile__art { transform: none; } }
+</style>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-mosaic]');
+  const detail = document.querySelector<HTMLElement>('[data-detail]');
+  const slot = document.querySelector<HTMLElement>('[data-detail-slot]');
+  if (root && detail && slot) init(root, detail, slot);
+
+  function init(root: HTMLElement, detail: HTMLElement, slot: HTMLElement) {
+    const tiles = [...root.querySelectorAll<HTMLElement>('[data-tile]')];
+    const rows = [...root.querySelectorAll<HTMLElement>('.row')];
+    const panels = [...detail.querySelectorAll<HTMLElement>('[data-detail-for]')];
+    const status = detail.querySelector<HTMLElement>('[data-detail-status]')!;
+    const ids = tiles.map((t) => t.dataset.service!);
+    const INTENT_MS = 120; // deliberate hover before the edge moves
+    const RESET_MS = 180;  // delayed reset so a brief exit does not snap back
+    const TOLERANCE = 28;  // px around the resting edge where the current tile is kept (anti-flicker)
+
+    let active = '';
+    let hoverTimer = 0;
+    let resetTimer = 0;
+    let pending = '';
+    let selected = '';
+    const desktopLike = () => matchMedia('(min-width: 768px)').matches;
+
+    function setActive(id: string) {
+      active = id;
+      root.dataset.active = id;
+      tiles.forEach((t) => t.classList.toggle('is-active', t.dataset.service === id));
+    }
+    const focusedId = () => tiles.find((t) => t.contains(document.activeElement) && document.activeElement?.matches(':focus-visible, button, a'))?.dataset.service ?? '';
+
+    /** Resolve the tile under the pointer from the RESTING geometry, never the moving edges. */
+    function candidate(e: PointerEvent): string {
+      const r = root.getBoundingClientRect();
+      const cs = getComputedStyle(root);
+      const x = e.clientX - r.left;
+      const topRowBottom = rows[0]!.getBoundingClientRect().bottom;
+      const isBottom = e.clientY > topRowBottom + (rows[1]!.getBoundingClientRect().top - topRowBottom) / 2;
+      const split = parseFloat(cs.getPropertyValue(isBottom ? '--rest-bot' : '--rest-top')) * r.width;
+      const base = isBottom ? 2 : 0;
+      const current = ids.indexOf(active);
+      if (current >= base && current < base + 2 && Math.abs(x - split) < TOLERANCE) return ids[current]!;
+      return ids[base + (x < split ? 0 : 1)]!;
+    }
+
+    root.addEventListener('pointermove', (e) => {
+      if (e.pointerType !== 'mouse' || !desktopLike()) return;
+      clearTimeout(resetTimer);
+      const next = candidate(e);
+      if (next === active) { clearTimeout(hoverTimer); pending = ''; return; }
+      if (next === pending) return;
+      pending = next;
+      clearTimeout(hoverTimer);
+      hoverTimer = window.setTimeout(() => { setActive(next); pending = ''; }, INTENT_MS);
+    });
+    root.addEventListener('pointerleave', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      clearTimeout(hoverTimer); pending = '';
+      resetTimer = window.setTimeout(() => setActive(focusedId()), RESET_MS);
+    });
+    root.addEventListener('focusin', (e) => {
+      const tile = (e.target as Element).closest<HTMLElement>('[data-tile]');
+      if (tile) { clearTimeout(resetTimer); setActive(tile.dataset.service!); }
+    });
+    root.addEventListener('focusout', (e) => {
+      const to = e.relatedTarget as Node | null;
+      if (!to || !root.contains(to)) resetTimer = window.setTimeout(() => { if (!root.matches(':hover')) setActive(''); }, RESET_MS);
+    });
+
+    /* ---- Exploration: one shared region, explicit buttons only ---- */
+    function place() {
+      // Mobile: open inline right after the selected tile so reading order is kept.
+      const tile = tiles.find((t) => t.dataset.service === selected);
+      if (selected && !desktopLike() && tile) tile.after(detail);
+      else slot.append(detail);
+    }
+    function open(id: string, trigger: HTMLElement) {
+      selected = id;
+      tiles.forEach((t) => {
+        const on = t.dataset.service === id;
+        t.dataset.selected = String(on);
+        t.querySelector('[data-explore]')!.setAttribute('aria-expanded', String(on));
+      });
+      panels.forEach((p) => (p.hidden = p.dataset.detailFor !== id));
+      detail.hidden = false;
+      place();
+      status.textContent = trigger.textContent?.split(':')[0] + ' — ' + (panels.find((p) => p.dataset.detailFor === id)?.querySelector('h3')?.textContent ?? '');
+    }
+    function close(returnFocus = true) {
+      const id = selected;
+      selected = '';
+      detail.hidden = true;
+      panels.forEach((p) => (p.hidden = true));
+      slot.append(detail);
+      tiles.forEach((t) => { delete t.dataset.selected; t.querySelector('[data-explore]')!.setAttribute('aria-expanded', 'false'); });
+      status.textContent = '';
+      if (returnFocus && id) tiles.find((t) => t.dataset.service === id)?.querySelector<HTMLElement>('[data-explore]')?.focus();
+    }
+
+    root.addEventListener('click', (e) => {
+      const btn = (e.target as Element).closest<HTMLElement>('[data-explore]');
+      if (!btn) return;
+      const id = btn.dataset.explore!;
+      if (selected === id) close(false); else open(id, btn);
+    });
+    detail.addEventListener('click', (e) => { if ((e.target as Element).closest('[data-close]')) close(); });
+    detail.addEventListener('keydown', (e) => { if (e.key === 'Escape') { e.stopPropagation(); close(); } });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && selected && root.contains(document.activeElement)) close(); });
+    matchMedia('(min-width: 768px)').addEventListener('change', place);
+  }
+</script>

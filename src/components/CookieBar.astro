@@ -1,0 +1,44 @@
+---
+import { href, type Lang } from '../i18n';
+import { tr } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = tr(lang);
+---
+<section class="ck on-dark" aria-labelledby="ck-h" hidden data-cookiebar>
+  <h2 id="ck-h" class="ck__h">{t.cookies.h}</h2>
+  <p>{t.cookies.body} <a href={href(lang, 'cookies/')}>{t.footer.cookies}</a></p>
+  <div class="ck__row">
+    <button type="button" class="btn btn--coral" data-ck="essential">{t.cookies.essential}</button>
+    <button type="button" class="btn btn--ghost" data-ck="analytics">{t.cookies.accept}</button>
+  </div>
+</section>
+<style>
+  .ck { position: fixed; z-index: 60; left: 12px; right: 12px; bottom: 12px; max-width: 560px; background: var(--ink); color: var(--paper); padding: 20px; border-radius: 4px 4px 4px 40px; box-shadow: 0 20px 50px -18px rgb(19 35 56 / 0.6); display: grid; gap: 12px; font-size: 0.9375rem; line-height: 1.5; }
+  .ck[hidden] { display: none; }
+  .ck__h { font-size: 1.125rem; font-weight: 700; }
+  .ck a { color: var(--coral-light); }
+  .ck__row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .ck .btn { min-height: 48px; padding-inline: 18px; font-size: 0.9375rem; }
+  @media (min-width: 768px) { .ck { left: 24px; bottom: 24px; right: auto; } }
+</style>
+<script>
+  const bar = document.querySelector<HTMLElement>('[data-cookiebar]');
+  const KEY = 'odalo.cookies';
+  const read = () => { try { return localStorage.getItem(KEY); } catch { return null; } };
+  if (bar) {
+    if (!read()) bar.hidden = false;
+    bar.addEventListener('click', (e) => {
+      const b = (e.target as Element).closest<HTMLButtonElement>('[data-ck]');
+      if (!b) return;
+      try { localStorage.setItem(KEY, b.dataset.ck || 'essential'); } catch { /* storage unavailable */ }
+      bar.hidden = true;
+    });
+    document.addEventListener('click', (e) => {
+      if ((e.target as Element).closest('[data-cookie-open]')) {
+        bar.hidden = false;
+        bar.querySelector<HTMLElement>('button')?.focus();
+      }
+    });
+  }
+</script>

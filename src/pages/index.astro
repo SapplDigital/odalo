@@ -1,0 +1,31 @@
+---
+// Root: English fallback for the worldwide audience. An explicit stored choice or a
+// supported browser language redirects client-side; everyone else lands on /en/.
+import { href } from '../i18n';
+const fallback = href('en');
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Odalo</title>
+    <meta http-equiv="refresh" content={`0; url=${fallback}`} />
+    <link rel="canonical" href={fallback} />
+    <meta name="robots" content="noindex" />
+    <script is:inline define:vars={{ base, fallback }}>
+      (function () {
+        var supported = ['es', 'en', 'de'], lang = null;
+        try { lang = localStorage.getItem('odalo.lang'); } catch (e) {}
+        if (supported.indexOf(lang) < 0) {
+          var nav = (navigator.languages && navigator.languages[0]) || navigator.language || '';
+          var short = nav.slice(0, 2).toLowerCase();
+          lang = supported.indexOf(short) >= 0 ? short : 'en';
+        }
+        location.replace(base + '/' + lang + '/' + location.search + location.hash);
+      })();
+    </script>
+  </head>
+  <body><p><a href={fallback}>Odalo — English</a> · <a href={href('es')}>Español</a> · <a href={href('de')}>Deutsch</a></p></body>
+</html>

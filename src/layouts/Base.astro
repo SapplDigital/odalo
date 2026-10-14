@@ -1,0 +1,69 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieBar from '../components/CookieBar.astro';
+import { languages, languageNames, href, type Lang } from '../i18n';
+import { tr } from '../i18n/ui';
+
+interface Props { lang: Lang; title: string; description: string; noindex?: boolean; home?: boolean }
+const { lang, title, description, noindex = false, home = false } = Astro.props;
+const t = tr(lang);
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const pathname = Astro.url.pathname;
+const rest = pathname.slice(base.length).replace(new RegExp(`^/${lang}/?`), '');
+const origin = Astro.site ? Astro.site.origin : '';
+const canonical = origin + pathname;
+const alternates = languages.map((l) => ({ l, url: origin + href(l, rest) }));
+const ogImage = `${origin}${base}/og.png`;
+---
+<!doctype html>
+<html lang={lang} class="no-js" data-lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f7f9f8" />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+    {!noindex && alternates.map(({ l, url }) => <link rel="alternate" hreflang={l} href={url} />)}
+    {!noindex && <link rel="alternate" hreflang="x-default" href={origin + href('en', rest)} />}
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Odalo" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={languageNames[lang].locale.replace('-', '_')} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script is:inline>document.documentElement.className = 'js';</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{t.a11y.skip}</a>
+    <Header lang={lang} home={home} rest={rest} />
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <Footer lang={lang} rest={rest} />
+    <CookieBar lang={lang} />
+    <script>
+      // Remember an explicit language choice (used by the root redirect).
+      document.addEventListener('click', (e) => {
+        const a = (e.target as Element).closest<HTMLAnchorElement>('a[data-set-lang]');
+        if (!a) return;
+        try { localStorage.setItem('odalo.lang', a.dataset.setLang || ''); } catch { /* storage unavailable */ }
+      });
+      // Scroll reveal; content is fully visible without JS or with reduced motion.
+      const els = document.querySelectorAll<HTMLElement>('[data-reveal]');
+      if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const io = new IntersectionObserver((entries) => {
+          for (const en of entries) if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
+        }, { rootMargin: '0px 0px -8% 0px' });
+        els.forEach((el) => io.observe(el));
+      } else els.forEach((el) => el.classList.add('is-in'));
+    </script>
+  </body>
+</html>

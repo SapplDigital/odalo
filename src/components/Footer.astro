@@ -1,0 +1,78 @@
+---
+import Logo from './Logo.astro';
+import LangSwitch from './LangSwitch.astro';
+import { href, type Lang } from '../i18n';
+import { tr } from '../i18n/ui';
+import { site } from '../config/site';
+interface Props { lang: Lang; rest: string }
+const { lang, rest } = Astro.props;
+const t = tr(lang);
+const nav = [
+  { label: t.nav.services, to: `${href(lang)}#services` },
+  { label: t.nav.plans, to: href(lang, 'plans/') },
+  { label: t.nav.work, to: href(lang, 'work/') },
+  { label: t.nav.about, to: href(lang, 'about/') },
+  { label: t.nav.audit, to: href(lang, 'audit/') },
+];
+const legal = [
+  { label: t.footer.privacy, to: href(lang, 'privacy/') },
+  { label: t.footer.cookies, to: href(lang, 'cookies/') },
+  { label: t.footer.legalNotice, to: href(lang, 'legal/') },
+];
+const { email, phone, address } = site.contact;
+---
+<footer class="ftr on-dark">
+  <div class="wrap ftr__grid">
+    <div class="ftr__brand">
+      <Logo variant="dark" size={44} />
+      <p class="ftr__tag">{t.footer.tagline}</p>
+      <LangSwitch lang={lang} rest={rest} dark />
+    </div>
+    <nav aria-label={t.a11y.footerNav} class="ftr__col">
+      <ul>{nav.map((n) => <li><a href={n.to}>{n.label}</a></li>)}</ul>
+    </nav>
+    <div class="ftr__col">
+      <h2 class="ftr__h">{t.footer.contact}</h2>
+      {email || phone || address ? (
+        <ul>
+          {email && <li><a href={`mailto:${email}`}>{email}</a></li>}
+          {phone && <li><a href={`tel:${phone}`}>{phone}</a></li>}
+          {address && <li>{address}</li>}
+        </ul>
+      ) : <p class="ftr__muted">{t.common.pending}. <a href={href(lang, 'audit/')}>{t.nav.audit}</a></p>}
+    </div>
+    <nav aria-label={t.a11y.legalNav} class="ftr__col">
+      <h2 class="ftr__h">{t.footer.legal}</h2>
+      <ul>
+        {legal.map((n) => <li><a href={n.to}>{n.label}</a></li>)}
+        <li><button type="button" class="ftr__btn" data-cookie-open>{t.footer.cookiePrefs}</button></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap ftr__base">
+    <p>{t.footer.rights} · {t.footer.demo}</p>
+  </div>
+  <div class="strip" aria-hidden="true">
+    <i class="s1"></i><i class="s2"></i><i class="s3"></i><i class="s4"></i><i class="s5"></i><i class="s6"></i><i class="s7"></i><i class="s8"></i>
+  </div>
+</footer>
+<style>
+  .ftr { background: var(--ink); color: var(--paper); padding-top: var(--s8); font-size: 1rem; }
+  .ftr__grid { display: grid; gap: var(--s7) var(--s6); grid-template-columns: 1fr; padding-bottom: var(--s7); }
+  @media (min-width: 768px) { .ftr__grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
+  .ftr__brand { display: grid; gap: var(--s4); align-content: start; justify-items: start; }
+  .ftr__tag { font-family: var(--font-serif); font-style: italic; font-size: 1.5rem; line-height: 1.15; max-width: 22ch; color: var(--sand); }
+  .ftr__h { font-size: 0.8125rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--coral-light); margin-bottom: var(--s3); }
+  .ftr__col ul { display: grid; gap: 2px; }
+  .ftr a, .ftr__btn { display: inline-flex; align-items: center; min-height: 44px; color: var(--paper); text-decoration: none; }
+  .ftr a:hover, .ftr__btn:hover { text-decoration: underline; text-underline-offset: 5px; text-decoration-color: var(--coral); }
+  .ftr__btn { background: none; border: 0; padding: 0; font: inherit; cursor: pointer; }
+  .ftr__muted { color: var(--sand); max-width: 28ch; }
+  .ftr__base { padding-bottom: var(--s6); color: var(--sand); font-size: 0.9375rem; }
+  .strip { display: grid; grid-template-columns: repeat(8, 1fr); height: 40px; }
+  .strip i { display: block; }
+  .s1 { background: var(--coral); border-top-right-radius: 40px; } .s2 { background: var(--slate); }
+  .s3 { background: var(--sand); border-top-left-radius: 40px; } .s4 { background: var(--coral); }
+  .s5 { background: var(--slate); border-top-right-radius: 40px; } .s6 { background: var(--paper); }
+  .s7 { background: var(--coral); border-top-left-radius: 40px; } .s8 { background: var(--sand); }
+</style>

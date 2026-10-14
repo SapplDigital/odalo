@@ -1,0 +1,90 @@
+---
+import Logo from './Logo.astro';
+import LangSwitch from './LangSwitch.astro';
+import { href, type Lang } from '../i18n';
+import { tr } from '../i18n/ui';
+interface Props { lang: Lang; home: boolean; rest: string }
+const { lang, home, rest } = Astro.props;
+const t = tr(lang);
+const homeHref = href(lang);
+const links = [
+  { id: 'services', label: t.nav.services, to: home ? '#services' : `${homeHref}#services` },
+  { id: 'plans', label: t.nav.plans, to: home ? '#plans' : href(lang, 'plans/') },
+  { id: 'process', label: t.nav.process, to: home ? '#process' : `${homeHref}#process` },
+  { id: 'work', label: t.nav.work, to: home ? '#work' : href(lang, 'work/') },
+  { id: 'about', label: t.nav.about, to: home ? '#about' : href(lang, 'about/') },
+];
+const current = rest.split('/')[0];
+---
+<header class="hdr" data-header>
+  <div class="wrap hdr__in">
+    <a class="hdr__logo" href={homeHref} aria-label={t.a11y.home}><Logo size={38} /></a>
+    <button class="hdr__toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-open={t.a11y.openMenu} data-close={t.a11y.closeMenu} aria-label={t.a11y.openMenu}>
+      <span class="hdr__bars" aria-hidden="true"></span>
+    </button>
+    <div class="hdr__panel" id="site-nav">
+      <nav aria-label={t.a11y.mainNav}>
+        <ul class="hdr__links">
+          {links.map((l) => (
+            <li><a href={l.to} aria-current={!home && current === l.id ? 'page' : undefined}>{l.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+      <div class="hdr__tools">
+        <LangSwitch lang={lang} rest={rest} />
+        <a class="btn btn--ink hdr__cta" href={href(lang, 'audit/')} data-track="audit_cta" data-location="header">{t.nav.audit}</a>
+      </div>
+    </div>
+  </div>
+</header>
+<style>
+  .hdr { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--line); }
+  .hdr__in { display: flex; align-items: center; justify-content: space-between; min-height: var(--header-h); gap: 16px; position: relative; }
+  .hdr__logo { display: inline-flex; min-height: 44px; align-items: center; }
+  .hdr__toggle { display: none; width: 48px; height: 48px; border: 2px solid var(--ink); border-radius: 999px; background: transparent; cursor: pointer; align-items: center; justify-content: center; color: var(--ink); }
+  .hdr__bars, .hdr__bars::before, .hdr__bars::after { display: block; width: 20px; height: 2.5px; background: currentColor; border-radius: 2px; position: relative; transition: transform 0.2s, opacity 0.2s; }
+  .hdr__bars::before, .hdr__bars::after { content: ''; position: absolute; left: 0; }
+  .hdr__bars::before { top: -7px; } .hdr__bars::after { top: 7px; }
+  .hdr__toggle[aria-expanded='true'] .hdr__bars { background: transparent; }
+  .hdr__toggle[aria-expanded='true'] .hdr__bars::before { top: 0; transform: rotate(45deg); }
+  .hdr__toggle[aria-expanded='true'] .hdr__bars::after { top: 0; transform: rotate(-45deg); }
+  .hdr__panel { display: flex; align-items: center; gap: clamp(16px, 2.4vw, 40px); flex: 1; justify-content: flex-end; }
+  .hdr__links { display: flex; gap: clamp(2px, 1vw, 12px); flex-wrap: wrap; justify-content: flex-end; }
+  .hdr__links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 clamp(6px, 0.9vw, 12px); text-decoration: none; font-weight: 500; font-size: 1.0625rem; border-radius: 8px; }
+  .hdr__links a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 8px; text-decoration-color: var(--coral); }
+  .hdr__links a[aria-current='page'] { box-shadow: inset 0 -3px 0 var(--coral); }
+  .hdr__tools { display: flex; align-items: center; gap: 12px; }
+  .hdr__cta { min-height: 48px; padding-inline: 24px; white-space: nowrap; }
+
+  @media (max-width: 1119px) {
+    .js .hdr__toggle { display: inline-flex; }
+    .js .hdr__panel { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 8px; background: var(--paper); padding: 12px var(--margin) 24px; border-bottom: 1px solid var(--line); box-shadow: 0 18px 30px -20px rgb(19 35 56 / 0.35); max-height: calc(100dvh - var(--header-h)); overflow-y: auto; }
+    .js .hdr__panel[hidden] { display: none; }
+    .js .hdr__links { flex-direction: column; align-items: stretch; }
+    .js .hdr__links a { font-size: 1.25rem; padding-inline: 4px; border-bottom: 1px solid var(--line); border-radius: 0; }
+    .js .hdr__tools { justify-content: space-between; flex-wrap: wrap; padding-top: 8px; }
+    .no-js .hdr__in { flex-wrap: wrap; padding-block: 8px; }
+    .no-js .hdr__panel { flex-wrap: wrap; justify-content: flex-start; }
+  }
+</style>
+<script>
+  const hdr = document.querySelector<HTMLElement>('[data-header]');
+  const btn = hdr?.querySelector<HTMLButtonElement>('.hdr__toggle');
+  const panel = hdr?.querySelector<HTMLElement>('#site-nav');
+  if (hdr && btn && panel) {
+    const mq = matchMedia('(max-width: 1119px)');
+    const set = (open: boolean) => {
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? btn.dataset.close! : btn.dataset.open!);
+      panel.hidden = mq.matches ? !open : false;
+    };
+    const sync = () => set(false);
+    sync();
+    mq.addEventListener('change', sync);
+    btn.addEventListener('click', () => set(btn.getAttribute('aria-expanded') !== 'true'));
+    hdr.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') { set(false); btn.focus(); }
+    });
+    panel.addEventListener('click', (e) => { if ((e.target as Element).closest('a[href^="#"]')) set(false); });
+  }
+</script>
