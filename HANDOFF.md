@@ -98,7 +98,7 @@ Run on the final build (`npm run verify`; Chromium only, headless, Linux contain
 | 44 px target size for primary controls (mobile) | pass |
 | axe-core (WCAG 2.0/2.1/2.2 A+AA tags), serious/critical on 10 pages (home ×3 languages, plans, audit, work, case study, service, about, privacy) | 0 violations |
 
-**Defects found and fixed during verification:** scoped `.js` selectors never applied (broke mobile menu and caused page overflow); invalid `calc()` with `fr` units; table `sr-only` spans escaping the scroll container (320/390 px overflow); contrast failures on the slate tile number and coral-tile chips; blur-time re-validation shifting layout under the pointer and swallowing a checkbox click; font swap CLS (0.14–0.24 → 0); 30 px-tolerance fix for the narrowest German tile at 1024.
+**Defects found and fixed during verification:** scoped `.js` selectors never applied (broke mobile menu and caused page overflow); invalid `calc()` with `fr` units; table `sr-only` spans escaping the scroll container (320/390 px overflow); contrast failures on the slate tile number and coral-tile chips; blur-time re-validation shifting layout under the pointer and swallowing a checkbox click; font swap CLS (0.14–0.24 → 0); clipping of the narrowest German tile at 1024 px (row height and padding tuned).
 
 ### Lab performance (local, `npm run perf`; **not field data**)
 
