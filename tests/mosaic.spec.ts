@@ -1,12 +1,12 @@
 import { test, expect, type Page } from '@playwright/test';
 
-/** Document 03 desktop table: [A, B] top row, [C, D] bottom row, in twelfths. */
+/** Desktop table (revised: the active tile takes 8.5 of 12): [A, B] top row, [C, D] bottom row, in twelfths. */
 const TABLE = {
   rest: { web: 7, local: 5, video: 5, ads: 7 },
-  web: { web: 8, local: 4 },
-  local: { web: 5, local: 7 },
-  video: { video: 7, ads: 5 },
-  ads: { video: 4, ads: 8 },
+  web: { web: 8.5, local: 3.5 },
+  local: { web: 3.5, local: 8.5 },
+  video: { video: 8.5, ads: 3.5 },
+  ads: { video: 3.5, ads: 8.5 },
 } as const;
 
 const widths = (page: Page) =>
@@ -38,7 +38,7 @@ test.describe('service mosaic — desktop 1440', () => {
       const exp = TABLE[id] as Record<string, number>;
       for (const [k, twelfths] of Object.entries(exp)) {
         const row = k === 'web' || k === 'local' ? w.web! + w.local! : w.video! + w.ads!;
-        expect(Math.round((w[k]! / row) * 12), `${k} width when ${id} active`).toBe(twelfths);
+        expect((w[k]! / row) * 12, `${k} width when ${id} active`).toBeCloseTo(twelfths, 0);
       }
       const after = await metrics(page);
       expect(after.h).toBe(before.h);            // mosaic height stable

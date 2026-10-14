@@ -34,7 +34,7 @@ const rows = [services.slice(0, 2), services.slice(2, 4)];
             const look = looks[i]!;
             return (
               <article
-                class:list={['tile', `tile--${look.tone}`, look.corner, { 'on-dark': look.tone === 'ink' || look.tone === 'slate', 'on-coral': look.tone === 'coral' }]}
+                class:list={['tile', `tile--${look.tone}`, { 'on-dark': look.tone === 'ink' || look.tone === 'slate', 'on-coral': look.tone === 'coral' }]}
                 data-tile data-service={s.id}
               >
                 <div class="tile__top">
@@ -94,29 +94,27 @@ const rows = [services.slice(0, 2), services.slice(2, 4)];
   .mosaic {
     --ta: 7fr; --tb: 5fr; --ba: 5fr; --bb: 7fr;
     --rest-top: 0.5833; --rest-bot: 0.4167;
+    --rt: 1fr; --rb: 1fr; /* row heights: they also trade space, so the active tile grows in both directions */
     --row-h: 26rem;
-    display: grid; gap: var(--gutter);
+    display: grid; gap: 0; /* tiles share edges: there is no gutter to show background through */
+    overflow: hidden; isolation: isolate;
+    border-radius: var(--r-big) var(--r-small) var(--r-big) var(--r-small); /* only the outer silhouette is curved */
   }
-  .mosaic[data-active='web']   { --ta: 8fr; --tb: 4fr; }
-  .mosaic[data-active='local'] { --ta: 5fr; --tb: 7fr; }
-  .mosaic[data-active='video'] { --ba: 7fr; --bb: 5fr; }
-  .mosaic[data-active='ads']   { --ba: 4fr; --bb: 8fr; }
-  .row { display: grid; gap: var(--gutter); grid-template-columns: 1fr; }
+  .mosaic[data-active='web']   { --ta: 8.5fr; --tb: 3.5fr; --rt: 1.16fr; --rb: 0.84fr; }
+  .mosaic[data-active='local'] { --ta: 3.5fr; --tb: 8.5fr; --rt: 1.16fr; --rb: 0.84fr; }
+  .mosaic[data-active='video'] { --ba: 8.5fr; --bb: 3.5fr; --rt: 0.84fr; --rb: 1.16fr; }
+  .mosaic[data-active='ads']   { --ba: 3.5fr; --bb: 8.5fr; --rt: 0.84fr; --rb: 1.16fr; }
+  .row { display: grid; gap: 0; grid-template-columns: 1fr; min-height: 0; }
 
   .tile {
     position: relative; display: flex; flex-direction: column; gap: var(--s3);
     padding: var(--pad); min-width: 0; overflow: hidden;
-    border-radius: var(--r-small); isolation: isolate;
+    isolation: isolate;
   }
   .tile--ink { background: var(--ink); color: var(--paper); }
   .tile--sand { background: var(--sand); color: var(--ink); }
   .tile--coral { background: var(--coral); color: var(--ink-deep); }
   .tile--slate { background: var(--slate); color: var(--paper); }
-  .c-tl, .c-tr, .c-br, .c-bl { border-radius: var(--r-small); }
-  .c-tl { border-top-left-radius: var(--r-big); }
-  .c-tr { border-top-right-radius: var(--r-big); }
-  .c-br { border-bottom-right-radius: var(--r-big); }
-  .c-bl { border-bottom-left-radius: var(--r-big); }
 
   .tile__top { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--s4); }
   .tile__num { font-weight: 800; font-size: 1.0625rem; letter-spacing: 0.08em; }
@@ -158,13 +156,13 @@ const rows = [services.slice(0, 2), services.slice(2, 4)];
 
   /* ---- Desktop: moving shared edges, fixed total height ---- */
   @media (min-width: 64em) and (max-width: 79.99em) {
-    .mosaic { --row-h: 29rem; }
+    .mosaic { --row-h: 31rem; }
     .tile { --pad: 26px; }
     .tile__art { width: 96px; }
   }
-  @media (min-width: 80em) { .mosaic { --row-h: 25rem; } }
+  @media (min-width: 80em) { .mosaic { --row-h: 27rem; } }
   @media (min-width: 64em) {
-    .row { height: var(--row-h); }
+    .mosaic { height: calc(var(--row-h) * 2); grid-template-rows: minmax(0, var(--rt)) minmax(0, var(--rb)); transition: grid-template-rows 0.38s cubic-bezier(0.22, 0.8, 0.3, 1); }
     .row--top { grid-template-columns: minmax(0, var(--ta)) minmax(0, var(--tb)); }
     .row--bot { grid-template-columns: minmax(0, var(--ba)) minmax(0, var(--bb)); }
     .row { transition: grid-template-columns 0.38s cubic-bezier(0.22, 0.8, 0.3, 1); }
@@ -174,15 +172,15 @@ const rows = [services.slice(0, 2), services.slice(2, 4)];
   }
   /* ---- Tablet: two columns, calmer movement ---- */
   @media (min-width: 48em) and (max-width: 63.99em) {
-    .mosaic { --ta: 6.5fr; --tb: 5.5fr; --ba: 5.5fr; --bb: 6.5fr; --rest-top: 0.5417; --rest-bot: 0.4583; --row-h: 27rem; }
-    .mosaic[data-active='web']   { --ta: 7.5fr; --tb: 4.5fr; }
-    .mosaic[data-active='local'] { --ta: 5.5fr; --tb: 6.5fr; }
-    .mosaic[data-active='video'] { --ba: 6.5fr; --bb: 5.5fr; }
-    .mosaic[data-active='ads']   { --ba: 4.5fr; --bb: 7.5fr; }
-    .row { height: var(--row-h); }
+    .mosaic { --ta: 6.5fr; --tb: 5.5fr; --ba: 5.5fr; --bb: 6.5fr; --rest-top: 0.5417; --rest-bot: 0.4583; --row-h: 30rem; }
+    .mosaic[data-active='web']   { --ta: 8fr; --tb: 4fr; }
+    .mosaic[data-active='local'] { --ta: 4fr; --tb: 8fr; }
+    .mosaic[data-active='video'] { --ba: 8fr; --bb: 4fr; }
+    .mosaic[data-active='ads']   { --ba: 4fr; --bb: 8fr; }
+    .mosaic { height: calc(var(--row-h) * 2); grid-template-rows: minmax(0, var(--rt)) minmax(0, var(--rb)); transition: grid-template-rows 0.36s ease-out; }
     .row--top { grid-template-columns: minmax(0, var(--ta)) minmax(0, var(--tb)); }
     .row--bot { grid-template-columns: minmax(0, var(--ba)) minmax(0, var(--bb)); }
-    .row { transition: grid-template-columns 0.3s ease-out; }
+    .row { transition: grid-template-columns 0.36s ease-out; }
   }
   /* ---- Mobile: one column in reading order; details open inline below the tile ---- */
   @media (max-width: 47.99em) {
@@ -264,11 +262,13 @@ const rows = [services.slice(0, 2), services.slice(2, 4)];
       const r = root.getBoundingClientRect();
       const cs = getComputedStyle(root);
       const x = e.clientX - r.left;
-      const topRowBottom = rows[0]!.getBoundingClientRect().bottom;
-      const isBottom = e.clientY > topRowBottom + (rows[1]!.getBoundingClientRect().top - topRowBottom) / 2;
+      const y = e.clientY - r.top;
+      const current = ids.indexOf(active);
+      // Row: the resting midline, with the current row kept while the pointer is near it (the real edge moves).
+      let isBottom = y > r.height / 2;
+      if (current >= 0 && Math.abs(y - r.height / 2) < TOLERANCE) isBottom = current >= 2;
       const split = parseFloat(cs.getPropertyValue(isBottom ? '--rest-bot' : '--rest-top')) * r.width;
       const base = isBottom ? 2 : 0;
-      const current = ids.indexOf(active);
       if (current >= base && current < base + 2 && Math.abs(x - split) < TOLERANCE) return ids[current]!;
       return ids[base + (x < split ? 0 : 1)]!;
     }
@@ -286,7 +286,7 @@ const rows = [services.slice(0, 2), services.slice(2, 4)];
     root.addEventListener('pointerleave', (e) => {
       if (e.pointerType !== 'mouse') return;
       clearTimeout(hoverTimer); pending = '';
-      resetTimer = window.setTimeout(() => setActive(focusedId()), RESET_MS);
+      resetTimer = window.setTimeout(() => setActive(focusedId() || selected), RESET_MS);
     });
     root.addEventListener('focusin', (e) => {
       const tile = (e.target as Element).closest<HTMLElement>('[data-tile]');
@@ -294,7 +294,7 @@ const rows = [services.slice(0, 2), services.slice(2, 4)];
     });
     root.addEventListener('focusout', (e) => {
       const to = e.relatedTarget as Node | null;
-      if (!to || !root.contains(to)) resetTimer = window.setTimeout(() => { if (!root.matches(':hover')) setActive(''); }, RESET_MS);
+      if (!to || !root.contains(to)) resetTimer = window.setTimeout(() => { if (!root.matches(':hover')) setActive(selected); }, RESET_MS);
     });
 
     /* ---- Exploration: one shared region, explicit buttons only ---- */
@@ -314,6 +314,7 @@ const rows = [services.slice(0, 2), services.slice(2, 4)];
       panels.forEach((p) => (p.hidden = p.dataset.detailFor !== id));
       detail.hidden = false;
       place();
+      if (desktopLike()) setActive(id); // explicit selection keeps the tile expanded (touch has no hover)
       status.textContent = trigger.textContent?.split(':')[0] + ' — ' + (panels.find((p) => p.dataset.detailFor === id)?.querySelector('h3')?.textContent ?? '');
     }
     function close(returnFocus = true) {
@@ -322,6 +323,7 @@ const rows = [services.slice(0, 2), services.slice(2, 4)];
       detail.hidden = true;
       panels.forEach((p) => (p.hidden = true));
       slot.append(detail);
+      setActive('');
       tiles.forEach((t) => { delete t.dataset.selected; t.querySelector('[data-explore]')!.setAttribute('aria-expanded', 'false'); });
       status.textContent = '';
       if (returnFocus && id) tiles.find((t) => t.dataset.service === id)?.querySelector<HTMLElement>('[data-explore]')?.focus();

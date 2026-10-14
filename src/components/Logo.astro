@@ -1,31 +1,22 @@
 ---
 /**
- * TEMPORARY logo, redrawn from the reference screenshot (symbol of squares, circles,
- * quarter- and semicircles + lowercase "odalo" wordmark with coral dot).
- * Replace the SVG paths below (or swap in the official SVG file) once the original
- * vector assets are supplied. Wordmark is live text in Outfit so it stays crisp.
+ * Odalo logo. The symbol is the single source file public/brand/odalo-symbol.svg (inlined here so
+ * the page and the downloadable asset cannot drift). Wordmark is live Outfit text with the coral dot.
  */
+import symbolSvg from '../../public/brand/odalo-symbol.svg?raw';
 interface Props { variant?: 'light' | 'dark'; symbolOnly?: boolean; size?: number }
 const { variant = 'light', symbolOnly = false, size = 40 } = Astro.props;
-const navy = variant === 'dark' ? 'var(--paper)' : 'var(--ink)';
+const inner = symbolSvg.replace(/^[\s\S]*?<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '').replace(/<!--[\s\S]*?-->/g, '');
 ---
 <span class:list={['logo', { 'logo--dark': variant === 'dark' }]} style={`--logo-size:${size}px`}>
-  <svg class="logo__mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-    <path d="M0 0H20A20 20 0 0 1 0 20Z" fill={navy} />
-    <circle cx="32" cy="10" r="10" fill="var(--slate)" />
-    <path d="M44 20a10 10 0 0 1 20 0Z" fill={navy} />
-    <path d="M20 22A10 10 0 0 0 20 42Z" fill="var(--coral)" />
-    <path d="M22 22H42V42H32A10 10 0 0 1 22 32Z" fill={navy} />
-    <path d="M64 42H44A20 20 0 0 1 64 22Z" fill="var(--slate)" />
-    <circle cx="10" cy="54" r="10" fill="var(--coral)" />
-    <path d="M22 64V44A20 20 0 0 1 42 64Z" fill={navy} />
-    <path d="M44 54A10 10 0 0 1 54 44H64V64H44Z" fill="var(--coral)" />
-  </svg>
+  <svg class="logo__mark" viewBox="0 0 60 60" aria-hidden="true" focusable="false" set:html={inner} />
   {!symbolOnly && <span class="logo__word" aria-hidden="true">odalo<span class="logo__dot">.</span></span>}
 </span>
 <style>
   .logo { display: inline-flex; align-items: center; gap: calc(var(--logo-size) * 0.28); color: var(--ink); line-height: 1; }
+  :global(a:has(> .logo)) { text-decoration: none; }
   .logo--dark { color: var(--paper); }
+  .logo--dark .logo__mark { --odalo-navy: #0d1a2b; }
   .logo__mark { width: var(--logo-size); height: var(--logo-size); flex: none; }
   .logo__word { font-family: var(--font-sans); font-weight: 700; font-size: calc(var(--logo-size) * 0.95); letter-spacing: -0.045em; }
   .logo__dot { color: var(--coral); }
