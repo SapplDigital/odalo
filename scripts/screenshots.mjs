@@ -2,9 +2,11 @@
 // Prereq: `npm run build && npm run preview` (http://localhost:4321).
 import { launch } from './browser.mjs';
 import { mkdirSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
 const BASE = process.env.BASE_URL || 'http://localhost:4321';
-const OUT = new URL('../docs/review/', import.meta.url).pathname;
+const OUT = fileURLToPath(new URL('../docs/review/', import.meta.url));
 mkdirSync(OUT, { recursive: true });
 const b = await launch();
 
@@ -14,7 +16,7 @@ async function page(w, h, opts = {}) {
   const p = await ctx.newPage();
   return { p, ctx };
 }
-const shot = async (p, name, o = {}) => { await p.screenshot({ path: `${OUT}${name}.png`, ...o }); console.log('•', name); };
+const shot = async (p, name, o = {}) => { await p.screenshot({ path: join(OUT, `${name}.png`), ...o }); console.log('•', name); };
 const settle = (p) => p.waitForTimeout(1300);
 
 // 1. Page layouts at 1440 / 834 / 390 (full page; sections scrolled into view so reveals have run)

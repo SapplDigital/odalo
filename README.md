@@ -40,7 +40,8 @@ One-time setup: repo **Settings → Pages → Build and deployment → Source: G
 The demo build sets `PUBLIC_NOINDEX=true` (meta `noindex` + `Disallow: /` in `robots.txt`) because the content is placeholder.
 Note: the site is public on the internet even though it is unindexed. To build the same way locally:
 `SITE_URL=https://sappldigital.github.io SITE_BASE=/odalo/ PUBLIC_NOINDEX=true npm run build`
-(run `preview` with the same variables to serve it under `/odalo/`).
+(PowerShell: `$env:SITE_URL='https://sappldigital.github.io'; $env:SITE_BASE='/odalo/'; $env:PUBLIC_NOINDEX='true'; npm run build`).
+Run `preview` with the same variables to serve it under `/odalo/`.
 
 ## Checks
 

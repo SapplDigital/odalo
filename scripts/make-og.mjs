@@ -1,12 +1,14 @@
 // Generates public/og.png (1200x630) from the temporary logo. Replace with the designed share image.
 import { launch } from './browser.mjs';
 import { readdirSync, readFileSync } from 'node:fs';
-const dir = new URL('../node_modules/@fontsource-variable/outfit/files/', import.meta.url).pathname;
+import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
+const dir = fileURLToPath(new URL('../node_modules/@fontsource-variable/outfit/files/', import.meta.url));
 const f = readdirSync(dir).find((x) => x.includes('latin-wght-normal') && x.endsWith('.woff2'));
-const font = readFileSync(dir + f).toString('base64');
-const sdir = new URL('../node_modules/@fontsource/instrument-serif/files/', import.meta.url).pathname;
+const font = readFileSync(join(dir, f)).toString('base64');
+const sdir = fileURLToPath(new URL('../node_modules/@fontsource/instrument-serif/files/', import.meta.url));
 const sf = readdirSync(sdir).find((x) => x.includes('latin-400-italic') && x.endsWith('.woff2'));
-const serif = readFileSync(sdir + sf).toString('base64');
+const serif = readFileSync(join(sdir, sf)).toString('base64');
 const html = `<style>
 @font-face{font-family:O;src:url(data:font/woff2;base64,${font});font-weight:100 900}
 @font-face{font-family:S;font-style:italic;src:url(data:font/woff2;base64,${serif})}
@@ -22,5 +24,5 @@ h1{font-size:84px;line-height:.98;letter-spacing:-.035em;margin:0;font-weight:80
 const b = await launch();
 const p = await b.newPage({ viewport: { width: 1200, height: 630 } });
 await p.setContent(html); await p.waitForTimeout(400);
-await p.screenshot({ path: new URL('../public/og.png', import.meta.url).pathname });
+await p.screenshot({ path: fileURLToPath(new URL('../public/og.png', import.meta.url)) });
 await b.close(); console.log('og.png written');
