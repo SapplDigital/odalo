@@ -157,13 +157,13 @@ const rows = [services.slice(0, 2), services.slice(2, 4)];
   .tile.is-active .tile__art { transform: translate(-6px, 6px); filter: saturate(1.15) brightness(1.04); }
 
   /* ---- Desktop: moving shared edges, fixed total height ---- */
-  @media (min-width: 1024px) and (max-width: 1279px) {
+  @media (min-width: 64em) and (max-width: 79.99em) {
     .mosaic { --row-h: 29rem; }
     .tile { --pad: 26px; }
     .tile__art { width: 96px; }
   }
-  @media (min-width: 1280px) { .mosaic { --row-h: 25rem; } }
-  @media (min-width: 1024px) {
+  @media (min-width: 80em) { .mosaic { --row-h: 25rem; } }
+  @media (min-width: 64em) {
     .row { height: var(--row-h); }
     .row--top { grid-template-columns: minmax(0, var(--ta)) minmax(0, var(--tb)); }
     .row--bot { grid-template-columns: minmax(0, var(--ba)) minmax(0, var(--bb)); }
@@ -173,7 +173,7 @@ const rows = [services.slice(0, 2), services.slice(2, 4)];
     .tile__top, .tile__title, .tile__text, .tile__actions { min-width: 12.5rem; }
   }
   /* ---- Tablet: two columns, calmer movement ---- */
-  @media (min-width: 768px) and (max-width: 1023px) {
+  @media (min-width: 48em) and (max-width: 63.99em) {
     .mosaic { --ta: 6.5fr; --tb: 5.5fr; --ba: 5.5fr; --bb: 6.5fr; --rest-top: 0.5417; --rest-bot: 0.4583; --row-h: 27rem; }
     .mosaic[data-active='web']   { --ta: 7.5fr; --tb: 4.5fr; }
     .mosaic[data-active='local'] { --ta: 5.5fr; --tb: 6.5fr; }
@@ -185,7 +185,7 @@ const rows = [services.slice(0, 2), services.slice(2, 4)];
     .row { transition: grid-template-columns 0.3s ease-out; }
   }
   /* ---- Mobile: one column in reading order; details open inline below the tile ---- */
-  @media (max-width: 767px) {
+  @media (max-width: 47.99em) {
     .tile { min-height: 18rem; }
     .row { gap: var(--gutter); }
     .tile__title { margin-top: var(--s4); }
@@ -202,7 +202,7 @@ const rows = [services.slice(0, 2), services.slice(2, 4)];
   .detail__panel--sand { background: var(--sand); color: var(--ink); border-bottom-right-radius: var(--r-big); }
   .detail__panel--coral { background: var(--coral); color: var(--ink-deep); border-top-right-radius: var(--r-big); }
   .detail__panel--slate { background: var(--slate); color: var(--paper); border-bottom-left-radius: var(--r-big); }
-  @media (min-width: 768px) { .detail__panel { grid-template-columns: 1.2fr 1fr; padding-block: var(--s7); } }
+  @media (min-width: 48em) { .detail__panel { grid-template-columns: 1.2fr 1fr; padding-block: var(--s7); } }
   .detail__main { display: grid; gap: var(--s3); align-content: start; }
   .detail__panel--ink .eyebrow, .detail__panel--slate .eyebrow { color: var(--coral-light); }
   .detail__panel--coral .eyebrow { color: var(--ink-deep); }
@@ -220,6 +220,7 @@ const rows = [services.slice(0, 2), services.slice(2, 4)];
     border: 2px solid currentColor; background: transparent; color: inherit; font: 400 1.75rem/1 var(--font-sans); cursor: pointer;
     display: inline-flex; align-items: center; justify-content: center;
   }
+  .detail__panel--coral .detail__close { top: 20px; right: calc(var(--r-big) * 0.32); }
   .detail__close:hover { background: var(--fill, currentColor); }
   .detail__panel--ink .detail__close:hover, .detail__panel--slate .detail__close:hover { background: var(--paper); color: var(--ink); }
   .detail__panel--sand .detail__close:hover { background: var(--ink); color: var(--paper); }
@@ -249,7 +250,7 @@ const rows = [services.slice(0, 2), services.slice(2, 4)];
     let resetTimer = 0;
     let pending = '';
     let selected = '';
-    const desktopLike = () => matchMedia('(min-width: 768px)').matches;
+    const desktopLike = () => matchMedia('(min-width: 48em)').matches;
 
     function setActive(id: string) {
       active = id;
@@ -335,6 +336,6 @@ const rows = [services.slice(0, 2), services.slice(2, 4)];
     detail.addEventListener('click', (e) => { if ((e.target as Element).closest('[data-close]')) close(); });
     detail.addEventListener('keydown', (e) => { if (e.key === 'Escape') { e.stopPropagation(); close(); } });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && selected && root.contains(document.activeElement)) close(); });
-    matchMedia('(min-width: 768px)').addEventListener('change', place);
+    matchMedia('(min-width: 48em)').addEventListener('change', place);
   }
 </script>

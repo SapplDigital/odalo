@@ -2,6 +2,10 @@
 @import '@fontsource/instrument-serif/latin-400-italic.css';
 @import '@fontsource/instrument-serif/latin-ext-400-italic.css';
 
+/* Metric-adjusted fallbacks: keep layout stable if a web font arrives late. Tune with the final fonts. */
+@font-face { font-family: 'Outfit Fallback'; src: local('Arial'); size-adjust: 104%; ascent-override: 100%; descent-override: 26%; line-gap-override: 0%; }
+@font-face { font-family: 'Instrument Serif Fallback'; src: local('Times New Roman'); size-adjust: 92%; ascent-override: 98%; descent-override: 26%; line-gap-override: 0%; }
+
 /*
  * Brand tokens. Hex values are PROVISIONAL estimates from the reference screenshots.
  * Replace the first block with the original brand values; the derived block exists
@@ -23,8 +27,8 @@
   --slate-text: #3f6079; /* slate text on sand: 5.4:1 */
   --line: rgb(32 59 87 / 0.18);
 
-  --font-sans: 'Outfit Variable', 'Outfit', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-serif: 'Instrument Serif', 'Iowan Old Style', Georgia, serif;
+  --font-sans: 'Outfit Variable', 'Outfit', 'Outfit Fallback', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'Instrument Serif', 'Instrument Serif Fallback', 'Iowan Old Style', Georgia, serif;
 
   /* spacing scale: 4 8 12 16 24 32 48 64 96 128 */
   --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px; --s10: 128px;
@@ -43,10 +47,11 @@
   --fs-h3: clamp(1.5rem, 1.3rem + 0.7vw, 2.125rem);
   --fs-body: clamp(1.0625rem, 1.02rem + 0.18vw, 1.25rem);
 }
-@media (min-width: 768px) { :root { --margin: 32px; --gutter: 12px; --pad: 32px; --section: 96px; --header-h: 80px; } }
-@media (min-width: 1024px) { :root { --margin: 48px; --gutter: 16px; --pad: 40px; --section: 128px; --header-h: 88px; } }
+@media (min-width: 48em) { :root { --margin: 32px; --gutter: 12px; --pad: 32px; --section: 96px; --header-h: 80px; } }
+@media (min-width: 64em) { :root { --margin: 48px; --gutter: 16px; --pad: 40px; --section: 128px; --header-h: 88px; } }
 
 *, *::before, *::after { box-sizing: border-box; }
+html:has([data-cookiebar]:not([hidden])) { scroll-padding-bottom: 14rem; }
 html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--header-h) + 24px); scroll-behavior: smooth; }
 body {
   margin: 0; background: var(--paper); color: var(--ink);

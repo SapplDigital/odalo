@@ -42,7 +42,7 @@ const corners = ['c-tl', '', 'c-br', 'c-tr'];
   :global(.js) .steps:not(.is-in) .step::before { opacity: 0; }
   .step::before { transition: opacity 0.4s ease calc(0.25s * var(--i)); }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 64em) {
     .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); padding-left: 0; padding-bottom: 0; margin-top: 0; align-items: start; gap: var(--gutter); }
     .steps::before { display: none; }
     .step { margin-top: calc(var(--i) * var(--S)); min-height: 17rem; }

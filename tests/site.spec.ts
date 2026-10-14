@@ -111,6 +111,17 @@ test.describe('audit form', () => {
     await expect(page.locator('[data-summary]')).toBeHidden();
   });
 
+  test('fixing errors after a failed submit never moves controls under the pointer (regression)', async ({ page }) => {
+    await page.goto('/en/audit/');
+    await page.locator('[data-submit]').click();
+    await expect(page.locator('[data-summary]')).toBeVisible();
+    await page.fill('#f-name', 'Ada'); await page.fill('#f-email', 'ada@example.com'); await page.fill('#f-business', 'Studio'); await page.fill('#f-need', 'A site');
+    await page.locator('#f-privacy').check(); // a real click; fails if layout shifts between mouse-down and mouse-up
+    await expect(page.locator('#f-privacy')).toBeChecked();
+    await expect(page.locator('[data-summary]')).toBeHidden();
+    await expect(page.locator('[aria-invalid="true"]')).toHaveCount(0);
+  });
+
   test('validation messages are localized', async ({ page }) => {
     await page.goto('/de/audit/');
     await page.getByRole('button', { name: 'Analyse anfragen' }).click();
@@ -174,7 +185,7 @@ test.describe('audit form', () => {
 
 test.describe('responsive reflow and text enlargement', () => {
   const pages = ['/en/', '/de/', '/es/', '/en/plans/', '/en/audit/', '/en/work/', '/en/work/sample-hotel/', '/de/services/ads/', '/en/about/'];
-  for (const w of [320, 390, 834, 1440]) {
+  for (const w of [320, 390, 640, 720, 834, 1024, 1440]) {
     test(`no horizontal page scroll at ${w}px`, async ({ page }) => {
       await page.setViewportSize({ width: w, height: 800 });
       for (const p of pages) {

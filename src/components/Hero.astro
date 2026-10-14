@@ -60,12 +60,12 @@ const t = tr(lang);
   .p-lang { grid-column: 1; grid-row: 3; background: var(--ink); color: var(--paper); display: flex; align-items: center; justify-content: space-around; font-weight: 800; letter-spacing: 0.06em; font-size: 1.125rem; border-bottom-left-radius: 28px; }
   .p-shape { grid-column: 2; grid-row: 3; }
   .chip { position: absolute; left: 10px; bottom: 10px; background: var(--paper); color: var(--ink); font-size: 0.8125rem; font-weight: 600; padding: 3px 12px; border-radius: 999px; }
-  .chip--dark { background: var(--coral); color: var(--ink-deep); }
+  .chip--dark { background: var(--coral); color: var(--ink-deep); bottom: auto; top: 10px; }
 
-  @media (min-width: 768px) {
+  @media (min-width: 48em) {
     .hero__mosaic { grid-template-rows: 12rem 13rem 7rem; }
   }
-  @media (min-width: 1024px) {
+  @media (min-width: 64em) {
     .hero { padding-top: var(--s7); }
     .hero__grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s8); }
     .hero__mosaic { grid-template-rows: minmax(0, 0.95fr) minmax(0, 1.2fr) minmax(0, 0.6fr); height: clamp(30rem, 34vw, 35rem); align-self: center; }

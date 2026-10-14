@@ -62,11 +62,11 @@ const summaries = t.plans.summaries as Record<string, string>;
   .plan__cta { align-self: end; margin-top: auto; justify-self: start; }
   .plan--feat .plan__cta { font-size: 1.125rem; }
 
-  @media (min-width: 768px) {
+  @media (min-width: 48em) {
     .plans { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .plan--360 { grid-column: 1 / -1; }
   }
-  @media (min-width: 1024px) {
+  @media (min-width: 64em) {
     .plans { grid-template-columns: repeat(12, minmax(0, 1fr)); }
     .plan--base { grid-column: span 3; } .plan--local { grid-column: span 4; } .plan--captacion { grid-column: span 5; }
     .plan--captacion { padding-block: calc(var(--pad) + 12px); }

@@ -12,6 +12,7 @@ interface Props {
 }
 const { variant, tone = 'sand', label, class: cls } = Astro.props;
 const bg = { ink: 'var(--ink)', sand: 'var(--sand)', coral: 'var(--coral)', slate: 'var(--slate)', paper: 'var(--paper)' }[tone];
+const vb = ({ 'hero-video': '0 0 480 190', 'hero-web': '10 22 220 138' } as Record<string, string>)[variant] ?? '0 0 240 180';
 const dark = tone === 'ink' || tone === 'slate';
 const fg = dark ? 'var(--paper)' : 'var(--ink)';
 const acc = tone === 'coral' ? 'var(--ink)' : 'var(--coral)';
@@ -19,15 +20,15 @@ const alt = tone === 'slate' ? 'var(--sand)' : 'var(--slate)';
 ---
 <svg
   class:list={['art', cls]}
-  viewBox="0 0 240 180"
-  preserveAspectRatio="xMidYMid slice"
+  viewBox={vb}
+  preserveAspectRatio="xMidYMid meet"
   role={label ? 'img' : undefined}
   aria-label={label}
   aria-hidden={label ? undefined : 'true'}
   focusable="false"
   style={`--bg:${bg};--fg:${fg};--acc:${acc};--alt:${alt}`}
 >
-  <rect width="240" height="180" fill="var(--bg)" />
+  <rect width="480" height="190" fill="var(--bg)" />
   {(variant === 'browser' || variant === 'hero-web') && (
     <g>
       <rect x="34" y="30" width="172" height="120" rx="6" fill="var(--paper)" />
@@ -54,7 +55,20 @@ const alt = tone === 'slate' ? 'var(--sand)' : 'var(--slate)';
       <rect x="164" y="132" width="52" height="8" rx="4" fill="var(--fg)" opacity=".55" /><rect x="164" y="148" width="36" height="8" rx="4" fill="var(--fg)" opacity=".35" />
     </g>
   )}
-  {(variant === 'video' || variant === 'hero-video') && (
+  {variant === 'hero-video' && (
+    <g>
+      <rect x="36" y="24" width="290" height="124" rx="6" fill="var(--fg)" />
+      <circle cx="181" cy="86" r="30" fill="var(--acc)" />
+      <path d="M171 70l26 16-26 16Z" fill="#132338" />
+      <rect x="36" y="162" width="290" height="6" rx="3" fill="var(--fg)" opacity=".3" />
+      <rect x="36" y="162" width="132" height="6" rx="3" fill="var(--coral)" />
+      <circle cx="168" cy="165" r="8" fill="var(--paper)" />
+      <circle cx="402" cy="62" r="34" fill="var(--sand)" />
+      <path d="M480 190H356A124 124 0 0 1 480 66Z" fill="var(--alt)" />
+      <rect x="352" y="22" width="0" height="0" />
+    </g>
+  )}
+  {variant === 'video' && (
     <g>
       <rect x="30" y="28" width="180" height="104" rx="6" fill="var(--fg)" />
       <path d="M210 132V100a60 60 0 0 0-60-60h-0v92Z" fill="var(--alt)" opacity=".55" />
@@ -85,5 +99,5 @@ const alt = tone === 'slate' ? 'var(--sand)' : 'var(--slate)';
   )}
 </svg>
 <style>
-  .art { width: 100%; height: 100%; }
+  .art { width: 100%; height: 100%; background: var(--bg); }
 </style>

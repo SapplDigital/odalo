@@ -109,7 +109,7 @@ const live = !!site.auditEndpoint;
   .af__demo { background: var(--sand); border-left: 6px solid var(--coral); padding: 14px 18px; border-radius: 4px; font-size: 1rem; max-width: 60ch; }
   .af__form { display: grid; gap: var(--s6); }
   .af__grid { display: grid; gap: var(--s5) var(--s5); grid-template-columns: 1fr; }
-  @media (min-width: 768px) { .af__grid { grid-template-columns: 1fr 1fr; } .af__wide { grid-column: 1 / -1; } }
+  @media (min-width: 48em) { .af__grid { grid-template-columns: 1fr 1fr; } .af__wide { grid-column: 1 / -1; } }
   .field { display: grid; gap: 6px; align-content: start; }
   label { font-weight: 600; font-size: 1.0625rem; line-height: 1.3; }
   .req, .opt { font-weight: 400; color: var(--slate-text); font-size: 0.9375rem; }
@@ -219,10 +219,14 @@ const live = !!site.auditEndpoint;
       summary.hidden = errors.length === 0;
     }
 
-    form.addEventListener('blur', (e) => {
+    // Live re-validation happens on input/change, never on blur: a blur fires on mouse-down, and
+    // removing an error message then would shift the layout under the pointer and swallow the click.
+    const live = (e: Event) => {
       const t = e.target as HTMLElement;
       if (t.getAttribute?.('aria-invalid') === 'true') render(validate());
-    }, true);
+    };
+    form.addEventListener('input', live);
+    form.addEventListener('change', live);
 
     let busy = false;
     form.addEventListener('submit', async (e) => {
