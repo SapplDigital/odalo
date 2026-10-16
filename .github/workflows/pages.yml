@@ -4,7 +4,7 @@ name: Deploy demo to GitHub Pages
 
 on:
   push:
-    branches: [claude/stoic-faraday-9thz8d, main]
+    branches: [master]
   workflow_dispatch:
 
 permissions:
