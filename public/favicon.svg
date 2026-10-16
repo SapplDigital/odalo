@@ -1,17 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><clipPath id="c"><rect width="60" height="60" rx="9"/></clipPath><g clip-path="url(#c)">
-  <g id="bases">
-    <rect x="0"  y="0"  width="20.5" height="20.5" fill="var(--odalo-sand, #efe7d3)"/>
-    <rect x="20" y="0"  width="40.5" height="20.5" fill="var(--odalo-coral, #d98165)"/>
-    <rect x="0"  y="20" width="20.5" height="40"   fill="var(--odalo-sand, #efe7d3)"/>
-    <rect x="20" y="20" width="20.5" height="20.5" fill="var(--odalo-navy, #203b57)"/>
-    <rect x="40" y="20" width="20"   height="20.5" fill="var(--odalo-sand, #efe7d3)"/>
-    <rect x="20" y="40" width="40"   height="20"   fill="var(--odalo-slate, #50718b)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="286 89 428 428" role="img" aria-label="odalo">
+  <title>odalo</title>
+  <rect x="286" y="89" width="428" height="428" rx="68.48" fill="#f7f9f8"/>
+  <g stroke="#f7f9f8" stroke-width="1" stroke-linejoin="miter">
+    <g id="piece-3" transform="translate(400 403) rotate(0)"><polygon points="0,0 150,0 100,50 50,50" fill="#DDA4A8"/></g>
+    <g id="piece-4" transform="translate(500 203) rotate(0)"><polygon points="0,0 150,0 100,50 50,50" fill="#245C4B"/></g>
+    <g id="piece-5" transform="translate(500 353) rotate(0)"><polygon points="0,0 150,0 100,50 50,50" fill="#2354AA"/></g>
+    <g id="piece-8" transform="translate(350 253) rotate(90)"><polygon points="0,0 150,0 100,50 50,50" fill="#245C4B"/></g>
+    <g id="piece-12" transform="translate(650 203) rotate(90)"><polygon points="0,0 150,0 100,50 50,50" fill="#DDA4A8"/></g>
+    <g id="piece-16" transform="translate(450 453) rotate(180)"><polygon points="0,0 150,0 100,50 50,50" fill="#DDA4A8"/></g>
+    <g id="piece-20" transform="translate(500 253) rotate(180)"><polygon points="0,0 150,0 100,50 50,50" fill="#E6AE2F"/></g>
+    <g id="piece-24" transform="translate(550 203) rotate(180)"><polygon points="0,0 150,0 100,50 50,50" fill="#E6AE2F"/></g>
+    <g id="piece-25" transform="translate(550 403) rotate(180)"><polygon points="0,0 150,0 100,50 50,50" fill="#DDA4A8"/></g>
+    <g id="piece-26" transform="translate(400 403) rotate(270)"><polygon points="0,0 150,0 100,50 50,50" fill="#245C4B"/></g>
+    <g id="piece-1" transform="translate(450 203) rotate(0)"><polygon points="0,0 50,0 100,50 50,50" fill="#D96A43"/></g>
+    <g id="piece-14" transform="translate(700 353) rotate(90)"><polygon points="0,0 50,0 100,50 50,50" fill="#D96A43"/></g>
+    <g id="piece-6" transform="translate(450 403) rotate(0)"><polygon points="50,50 100,50 150,0 100,0" fill="#E6AE2F"/></g>
+    <g id="piece-22" transform="translate(550 353) rotate(0)"><polygon points="50,50 100,50 150,0 100,0" fill="#2354AA"/></g>
+    <g id="piece-2" transform="translate(450 153) rotate(0)"><polygon points="50,0 150,0 100,50" fill="#E6AE2F"/></g>
+    <g id="piece-7" transform="translate(700 203) rotate(180)"><polygon points="50,0 150,0 100,50" fill="#DDA4A8"/></g>
+    <g id="piece-15" transform="translate(700 453) rotate(180)"><polygon points="50,0 150,0 100,50" fill="#E6AE2F"/></g>
+    <g id="piece-23" transform="translate(300 503) rotate(270)"><polygon points="50,0 150,0 100,50" fill="#D96A43"/></g>
+    <g id="piece-13" transform="translate(650 203) rotate(0)"><polygon points="0,0 50,0 50,100 0,100" fill="#245C4B"/></g>
+    <g id="piece-28" transform="translate(600 303) rotate(90)"><polygon points="0,0 50,0 50,100 0,100" fill="#2354AA"/></g>
+    <g id="piece-11" transform="translate(450 303) rotate(0)"><polygon points="0,0 50,0 50,50 0,50" fill="#E6AE2F"/></g>
+    <g id="piece-19" transform="translate(650 153) rotate(0)"><polygon points="0,0 50,0 50,50 0,50" fill="#D96A43"/></g>
+    <g id="piece-21" transform="translate(650 303) rotate(0)"><polygon points="0,0 50,0 50,50 0,50" fill="#DDA4A8"/></g>
+    <g id="piece-27" transform="translate(450 253) rotate(0)"><polygon points="0,0 150,0 150,50 0,50" fill="#DDA4A8"/></g>
+    <g id="piece-29" transform="translate(400 253) rotate(90)"><polygon points="0,0 150,0 150,50 0,50" fill="#D96A43"/></g>
+    <g id="piece-9" transform="translate(400 253) rotate(0)"><polygon points="0,0 50,0 50,50" fill="#2354AA"/></g>
+    <g id="piece-10" transform="translate(600 153) rotate(0)"><polygon points="0,0 50,0 50,50" fill="#D96A43"/></g>
+    <g id="piece-17" transform="translate(600 403) rotate(0)"><polygon points="0,0 50,0 50,50" fill="#245C4B"/></g>
+    <g id="piece-18" transform="translate(650 353) rotate(180)"><polygon points="0,0 50,0 50,50" fill="#2354AA"/></g>
   </g>
-  <g id="curves">
-    <path d="M0 0H20A20 20 0 0 1 0 20Z"      fill="var(--odalo-navy, #203b57)"/>
-    <path d="M20 20A20 20 0 0 1 60 20Z"      fill="var(--odalo-slate, #50718b)"/>
-    <path d="M0 20A20 20 0 0 1 0 60Z"        fill="var(--odalo-coral, #d98165)"/>
-    <path d="M60 40H40A20 20 0 0 1 60 20Z"   fill="var(--odalo-navy, #203b57)"/>
-    <path d="M20 40A20 20 0 0 0 60 40Z"      fill="var(--odalo-coral, #d98165)"/>
-  </g>
-</g></svg>
+</svg>

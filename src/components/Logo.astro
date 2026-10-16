@@ -1,23 +1,39 @@
 ---
 /**
- * Odalo logo. The symbol is the single source file public/brand/odalo-symbol.svg (inlined here so
- * the page and the downloadable asset cannot drift). Wordmark is live Outfit text with the coral dot.
+ * The Odalo logo: the supplied animation module (src/mosaic/odalo/, 29 fixed pieces) mounted into this element by the script below
+ * (autoplaying only when `animate`; otherwise it rests on the word). Before the script runs (and without JS) the plain text "odalo." is shown; the module's SVG replaces it.
+ * The box has a fixed height (the word's height), so the artwork may overflow it vertically while shapes are showing but never moves layout.
  */
-import symbolSvg from '../../public/brand/odalo-symbol.svg?raw';
-interface Props { variant?: 'light' | 'dark'; symbolOnly?: boolean; size?: number }
-const { variant = 'light', symbolOnly = false, size = 40 } = Astro.props;
-const inner = symbolSvg.replace(/^[\s\S]*?<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '').replace(/<!--[\s\S]*?-->/g, '');
+import '../mosaic/odalo/odalo-mosaic.css';
+interface Props { variant?: 'light' | 'dark'; width?: number; animate?: boolean }
+const { variant = 'light', width, animate = false } = Astro.props;
 ---
-<span class:list={['logo', { 'logo--dark': variant === 'dark' }]} style={`--logo-size:${size}px`}>
-  <svg class="logo__mark" viewBox="0 0 60 60" aria-hidden="true" focusable="false" set:html={inner} />
-  {!symbolOnly && <span class="logo__word" aria-hidden="true">odalo<span class="logo__dot">.</span></span>}
+<span class:list={['logo', { 'logo--dark': variant === 'dark' }]} style={width ? `--logo-w:${width}px` : undefined} data-odalo-logo data-animate={animate ? '' : undefined}>
+  <span class="logo__fallback" aria-hidden="true">odalo<span class="logo__dot">.</span></span>
 </span>
-<style>
-  .logo { display: inline-flex; align-items: center; gap: calc(var(--logo-size) * 0.28); color: var(--ink); line-height: 1; }
-  :global(a:has(> .logo)) { text-decoration: none; }
-  .logo--dark { color: var(--paper); }
-  .logo--dark .logo__mark { --odalo-navy: #0d1a2b; }
-  .logo__mark { width: var(--logo-size); height: var(--logo-size); flex: none; }
-  .logo__word { font-family: var(--font-sans); font-weight: 700; font-size: calc(var(--logo-size) * 0.95); letter-spacing: -0.045em; }
+<style is:global>
+  .logo { --logo-w: 190px; position: relative; display: inline-block; width: var(--logo-w); height: calc(var(--logo-w) * 0.3); line-height: 1; --odalo-gap: var(--paper); }
+  .logo--dark { --odalo-gap: var(--ink); }
+  .logo__fallback { position: absolute; inset: 0; display: flex; align-items: center; font: 700 calc(var(--logo-w) * 0.24)/1 var(--font-sans); letter-spacing: -0.045em; color: var(--ink); }
+  .logo--dark .logo__fallback { color: var(--paper); }
   .logo__dot { color: var(--coral); }
+  .logo.is-mounted .logo__fallback { display: none; }
+  .js .logo:not(.is-mounted) .logo__fallback { visibility: hidden; } /* no flash of text before the artwork mounts */
+  /* The module's svg is 1000:606 with the word centred; centre it on the box so the word sits on the text baseline row. */
+  .logo .odalo-mosaic-svg { position: absolute; left: 0; top: 50%; transform: translateY(-50%); }
+  a:has(> .logo) { text-decoration: none; }
 </style>
+<script>
+  import { mount } from '../mosaic/odalo/odalo-mosaic.mjs';
+  // Mounts the supplied module into every logo on the page. It pauses itself while the tab is hidden or the logo is off screen
+  // and rests on the word with reduced motion. The instance is released when the page is hidden (the module's cleanup).
+  for (const box of document.querySelectorAll<HTMLElement>('[data-odalo-logo]')) {
+    try {
+      const logo = mount(box, { autoplay: box.hasAttribute('data-animate') });
+      box.classList.add('is-mounted');
+      window.addEventListener('pagehide', () => logo.destroy());
+    } catch (err) {
+      console.error('logo animation failed; keeping the plain wordmark', err);
+    }
+  }
+</script>

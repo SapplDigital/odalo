@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="80 143 840 320" role="img" aria-label="odalo">
+  <title>odalo</title>
+  <g stroke="#f7f9f8" stroke-width="1" stroke-linejoin="miter">
+    <g id="piece-1" transform="translate(90 253) rotate(0)"><polygon points="0,0 50,0 100,50 50,50" fill="#D96A43"/></g>
+    <g id="piece-2" transform="translate(90 253) rotate(0)"><polygon points="50,0 150,0 100,50" fill="#E6AE2F"/></g>
+    <g id="piece-3" transform="translate(240 253) rotate(90)"><polygon points="0,0 150,0 100,50 50,50" fill="#DDA4A8"/></g>
+    <g id="piece-4" transform="translate(240 403) rotate(180)"><polygon points="0,0 150,0 100,50 50,50" fill="#245C4B"/></g>
+    <g id="piece-5" transform="translate(90 403) rotate(270)"><polygon points="0,0 150,0 100,50 50,50" fill="#2354AA"/></g>
+    <g id="piece-6" transform="translate(257.5 253) rotate(0)"><polygon points="50,50 100,50 150,0 100,0" fill="#E6AE2F"/></g>
+    <g id="piece-7" transform="translate(207.5 253) rotate(0)"><polygon points="50,0 150,0 100,50" fill="#DDA4A8"/></g>
+    <g id="piece-8" transform="translate(407.5 253) rotate(90)"><polygon points="0,0 150,0 100,50 50,50" fill="#245C4B"/></g>
+    <g id="piece-9" transform="translate(407.5 403) rotate(180)"><polygon points="0,0 50,0 50,50" fill="#2354AA"/></g>
+    <g id="piece-10" transform="translate(307.5 353) rotate(90)"><polygon points="0,0 50,0 50,50" fill="#D96A43"/></g>
+    <g id="piece-11" transform="translate(357.5 403) rotate(180)"><polygon points="0,0 50,0 50,50 0,50" fill="#E6AE2F"/></g>
+    <g id="piece-12" transform="translate(257.5 403) rotate(270)"><polygon points="0,0 150,0 100,50 50,50" fill="#DDA4A8"/></g>
+    <g id="piece-13" transform="translate(357.5 153) rotate(0)"><polygon points="0,0 50,0 50,100 0,100" fill="#245C4B"/></g>
+    <g id="piece-14" transform="translate(425 253) rotate(0)"><polygon points="0,0 50,0 100,50 50,50" fill="#D96A43"/></g>
+    <g id="piece-15" transform="translate(425 253) rotate(0)"><polygon points="50,0 150,0 100,50" fill="#E6AE2F"/></g>
+    <g id="piece-16" transform="translate(575 253) rotate(90)"><polygon points="0,0 150,0 100,50 50,50" fill="#DDA4A8"/></g>
+    <g id="piece-17" transform="translate(575 403) rotate(180)"><polygon points="0,0 50,0 50,50" fill="#245C4B"/></g>
+    <g id="piece-18" transform="translate(475 353) rotate(90)"><polygon points="0,0 50,0 50,50" fill="#2354AA"/></g>
+    <g id="piece-19" transform="translate(525 403) rotate(180)"><polygon points="0,0 50,0 50,50 0,50" fill="#D96A43"/></g>
+    <g id="piece-20" transform="translate(425 403) rotate(270)"><polygon points="0,0 150,0 100,50 50,50" fill="#E6AE2F"/></g>
+    <g id="piece-21" transform="translate(525 403) rotate(0)"><polygon points="0,0 50,0 50,50 0,50" fill="#DDA4A8"/></g>
+    <g id="piece-22" transform="translate(760 253) rotate(0)"><polygon points="50,50 100,50 150,0 100,0" fill="#2354AA"/></g>
+    <g id="piece-23" transform="translate(710 253) rotate(0)"><polygon points="50,0 150,0 100,50" fill="#D96A43"/></g>
+    <g id="piece-24" transform="translate(910 253) rotate(90)"><polygon points="0,0 150,0 100,50 50,50" fill="#E6AE2F"/></g>
+    <g id="piece-25" transform="translate(910 403) rotate(180)"><polygon points="0,0 150,0 100,50 50,50" fill="#DDA4A8"/></g>
+    <g id="piece-26" transform="translate(760 403) rotate(270)"><polygon points="0,0 150,0 100,50 50,50" fill="#245C4B"/></g>
+    <g id="piece-27" transform="translate(642.5 153) rotate(90)"><polygon points="0,0 150,0 150,50 0,50" fill="#DDA4A8"/></g>
+    <g id="piece-28" transform="translate(592.5 303) rotate(0)"><polygon points="0,0 50,0 50,100 0,100" fill="#2354AA"/></g>
+    <g id="piece-29" transform="translate(592.5 403) rotate(0)"><polygon points="0,0 150,0 150,50 0,50" fill="#D96A43"/></g>
+  </g>
+</svg>

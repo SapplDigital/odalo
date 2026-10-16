@@ -18,7 +18,12 @@ const current = rest.split('/')[0];
 ---
 <header class="hdr" data-header>
   <div class="wrap hdr__in">
-    <a class="hdr__logo" href={homeHref} aria-label={t.a11y.home}><Logo size={38} /></a>
+    <div class="hdr__brand">
+      <a class="hdr__logo" href={homeHref} aria-label={t.a11y.home}><Logo animate /></a>
+      <button class="hdr__pause" type="button" aria-pressed="false" data-pause={t.a11y.pauseLogo} data-play={t.a11y.playLogo} aria-label={t.a11y.pauseLogo} hidden>
+        <span class="hdr__pause-ico" aria-hidden="true"></span>
+      </button>
+    </div>
     <button class="hdr__toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-open={t.a11y.openMenu} data-close={t.a11y.closeMenu} aria-label={t.a11y.openMenu}>
       <span class="hdr__bars" aria-hidden="true"></span>
     </button>
@@ -41,6 +46,15 @@ const current = rest.split('/')[0];
   .hdr { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--line); }
   .hdr__in { display: flex; align-items: center; justify-content: space-between; min-height: var(--header-h); gap: 16px; position: relative; }
   .hdr__logo { display: inline-flex; min-height: 44px; align-items: center; }
+  .hdr__brand { display: flex; align-items: center; gap: 4px; }
+  /* The logo is the name; its artwork can grow past the box while a shape shows, so keep it clear of the nav. */
+  .hdr__logo :global(.logo) { --logo-w: 150px; }
+  @media (min-width: 48em) { .hdr__logo :global(.logo) { --logo-w: 190px; } }
+  .hdr__pause { display: none; width: 44px; height: 44px; border: 0; border-radius: 999px; background: transparent; color: var(--ink); cursor: pointer; align-items: center; justify-content: center; }
+  .hdr__pause:hover { background: var(--sand); }
+  :global(.js) .hdr__pause:not([hidden]) { display: inline-flex; }
+  .hdr__pause-ico { width: 12px; height: 14px; border-left: 4px solid currentColor; border-right: 4px solid currentColor; box-sizing: border-box; }
+  .hdr__pause[aria-pressed='true'] .hdr__pause-ico { width: 0; height: 0; border: 0; border-top: 7px solid transparent; border-bottom: 7px solid transparent; border-left: 12px solid currentColor; }
   .hdr__toggle { display: none; width: 48px; height: 48px; border: 2px solid var(--ink); border-radius: 999px; background: transparent; cursor: pointer; align-items: center; justify-content: center; color: var(--ink); }
   .hdr__bars, .hdr__bars::before, .hdr__bars::after { display: block; width: 20px; height: 2.5px; background: currentColor; border-radius: 2px; position: relative; transition: transform 0.2s, opacity 0.2s; }
   .hdr__bars::before, .hdr__bars::after { content: ''; position: absolute; left: 0; }
@@ -67,6 +81,28 @@ const current = rest.split('/')[0];
     :global(.no-js) .hdr__panel { flex-wrap: wrap; justify-content: flex-start; }
   }
 </style>
+<script>
+  import { mount } from '../mosaic/odalo/odalo-mosaic.mjs';
+
+  // The Logo component mounts the animation (odalo -> fish -> odalo -> bird -> odalo -> sailboat -> odalo -> fox -> odalo -> hexagon -> repeat).
+  // Here we only add the pause control: the logo sits in a persistent header, so it needs a visible way to stop (WCAG 2.2.2).
+  const box = document.querySelector<HTMLElement>('.hdr__logo [data-odalo-logo]');
+  const pause = document.querySelector<HTMLButtonElement>('.hdr__pause');
+  if (box && pause && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    try {
+      const logo = mount(box); // returns the instance the Logo component already mounted
+      pause.hidden = false;
+      pause.addEventListener('click', () => {
+        const stopping = pause.getAttribute('aria-pressed') !== 'true';
+        if (stopping) logo.pause(); else logo.play();
+        pause.setAttribute('aria-pressed', String(stopping));
+        pause.setAttribute('aria-label', stopping ? pause.dataset.play! : pause.dataset.pause!);
+      });
+    } catch (err) {
+      console.error('logo pause control unavailable', err);
+    }
+  }
+</script>
 <script>
   const hdr = document.querySelector<HTMLElement>('[data-header]');
   const btn = hdr?.querySelector<HTMLButtonElement>('.hdr__toggle');

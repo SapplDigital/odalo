@@ -235,7 +235,6 @@ const rows = [services.slice(0, 2), services.slice(2, 4)];
 
   function init(root: HTMLElement, detail: HTMLElement, slot: HTMLElement) {
     const tiles = [...root.querySelectorAll<HTMLElement>('[data-tile]')];
-    const rows = [...root.querySelectorAll<HTMLElement>('.row')];
     const panels = [...detail.querySelectorAll<HTMLElement>('[data-detail-for]')];
     const status = detail.querySelector<HTMLElement>('[data-detail-status]')!;
     const ids = tiles.map((t) => t.dataset.service!);
