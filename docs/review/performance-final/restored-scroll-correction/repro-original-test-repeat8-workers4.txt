@@ -1,0 +1,120 @@
+
+Running 8 tests using 4 workers
+
+  x  2 tests\services-motion.spec.ts:162:3 › services assembly: actions never wait for the travel › after a reload that restores the scroll position, every tile whose top is inside the window is docked and every tile clearly below it can still assemble (4.3s)
+  x  3 tests\services-motion.spec.ts:162:3 › services assembly: actions never wait for the travel › after a reload that restores the scroll position, every tile whose top is inside the window is docked and every tile clearly below it can still assemble (4.3s)
+  x  4 tests\services-motion.spec.ts:162:3 › services assembly: actions never wait for the travel › after a reload that restores the scroll position, every tile whose top is inside the window is docked and every tile clearly below it can still assemble (4.3s)
+  x  1 tests\services-motion.spec.ts:162:3 › services assembly: actions never wait for the travel › after a reload that restores the scroll position, every tile whose top is inside the window is docked and every tile clearly below it can still assemble (4.3s)
+  ok 6 tests\services-motion.spec.ts:162:3 › services assembly: actions never wait for the travel › after a reload that restores the scroll position, every tile whose top is inside the window is docked and every tile clearly below it can still assemble (2.6s)
+  ok 5 tests\services-motion.spec.ts:162:3 › services assembly: actions never wait for the travel › after a reload that restores the scroll position, every tile whose top is inside the window is docked and every tile clearly below it can still assemble (2.8s)
+  ok 7 tests\services-motion.spec.ts:162:3 › services assembly: actions never wait for the travel › after a reload that restores the scroll position, every tile whose top is inside the window is docked and every tile clearly below it can still assemble (2.6s)
+  x  8 tests\services-motion.spec.ts:162:3 › services assembly: actions never wait for the travel › after a reload that restores the scroll position, every tile whose top is inside the window is docked and every tile clearly below it can still assemble (2.5s)
+
+
+  1) tests\services-motion.spec.ts:162:3 › services assembly: actions never wait for the travel › after a reload that restores the scroll position, every tile whose top is inside the window is docked and every tile clearly below it can still assemble 
+
+    Error: video (top 1044 of 900) must still be eligible to assemble
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 5
+    Received:   0
+
+      179 |     expect(below.map((t) => t.id), 'the bottom row is clearly below it').toEqual(['video', 'ads']);
+      180 |     for (const t of inside) expect(moved(p, t.id), `${t.id} (top ${Math.round(t.nominalTop)} of ${geom.vh}) must be docked`).toBe(0);
+    > 181 |     for (const t of below) expect(moved(p, t.id), `${t.id} (top ${Math.round(t.nominalTop)} of ${geom.vh}) must still be eligible to assemble`).toBeGreaterThan(5);
+          |                                                                                                                                                 ^
+      182 |     expect(p.assembling).toBe(true);
+      183 |     // scrolling the lower row into the window assembles it, as for a first visit
+      184 |     await scrollPage(page, Math.round(top + 560));
+        at C:\Users\basti\source\repos\odalo\odalo\tests\services-motion.spec.ts:181:145
+
+    Error Context: test-results\services-motion-services-a-816d6-below-it-can-still-assemble\error-context.md
+
+  2) tests\services-motion.spec.ts:162:3 › services assembly: actions never wait for the travel › after a reload that restores the scroll position, every tile whose top is inside the window is docked and every tile clearly below it can still assemble 
+
+    Error: video (top 1041 of 900) must still be eligible to assemble
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 5
+    Received:   0
+
+      179 |     expect(below.map((t) => t.id), 'the bottom row is clearly below it').toEqual(['video', 'ads']);
+      180 |     for (const t of inside) expect(moved(p, t.id), `${t.id} (top ${Math.round(t.nominalTop)} of ${geom.vh}) must be docked`).toBe(0);
+    > 181 |     for (const t of below) expect(moved(p, t.id), `${t.id} (top ${Math.round(t.nominalTop)} of ${geom.vh}) must still be eligible to assemble`).toBeGreaterThan(5);
+          |                                                                                                                                                 ^
+      182 |     expect(p.assembling).toBe(true);
+      183 |     // scrolling the lower row into the window assembles it, as for a first visit
+      184 |     await scrollPage(page, Math.round(top + 560));
+        at C:\Users\basti\source\repos\odalo\odalo\tests\services-motion.spec.ts:181:145
+
+    Error Context: test-results\services-motion-services-a-816d6-below-it-can-still-assemble-repeat1\error-context.md
+
+  3) tests\services-motion.spec.ts:162:3 › services assembly: actions never wait for the travel › after a reload that restores the scroll position, every tile whose top is inside the window is docked and every tile clearly below it can still assemble 
+
+    Error: video (top 1044 of 900) must still be eligible to assemble
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 5
+    Received:   0
+
+      179 |     expect(below.map((t) => t.id), 'the bottom row is clearly below it').toEqual(['video', 'ads']);
+      180 |     for (const t of inside) expect(moved(p, t.id), `${t.id} (top ${Math.round(t.nominalTop)} of ${geom.vh}) must be docked`).toBe(0);
+    > 181 |     for (const t of below) expect(moved(p, t.id), `${t.id} (top ${Math.round(t.nominalTop)} of ${geom.vh}) must still be eligible to assemble`).toBeGreaterThan(5);
+          |                                                                                                                                                 ^
+      182 |     expect(p.assembling).toBe(true);
+      183 |     // scrolling the lower row into the window assembles it, as for a first visit
+      184 |     await scrollPage(page, Math.round(top + 560));
+        at C:\Users\basti\source\repos\odalo\odalo\tests\services-motion.spec.ts:181:145
+
+    Error Context: test-results\services-motion-services-a-816d6-below-it-can-still-assemble-repeat2\error-context.md
+
+  4) tests\services-motion.spec.ts:162:3 › services assembly: actions never wait for the travel › after a reload that restores the scroll position, every tile whose top is inside the window is docked and every tile clearly below it can still assemble 
+
+    Error: video (top 1044 of 900) must still be eligible to assemble
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 5
+    Received:   0
+
+      179 |     expect(below.map((t) => t.id), 'the bottom row is clearly below it').toEqual(['video', 'ads']);
+      180 |     for (const t of inside) expect(moved(p, t.id), `${t.id} (top ${Math.round(t.nominalTop)} of ${geom.vh}) must be docked`).toBe(0);
+    > 181 |     for (const t of below) expect(moved(p, t.id), `${t.id} (top ${Math.round(t.nominalTop)} of ${geom.vh}) must still be eligible to assemble`).toBeGreaterThan(5);
+          |                                                                                                                                                 ^
+      182 |     expect(p.assembling).toBe(true);
+      183 |     // scrolling the lower row into the window assembles it, as for a first visit
+      184 |     await scrollPage(page, Math.round(top + 560));
+        at C:\Users\basti\source\repos\odalo\odalo\tests\services-motion.spec.ts:181:145
+
+    Error Context: test-results\services-motion-services-a-816d6-below-it-can-still-assemble-repeat3\error-context.md
+
+  5) tests\services-motion.spec.ts:162:3 › services assembly: actions never wait for the travel › after a reload that restores the scroll position, every tile whose top is inside the window is docked and every tile clearly below it can still assemble 
+
+    Error: video (top 1043 of 900) must still be eligible to assemble
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 5
+    Received:   0
+
+      179 |     expect(below.map((t) => t.id), 'the bottom row is clearly below it').toEqual(['video', 'ads']);
+      180 |     for (const t of inside) expect(moved(p, t.id), `${t.id} (top ${Math.round(t.nominalTop)} of ${geom.vh}) must be docked`).toBe(0);
+    > 181 |     for (const t of below) expect(moved(p, t.id), `${t.id} (top ${Math.round(t.nominalTop)} of ${geom.vh}) must still be eligible to assemble`).toBeGreaterThan(5);
+          |                                                                                                                                                 ^
+      182 |     expect(p.assembling).toBe(true);
+      183 |     // scrolling the lower row into the window assembles it, as for a first visit
+      184 |     await scrollPage(page, Math.round(top + 560));
+        at C:\Users\basti\source\repos\odalo\odalo\tests\services-motion.spec.ts:181:145
+
+    Error Context: test-results\services-motion-services-a-816d6-below-it-can-still-assemble-repeat7\error-context.md
+
+  5 failed
+    tests\services-motion.spec.ts:162:3 › services assembly: actions never wait for the travel › after a reload that restores the scroll position, every tile whose top is inside the window is docked and every tile clearly below it can still assemble 
+    tests\services-motion.spec.ts:162:3 › services assembly: actions never wait for the travel › after a reload that restores the scroll position, every tile whose top is inside the window is docked and every tile clearly below it can still assemble 
+    tests\services-motion.spec.ts:162:3 › services assembly: actions never wait for the travel › after a reload that restores the scroll position, every tile whose top is inside the window is docked and every tile clearly below it can still assemble 
+    tests\services-motion.spec.ts:162:3 › services assembly: actions never wait for the travel › after a reload that restores the scroll position, every tile whose top is inside the window is docked and every tile clearly below it can still assemble 
+    tests\services-motion.spec.ts:162:3 › services assembly: actions never wait for the travel › after a reload that restores the scroll position, every tile whose top is inside the window is docked and every tile clearly below it can still assemble 
+  3 passed (40.5s)

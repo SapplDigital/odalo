@@ -1,0 +1,775 @@
+{
+ "target": 589,
+ "finalPose": {
+  "web": true,
+  "local": true,
+  "video": true,
+  "ads": true
+ },
+ "geom": {
+  "vh": 900,
+  "tiles": [
+   {
+    "id": "web",
+    "nominalTop": 497
+   },
+   {
+    "id": "local",
+    "nominalTop": 497
+   },
+   {
+    "id": "video",
+    "nominalTop": 1041
+   },
+   {
+    "id": "ads",
+    "nominalTop": 1041
+   }
+  ]
+ },
+ "firstDocLength": 21,
+ "firstDoc": [
+  {
+   "t": 0.1,
+   "e": "init",
+   "y": 0,
+   "rs": "auto"
+  },
+  {
+   "t": 1.2,
+   "e": "fonts.ready",
+   "y": 0
+  },
+  {
+   "t": 409.5,
+   "e": "poll",
+   "y": 0,
+   "docH": 9736,
+   "rs": "loading",
+   "hasMosaic": true
+  },
+  {
+   "t": 416.5,
+   "e": "poll",
+   "y": 0,
+   "docH": 9736,
+   "rs": "interactive",
+   "hasMosaic": true
+  },
+  {
+   "t": 418.7,
+   "e": "sample",
+   "y": 0,
+   "mosaicPageTop": 1094,
+   "docH": 9736,
+   "assembling": false,
+   "tiles": "web:1094:D local:1094:D video:1638:D ads:1638:D"
+  },
+  {
+   "t": 500,
+   "e": "poll",
+   "y": 0,
+   "docH": 9701,
+   "rs": "interactive",
+   "hasMosaic": true
+  },
+  {
+   "t": 503,
+   "e": "sample",
+   "y": 0,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:1089:D local:1089:D video:1633:D ads:1633:D"
+  },
+  {
+   "t": 510.8,
+   "e": "img.load",
+   "y": 0,
+   "src": "hotel-desktop-1024.webp"
+  },
+  {
+   "t": 510.8,
+   "e": "img.load",
+   "y": 0,
+   "src": "services-local-info-1024.webp"
+  },
+  {
+   "t": 510.8,
+   "e": "img.load",
+   "y": 0,
+   "src": "services-video-strip-1280.webp"
+  },
+  {
+   "t": 510.9,
+   "e": "img.load",
+   "y": 0,
+   "src": "clinic-ad-square-1080.webp"
+  },
+  {
+   "t": 523.7,
+   "e": "DOMContentLoaded",
+   "y": 0
+  },
+  {
+   "t": 524.9,
+   "e": "load",
+   "y": 0
+  },
+  {
+   "t": 525,
+   "e": "pageshow",
+   "y": 0,
+   "persisted": false
+  },
+  {
+   "t": 525.6,
+   "e": "poll",
+   "y": 0,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 545,
+   "e": "sample",
+   "y": 0,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": true,
+   "tiles": "web:1089 local:1089 video:1633 ads:1633"
+  },
+  {
+   "t": 767,
+   "e": "poll",
+   "y": 589,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 767.2,
+   "e": "scroll",
+   "y": 589
+  },
+  {
+   "t": 767.4,
+   "e": "sample",
+   "y": 589,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": true,
+   "tiles": "web:500 local:500 video:1044 ads:1044"
+  },
+  {
+   "t": 775.6,
+   "e": "img.load",
+   "y": 589,
+   "src": "hotel-desktop-1024.webp"
+  },
+  {
+   "t": 805.3,
+   "e": "img.load",
+   "y": 589,
+   "src": "clinic-ad-portrait-540.webp"
+  },
+  {
+   "e": "MARK before reload",
+   "t": 0,
+   "y": 589
+  }
+ ],
+ "timeline": [
+  {
+   "t": 0,
+   "e": "init",
+   "y": 0,
+   "rs": "auto"
+  },
+  {
+   "t": 0.9,
+   "e": "fonts.ready",
+   "y": 0
+  },
+  {
+   "t": 16.6,
+   "e": "poll",
+   "y": 1264,
+   "docH": 14409,
+   "rs": "interactive",
+   "hasMosaic": true
+  },
+  {
+   "t": 73.1,
+   "e": "poll",
+   "y": 1264,
+   "docH": 9701,
+   "rs": "interactive",
+   "hasMosaic": true
+  },
+  {
+   "t": 73.9,
+   "e": "sample",
+   "y": 1264,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:-175:D local:-175:D video:369:D ads:369:D"
+  },
+  {
+   "t": 81.1,
+   "e": "img.load",
+   "y": 1264,
+   "src": "hotel-desktop-1024.webp"
+  },
+  {
+   "t": 81.1,
+   "e": "img.load",
+   "y": 1264,
+   "src": "services-local-info-1024.webp"
+  },
+  {
+   "t": 81.2,
+   "e": "img.load",
+   "y": 1264,
+   "src": "services-video-strip-1280.webp"
+  },
+  {
+   "t": 81.2,
+   "e": "img.load",
+   "y": 1264,
+   "src": "clinic-ad-square-1080.webp"
+  },
+  {
+   "t": 81.3,
+   "e": "img.load",
+   "y": 1264,
+   "src": "clinic-ad-portrait-540.webp"
+  },
+  {
+   "t": 81.3,
+   "e": "scroll",
+   "y": 1264
+  },
+  {
+   "t": 82.5,
+   "e": "img.load",
+   "y": 1264,
+   "src": "hotel-desktop-1024.webp"
+  },
+  {
+   "t": 90.5,
+   "e": "DOMContentLoaded",
+   "y": 1264
+  },
+  {
+   "t": 97.6,
+   "e": "img.load",
+   "y": 1264,
+   "src": "shop-poster-360.webp"
+  },
+  {
+   "t": 97.8,
+   "e": "load",
+   "y": 1264
+  },
+  {
+   "t": 97.9,
+   "e": "pageshow",
+   "y": 1264,
+   "persisted": false
+  },
+  {
+   "t": 101.1,
+   "e": "poll",
+   "y": 1264,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 135.4,
+   "e": "scroll",
+   "y": 1262
+  },
+  {
+   "t": 135.5,
+   "e": "sample",
+   "y": 1262,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:-173:D local:-173:D video:371:D ads:371:D"
+  },
+  {
+   "t": 137.4,
+   "e": "poll",
+   "y": 1262,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 152.1,
+   "e": "scroll",
+   "y": 1253
+  },
+  {
+   "t": 152.4,
+   "e": "sample",
+   "y": 1253,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:-164:D local:-164:D video:380:D ads:380:D"
+  },
+  {
+   "t": 153.3,
+   "e": "poll",
+   "y": 1253,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 168.3,
+   "e": "scroll",
+   "y": 1236
+  },
+  {
+   "t": 168.4,
+   "e": "sample",
+   "y": 1236,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:-147:D local:-147:D video:397:D ads:397:D"
+  },
+  {
+   "t": 169.4,
+   "e": "poll",
+   "y": 1236,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 184.9,
+   "e": "scroll",
+   "y": 1203
+  },
+  {
+   "t": 185,
+   "e": "sample",
+   "y": 1203,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:-114:D local:-114:D video:430:D ads:430:D"
+  },
+  {
+   "t": 185.3,
+   "e": "poll",
+   "y": 1203,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 201.5,
+   "e": "scroll",
+   "y": 1143
+  },
+  {
+   "t": 201.6,
+   "e": "sample",
+   "y": 1143,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:-54:D local:-54:D video:490:D ads:490:D"
+  },
+  {
+   "t": 201.8,
+   "e": "poll",
+   "y": 1143,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 218.1,
+   "e": "scroll",
+   "y": 1043
+  },
+  {
+   "t": 218.2,
+   "e": "sample",
+   "y": 1043,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:46:D local:46:D video:590:D ads:590:D"
+  },
+  {
+   "t": 221.9,
+   "e": "poll",
+   "y": 1043,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 234.8,
+   "e": "scroll",
+   "y": 940
+  },
+  {
+   "t": 235,
+   "e": "sample",
+   "y": 940,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:149:D local:149:D video:693:D ads:693:D"
+  },
+  {
+   "t": 237.9,
+   "e": "poll",
+   "y": 940,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 251.6,
+   "e": "scroll",
+   "y": 862
+  },
+  {
+   "t": 251.7,
+   "e": "sample",
+   "y": 862,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:227:D local:227:D video:771:D ads:771:D"
+  },
+  {
+   "t": 252.9,
+   "e": "poll",
+   "y": 862,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 268.2,
+   "e": "scroll",
+   "y": 807
+  },
+  {
+   "t": 268.4,
+   "e": "sample",
+   "y": 807,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:282:D local:282:D video:826:D ads:826:D"
+  },
+  {
+   "t": 268.8,
+   "e": "poll",
+   "y": 807,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 284.8,
+   "e": "scroll",
+   "y": 764
+  },
+  {
+   "t": 285,
+   "e": "sample",
+   "y": 764,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:325:D local:325:D video:869:D ads:869:D"
+  },
+  {
+   "t": 285.1,
+   "e": "poll",
+   "y": 764,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 301.5,
+   "e": "scroll",
+   "y": 731
+  },
+  {
+   "t": 301.6,
+   "e": "sample",
+   "y": 731,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:358:D local:358:D video:902:D ads:902:D"
+  },
+  {
+   "t": 301.9,
+   "e": "poll",
+   "y": 731,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 318.1,
+   "e": "scroll",
+   "y": 704
+  },
+  {
+   "t": 318.2,
+   "e": "sample",
+   "y": 704,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:385:D local:385:D video:929:D ads:929:D"
+  },
+  {
+   "t": 322.1,
+   "e": "poll",
+   "y": 704,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 334.8,
+   "e": "scroll",
+   "y": 682
+  },
+  {
+   "t": 334.9,
+   "e": "sample",
+   "y": 682,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:407:D local:407:D video:951:D ads:951:D"
+  },
+  {
+   "t": 337.5,
+   "e": "poll",
+   "y": 682,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 351.5,
+   "e": "scroll",
+   "y": 664
+  },
+  {
+   "t": 351.6,
+   "e": "sample",
+   "y": 664,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:425:D local:425:D video:969:D ads:969:D"
+  },
+  {
+   "t": 353.5,
+   "e": "poll",
+   "y": 664,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 368.2,
+   "e": "scroll",
+   "y": 649
+  },
+  {
+   "t": 368.4,
+   "e": "sample",
+   "y": 649,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:440:D local:440:D video:984:D ads:984:D"
+  },
+  {
+   "t": 368.9,
+   "e": "poll",
+   "y": 649,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 384.9,
+   "e": "scroll",
+   "y": 636
+  },
+  {
+   "t": 385,
+   "e": "sample",
+   "y": 636,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:453:D local:453:D video:997:D ads:997:D"
+  },
+  {
+   "t": 385.2,
+   "e": "poll",
+   "y": 636,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 401.6,
+   "e": "scroll",
+   "y": 626
+  },
+  {
+   "t": 401.7,
+   "e": "sample",
+   "y": 626,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:463:D local:463:D video:1007:D ads:1007:D"
+  },
+  {
+   "t": 402.1,
+   "e": "poll",
+   "y": 626,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 418.1,
+   "e": "scroll",
+   "y": 617
+  },
+  {
+   "t": 418.3,
+   "e": "sample",
+   "y": 617,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:472:D local:472:D video:1016:D ads:1016:D"
+  },
+  {
+   "t": 421,
+   "e": "poll",
+   "y": 617,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 434.8,
+   "e": "scroll",
+   "y": 609
+  },
+  {
+   "t": 434.9,
+   "e": "sample",
+   "y": 609,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:480:D local:480:D video:1024:D ads:1024:D"
+  },
+  {
+   "t": 437,
+   "e": "poll",
+   "y": 609,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 451.4,
+   "e": "scroll",
+   "y": 603
+  },
+  {
+   "t": 451.4,
+   "e": "sample",
+   "y": 603,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:486:D local:486:D video:1030:D ads:1030:D"
+  },
+  {
+   "t": 454,
+   "e": "poll",
+   "y": 603,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 468.1,
+   "e": "scroll",
+   "y": 599
+  },
+  {
+   "t": 468.3,
+   "e": "sample",
+   "y": 599,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:490:D local:490:D video:1034:D ads:1034:D"
+  },
+  {
+   "t": 468.9,
+   "e": "poll",
+   "y": 599,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 485.3,
+   "e": "scroll",
+   "y": 595
+  },
+  {
+   "t": 485.4,
+   "e": "sample",
+   "y": 595,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:494:D local:494:D video:1038:D ads:1038:D"
+  },
+  {
+   "t": 485.7,
+   "e": "poll",
+   "y": 595,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  }
+ ]
+}

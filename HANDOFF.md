@@ -105,6 +105,8 @@ Run on the final build (`npm run verify`; Chromium only, headless, Linux contain
 
 **Superseded:** the table that was here (178 KB "transfer", INP column, 4.3 KB JS) predated the redesign and mislabelled decoded sizes and a sampled event duration. The current, reproducible measurements, with size bases kept apart (decoded, observed encoded, calculated gzip/brotli) and budgets, are in `docs/review/performance-final/README.md`. Budgets: JS ≤ 200 KB (PRODUCT.md); LCP ≤ 2.5 s, CLS ≤ 0.1, page weight ≤ 1.5 MB, interaction ≤ 200 ms (earlier handoff targets). Lab numbers are not production guarantees and not field Core Web Vitals.
 
+**Restored-scroll test (correction 18A):** the earlier failure was a test assumption, not a defect: under load the browser can restore the scroll position against an unstyled layout, the mosaic docks what is then on screen (by design), and the position is corrected later. Replaced by a lifecycle-aware real-restoration test and a deterministic one; see `docs/review/performance-final/restored-scroll-correction/README.md`. Suite: 569 tests. Only Edge was exercised.
+
 ### Not done / limits of this verification
 - **Browsers:** Chromium only. Firefox and Safari (including `grid-template-columns` transition support, iOS touch) are untested.
 - **No manual assistive-technology testing** (VoiceOver, NVDA, TalkBack, voice control). axe catches only a subset of WCAG issues; do not treat this as a conformance statement.

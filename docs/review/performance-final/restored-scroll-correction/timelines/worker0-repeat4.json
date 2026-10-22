@@ -1,0 +1,221 @@
+{
+ "target": 589,
+ "finalPose": {
+  "web": true,
+  "local": true,
+  "video": false,
+  "ads": false
+ },
+ "geom": {
+  "vh": 900,
+  "tiles": [
+   {
+    "id": "web",
+    "nominalTop": 500
+   },
+   {
+    "id": "local",
+    "nominalTop": 500
+   },
+   {
+    "id": "video",
+    "nominalTop": 1044
+   },
+   {
+    "id": "ads",
+    "nominalTop": 1044
+   }
+  ]
+ },
+ "firstDocLength": 15,
+ "firstDoc": [
+  {
+   "t": 0.2,
+   "e": "init",
+   "y": 0,
+   "rs": "auto"
+  },
+  {
+   "t": 1.8,
+   "e": "fonts.ready",
+   "y": 0
+  },
+  {
+   "t": 342.5,
+   "e": "sample",
+   "y": 0,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:1089:D local:1089:D video:1633:D ads:1633:D"
+  },
+  {
+   "t": 367.2,
+   "e": "DOMContentLoaded",
+   "y": 0
+  },
+  {
+   "t": 369.1,
+   "e": "load",
+   "y": 0
+  },
+  {
+   "t": 369.4,
+   "e": "pageshow",
+   "y": 0,
+   "persisted": false
+  },
+  {
+   "t": 370.2,
+   "e": "sample",
+   "y": 0,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": true,
+   "tiles": "web:1089 local:1089 video:1633 ads:1633"
+  },
+  {
+   "t": 393.6,
+   "e": "img.load",
+   "y": 0,
+   "src": "hotel-desktop-1024.webp"
+  },
+  {
+   "t": 394.1,
+   "e": "img.load",
+   "y": 0,
+   "src": "services-local-info-1024.webp"
+  },
+  {
+   "t": 394.1,
+   "e": "img.load",
+   "y": 0,
+   "src": "services-video-strip-1280.webp"
+  },
+  {
+   "t": 400.2,
+   "e": "img.load",
+   "y": 0,
+   "src": "clinic-ad-square-1080.webp"
+  },
+  {
+   "t": 510.1,
+   "e": "scroll",
+   "y": 589
+  },
+  {
+   "t": 511.3,
+   "e": "sample",
+   "y": 589,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": true,
+   "tiles": "web:500 local:500 video:1044 ads:1044"
+  },
+  {
+   "t": 518.1,
+   "e": "img.load",
+   "y": 589,
+   "src": "hotel-desktop-1024.webp"
+  },
+  {
+   "t": 541.7,
+   "e": "img.load",
+   "y": 589,
+   "src": "clinic-ad-portrait-540.webp"
+  },
+  {
+   "e": "MARK before reload",
+   "t": 0,
+   "y": 589
+  }
+ ],
+ "timeline": [
+  {
+   "t": 0.1,
+   "e": "init",
+   "y": 0,
+   "rs": "auto"
+  },
+  {
+   "t": 0.8,
+   "e": "fonts.ready",
+   "y": 0
+  },
+  {
+   "t": 20.4,
+   "e": "img.load",
+   "y": 589,
+   "src": "hotel-desktop-1024.webp"
+  },
+  {
+   "t": 53.1,
+   "e": "sample",
+   "y": 589,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:500:D local:500:D video:1044:D ads:1044:D"
+  },
+  {
+   "t": 65.4,
+   "e": "img.load",
+   "y": 589,
+   "src": "services-local-info-1024.webp"
+  },
+  {
+   "t": 65.5,
+   "e": "img.load",
+   "y": 589,
+   "src": "services-video-strip-1280.webp"
+  },
+  {
+   "t": 65.5,
+   "e": "img.load",
+   "y": 589,
+   "src": "clinic-ad-square-1080.webp"
+  },
+  {
+   "t": 65.6,
+   "e": "img.load",
+   "y": 589,
+   "src": "clinic-ad-portrait-540.webp"
+  },
+  {
+   "t": 65.6,
+   "e": "img.load",
+   "y": 589,
+   "src": "hotel-desktop-1024.webp"
+  },
+  {
+   "t": 83.6,
+   "e": "DOMContentLoaded",
+   "y": 589
+  },
+  {
+   "t": 84.9,
+   "e": "load",
+   "y": 589
+  },
+  {
+   "t": 85,
+   "e": "pageshow",
+   "y": 589,
+   "persisted": false
+  },
+  {
+   "t": 86.4,
+   "e": "scroll",
+   "y": 589
+  },
+  {
+   "t": 86.7,
+   "e": "sample",
+   "y": 589,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": true,
+   "tiles": "web:500:D local:500:D video:1044 ads:1044"
+  }
+ ]
+}

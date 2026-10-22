@@ -58,6 +58,9 @@ Other baseline facts (raw files):
 - Full regression suite once after the changes (isolated server, Edge): **567 passed, 1 failed** (`full-suite.txt`). The failure is `services-motion.spec.ts:162` (reload restores scroll position). It also failed once in the run before any Task 18 change, passes when the file runs alone, and fails 3 of 4 when repeated in parallel **with the font change reverted** too. It is a pre-existing timing-sensitive test, not caused by these changes; it is not fixed here.
 - No visual change was made (font file used for all current glyphs is the same latin file; lead image only changes when it loads), so no new screenshots were taken. Layout shift remained 0 in all 16 after-loads.
 
+## Addendum: correction 18A (restored-scroll test)
+The failure above was diagnosed: application behaviour is correct, the test's fixture assumption was not. Under load the browser restores the scroll position against a not-yet-styled (about 4,700 px taller) layout, so for a moment the whole mosaic is on screen and the assembly docks it, as designed; the position is corrected a moment later. The test was replaced by two (real-restoration assertions based on what the assembly actually saw, plus a deterministic below-the-fold test). Focused 16/16 under 4 workers, full suite **569 passed**; no application change. Details, timelines and the mutation check: `restored-scroll-correction/README.md`. The text above is the original Task 18 report and is kept as written.
+
 ## Hosting-dependent facts (production, not tested locally)
 Read-only header check of the live site `odalo.sappl-digital.de` (Netlify) on 2026-10-22:
 - Text assets are served **brotli-compressed** (`Content-Encoding: br`), fonts are not compressed.
@@ -74,7 +77,7 @@ Real devices and networks; field data or production INP; Safari/Firefox; the Spa
 - Hosting/caching decision (immutable asset caching, compression of fonts), form delivery (must reach both private recipients, not implemented), analytics stays off.
 - Image/animation/font rights and final font approval; fictional-business name clearance (see register).
 - Legal drafts (`docs/legal-open-points.md`): second contact channel, VAT ID, registrations, Netlify DPA and log retention, retention periods, native-language review of es/de.
-- The pre-existing flaky motion test.
+- ~~The pre-existing flaky motion test~~ — resolved in correction 18A (below).
 
 ## Files
 `README.md`, `ASSET-REGISTER.md`, `comparison.md`, `baseline/` and `after/` (raw JSON per load + `_summary.json`), `baseline-console.txt`, `after-console.txt`, `full-suite.txt`, `tools/`. Application files changed: `scripts/perf.mjs`, `src/styles/global.css`, `src/pages/[lang]/work/[project]/index.astro`, `HANDOFF.md` (stale performance table replaced by a pointer).

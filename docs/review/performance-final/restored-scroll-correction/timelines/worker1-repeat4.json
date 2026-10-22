@@ -1,0 +1,912 @@
+{
+ "target": 589,
+ "finalPose": {
+  "web": true,
+  "local": true,
+  "video": true,
+  "ads": true
+ },
+ "geom": {
+  "vh": 900,
+  "tiles": [
+   {
+    "id": "web",
+    "nominalTop": 499
+   },
+   {
+    "id": "local",
+    "nominalTop": 499
+   },
+   {
+    "id": "video",
+    "nominalTop": 1043
+   },
+   {
+    "id": "ads",
+    "nominalTop": 1043
+   }
+  ]
+ },
+ "firstDocLength": 21,
+ "firstDoc": [
+  {
+   "t": 0.2,
+   "e": "init",
+   "y": 0,
+   "rs": "auto"
+  },
+  {
+   "t": 1.4,
+   "e": "fonts.ready",
+   "y": 0
+  },
+  {
+   "t": 116.3,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 0,
+   "docH": 14409,
+   "rs": "loading",
+   "hasMosaic": true,
+   "sheets": 4,
+   "pendingLinks": 5,
+   "blocks": "hero:1017 SCRIPT:0 services:4083 SCRIPT:0 work:4201 process:617 plans:1632 about:554 faq:736 fin:257"
+  },
+  {
+   "t": 427.3,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 0,
+   "docH": 9736,
+   "rs": "interactive",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:629 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1048 faq:842 fin:738"
+  },
+  {
+   "t": 534.4,
+   "e": "sample",
+   "y": 0,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:1089:D local:1089:D video:1633:D ads:1633:D"
+  },
+  {
+   "t": 544,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 0,
+   "docH": 9701,
+   "rs": "interactive",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 579.2,
+   "e": "DOMContentLoaded",
+   "y": 0
+  },
+  {
+   "t": 581.6,
+   "e": "sample",
+   "y": 0,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": true,
+   "tiles": "web:1089 local:1089 video:1633 ads:1633"
+  },
+  {
+   "t": 604.8,
+   "e": "poll",
+   "dk": "mmmmA",
+   "y": 0,
+   "docH": 9701,
+   "rs": "interactive",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 606,
+   "e": "img.load",
+   "y": 0,
+   "src": "hotel-desktop-1024.webp"
+  },
+  {
+   "t": 606,
+   "e": "img.load",
+   "y": 0,
+   "src": "services-video-strip-1280.webp"
+  },
+  {
+   "t": 606,
+   "e": "img.load",
+   "y": 0,
+   "src": "services-local-info-1024.webp"
+  },
+  {
+   "t": 606.1,
+   "e": "img.load",
+   "y": 0,
+   "src": "clinic-ad-square-1080.webp"
+  },
+  {
+   "t": 606.4,
+   "e": "load",
+   "y": 0
+  },
+  {
+   "t": 606.9,
+   "e": "pageshow",
+   "y": 0,
+   "persisted": false
+  },
+  {
+   "t": 608.2,
+   "e": "poll",
+   "dk": "mmmmA",
+   "y": 0,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 908.2,
+   "e": "poll",
+   "dk": "mmmmA",
+   "y": 589,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 920.1,
+   "e": "scroll",
+   "y": 589
+  },
+  {
+   "t": 920.5,
+   "e": "sample",
+   "y": 589,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": true,
+   "tiles": "web:500 local:500 video:1044 ads:1044"
+  },
+  {
+   "t": 927.2,
+   "e": "img.load",
+   "y": 589,
+   "src": "hotel-desktop-1024.webp"
+  },
+  {
+   "t": 958.4,
+   "e": "img.load",
+   "y": 589,
+   "src": "clinic-ad-portrait-540.webp"
+  },
+  {
+   "e": "MARK before reload",
+   "t": 0,
+   "y": 589
+  }
+ ],
+ "timeline": [
+  {
+   "t": 0,
+   "e": "init",
+   "y": 0,
+   "rs": "auto"
+  },
+  {
+   "t": 1,
+   "e": "fonts.ready",
+   "y": 0
+  },
+  {
+   "t": 58.5,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 1264,
+   "docH": 9559,
+   "rs": "loading",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 62.1,
+   "e": "img.load",
+   "y": 1264,
+   "src": "hotel-desktop-1024.webp"
+  },
+  {
+   "t": 64.2,
+   "e": "img.load",
+   "y": 1264,
+   "src": "services-local-info-1024.webp"
+  },
+  {
+   "t": 64.2,
+   "e": "img.load",
+   "y": 1264,
+   "src": "services-video-strip-1280.webp"
+  },
+  {
+   "t": 64.2,
+   "e": "img.load",
+   "y": 1264,
+   "src": "clinic-ad-square-1080.webp"
+  },
+  {
+   "t": 64.2,
+   "e": "img.load",
+   "y": 1264,
+   "src": "clinic-ad-portrait-540.webp"
+  },
+  {
+   "t": 64.3,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 1264,
+   "docH": 9701,
+   "rs": "interactive",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 66.6,
+   "e": "sample",
+   "y": 1264,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:-175:D local:-175:D video:369:D ads:369:D"
+  },
+  {
+   "t": 73.7,
+   "e": "img.load",
+   "y": 1264,
+   "src": "hotel-desktop-1024.webp"
+  },
+  {
+   "t": 82.9,
+   "e": "DOMContentLoaded",
+   "y": 1264
+  },
+  {
+   "t": 84.2,
+   "e": "scroll",
+   "y": 1264
+  },
+  {
+   "t": 91.2,
+   "e": "img.load",
+   "y": 1264,
+   "src": "shop-poster-360.webp"
+  },
+  {
+   "t": 91.3,
+   "e": "load",
+   "y": 1264
+  },
+  {
+   "t": 91.6,
+   "e": "pageshow",
+   "y": 1264,
+   "persisted": false
+  },
+  {
+   "t": 98.9,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 1264,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 128.2,
+   "e": "scroll",
+   "y": 1262
+  },
+  {
+   "t": 128.8,
+   "e": "sample",
+   "y": 1262,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:-173:D local:-173:D video:371:D ads:371:D"
+  },
+  {
+   "t": 129.9,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 1262,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 145.4,
+   "e": "scroll",
+   "y": 1254
+  },
+  {
+   "t": 145.5,
+   "e": "sample",
+   "y": 1254,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:-165:D local:-165:D video:379:D ads:379:D"
+  },
+  {
+   "t": 146.1,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 1254,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 160,
+   "e": "scroll",
+   "y": 1237
+  },
+  {
+   "t": 160,
+   "e": "sample",
+   "y": 1237,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:-148:D local:-148:D video:396:D ads:396:D"
+  },
+  {
+   "t": 163,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 1237,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 176.3,
+   "e": "scroll",
+   "y": 1205
+  },
+  {
+   "t": 176.4,
+   "e": "sample",
+   "y": 1205,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:-116:D local:-116:D video:428:D ads:428:D"
+  },
+  {
+   "t": 178.5,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 1205,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 193,
+   "e": "scroll",
+   "y": 1146
+  },
+  {
+   "t": 193.1,
+   "e": "sample",
+   "y": 1146,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:-57:D local:-57:D video:487:D ads:487:D"
+  },
+  {
+   "t": 195.5,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 1146,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 209.4,
+   "e": "scroll",
+   "y": 1049
+  },
+  {
+   "t": 209.5,
+   "e": "sample",
+   "y": 1049,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:40:D local:40:D video:584:D ads:584:D"
+  },
+  {
+   "t": 211.6,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 1049,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 226.1,
+   "e": "scroll",
+   "y": 944
+  },
+  {
+   "t": 226.2,
+   "e": "sample",
+   "y": 944,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:145:D local:145:D video:689:D ads:689:D"
+  },
+  {
+   "t": 226.5,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 944,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 242.8,
+   "e": "scroll",
+   "y": 866
+  },
+  {
+   "t": 242.9,
+   "e": "sample",
+   "y": 866,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:223:D local:223:D video:767:D ads:767:D"
+  },
+  {
+   "t": 243.2,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 866,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 259.5,
+   "e": "scroll",
+   "y": 809
+  },
+  {
+   "t": 259.6,
+   "e": "sample",
+   "y": 809,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:280:D local:280:D video:824:D ads:824:D"
+  },
+  {
+   "t": 259.9,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 809,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 276,
+   "e": "scroll",
+   "y": 766
+  },
+  {
+   "t": 276.1,
+   "e": "sample",
+   "y": 766,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:323:D local:323:D video:867:D ads:867:D"
+  },
+  {
+   "t": 280.2,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 766,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 292.9,
+   "e": "scroll",
+   "y": 732
+  },
+  {
+   "t": 293,
+   "e": "sample",
+   "y": 732,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:357:D local:357:D video:901:D ads:901:D"
+  },
+  {
+   "t": 296.1,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 732,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 309.4,
+   "e": "scroll",
+   "y": 705
+  },
+  {
+   "t": 309.5,
+   "e": "sample",
+   "y": 705,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:384:D local:384:D video:928:D ads:928:D"
+  },
+  {
+   "t": 310.1,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 705,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 326,
+   "e": "scroll",
+   "y": 683
+  },
+  {
+   "t": 326.2,
+   "e": "sample",
+   "y": 683,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:406:D local:406:D video:950:D ads:950:D"
+  },
+  {
+   "t": 326.6,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 683,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 342.8,
+   "e": "scroll",
+   "y": 665
+  },
+  {
+   "t": 343,
+   "e": "sample",
+   "y": 665,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:424:D local:424:D video:968:D ads:968:D"
+  },
+  {
+   "t": 346.6,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 665,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 359.4,
+   "e": "scroll",
+   "y": 650
+  },
+  {
+   "t": 359.6,
+   "e": "sample",
+   "y": 650,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:439:D local:439:D video:983:D ads:983:D"
+  },
+  {
+   "t": 363.1,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 650,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 376.1,
+   "e": "scroll",
+   "y": 637
+  },
+  {
+   "t": 376.3,
+   "e": "sample",
+   "y": 637,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:452:D local:452:D video:996:D ads:996:D"
+  },
+  {
+   "t": 379.7,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 637,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 392.7,
+   "e": "scroll",
+   "y": 626
+  },
+  {
+   "t": 392.9,
+   "e": "sample",
+   "y": 626,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:463:D local:463:D video:1007:D ads:1007:D"
+  },
+  {
+   "t": 395.6,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 626,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 409.4,
+   "e": "scroll",
+   "y": 617
+  },
+  {
+   "t": 409.6,
+   "e": "sample",
+   "y": 617,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:472:D local:472:D video:1016:D ads:1016:D"
+  },
+  {
+   "t": 410.1,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 617,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 426,
+   "e": "scroll",
+   "y": 610
+  },
+  {
+   "t": 426.2,
+   "e": "sample",
+   "y": 610,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:479:D local:479:D video:1023:D ads:1023:D"
+  },
+  {
+   "t": 426.6,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 610,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 442.8,
+   "e": "scroll",
+   "y": 604
+  },
+  {
+   "t": 442.9,
+   "e": "sample",
+   "y": 604,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:485:D local:485:D video:1029:D ads:1029:D"
+  },
+  {
+   "t": 446.7,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 604,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 459.4,
+   "e": "scroll",
+   "y": 599
+  },
+  {
+   "t": 459.6,
+   "e": "sample",
+   "y": 599,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:490:D local:490:D video:1034:D ads:1034:D"
+  },
+  {
+   "t": 459.9,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 599,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 476,
+   "e": "scroll",
+   "y": 595
+  },
+  {
+   "t": 476.2,
+   "e": "sample",
+   "y": 595,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:494:D local:494:D video:1038:D ads:1038:D"
+  },
+  {
+   "t": 479,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 595,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 492.7,
+   "e": "scroll",
+   "y": 592
+  },
+  {
+   "t": 492.9,
+   "e": "sample",
+   "y": 592,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:497:D local:497:D video:1041:D ads:1041:D"
+  }
+ ]
+}

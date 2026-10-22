@@ -1,0 +1,326 @@
+{
+ "target": 589,
+ "finalPose": {
+  "web": true,
+  "local": true,
+  "video": false,
+  "ads": false
+ },
+ "geom": {
+  "vh": 900,
+  "tiles": [
+   {
+    "id": "web",
+    "nominalTop": 500
+   },
+   {
+    "id": "local",
+    "nominalTop": 500
+   },
+   {
+    "id": "video",
+    "nominalTop": 1044
+   },
+   {
+    "id": "ads",
+    "nominalTop": 1044
+   }
+  ]
+ },
+ "firstDocLength": 21,
+ "firstDoc": [
+  {
+   "t": 0.2,
+   "e": "init",
+   "y": 0,
+   "rs": "auto"
+  },
+  {
+   "t": 1.2,
+   "e": "fonts.ready",
+   "y": 0
+  },
+  {
+   "t": 116.2,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 0,
+   "docH": 14409,
+   "rs": "loading",
+   "hasMosaic": true,
+   "sheets": 4,
+   "pendingLinks": 5,
+   "blocks": "hero:1017 SCRIPT:0 services:4083 SCRIPT:0 work:4201 process:617 plans:1632 about:554 faq:736 fin:257"
+  },
+  {
+   "t": 458.9,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 0,
+   "docH": 9736,
+   "rs": "interactive",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:629 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1048 faq:842 fin:738"
+  },
+  {
+   "t": 466.9,
+   "e": "sample",
+   "y": 0,
+   "mosaicPageTop": 1094,
+   "docH": 9736,
+   "assembling": false,
+   "tiles": "web:1094:D local:1094:D video:1638:D ads:1638:D"
+  },
+  {
+   "t": 569.4,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 0,
+   "docH": 9701,
+   "rs": "interactive",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 573,
+   "e": "sample",
+   "y": 0,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:1089:D local:1089:D video:1633:D ads:1633:D"
+  },
+  {
+   "t": 586.9,
+   "e": "img.load",
+   "y": 0,
+   "src": "hotel-desktop-1024.webp"
+  },
+  {
+   "t": 586.9,
+   "e": "img.load",
+   "y": 0,
+   "src": "services-local-info-1024.webp"
+  },
+  {
+   "t": 586.9,
+   "e": "img.load",
+   "y": 0,
+   "src": "services-video-strip-1280.webp"
+  },
+  {
+   "t": 587,
+   "e": "img.load",
+   "y": 0,
+   "src": "clinic-ad-square-1080.webp"
+  },
+  {
+   "t": 600.9,
+   "e": "DOMContentLoaded",
+   "y": 0
+  },
+  {
+   "t": 602.1,
+   "e": "load",
+   "y": 0
+  },
+  {
+   "t": 602.3,
+   "e": "pageshow",
+   "y": 0,
+   "persisted": false
+  },
+  {
+   "t": 602.9,
+   "e": "poll",
+   "dk": "mmmmA",
+   "y": 0,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 617.8,
+   "e": "sample",
+   "y": 0,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": true,
+   "tiles": "web:1089 local:1089 video:1633 ads:1633"
+  },
+  {
+   "t": 824.8,
+   "e": "poll",
+   "dk": "mmmmA",
+   "y": 589,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 859.9,
+   "e": "scroll",
+   "y": 589
+  },
+  {
+   "t": 860.5,
+   "e": "sample",
+   "y": 589,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": true,
+   "tiles": "web:500 local:500 video:1044 ads:1044"
+  },
+  {
+   "t": 870.5,
+   "e": "img.load",
+   "y": 589,
+   "src": "hotel-desktop-1024.webp"
+  },
+  {
+   "t": 902.4,
+   "e": "img.load",
+   "y": 589,
+   "src": "clinic-ad-portrait-540.webp"
+  },
+  {
+   "e": "MARK before reload",
+   "t": 0,
+   "y": 589
+  }
+ ],
+ "timeline": [
+  {
+   "t": 0.2,
+   "e": "init",
+   "y": 0,
+   "rs": "auto"
+  },
+  {
+   "t": 1,
+   "e": "fonts.ready",
+   "y": 0
+  },
+  {
+   "t": 23,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 589,
+   "docH": 16053,
+   "rs": "interactive",
+   "hasMosaic": true,
+   "sheets": 6,
+   "pendingLinks": 3,
+   "blocks": "hero:1119 SCRIPT:0 services:4236 SCRIPT:0 work:4405 process:969 plans:2202 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 38.6,
+   "e": "poll",
+   "dk": "DDDD-",
+   "y": 589,
+   "docH": 9701,
+   "rs": "interactive",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 39.9,
+   "e": "img.load",
+   "y": 589,
+   "src": "hotel-desktop-1024.webp"
+  },
+  {
+   "t": 40,
+   "e": "img.load",
+   "y": 589,
+   "src": "services-local-info-1024.webp"
+  },
+  {
+   "t": 40,
+   "e": "img.load",
+   "y": 589,
+   "src": "services-video-strip-1280.webp"
+  },
+  {
+   "t": 40.1,
+   "e": "img.load",
+   "y": 589,
+   "src": "clinic-ad-square-1080.webp"
+  },
+  {
+   "t": 40.1,
+   "e": "img.load",
+   "y": 589,
+   "src": "clinic-ad-portrait-540.webp"
+  },
+  {
+   "t": 41.1,
+   "e": "sample",
+   "y": 589,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:500:D local:500:D video:1044:D ads:1044:D"
+  },
+  {
+   "t": 44.7,
+   "e": "img.load",
+   "y": 589,
+   "src": "hotel-desktop-1024.webp"
+  },
+  {
+   "t": 50.8,
+   "e": "DOMContentLoaded",
+   "y": 589
+  },
+  {
+   "t": 52.1,
+   "e": "load",
+   "y": 589
+  },
+  {
+   "t": 52.2,
+   "e": "pageshow",
+   "y": 589,
+   "persisted": false
+  },
+  {
+   "t": 53.5,
+   "e": "poll",
+   "dk": "DDmmA",
+   "y": 589,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true,
+   "sheets": 9,
+   "pendingLinks": 0,
+   "blocks": "hero:624 SCRIPT:0 services:1608 SCRIPT:0 work:1225 process:969 plans:2152 about:1018 faq:842 fin:738"
+  },
+  {
+   "t": 54,
+   "e": "scroll",
+   "y": 589
+  },
+  {
+   "t": 54.2,
+   "e": "sample",
+   "y": 589,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": true,
+   "tiles": "web:500:D local:500:D video:1044 ads:1044"
+  }
+ ]
+}

@@ -159,20 +159,77 @@ test.describe('services assembly: actions never wait for the travel', () => {
     for (const id of ids) expect(moved(q, id)).toBe(0);
   });
 
-  test('after a reload that restores the scroll position, every tile whose top is inside the window is docked and every tile clearly below it can still assemble', async ({ page }) => {
+  // ---- restored scroll -------------------------------------------------------------------------------------------------------------
+  // What the browser's restoration does is NOT deterministic under load: it can restore against a layout whose stylesheets have not arrived
+  // yet (a much taller, unstyled document; 4 concurrent workers reproduce it, see docs/review/performance-final/restored-scroll-correction/),
+  // then correct the position a moment later. The assembly rightly docks whatever is on screen when it decides ("a tile that has docked stays
+  // docked"). So the real-browser test below asserts what the app SAW, not only where the page ends up, and the below-the-fold branch is
+  // covered deterministically by a second test in which the test, not the browser, places the restored position.
+  const settlePictures = (page: Page) => page.evaluate(async () => { await document.fonts.ready; await Promise.all([...document.images].filter((i) => i.loading !== 'lazy' || i.getBoundingClientRect().top < innerHeight * 1.5).map((i) => (i.complete ? Promise.resolve() : new Promise((r) => { i.addEventListener('load', r, { once: true }); i.addEventListener('error', r, { once: true }); })))); await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))); });
+  const tileGeometry = (page: Page) => page.evaluate(() => { const m = document.querySelector<HTMLElement>('[data-mosaic]')!; const mt = m.getBoundingClientRect().top; return { vh: innerHeight, tiles: [...document.querySelectorAll<HTMLElement>('.tile')].map((t) => ({ id: t.dataset.service!, nominalTop: mt + t.offsetTop })) }; });
+  /** Records every position of the mosaic the assembly script reads (it reads the root's rect for each decision) with the tiles' viewport tops at that moment. */
+  const recordWhatTheAssemblySees = (page: Page) => page.addInitScript(() => {
+    const w = window as unknown as { __seen: { id: string; top: number }[][]; __seeing: boolean };
+    w.__seen = []; w.__seeing = true;
+    const orig = Element.prototype.getBoundingClientRect;
+    Element.prototype.getBoundingClientRect = function (this: Element) {
+      const r = orig.call(this);
+      if (w.__seeing && this.matches('[data-mosaic]')) w.__seen.push([...this.querySelectorAll<HTMLElement>('.tile')].map((t) => ({ id: t.dataset.service!, top: r.top + t.offsetTop })));
+      return r;
+    };
+  });
+  const lowestReach = (page: Page) => page.evaluate(() => {
+    const w = window as unknown as { __seen: { id: string; top: number }[][]; __seeing: boolean };
+    w.__seeing = false;
+    const min: Record<string, number> = {};
+    for (const rec of w.__seen) for (const t of rec) min[t.id] = Math.min(min[t.id] ?? Infinity, t.top);
+    return { min, observations: w.__seen.length };
+  });
+
+  test('after a reload that restores the scroll position (real browser restoration), a tile is docked exactly when it was on screen when the assembly looked, and the lower row can still assemble', async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
-    // stable conditions: wait for the pictures that load (eager ones and lazy ones near the window) and for fonts, so layout stops changing before positions are read
-    const settle = () => page.evaluate(async () => { await document.fonts.ready; await Promise.all([...document.images].filter((i) => i.loading !== 'lazy' || i.getBoundingClientRect().top < innerHeight * 1.5).map((i) => (i.complete ? Promise.resolve() : new Promise((r) => { i.addEventListener('load', r, { once: true }); i.addEventListener('error', r, { once: true }); })))); await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))); });
+    await recordWhatTheAssemblySees(page);
     await page.goto('/en/');
-    await settle();
+    await settlePictures(page);
     const top = await mosaicTop(page);
-    const target = Math.round(top - 500); // the top row (500 px down) is in the window, the bottom row (about 1,040 px down) is clearly below it
+    const target = Math.round(top - 500); // nominally the top row is 500 px down in the window, the bottom row about 1,040 px down
     await scrollPage(page, target);
     await page.reload();
     await expect.poll(() => page.evaluate(() => Math.round(scrollY)), { message: 'the browser restored the scroll position', timeout: 8000 }).toBeGreaterThan(target - 80);
-    await settle();
+    await settlePictures(page);
     await page.waitForTimeout(350); // the assembly's own load handler runs one frame after load
-    const geom = await page.evaluate(() => { const m = document.querySelector<HTMLElement>('[data-mosaic]')!; const mt = m.getBoundingClientRect().top; return { vh: innerHeight, tiles: [...document.querySelectorAll<HTMLElement>('.tile')].map((t) => ({ id: t.dataset.service!, nominalTop: mt + t.offsetTop })) }; });
+    // the transient restored position may have been far from the final one: only what the assembly itself saw counts
+    const { min, observations } = await lowestReach(page);
+    expect(observations, 'the assembly looked at the mosaic at least once').toBeGreaterThan(0);
+    test.info().annotations.push({ type: 'lowest viewport top the assembly saw, per tile', description: JSON.stringify(min) });
+    const geom = await tileGeometry(page);
+    const p = await pose(page);
+    // 1. at rest, the tiles in the window are docked (the position has settled by now)
+    for (const t of geom.tiles.filter((t) => t.nominalTop < geom.vh * 0.9)) expect(moved(p, t.id), `${t.id} (top ${Math.round(t.nominalTop)} of ${geom.vh}) is in the window at rest, so docked`).toBe(0);
+    // 2. never on screen at any moment the assembly looked => still displaced (eligible); clearly on screen => docked. The band between is not asserted.
+    for (const t of geom.tiles) {
+      const lowest = min[t.id]!;
+      if (lowest > geom.vh) expect(moved(p, t.id), `${t.id}: never nearer than ${Math.round(lowest)} px of ${geom.vh}, so it must still be eligible to assemble`).toBeGreaterThan(5);
+      if (lowest < geom.vh * 0.4) expect(moved(p, t.id), `${t.id}: was ${Math.round(lowest)} px down at some moment, so docking it was correct and it must stay docked`).toBe(0);
+    }
+    // 3. wherever it stands, scrolling the lower row into the window completes the assembly, and nothing scatters again
+    await scrollPage(page, Math.round(top + 560));
+    await page.waitForFunction(() => !document.querySelector('[data-mosaic]')!.classList.contains('is-assembling'));
+    for (const id of ids) expect(moved(await pose(page), id)).toBe(0);
+  });
+
+  test('restoration that lands after the script ran and before load: the top row is docked, the lower row stays eligible, scrolling completes it, and docked tiles never scatter again', async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto('/en/');
+    await settlePictures(page);
+    const top = await mosaicTop(page);
+    const target = Math.round(top - 500);
+    // deterministic stand-in for the browser's restoration: the test applies the position itself, at load, with every stylesheet applied
+    await page.addInitScript((y) => { history.scrollRestoration = 'manual'; addEventListener('load', () => scrollTo({ top: y, behavior: 'instant' }), { once: true }); }, target);
+    await page.reload();
+    await expect.poll(() => page.evaluate(() => Math.round(scrollY))).toBe(target);
+    await settlePictures(page);
+    const geom = await tileGeometry(page);
     const p = await pose(page);
     const inside = geom.tiles.filter((t) => t.nominalTop < geom.vh * 0.9), below = geom.tiles.filter((t) => t.nominalTop > geom.vh * 1.05);
     expect(inside.map((t) => t.id), 'the top row is in the window after restoration').toEqual(['web', 'local']);
@@ -180,10 +237,17 @@ test.describe('services assembly: actions never wait for the travel', () => {
     for (const t of inside) expect(moved(p, t.id), `${t.id} (top ${Math.round(t.nominalTop)} of ${geom.vh}) must be docked`).toBe(0);
     for (const t of below) expect(moved(p, t.id), `${t.id} (top ${Math.round(t.nominalTop)} of ${geom.vh}) must still be eligible to assemble`).toBeGreaterThan(5);
     expect(p.assembling).toBe(true);
+    // the docked top row does not scatter when scrolling back up past it
+    await scrollPage(page, Math.max(0, Math.round(top - 900)));
+    const up = await pose(page);
+    for (const t of inside) expect(moved(up, t.id), `${t.id} stays docked when scrolled back`).toBe(0);
     // scrolling the lower row into the window assembles it, as for a first visit
     await scrollPage(page, Math.round(top + 560));
     await page.waitForFunction(() => !document.querySelector('[data-mosaic]')!.classList.contains('is-assembling'));
     for (const id of ids) expect(moved(await pose(page), id)).toBe(0);
+    // and a completed assembly stays complete when scrolling away and back
+    await scrollPage(page, 0); await scrollPage(page, Math.round(top - 300));
+    for (const id of ids) expect(moved(await pose(page), id), `${id} stays docked after completion`).toBe(0);
   });
 
   test('resizing mid-assembly keeps a coherent state: no sideways scroll, nothing outside the viewport, and docking still completes', async ({ page }) => {

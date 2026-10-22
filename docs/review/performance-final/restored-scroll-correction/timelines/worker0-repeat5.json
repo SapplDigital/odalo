@@ -1,0 +1,789 @@
+{
+ "target": 589,
+ "finalPose": {
+  "web": true,
+  "local": true,
+  "video": true,
+  "ads": true
+ },
+ "geom": {
+  "vh": 900,
+  "tiles": [
+   {
+    "id": "web",
+    "nominalTop": 500
+   },
+   {
+    "id": "local",
+    "nominalTop": 500
+   },
+   {
+    "id": "video",
+    "nominalTop": 1044
+   },
+   {
+    "id": "ads",
+    "nominalTop": 1044
+   }
+  ]
+ },
+ "firstDocLength": 21,
+ "firstDoc": [
+  {
+   "t": 0.3,
+   "e": "init",
+   "y": 0,
+   "rs": "auto"
+  },
+  {
+   "t": 2.1,
+   "e": "fonts.ready",
+   "y": 0
+  },
+  {
+   "t": 123.3,
+   "e": "poll",
+   "y": 0,
+   "docH": 14409,
+   "rs": "loading",
+   "hasMosaic": true
+  },
+  {
+   "t": 401.1,
+   "e": "poll",
+   "y": 0,
+   "docH": 9736,
+   "rs": "interactive",
+   "hasMosaic": true
+  },
+  {
+   "t": 408.5,
+   "e": "sample",
+   "y": 0,
+   "mosaicPageTop": 1094,
+   "docH": 9736,
+   "assembling": false,
+   "tiles": "web:1094:D local:1094:D video:1638:D ads:1638:D"
+  },
+  {
+   "t": 477,
+   "e": "poll",
+   "y": 0,
+   "docH": 9701,
+   "rs": "interactive",
+   "hasMosaic": true
+  },
+  {
+   "t": 479.1,
+   "e": "sample",
+   "y": 0,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:1089:D local:1089:D video:1633:D ads:1633:D"
+  },
+  {
+   "t": 495.3,
+   "e": "DOMContentLoaded",
+   "y": 0
+  },
+  {
+   "t": 496.6,
+   "e": "img.load",
+   "y": 0,
+   "src": "hotel-desktop-1024.webp"
+  },
+  {
+   "t": 496.6,
+   "e": "img.load",
+   "y": 0,
+   "src": "services-video-strip-1280.webp"
+  },
+  {
+   "t": 496.7,
+   "e": "img.load",
+   "y": 0,
+   "src": "services-local-info-1024.webp"
+  },
+  {
+   "t": 496.7,
+   "e": "img.load",
+   "y": 0,
+   "src": "clinic-ad-square-1080.webp"
+  },
+  {
+   "t": 496.9,
+   "e": "load",
+   "y": 0
+  },
+  {
+   "t": 497.1,
+   "e": "pageshow",
+   "y": 0,
+   "persisted": false
+  },
+  {
+   "t": 500.6,
+   "e": "poll",
+   "y": 0,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 523.6,
+   "e": "sample",
+   "y": 0,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": true,
+   "tiles": "web:1089 local:1089 video:1633 ads:1633"
+  },
+  {
+   "t": 597.2,
+   "e": "poll",
+   "y": 589,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 634.2,
+   "e": "scroll",
+   "y": 589
+  },
+  {
+   "t": 634.6,
+   "e": "sample",
+   "y": 589,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": true,
+   "tiles": "web:500 local:500 video:1044 ads:1044"
+  },
+  {
+   "t": 641,
+   "e": "img.load",
+   "y": 589,
+   "src": "hotel-desktop-1024.webp"
+  },
+  {
+   "t": 659.4,
+   "e": "img.load",
+   "y": 589,
+   "src": "clinic-ad-portrait-540.webp"
+  },
+  {
+   "e": "MARK before reload",
+   "t": 0,
+   "y": 589
+  }
+ ],
+ "timeline": [
+  {
+   "t": 0,
+   "e": "init",
+   "y": 0,
+   "rs": "auto"
+  },
+  {
+   "t": 1.6,
+   "e": "fonts.ready",
+   "y": 0
+  },
+  {
+   "t": 62.4,
+   "e": "poll",
+   "y": 1264,
+   "docH": 9701,
+   "rs": "interactive",
+   "hasMosaic": true
+  },
+  {
+   "t": 64.1,
+   "e": "img.load",
+   "y": 1264,
+   "src": "hotel-desktop-1024.webp"
+  },
+  {
+   "t": 64.2,
+   "e": "img.load",
+   "y": 1264,
+   "src": "services-local-info-1024.webp"
+  },
+  {
+   "t": 64.2,
+   "e": "img.load",
+   "y": 1264,
+   "src": "services-video-strip-1280.webp"
+  },
+  {
+   "t": 64.2,
+   "e": "img.load",
+   "y": 1264,
+   "src": "clinic-ad-square-1080.webp"
+  },
+  {
+   "t": 64.2,
+   "e": "img.load",
+   "y": 1264,
+   "src": "clinic-ad-portrait-540.webp"
+  },
+  {
+   "t": 137.8,
+   "e": "sample",
+   "y": 1264,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:-175:D local:-175:D video:369:D ads:369:D"
+  },
+  {
+   "t": 148.4,
+   "e": "scroll",
+   "y": 1264
+  },
+  {
+   "t": 149.6,
+   "e": "img.load",
+   "y": 1264,
+   "src": "hotel-desktop-1024.webp"
+  },
+  {
+   "t": 162.6,
+   "e": "DOMContentLoaded",
+   "y": 1264
+  },
+  {
+   "t": 163.8,
+   "e": "load",
+   "y": 1264
+  },
+  {
+   "t": 163.9,
+   "e": "pageshow",
+   "y": 1264,
+   "persisted": false
+  },
+  {
+   "t": 174,
+   "e": "poll",
+   "y": 1264,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 184.3,
+   "e": "img.load",
+   "y": 1264,
+   "src": "shop-poster-360.webp"
+  },
+  {
+   "t": 206.9,
+   "e": "scroll",
+   "y": 1262
+  },
+  {
+   "t": 207.1,
+   "e": "sample",
+   "y": 1262,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:-173:D local:-173:D video:371:D ads:371:D"
+  },
+  {
+   "t": 216,
+   "e": "poll",
+   "y": 1262,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 224.8,
+   "e": "scroll",
+   "y": 1253
+  },
+  {
+   "t": 225.7,
+   "e": "sample",
+   "y": 1253,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:-164:D local:-164:D video:380:D ads:380:D"
+  },
+  {
+   "t": 226.7,
+   "e": "poll",
+   "y": 1253,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 241.8,
+   "e": "scroll",
+   "y": 1236
+  },
+  {
+   "t": 242.2,
+   "e": "sample",
+   "y": 1236,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:-147:D local:-147:D video:397:D ads:397:D"
+  },
+  {
+   "t": 242.6,
+   "e": "poll",
+   "y": 1236,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 257.4,
+   "e": "scroll",
+   "y": 1203
+  },
+  {
+   "t": 257.6,
+   "e": "sample",
+   "y": 1203,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:-114:D local:-114:D video:430:D ads:430:D"
+  },
+  {
+   "t": 258.1,
+   "e": "poll",
+   "y": 1203,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 318.6,
+   "e": "scroll",
+   "y": 940
+  },
+  {
+   "t": 318.8,
+   "e": "sample",
+   "y": 940,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:149:D local:149:D video:693:D ads:693:D"
+  },
+  {
+   "t": 319.2,
+   "e": "poll",
+   "y": 940,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 324.2,
+   "e": "scroll",
+   "y": 862
+  },
+  {
+   "t": 324.5,
+   "e": "sample",
+   "y": 862,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:227:D local:227:D video:771:D ads:771:D"
+  },
+  {
+   "t": 326.4,
+   "e": "poll",
+   "y": 862,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 341,
+   "e": "scroll",
+   "y": 805
+  },
+  {
+   "t": 341.2,
+   "e": "sample",
+   "y": 805,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:284:D local:284:D video:828:D ads:828:D"
+  },
+  {
+   "t": 341.8,
+   "e": "poll",
+   "y": 805,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 357,
+   "e": "scroll",
+   "y": 764
+  },
+  {
+   "t": 357.3,
+   "e": "sample",
+   "y": 764,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:325:D local:325:D video:869:D ads:869:D"
+  },
+  {
+   "t": 358.7,
+   "e": "poll",
+   "y": 764,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 374.2,
+   "e": "scroll",
+   "y": 731
+  },
+  {
+   "t": 374.4,
+   "e": "sample",
+   "y": 731,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:358:D local:358:D video:902:D ads:902:D"
+  },
+  {
+   "t": 375,
+   "e": "poll",
+   "y": 731,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 392.9,
+   "e": "scroll",
+   "y": 704
+  },
+  {
+   "t": 393.2,
+   "e": "sample",
+   "y": 704,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:385:D local:385:D video:929:D ads:929:D"
+  },
+  {
+   "t": 393.5,
+   "e": "poll",
+   "y": 704,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 409.2,
+   "e": "scroll",
+   "y": 682
+  },
+  {
+   "t": 410,
+   "e": "sample",
+   "y": 682,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:407:D local:407:D video:951:D ads:951:D"
+  },
+  {
+   "t": 410.3,
+   "e": "poll",
+   "y": 682,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 425.7,
+   "e": "scroll",
+   "y": 664
+  },
+  {
+   "t": 426.1,
+   "e": "sample",
+   "y": 664,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:425:D local:425:D video:969:D ads:969:D"
+  },
+  {
+   "t": 426.7,
+   "e": "poll",
+   "y": 664,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 441.8,
+   "e": "scroll",
+   "y": 649
+  },
+  {
+   "t": 442.2,
+   "e": "sample",
+   "y": 649,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:440:D local:440:D video:984:D ads:984:D"
+  },
+  {
+   "t": 442.6,
+   "e": "poll",
+   "y": 649,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 458.1,
+   "e": "scroll",
+   "y": 636
+  },
+  {
+   "t": 458.3,
+   "e": "sample",
+   "y": 636,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:453:D local:453:D video:997:D ads:997:D"
+  },
+  {
+   "t": 459.6,
+   "e": "poll",
+   "y": 636,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 477,
+   "e": "scroll",
+   "y": 626
+  },
+  {
+   "t": 477.1,
+   "e": "sample",
+   "y": 626,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:463:D local:463:D video:1007:D ads:1007:D"
+  },
+  {
+   "t": 478,
+   "e": "poll",
+   "y": 626,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 492.1,
+   "e": "scroll",
+   "y": 617
+  },
+  {
+   "t": 492.3,
+   "e": "sample",
+   "y": 617,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:472:D local:472:D video:1016:D ads:1016:D"
+  },
+  {
+   "t": 495.5,
+   "e": "poll",
+   "y": 617,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 506.8,
+   "e": "scroll",
+   "y": 609
+  },
+  {
+   "t": 507,
+   "e": "sample",
+   "y": 609,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:480:D local:480:D video:1024:D ads:1024:D"
+  },
+  {
+   "t": 507.2,
+   "e": "poll",
+   "y": 609,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 523.4,
+   "e": "scroll",
+   "y": 603
+  },
+  {
+   "t": 523.6,
+   "e": "sample",
+   "y": 603,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:486:D local:486:D video:1030:D ads:1030:D"
+  },
+  {
+   "t": 523.9,
+   "e": "poll",
+   "y": 603,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 540.1,
+   "e": "scroll",
+   "y": 599
+  },
+  {
+   "t": 540.6,
+   "e": "sample",
+   "y": 599,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:490:D local:490:D video:1034:D ads:1034:D"
+  },
+  {
+   "t": 542.2,
+   "e": "poll",
+   "y": 599,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 556.6,
+   "e": "scroll",
+   "y": 595
+  },
+  {
+   "t": 556.8,
+   "e": "sample",
+   "y": 595,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:494:D local:494:D video:1038:D ads:1038:D"
+  },
+  {
+   "t": 558.8,
+   "e": "poll",
+   "y": 595,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 574.9,
+   "e": "scroll",
+   "y": 592
+  },
+  {
+   "t": 575,
+   "e": "sample",
+   "y": 592,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:497:D local:497:D video:1041:D ads:1041:D"
+  },
+  {
+   "t": 575.3,
+   "e": "poll",
+   "y": 592,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 591.7,
+   "e": "scroll",
+   "y": 590
+  },
+  {
+   "t": 591.9,
+   "e": "sample",
+   "y": 590,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:499:D local:499:D video:1043:D ads:1043:D"
+  },
+  {
+   "t": 592.4,
+   "e": "poll",
+   "y": 590,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  },
+  {
+   "t": 607.1,
+   "e": "scroll",
+   "y": 589
+  },
+  {
+   "t": 607.2,
+   "e": "sample",
+   "y": 589,
+   "mosaicPageTop": 1089,
+   "docH": 9701,
+   "assembling": false,
+   "tiles": "web:500:D local:500:D video:1044:D ads:1044:D"
+  },
+  {
+   "t": 607.3,
+   "e": "poll",
+   "y": 589,
+   "docH": 9701,
+   "rs": "complete",
+   "hasMosaic": true
+  }
+ ]
+}
