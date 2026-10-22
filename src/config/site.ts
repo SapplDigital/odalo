@@ -1,15 +1,24 @@
 /**
- * Site-wide facts. Everything marked `null` is intentionally unset: the design
- * handoff lists contact details and the enquiry destination as outstanding inputs,
- * so the UI shows an honest "to be confirmed" state instead of invented data.
+ * Site-wide facts. Anything marked `null` is intentionally unset: the UI shows an
+ * honest "to be confirmed" state instead of invented data.
  */
 export const site = {
   name: 'Odalo',
-  /** Verified contact details. Fill these in and the footer / CTA / audit page pick them up. */
+  /** Legal operator of the Odalo brand (German sole proprietor, no commercial-register entry). */
+  operator: {
+    name: 'Sebastian Tim Appl',
+    tradeName: 'Sappl Digital Studios',
+    street: 'Bachweg 5',
+    postalCode: '88690',
+    city: 'Uhldingen-Mühlhofen',
+    country: { en: 'Germany', de: 'Deutschland', es: 'Alemania' },
+  },
+  url: 'https://odalo.sappl-digital.de',
+  /** Verified contact details. Phone is unset: none has been supplied. */
   contact: {
-    email: null as string | null,
+    email: 'Sebastian.Appl@sappl-digital.de' as string | null,
     phone: null as string | null,
-    address: null as string | null,
+    address: 'Bachweg 5, 88690 Uhldingen-Mühlhofen' as string | null,
   },
   /**
    * Audit-form delivery. When PUBLIC_AUDIT_ENDPOINT is unset the form runs in
