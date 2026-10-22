@@ -1,0 +1,492 @@
+{
+  "profile": "desktop1440",
+  "route": "home",
+  "run": 2,
+  "setup": {
+    "cpu": 1,
+    "net": "none",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    }
+  },
+  "loadMs": 139,
+  "nav": {
+    "dcl": 99,
+    "load": 104,
+    "ttfb": 6
+  },
+  "initialMetrics": {
+    "lcp": {
+      "t": 112,
+      "el": "h1#hero-h.h-hero",
+      "url": null,
+      "size": 160308,
+      "tag": "H1"
+    },
+    "cls": 0,
+    "shifts": [],
+    "long": [],
+    "events": []
+  },
+  "finalMetrics": {
+    "lcp": {
+      "t": 112,
+      "el": "h1#hero-h.h-hero",
+      "url": null,
+      "size": 160308,
+      "tag": "H1"
+    },
+    "cls": 0,
+    "shifts": [],
+    "long": [],
+    "events": [
+      {
+        "n": "pointerdown",
+        "d": 32,
+        "t": 3847,
+        "el": "button.tile__explore"
+      },
+      {
+        "n": "pointerup",
+        "d": 32,
+        "t": 3847,
+        "el": "button.tile__explore"
+      },
+      {
+        "n": "click",
+        "d": 32,
+        "t": 3847,
+        "el": "button.tile__explore"
+      },
+      {
+        "n": "pointerdown",
+        "d": 32,
+        "t": 4414,
+        "el": "button.tile__explore"
+      },
+      {
+        "n": "pointerup",
+        "d": 32,
+        "t": 4414,
+        "el": "button.tile__explore"
+      },
+      {
+        "n": "click",
+        "d": 32,
+        "t": 4414,
+        "el": "button.tile__explore"
+      },
+      {
+        "n": "pointerdown",
+        "d": 32,
+        "t": 6063,
+        "el": "span"
+      },
+      {
+        "n": "pointerup",
+        "d": 32,
+        "t": 6064,
+        "el": "span"
+      },
+      {
+        "n": "click",
+        "d": 32,
+        "t": 6064,
+        "el": "span"
+      },
+      {
+        "n": "pointerdown",
+        "d": 32,
+        "t": 6397,
+        "el": "span"
+      },
+      {
+        "n": "pointerup",
+        "d": 32,
+        "t": 6397,
+        "el": "span"
+      },
+      {
+        "n": "click",
+        "d": 32,
+        "t": 6397,
+        "el": "span"
+      }
+    ]
+  },
+  "steps": [
+    "scroll x4",
+    "explore web",
+    "explore ads",
+    "hero pause + resume"
+  ],
+  "requests": [
+    {
+      "url": "/en/",
+      "type": "html",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/html",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 89718,
+      "encoded": 13997,
+      "calcGzip": 13557,
+      "calcBrotli": 10875,
+      "inlineJsRaw": 1192,
+      "inlineJsGzip": 604
+    },
+    {
+      "url": "/_astro/outfit-latin-wght-normal.Bc-8i84L.woff2",
+      "type": "font",
+      "phase": "initial",
+      "status": 200,
+      "mime": "font/woff2",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 32292,
+      "encoded": 32612
+    },
+    {
+      "url": "/_astro/instrument-serif-latin-400-italic.DKMiL14s.woff2",
+      "type": "font",
+      "phase": "initial",
+      "status": 200,
+      "mime": "font/woff2",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 22128,
+      "encoded": 22448
+    },
+    {
+      "url": "/_astro/ui.Dfx-hpwg.css",
+      "type": "css",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/css",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 8353,
+      "encoded": 3153,
+      "calcGzip": 2842,
+      "calcBrotli": 2515
+    },
+    {
+      "url": "/_astro/Base.B5Dn5GAn.css",
+      "type": "css",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/css",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 7465,
+      "encoded": 2057,
+      "calcGzip": 1723,
+      "calcBrotli": 1494
+    },
+    {
+      "url": "/_astro/index.DKk_c0WN.css",
+      "type": "css",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/css",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 15483,
+      "encoded": 3405,
+      "calcGzip": 3062,
+      "calcBrotli": 2684
+    },
+    {
+      "url": "/_astro/Plans.CsVGn8fI.css",
+      "type": "css",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/css",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 8655,
+      "encoded": 2283,
+      "calcGzip": 1961,
+      "calcBrotli": 1693
+    },
+    {
+      "url": "/_astro/WorkMosaic.CumYtEB9.css",
+      "type": "css",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/css",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 5274,
+      "encoded": 1425,
+      "calcGzip": 1105,
+      "calcBrotli": 953
+    },
+    {
+      "url": "/_astro/Hero.astro_astro_type_script_index_0_lang.SDwGzbla.js",
+      "type": "js",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/javascript",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 1354,
+      "encoded": 1079,
+      "calcGzip": 709,
+      "calcBrotli": 620
+    },
+    {
+      "url": "/_astro/ServiceMosaic.astro_astro_type_script_index_0_lang.CB0X7sJx.js",
+      "type": "js",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/javascript",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 7120,
+      "encoded": 3201,
+      "calcGzip": 2828,
+      "calcBrotli": 2547
+    },
+    {
+      "url": "/_astro/Logo.astro_astro_type_script_index_0_lang.CanS7bHB.js",
+      "type": "js",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/javascript",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 324,
+      "encoded": 645,
+      "calcGzip": 260,
+      "calcBrotli": 198
+    },
+    {
+      "url": "/_astro/odalo-mosaic.B7-QSyub.js",
+      "type": "js",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/javascript",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 9545,
+      "encoded": 3451,
+      "calcGzip": 3079,
+      "calcBrotli": 2647
+    },
+    {
+      "url": "/work/concepts/hotel/hotel-desktop-1024.webp",
+      "type": "image",
+      "phase": "initial",
+      "status": 200,
+      "mime": "image/webp",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 31696,
+      "encoded": 31964
+    },
+    {
+      "url": "/work/concepts/services/services-local-info-1024.webp",
+      "type": "image",
+      "phase": "initial",
+      "status": 200,
+      "mime": "image/webp",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 23988,
+      "encoded": 24256
+    },
+    {
+      "url": "/work/concepts/services/services-video-strip-1280.webp",
+      "type": "image",
+      "phase": "initial",
+      "status": 200,
+      "mime": "image/webp",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 45090,
+      "encoded": 45358
+    },
+    {
+      "url": "/work/concepts/clinic/clinic-ad-square-1080.webp",
+      "type": "image",
+      "phase": "initial",
+      "status": 200,
+      "mime": "image/webp",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 58344,
+      "encoded": 58612
+    },
+    {
+      "url": "/favicon.svg",
+      "type": "other",
+      "phase": "initial",
+      "status": 200,
+      "mime": "image/svg+xml",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 3820,
+      "encoded": 927,
+      "calcGzip": 592,
+      "calcBrotli": 513
+    },
+    {
+      "url": "/work/concepts/clinic/clinic-ad-portrait-540.webp",
+      "type": "image",
+      "phase": "interaction",
+      "status": 200,
+      "mime": "image/webp",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 33948,
+      "encoded": 34216
+    },
+    {
+      "url": "/work/concepts/shop/shop-poster-360.webp",
+      "type": "image",
+      "phase": "interaction",
+      "status": 200,
+      "mime": "image/webp",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 15174,
+      "encoded": 15442
+    }
+  ],
+  "summary": {
+    "initial": {
+      "requests": 17,
+      "decoded": 370649,
+      "encoded": 250873,
+      "byType": {
+        "html": {
+          "n": 1,
+          "decoded": 89718,
+          "encoded": 13997,
+          "calcGzip": 13557,
+          "calcBrotli": 10875
+        },
+        "js": {
+          "n": 4,
+          "decoded": 18343,
+          "encoded": 8376,
+          "calcGzip": 6876,
+          "calcBrotli": 6012
+        },
+        "css": {
+          "n": 5,
+          "decoded": 45230,
+          "encoded": 12323,
+          "calcGzip": 10693,
+          "calcBrotli": 9339
+        },
+        "font": {
+          "n": 2,
+          "decoded": 54420,
+          "encoded": 55060,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 4,
+          "decoded": 159118,
+          "encoded": 160190,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 1,
+          "decoded": 3820,
+          "encoded": 927,
+          "calcGzip": 592,
+          "calcBrotli": 513
+        }
+      }
+    },
+    "interaction": {
+      "requests": 2,
+      "decoded": 49122,
+      "encoded": 49658,
+      "byType": {
+        "html": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "js": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "css": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "font": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 2,
+          "decoded": 49122,
+          "encoded": 49658,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        }
+      }
+    },
+    "jsInitial": {
+      "externalDecoded": 18343,
+      "inlineRaw": 1192,
+      "totalRaw": 19535,
+      "totalCalcGzip": 7480
+    },
+    "vitals": {
+      "lcpMs": 112,
+      "lcpElement": "h1#hero-h.h-hero",
+      "lcpUrl": null,
+      "clsInitial": 0,
+      "clsAfterInteraction": 0,
+      "shiftNodes": [],
+      "longTasksInitial": 0,
+      "longTaskMaxInitialMs": 0,
+      "longTasksAfter": 0,
+      "sampledInteractionMaxMs": 32,
+      "sampledInteractionCount": 12
+    }
+  }
+}

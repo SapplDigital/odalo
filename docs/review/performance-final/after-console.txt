@@ -1,0 +1,16 @@
+desktop1440 home #1: LCP 264 ms (h1#hero-h.h-hero) CLS 0/0 initial 17 req 362 KB decoded / 245 KB encoded; JS raw 19.1 KB gzip(calc) 7.3 KB; interaction 2 req 48 KB; long tasks 1; sampled interaction max 48 ms
+desktop1440 home #2: LCP 112 ms (h1#hero-h.h-hero) CLS 0/0 initial 17 req 362 KB decoded / 245 KB encoded; JS raw 19.1 KB gzip(calc) 7.3 KB; interaction 2 req 48 KB; long tasks 0; sampled interaction max 32 ms
+desktop1440 plans #1: LCP 92 ms (h1#plans-h.h-section) CLS 0/0 initial 9 req 141 KB decoded / 74 KB encoded; JS raw 10.8 KB gzip(calc) 3.9 KB; interaction 0 req 0 KB; long tasks 0; sampled interaction max 0 ms
+desktop1440 plans #2: LCP 92 ms (h1#plans-h.h-section) CLS 0/0 initial 9 req 141 KB decoded / 74 KB encoded; JS raw 10.8 KB gzip(calc) 3.9 KB; interaction 0 req 0 KB; long tasks 0; sampled interaction max 0 ms
+desktop1440 audit #1: LCP 144 ms (h1.h-hero.ph__h) CLS 0/0 initial 10 req 116 KB decoded / 74 KB encoded; JS raw 15.1 KB gzip(calc) 5.8 KB; interaction 0 req 0 KB; long tasks 0; sampled interaction max 0 ms
+desktop1440 audit #2: LCP 84 ms (h1.h-hero.ph__h) CLS 0/0 initial 10 req 116 KB decoded / 74 KB encoded; JS raw 15.1 KB gzip(calc) 5.8 KB; interaction 0 req 0 KB; long tasks 0; sampled interaction max 0 ms
+desktop1440 brindle #1: LCP 100 ms (img) CLS 0/0 initial 12 req 215 KB decoded / 174 KB encoded; JS raw 10.8 KB gzip(calc) 3.9 KB; interaction 2 req 812 KB; long tasks 0; sampled interaction max 64 ms
+desktop1440 brindle #2: LCP 100 ms (img) CLS 0/0 initial 12 req 215 KB decoded / 174 KB encoded; JS raw 10.8 KB gzip(calc) 3.9 KB; interaction 2 req 812 KB; long tasks 0; sampled interaction max 24 ms
+phone390 home #1: LCP 1420 ms (h1#hero-h.h-hero) CLS 0/0 initial 15 req 236 KB decoded / 118 KB encoded; JS raw 19.1 KB gzip(calc) 7.3 KB; interaction 4 req 89 KB; long tasks 1; sampled interaction max 72 ms
+phone390 home #2: LCP 1388 ms (h1#hero-h.h-hero) CLS 0/0 initial 15 req 236 KB decoded / 118 KB encoded; JS raw 19.1 KB gzip(calc) 7.3 KB; interaction 4 req 89 KB; long tasks 1; sampled interaction max 96 ms
+phone390 plans #1: LCP 1132 ms (p#plans-note.plans-sec__note) CLS 0/0 initial 9 req 141 KB decoded / 74 KB encoded; JS raw 10.8 KB gzip(calc) 3.9 KB; interaction 0 req 0 KB; long tasks 1; sampled interaction max 0 ms
+phone390 plans #2: LCP 1100 ms (p#plans-note.plans-sec__note) CLS 0/0 initial 9 req 141 KB decoded / 74 KB encoded; JS raw 10.8 KB gzip(calc) 3.9 KB; interaction 0 req 0 KB; long tasks 1; sampled interaction max 0 ms
+phone390 audit #1: LCP 1000 ms (p.lead.ph__lead) CLS 0/0 initial 10 req 116 KB decoded / 74 KB encoded; JS raw 15.1 KB gzip(calc) 5.8 KB; interaction 0 req 0 KB; long tasks 1; sampled interaction max 0 ms
+phone390 audit #2: LCP 1568 ms (p.lead.ph__lead) CLS 0/0 initial 10 req 116 KB decoded / 74 KB encoded; JS raw 15.1 KB gzip(calc) 5.8 KB; interaction 0 req 0 KB; long tasks 0; sampled interaction max 0 ms
+phone390 brindle #1: LCP 1072 ms (img) CLS 0/0 initial 12 req 188 KB decoded / 147 KB encoded; JS raw 10.8 KB gzip(calc) 3.9 KB; interaction 2 req 775 KB; long tasks 1; sampled interaction max 32 ms
+phone390 brindle #2: LCP 1832 ms (img) CLS 0/0 initial 12 req 188 KB decoded / 147 KB encoded; JS raw 10.8 KB gzip(calc) 3.9 KB; interaction 2 req 775 KB; long tasks 0; sampled interaction max 48 ms

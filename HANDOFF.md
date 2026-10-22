@@ -101,18 +101,9 @@ Run on the final build (`npm run verify`; Chromium only, headless, Linux contain
 
 **Defects found and fixed during verification:** scoped `.js` selectors never applied (broke mobile menu and caused page overflow); invalid `calc()` with `fr` units; table `sr-only` spans escaping the scroll container (320/390 px overflow); contrast failures on the slate tile number and coral-tile chips; blur-time re-validation shifting layout under the pointer and swallowing a checkbox click; font swap CLS (0.14–0.24 → 0); clipping of the narrowest German tile at 1024 px (row height and padding tuned).
 
-### Lab performance (local, `npm run perf`; **not field data**)
+### Lab performance (local, `node scripts/perf.mjs`; **not field data**)
 
-Unthrottled desktop and a 4× CPU / ~1.6 Mbps / 150 ms profile, headless Chromium, local static server, no compression on the server.
-
-| Page | Profile | LCP | CLS | INP* | Transfer | JS (raw / gzip) |
-|---|---|---|---|---|---|---|
-| `/en/` | desktop | 196 ms | 0 | 56 ms | 178 KB | 4.3 / 1.6 KB |
-| `/en/` | throttled mobile | 1080 ms | 0 | 136 ms | 178 KB | 4.3 / 1.6 KB |
-| `/en/plans/` | desktop / mobile | 172 / 884 ms | 0 | – | 122 KB | 1.6 / 0.7 KB |
-| `/en/audit/` | desktop / mobile | 152 / 880 ms | 0 | – | 111 KB | 5.5 / 2.3 KB |
-
-\*Event-duration proxy from a few scripted clicks, not a field INP. Budgets (LCP ≤ 2.5 s, INP ≤ 200 ms, CLS ≤ 0.1, ≤ 1.5 MB, ≤ 200 KB JS) are met in these lab runs, which says nothing about real devices, networks or CDN behaviour. Fonts are the heaviest asset (≈65 KB, preloaded).
+**Superseded:** the table that was here (178 KB "transfer", INP column, 4.3 KB JS) predated the redesign and mislabelled decoded sizes and a sampled event duration. The current, reproducible measurements, with size bases kept apart (decoded, observed encoded, calculated gzip/brotli) and budgets, are in `docs/review/performance-final/README.md`. Budgets: JS ≤ 200 KB (PRODUCT.md); LCP ≤ 2.5 s, CLS ≤ 0.1, page weight ≤ 1.5 MB, interaction ≤ 200 ms (earlier handoff targets). Lab numbers are not production guarantees and not field Core Web Vitals.
 
 ### Not done / limits of this verification
 - **Browsers:** Chromium only. Firefox and Safari (including `grid-template-columns` transition support, iOS touch) are untested.

@@ -1,0 +1,517 @@
+{
+  "profile": "phone390",
+  "route": "home",
+  "run": 2,
+  "setup": {
+    "cpu": 4,
+    "net": {
+      "latency": 150,
+      "down": 209715.2,
+      "up": 96000
+    },
+    "viewport": {
+      "width": 390,
+      "height": 844
+    }
+  },
+  "loadMs": 1661,
+  "nav": {
+    "dcl": 1566,
+    "load": 1651,
+    "ttfb": 6
+  },
+  "initialMetrics": {
+    "lcp": {
+      "t": 1336,
+      "el": "h1#hero-h.h-hero",
+      "url": null,
+      "size": 40700,
+      "tag": "H1"
+    },
+    "cls": 0,
+    "shifts": [],
+    "long": [
+      {
+        "t": 1355,
+        "d": 183
+      }
+    ],
+    "events": []
+  },
+  "finalMetrics": {
+    "lcp": {
+      "t": 1336,
+      "el": "h1#hero-h.h-hero",
+      "url": null,
+      "size": 40700,
+      "tag": "H1"
+    },
+    "cls": 0,
+    "shifts": [],
+    "long": [
+      {
+        "t": 1355,
+        "d": 183
+      }
+    ],
+    "events": [
+      {
+        "n": "pointerdown",
+        "d": 72,
+        "t": 5413,
+        "el": "button.tile__explore"
+      },
+      {
+        "n": "pointerup",
+        "d": 72,
+        "t": 5413,
+        "el": "button.tile__explore"
+      },
+      {
+        "n": "click",
+        "d": 72,
+        "t": 5413,
+        "el": "button.tile__explore"
+      },
+      {
+        "n": "pointerdown",
+        "d": 56,
+        "t": 6048,
+        "el": "button.tile__explore"
+      },
+      {
+        "n": "pointerup",
+        "d": 56,
+        "t": 6048,
+        "el": "button.tile__explore"
+      },
+      {
+        "n": "click",
+        "d": 56,
+        "t": 6048,
+        "el": "button.tile__explore"
+      },
+      {
+        "n": "pointerdown",
+        "d": 48,
+        "t": 8003,
+        "el": "span"
+      },
+      {
+        "n": "pointerup",
+        "d": 48,
+        "t": 8003,
+        "el": "span"
+      },
+      {
+        "n": "click",
+        "d": 48,
+        "t": 8003,
+        "el": "span"
+      },
+      {
+        "n": "pointerdown",
+        "d": 40,
+        "t": 8399,
+        "el": "span"
+      },
+      {
+        "n": "pointerup",
+        "d": 40,
+        "t": 8399,
+        "el": "span"
+      },
+      {
+        "n": "click",
+        "d": 40,
+        "t": 8399,
+        "el": "span"
+      }
+    ]
+  },
+  "steps": [
+    "scroll x4",
+    "explore web",
+    "explore ads",
+    "hero pause + resume"
+  ],
+  "requests": [
+    {
+      "url": "/en/",
+      "type": "html",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/html",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 89718,
+      "encoded": 13998,
+      "calcGzip": 13558,
+      "calcBrotli": 10882,
+      "inlineJsRaw": 1192,
+      "inlineJsGzip": 604
+    },
+    {
+      "url": "/_astro/outfit-latin-wght-normal.Bc-8i84L.woff2",
+      "type": "font",
+      "phase": "initial",
+      "status": 200,
+      "mime": "font/woff2",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 32292,
+      "encoded": 32612
+    },
+    {
+      "url": "/_astro/instrument-serif-latin-400-italic.DKMiL14s.woff2",
+      "type": "font",
+      "phase": "initial",
+      "status": 200,
+      "mime": "font/woff2",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 22128,
+      "encoded": 22448
+    },
+    {
+      "url": "/_astro/ui.DTmSolFz.css",
+      "type": "css",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/css",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 8024,
+      "encoded": 3148,
+      "calcGzip": 2837,
+      "calcBrotli": 2504
+    },
+    {
+      "url": "/_astro/Base.B5Dn5GAn.css",
+      "type": "css",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/css",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 7465,
+      "encoded": 2057,
+      "calcGzip": 1723,
+      "calcBrotli": 1494
+    },
+    {
+      "url": "/_astro/index.DKk_c0WN.css",
+      "type": "css",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/css",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 15483,
+      "encoded": 3405,
+      "calcGzip": 3062,
+      "calcBrotli": 2684
+    },
+    {
+      "url": "/_astro/Plans.CsVGn8fI.css",
+      "type": "css",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/css",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 8655,
+      "encoded": 2283,
+      "calcGzip": 1961,
+      "calcBrotli": 1693
+    },
+    {
+      "url": "/_astro/WorkMosaic.CumYtEB9.css",
+      "type": "css",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/css",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 5274,
+      "encoded": 1425,
+      "calcGzip": 1105,
+      "calcBrotli": 953
+    },
+    {
+      "url": "/_astro/Hero.astro_astro_type_script_index_0_lang.SDwGzbla.js",
+      "type": "js",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/javascript",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 1354,
+      "encoded": 1079,
+      "calcGzip": 709,
+      "calcBrotli": 620
+    },
+    {
+      "url": "/_astro/ServiceMosaic.astro_astro_type_script_index_0_lang.CB0X7sJx.js",
+      "type": "js",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/javascript",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 7120,
+      "encoded": 3201,
+      "calcGzip": 2828,
+      "calcBrotli": 2547
+    },
+    {
+      "url": "/_astro/Logo.astro_astro_type_script_index_0_lang.CanS7bHB.js",
+      "type": "js",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/javascript",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 324,
+      "encoded": 645,
+      "calcGzip": 260,
+      "calcBrotli": 198
+    },
+    {
+      "url": "/_astro/odalo-mosaic.B7-QSyub.js",
+      "type": "js",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/javascript",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 9545,
+      "encoded": 3451,
+      "calcGzip": 3079,
+      "calcBrotli": 2647
+    },
+    {
+      "url": "/_astro/instrument-serif-latin-ext-400-italic.C9HzH3YL.woff2",
+      "type": "font",
+      "phase": "initial",
+      "status": 200,
+      "mime": "font/woff2",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 12384,
+      "encoded": 12704
+    },
+    {
+      "url": "/work/concepts/hotel/hotel-desktop-640.webp",
+      "type": "image",
+      "phase": "initial",
+      "status": 200,
+      "mime": "image/webp",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 17674,
+      "encoded": 17942
+    },
+    {
+      "url": "/work/concepts/services/services-local-info-640.webp",
+      "type": "image",
+      "phase": "initial",
+      "status": 200,
+      "mime": "image/webp",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 12376,
+      "encoded": 12644
+    },
+    {
+      "url": "/favicon.svg",
+      "type": "other",
+      "phase": "initial",
+      "status": 200,
+      "mime": "image/svg+xml",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 3820,
+      "encoded": 927,
+      "calcGzip": 592,
+      "calcBrotli": 513
+    },
+    {
+      "url": "/work/concepts/services/services-video-strip-640.webp",
+      "type": "image",
+      "phase": "interaction",
+      "status": 200,
+      "mime": "image/webp",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 20564,
+      "encoded": 20832
+    },
+    {
+      "url": "/work/concepts/clinic/clinic-ad-square-540.webp",
+      "type": "image",
+      "phase": "interaction",
+      "status": 200,
+      "mime": "image/webp",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 29182,
+      "encoded": 29450
+    },
+    {
+      "url": "/work/concepts/hotel/hotel-card-narrow-390.webp",
+      "type": "image",
+      "phase": "interaction",
+      "status": 200,
+      "mime": "image/webp",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 21156,
+      "encoded": 21424
+    },
+    {
+      "url": "/work/concepts/clinic/clinic-card-wide-640.webp",
+      "type": "image",
+      "phase": "interaction",
+      "status": 200,
+      "mime": "image/webp",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 20522,
+      "encoded": 20790
+    }
+  ],
+  "summary": {
+    "initial": {
+      "requests": 16,
+      "decoded": 253636,
+      "encoded": 133969,
+      "byType": {
+        "html": {
+          "n": 1,
+          "decoded": 89718,
+          "encoded": 13998,
+          "calcGzip": 13558,
+          "calcBrotli": 10882
+        },
+        "js": {
+          "n": 4,
+          "decoded": 18343,
+          "encoded": 8376,
+          "calcGzip": 6876,
+          "calcBrotli": 6012
+        },
+        "css": {
+          "n": 5,
+          "decoded": 44901,
+          "encoded": 12318,
+          "calcGzip": 10688,
+          "calcBrotli": 9328
+        },
+        "font": {
+          "n": 3,
+          "decoded": 66804,
+          "encoded": 67764,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 2,
+          "decoded": 30050,
+          "encoded": 30586,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 1,
+          "decoded": 3820,
+          "encoded": 927,
+          "calcGzip": 592,
+          "calcBrotli": 513
+        }
+      }
+    },
+    "interaction": {
+      "requests": 4,
+      "decoded": 91424,
+      "encoded": 92496,
+      "byType": {
+        "html": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "js": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "css": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "font": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 4,
+          "decoded": 91424,
+          "encoded": 92496,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        }
+      }
+    },
+    "jsInitial": {
+      "externalDecoded": 18343,
+      "inlineRaw": 1192,
+      "totalRaw": 19535,
+      "totalCalcGzip": 7480
+    },
+    "vitals": {
+      "lcpMs": 1336,
+      "lcpElement": "h1#hero-h.h-hero",
+      "lcpUrl": null,
+      "clsInitial": 0,
+      "clsAfterInteraction": 0,
+      "shiftNodes": [],
+      "longTasksInitial": 1,
+      "longTaskMaxInitialMs": 183,
+      "longTasksAfter": 0,
+      "sampledInteractionMaxMs": 72,
+      "sampledInteractionCount": 12
+    }
+  }
+}

@@ -34,7 +34,7 @@ const shotLang = (i: NonNullable<typeof p.images>[number]) => t.work.concept.sho
     <div class:list={['wrap cs__grid', { 'cs__grid--concept': p.concept }]}>
       {hero ? (
         <figure class="cs__shot">
-          <ConceptImage image={hero} lang={lang} sizes="(min-width: 64em) 58vw, 100vw" />
+          <ConceptImage image={hero} lang={lang} eager sizes="(min-width: 64em) 58vw, 100vw" />
           <figcaption>{hero.caption[lang]} {shotLang(hero)}</figcaption>
         </figure>
       ) : (

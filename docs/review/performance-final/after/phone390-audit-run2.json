@@ -1,0 +1,313 @@
+{
+  "profile": "phone390",
+  "route": "audit",
+  "run": 2,
+  "setup": {
+    "cpu": 4,
+    "net": {
+      "latency": 150,
+      "down": 209715.2,
+      "up": 96000
+    },
+    "viewport": {
+      "width": 390,
+      "height": 844
+    }
+  },
+  "loadMs": 1892,
+  "nav": {
+    "dcl": 1858,
+    "load": 1872,
+    "ttfb": 10
+  },
+  "initialMetrics": {
+    "lcp": {
+      "t": 1568,
+      "el": "p.lead.ph__lead",
+      "url": null,
+      "size": 48580,
+      "tag": "P"
+    },
+    "cls": 0,
+    "shifts": [],
+    "long": [],
+    "events": []
+  },
+  "finalMetrics": {
+    "lcp": {
+      "t": 1568,
+      "el": "p.lead.ph__lead",
+      "url": null,
+      "size": 48580,
+      "tag": "P"
+    },
+    "cls": 0,
+    "shifts": [],
+    "long": [],
+    "events": []
+  },
+  "steps": [],
+  "requests": [
+    {
+      "url": "/en/audit/",
+      "type": "html",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/html",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 24398,
+      "encoded": 5886,
+      "calcGzip": 5555,
+      "calcBrotli": 4586,
+      "inlineJsRaw": 1192,
+      "inlineJsGzip": 604
+    },
+    {
+      "url": "/_astro/outfit-latin-wght-normal.Bc-8i84L.woff2",
+      "type": "font",
+      "phase": "initial",
+      "status": 200,
+      "mime": "font/woff2",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 32292,
+      "encoded": 32612
+    },
+    {
+      "url": "/_astro/instrument-serif-latin-400-italic.DKMiL14s.woff2",
+      "type": "font",
+      "phase": "initial",
+      "status": 200,
+      "mime": "font/woff2",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 22128,
+      "encoded": 22448
+    },
+    {
+      "url": "/_astro/ui.Dfx-hpwg.css",
+      "type": "css",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/css",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 8353,
+      "encoded": 3153,
+      "calcGzip": 2842,
+      "calcBrotli": 2515
+    },
+    {
+      "url": "/_astro/Base.B5Dn5GAn.css",
+      "type": "css",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/css",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 7465,
+      "encoded": 2057,
+      "calcGzip": 1723,
+      "calcBrotli": 1494
+    },
+    {
+      "url": "/_astro/index.DJ6LfHT7.css",
+      "type": "css",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/css",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 5916,
+      "encoded": 1762,
+      "calcGzip": 1437,
+      "calcBrotli": 1259
+    },
+    {
+      "url": "/_astro/AuditForm.astro_astro_type_script_index_0_lang.ILj7-ju4.js",
+      "type": "js",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/javascript",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 4399,
+      "encoded": 2330,
+      "calcGzip": 1958,
+      "calcBrotli": 1661
+    },
+    {
+      "url": "/_astro/Logo.astro_astro_type_script_index_0_lang.CanS7bHB.js",
+      "type": "js",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/javascript",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 324,
+      "encoded": 645,
+      "calcGzip": 260,
+      "calcBrotli": 198
+    },
+    {
+      "url": "/_astro/odalo-mosaic.B7-QSyub.js",
+      "type": "js",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/javascript",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 9545,
+      "encoded": 3451,
+      "calcGzip": 3079,
+      "calcBrotli": 2647
+    },
+    {
+      "url": "/favicon.svg",
+      "type": "other",
+      "phase": "initial",
+      "status": 200,
+      "mime": "image/svg+xml",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 3820,
+      "encoded": 927,
+      "calcGzip": 592,
+      "calcBrotli": 513
+    }
+  ],
+  "summary": {
+    "initial": {
+      "requests": 10,
+      "decoded": 118640,
+      "encoded": 75271,
+      "byType": {
+        "html": {
+          "n": 1,
+          "decoded": 24398,
+          "encoded": 5886,
+          "calcGzip": 5555,
+          "calcBrotli": 4586
+        },
+        "js": {
+          "n": 3,
+          "decoded": 14268,
+          "encoded": 6426,
+          "calcGzip": 5297,
+          "calcBrotli": 4506
+        },
+        "css": {
+          "n": 3,
+          "decoded": 21734,
+          "encoded": 6972,
+          "calcGzip": 6002,
+          "calcBrotli": 5268
+        },
+        "font": {
+          "n": 2,
+          "decoded": 54420,
+          "encoded": 55060,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 1,
+          "decoded": 3820,
+          "encoded": 927,
+          "calcGzip": 592,
+          "calcBrotli": 513
+        }
+      }
+    },
+    "interaction": {
+      "requests": 0,
+      "decoded": 0,
+      "encoded": 0,
+      "byType": {
+        "html": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "js": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "css": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "font": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        }
+      }
+    },
+    "jsInitial": {
+      "externalDecoded": 14268,
+      "inlineRaw": 1192,
+      "totalRaw": 15460,
+      "totalCalcGzip": 5901
+    },
+    "vitals": {
+      "lcpMs": 1568,
+      "lcpElement": "p.lead.ph__lead",
+      "lcpUrl": null,
+      "clsInitial": 0,
+      "clsAfterInteraction": 0,
+      "shiftNodes": [],
+      "longTasksInitial": 0,
+      "longTaskMaxInitialMs": 0,
+      "longTasksAfter": 0,
+      "sampledInteractionMaxMs": 0,
+      "sampledInteractionCount": 0
+    }
+  }
+}

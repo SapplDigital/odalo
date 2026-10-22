@@ -1,0 +1,385 @@
+{
+  "profile": "desktop1440",
+  "route": "brindle",
+  "run": 2,
+  "setup": {
+    "cpu": 1,
+    "net": "none",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    }
+  },
+  "loadMs": 116,
+  "nav": {
+    "dcl": 98,
+    "load": 100,
+    "ttfb": 9
+  },
+  "initialMetrics": {
+    "lcp": {
+      "t": 100,
+      "el": "img",
+      "url": "http://127.0.0.1:4323/work/concepts/shop/shop-card-wide-960.webp",
+      "size": 276432,
+      "tag": "IMG"
+    },
+    "cls": 0,
+    "shifts": [],
+    "long": [],
+    "events": []
+  },
+  "finalMetrics": {
+    "lcp": {
+      "t": 100,
+      "el": "img",
+      "url": "http://127.0.0.1:4323/work/concepts/shop/shop-card-wide-960.webp",
+      "size": 276432,
+      "tag": "IMG"
+    },
+    "cls": 0,
+    "shifts": [],
+    "long": [],
+    "events": [
+      {
+        "n": "pointerdown",
+        "d": 24,
+        "t": 2687,
+        "el": "video"
+      },
+      {
+        "n": "pointerup",
+        "d": 24,
+        "t": 2687,
+        "el": "video"
+      },
+      {
+        "n": "click",
+        "d": 24,
+        "t": 2687,
+        "el": "video"
+      },
+      {
+        "n": "keyup",
+        "d": 24,
+        "t": 4209,
+        "el": "video"
+      },
+      {
+        "n": "click",
+        "d": 24,
+        "t": 4209,
+        "el": null
+      }
+    ]
+  },
+  "steps": [
+    "click did not start playback; keyboard Space on the focused video",
+    "user clicks video (media requests before click: 0; error: null; state: {\"paused\":false,\"readyState\":4,\"src\":\"brindle-pantry-concept-1080x1920.webm\"})"
+  ],
+  "requests": [
+    {
+      "url": "/en/work/sample-shop/",
+      "type": "html",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/html",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 26734,
+      "encoded": 7049,
+      "calcGzip": 6719,
+      "calcBrotli": 5600,
+      "inlineJsRaw": 1192,
+      "inlineJsGzip": 604
+    },
+    {
+      "url": "/_astro/outfit-latin-wght-normal.Bc-8i84L.woff2",
+      "type": "font",
+      "phase": "initial",
+      "status": 200,
+      "mime": "font/woff2",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 32292,
+      "encoded": 32612
+    },
+    {
+      "url": "/_astro/instrument-serif-latin-400-italic.DKMiL14s.woff2",
+      "type": "font",
+      "phase": "initial",
+      "status": 200,
+      "mime": "font/woff2",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 22128,
+      "encoded": 22448
+    },
+    {
+      "url": "/_astro/ui.Dfx-hpwg.css",
+      "type": "css",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/css",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 8353,
+      "encoded": 3153,
+      "calcGzip": 2842,
+      "calcBrotli": 2515
+    },
+    {
+      "url": "/_astro/Base.B5Dn5GAn.css",
+      "type": "css",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/css",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 7465,
+      "encoded": 2057,
+      "calcGzip": 1723,
+      "calcBrotli": 1494
+    },
+    {
+      "url": "/_astro/index.DvIpbKyE.css",
+      "type": "css",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/css",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 5647,
+      "encoded": 1585,
+      "calcGzip": 1267,
+      "calcBrotli": 1095
+    },
+    {
+      "url": "/work/concepts/shop/shop-card-wide-960.webp",
+      "type": "image",
+      "phase": "initial",
+      "status": 200,
+      "mime": "image/webp",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 32854,
+      "encoded": 33122
+    },
+    {
+      "url": "/work/concepts/shop/shop-poster-720.webp",
+      "type": "image",
+      "phase": "initial",
+      "status": 200,
+      "mime": "image/webp",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 34610,
+      "encoded": 34878
+    },
+    {
+      "url": "/_astro/Logo.astro_astro_type_script_index_0_lang.CanS7bHB.js",
+      "type": "js",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/javascript",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 324,
+      "encoded": 645,
+      "calcGzip": 260,
+      "calcBrotli": 198
+    },
+    {
+      "url": "/_astro/odalo-mosaic.B7-QSyub.js",
+      "type": "js",
+      "phase": "initial",
+      "status": 200,
+      "mime": "text/javascript",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 9545,
+      "encoded": 3451,
+      "calcGzip": 3079,
+      "calcBrotli": 2647
+    },
+    {
+      "url": "/work/concepts/shop/shop-sheet-960.webp",
+      "type": "image",
+      "phase": "initial",
+      "status": 200,
+      "mime": "image/webp",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 36210,
+      "encoded": 36478
+    },
+    {
+      "url": "/favicon.svg",
+      "type": "other",
+      "phase": "initial",
+      "status": 200,
+      "mime": "image/svg+xml",
+      "contentEncoding": "gzip",
+      "range": false,
+      "decoded": 3820,
+      "encoded": 927,
+      "calcGzip": 592,
+      "calcBrotli": 513
+    },
+    {
+      "url": "/work/concepts/shop/shop-ad-square-1080.webp",
+      "type": "image",
+      "phase": "interaction",
+      "status": 200,
+      "mime": "image/webp",
+      "contentEncoding": "",
+      "range": false,
+      "decoded": 72328,
+      "encoded": 72596
+    },
+    {
+      "url": "/work/concepts/shop/brindle-pantry-concept-1080x1920.webm",
+      "type": "media",
+      "phase": "interaction",
+      "status": 206,
+      "mime": "video/webm",
+      "contentEncoding": "",
+      "range": true,
+      "decoded": 759420,
+      "encoded": 759763
+    }
+  ],
+  "summary": {
+    "initial": {
+      "requests": 12,
+      "decoded": 219982,
+      "encoded": 178405,
+      "byType": {
+        "html": {
+          "n": 1,
+          "decoded": 26734,
+          "encoded": 7049,
+          "calcGzip": 6719,
+          "calcBrotli": 5600
+        },
+        "js": {
+          "n": 2,
+          "decoded": 9869,
+          "encoded": 4096,
+          "calcGzip": 3339,
+          "calcBrotli": 2845
+        },
+        "css": {
+          "n": 3,
+          "decoded": 21465,
+          "encoded": 6795,
+          "calcGzip": 5832,
+          "calcBrotli": 5104
+        },
+        "font": {
+          "n": 2,
+          "decoded": 54420,
+          "encoded": 55060,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 3,
+          "decoded": 103674,
+          "encoded": 104478,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 1,
+          "decoded": 3820,
+          "encoded": 927,
+          "calcGzip": 592,
+          "calcBrotli": 513
+        }
+      }
+    },
+    "interaction": {
+      "requests": 2,
+      "decoded": 831748,
+      "encoded": 832359,
+      "byType": {
+        "html": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "js": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "css": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "font": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 1,
+          "decoded": 72328,
+          "encoded": 72596,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 1,
+          "decoded": 759420,
+          "encoded": 759763,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        }
+      }
+    },
+    "jsInitial": {
+      "externalDecoded": 9869,
+      "inlineRaw": 1192,
+      "totalRaw": 11061,
+      "totalCalcGzip": 3943
+    },
+    "vitals": {
+      "lcpMs": 100,
+      "lcpElement": "img",
+      "lcpUrl": "http://127.0.0.1:4323/work/concepts/shop/shop-card-wide-960.webp",
+      "clsInitial": 0,
+      "clsAfterInteraction": 0,
+      "shiftNodes": [],
+      "longTasksInitial": 0,
+      "longTaskMaxInitialMs": 0,
+      "longTasksAfter": 0,
+      "sampledInteractionMaxMs": 24,
+      "sampledInteractionCount": 5
+    }
+  }
+}

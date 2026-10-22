@@ -1,0 +1,2322 @@
+[
+  {
+    "profile": "desktop1440",
+    "route": "home",
+    "run": 1,
+    "loadMs": 197,
+    "nav": {
+      "dcl": 180,
+      "load": 181,
+      "ttfb": 9
+    },
+    "steps": [
+      "scroll x4",
+      "explore web",
+      "explore ads",
+      "hero pause + resume"
+    ],
+    "initial": {
+      "requests": 17,
+      "decoded": 370649,
+      "encoded": 250873,
+      "byType": {
+        "html": {
+          "n": 1,
+          "decoded": 89718,
+          "encoded": 13997,
+          "calcGzip": 13557,
+          "calcBrotli": 10875
+        },
+        "js": {
+          "n": 4,
+          "decoded": 18343,
+          "encoded": 8376,
+          "calcGzip": 6876,
+          "calcBrotli": 6012
+        },
+        "css": {
+          "n": 5,
+          "decoded": 45230,
+          "encoded": 12323,
+          "calcGzip": 10693,
+          "calcBrotli": 9339
+        },
+        "font": {
+          "n": 2,
+          "decoded": 54420,
+          "encoded": 55060,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 4,
+          "decoded": 159118,
+          "encoded": 160190,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 1,
+          "decoded": 3820,
+          "encoded": 927,
+          "calcGzip": 592,
+          "calcBrotli": 513
+        }
+      }
+    },
+    "interaction": {
+      "requests": 2,
+      "decoded": 49122,
+      "encoded": 49658,
+      "byType": {
+        "html": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "js": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "css": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "font": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 2,
+          "decoded": 49122,
+          "encoded": 49658,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        }
+      }
+    },
+    "jsInitial": {
+      "externalDecoded": 18343,
+      "inlineRaw": 1192,
+      "totalRaw": 19535,
+      "totalCalcGzip": 7480
+    },
+    "vitals": {
+      "lcpMs": 264,
+      "lcpElement": "h1#hero-h.h-hero",
+      "lcpUrl": null,
+      "clsInitial": 0,
+      "clsAfterInteraction": 0,
+      "shiftNodes": [],
+      "longTasksInitial": 1,
+      "longTaskMaxInitialMs": 60,
+      "longTasksAfter": 0,
+      "sampledInteractionMaxMs": 48,
+      "sampledInteractionCount": 12
+    }
+  },
+  {
+    "profile": "desktop1440",
+    "route": "home",
+    "run": 2,
+    "loadMs": 139,
+    "nav": {
+      "dcl": 99,
+      "load": 104,
+      "ttfb": 6
+    },
+    "steps": [
+      "scroll x4",
+      "explore web",
+      "explore ads",
+      "hero pause + resume"
+    ],
+    "initial": {
+      "requests": 17,
+      "decoded": 370649,
+      "encoded": 250873,
+      "byType": {
+        "html": {
+          "n": 1,
+          "decoded": 89718,
+          "encoded": 13997,
+          "calcGzip": 13557,
+          "calcBrotli": 10875
+        },
+        "js": {
+          "n": 4,
+          "decoded": 18343,
+          "encoded": 8376,
+          "calcGzip": 6876,
+          "calcBrotli": 6012
+        },
+        "css": {
+          "n": 5,
+          "decoded": 45230,
+          "encoded": 12323,
+          "calcGzip": 10693,
+          "calcBrotli": 9339
+        },
+        "font": {
+          "n": 2,
+          "decoded": 54420,
+          "encoded": 55060,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 4,
+          "decoded": 159118,
+          "encoded": 160190,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 1,
+          "decoded": 3820,
+          "encoded": 927,
+          "calcGzip": 592,
+          "calcBrotli": 513
+        }
+      }
+    },
+    "interaction": {
+      "requests": 2,
+      "decoded": 49122,
+      "encoded": 49658,
+      "byType": {
+        "html": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "js": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "css": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "font": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 2,
+          "decoded": 49122,
+          "encoded": 49658,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        }
+      }
+    },
+    "jsInitial": {
+      "externalDecoded": 18343,
+      "inlineRaw": 1192,
+      "totalRaw": 19535,
+      "totalCalcGzip": 7480
+    },
+    "vitals": {
+      "lcpMs": 112,
+      "lcpElement": "h1#hero-h.h-hero",
+      "lcpUrl": null,
+      "clsInitial": 0,
+      "clsAfterInteraction": 0,
+      "shiftNodes": [],
+      "longTasksInitial": 0,
+      "longTaskMaxInitialMs": 0,
+      "longTasksAfter": 0,
+      "sampledInteractionMaxMs": 32,
+      "sampledInteractionCount": 12
+    }
+  },
+  {
+    "profile": "desktop1440",
+    "route": "plans",
+    "run": 1,
+    "loadMs": 90,
+    "nav": {
+      "dcl": 75,
+      "load": 76,
+      "ttfb": 7
+    },
+    "steps": [],
+    "initial": {
+      "requests": 9,
+      "decoded": 144871,
+      "encoded": 75513,
+      "byType": {
+        "html": {
+          "n": 1,
+          "decoded": 52289,
+          "encoded": 7937,
+          "calcGzip": 7560,
+          "calcBrotli": 6004
+        },
+        "js": {
+          "n": 2,
+          "decoded": 9869,
+          "encoded": 4096,
+          "calcGzip": 3339,
+          "calcBrotli": 2845
+        },
+        "css": {
+          "n": 3,
+          "decoded": 24473,
+          "encoded": 7493,
+          "calcGzip": 6526,
+          "calcBrotli": 5702
+        },
+        "font": {
+          "n": 2,
+          "decoded": 54420,
+          "encoded": 55060,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 1,
+          "decoded": 3820,
+          "encoded": 927,
+          "calcGzip": 592,
+          "calcBrotli": 513
+        }
+      }
+    },
+    "interaction": {
+      "requests": 0,
+      "decoded": 0,
+      "encoded": 0,
+      "byType": {
+        "html": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "js": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "css": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "font": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        }
+      }
+    },
+    "jsInitial": {
+      "externalDecoded": 9869,
+      "inlineRaw": 1192,
+      "totalRaw": 11061,
+      "totalCalcGzip": 3943
+    },
+    "vitals": {
+      "lcpMs": 92,
+      "lcpElement": "h1#plans-h.h-section",
+      "lcpUrl": null,
+      "clsInitial": 0,
+      "clsAfterInteraction": 0,
+      "shiftNodes": [],
+      "longTasksInitial": 0,
+      "longTaskMaxInitialMs": 0,
+      "longTasksAfter": 0,
+      "sampledInteractionMaxMs": 0,
+      "sampledInteractionCount": 0
+    }
+  },
+  {
+    "profile": "desktop1440",
+    "route": "plans",
+    "run": 2,
+    "loadMs": 110,
+    "nav": {
+      "dcl": 86,
+      "load": 87,
+      "ttfb": 9
+    },
+    "steps": [],
+    "initial": {
+      "requests": 9,
+      "decoded": 144871,
+      "encoded": 75513,
+      "byType": {
+        "html": {
+          "n": 1,
+          "decoded": 52289,
+          "encoded": 7937,
+          "calcGzip": 7560,
+          "calcBrotli": 6004
+        },
+        "js": {
+          "n": 2,
+          "decoded": 9869,
+          "encoded": 4096,
+          "calcGzip": 3339,
+          "calcBrotli": 2845
+        },
+        "css": {
+          "n": 3,
+          "decoded": 24473,
+          "encoded": 7493,
+          "calcGzip": 6526,
+          "calcBrotli": 5702
+        },
+        "font": {
+          "n": 2,
+          "decoded": 54420,
+          "encoded": 55060,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 1,
+          "decoded": 3820,
+          "encoded": 927,
+          "calcGzip": 592,
+          "calcBrotli": 513
+        }
+      }
+    },
+    "interaction": {
+      "requests": 0,
+      "decoded": 0,
+      "encoded": 0,
+      "byType": {
+        "html": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "js": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "css": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "font": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        }
+      }
+    },
+    "jsInitial": {
+      "externalDecoded": 9869,
+      "inlineRaw": 1192,
+      "totalRaw": 11061,
+      "totalCalcGzip": 3943
+    },
+    "vitals": {
+      "lcpMs": 92,
+      "lcpElement": "h1#plans-h.h-section",
+      "lcpUrl": null,
+      "clsInitial": 0,
+      "clsAfterInteraction": 0,
+      "shiftNodes": [],
+      "longTasksInitial": 0,
+      "longTaskMaxInitialMs": 0,
+      "longTasksAfter": 0,
+      "sampledInteractionMaxMs": 0,
+      "sampledInteractionCount": 0
+    }
+  },
+  {
+    "profile": "desktop1440",
+    "route": "audit",
+    "run": 1,
+    "loadMs": 97,
+    "nav": {
+      "dcl": 74,
+      "load": 75,
+      "ttfb": 7
+    },
+    "steps": [],
+    "initial": {
+      "requests": 10,
+      "decoded": 118640,
+      "encoded": 75271,
+      "byType": {
+        "html": {
+          "n": 1,
+          "decoded": 24398,
+          "encoded": 5886,
+          "calcGzip": 5555,
+          "calcBrotli": 4586
+        },
+        "js": {
+          "n": 3,
+          "decoded": 14268,
+          "encoded": 6426,
+          "calcGzip": 5297,
+          "calcBrotli": 4506
+        },
+        "css": {
+          "n": 3,
+          "decoded": 21734,
+          "encoded": 6972,
+          "calcGzip": 6002,
+          "calcBrotli": 5268
+        },
+        "font": {
+          "n": 2,
+          "decoded": 54420,
+          "encoded": 55060,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 1,
+          "decoded": 3820,
+          "encoded": 927,
+          "calcGzip": 592,
+          "calcBrotli": 513
+        }
+      }
+    },
+    "interaction": {
+      "requests": 0,
+      "decoded": 0,
+      "encoded": 0,
+      "byType": {
+        "html": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "js": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "css": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "font": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        }
+      }
+    },
+    "jsInitial": {
+      "externalDecoded": 14268,
+      "inlineRaw": 1192,
+      "totalRaw": 15460,
+      "totalCalcGzip": 5901
+    },
+    "vitals": {
+      "lcpMs": 144,
+      "lcpElement": "h1.h-hero.ph__h",
+      "lcpUrl": null,
+      "clsInitial": 0,
+      "clsAfterInteraction": 0,
+      "shiftNodes": [],
+      "longTasksInitial": 0,
+      "longTaskMaxInitialMs": 0,
+      "longTasksAfter": 0,
+      "sampledInteractionMaxMs": 0,
+      "sampledInteractionCount": 0
+    }
+  },
+  {
+    "profile": "desktop1440",
+    "route": "audit",
+    "run": 2,
+    "loadMs": 105,
+    "nav": {
+      "dcl": 83,
+      "load": 85,
+      "ttfb": 8
+    },
+    "steps": [],
+    "initial": {
+      "requests": 10,
+      "decoded": 118640,
+      "encoded": 75271,
+      "byType": {
+        "html": {
+          "n": 1,
+          "decoded": 24398,
+          "encoded": 5886,
+          "calcGzip": 5555,
+          "calcBrotli": 4586
+        },
+        "js": {
+          "n": 3,
+          "decoded": 14268,
+          "encoded": 6426,
+          "calcGzip": 5297,
+          "calcBrotli": 4506
+        },
+        "css": {
+          "n": 3,
+          "decoded": 21734,
+          "encoded": 6972,
+          "calcGzip": 6002,
+          "calcBrotli": 5268
+        },
+        "font": {
+          "n": 2,
+          "decoded": 54420,
+          "encoded": 55060,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 1,
+          "decoded": 3820,
+          "encoded": 927,
+          "calcGzip": 592,
+          "calcBrotli": 513
+        }
+      }
+    },
+    "interaction": {
+      "requests": 0,
+      "decoded": 0,
+      "encoded": 0,
+      "byType": {
+        "html": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "js": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "css": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "font": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        }
+      }
+    },
+    "jsInitial": {
+      "externalDecoded": 14268,
+      "inlineRaw": 1192,
+      "totalRaw": 15460,
+      "totalCalcGzip": 5901
+    },
+    "vitals": {
+      "lcpMs": 84,
+      "lcpElement": "h1.h-hero.ph__h",
+      "lcpUrl": null,
+      "clsInitial": 0,
+      "clsAfterInteraction": 0,
+      "shiftNodes": [],
+      "longTasksInitial": 0,
+      "longTaskMaxInitialMs": 0,
+      "longTasksAfter": 0,
+      "sampledInteractionMaxMs": 0,
+      "sampledInteractionCount": 0
+    }
+  },
+  {
+    "profile": "desktop1440",
+    "route": "brindle",
+    "run": 1,
+    "loadMs": 120,
+    "nav": {
+      "dcl": 84,
+      "load": 88,
+      "ttfb": 6
+    },
+    "steps": [
+      "click did not start playback; keyboard Space on the focused video",
+      "user clicks video (media requests before click: 0; error: null; state: {\"paused\":false,\"readyState\":4,\"src\":\"brindle-pantry-concept-1080x1920.webm\"})"
+    ],
+    "initial": {
+      "requests": 12,
+      "decoded": 219982,
+      "encoded": 178405,
+      "byType": {
+        "html": {
+          "n": 1,
+          "decoded": 26734,
+          "encoded": 7049,
+          "calcGzip": 6719,
+          "calcBrotli": 5600
+        },
+        "js": {
+          "n": 2,
+          "decoded": 9869,
+          "encoded": 4096,
+          "calcGzip": 3339,
+          "calcBrotli": 2845
+        },
+        "css": {
+          "n": 3,
+          "decoded": 21465,
+          "encoded": 6795,
+          "calcGzip": 5832,
+          "calcBrotli": 5104
+        },
+        "font": {
+          "n": 2,
+          "decoded": 54420,
+          "encoded": 55060,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 3,
+          "decoded": 103674,
+          "encoded": 104478,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 1,
+          "decoded": 3820,
+          "encoded": 927,
+          "calcGzip": 592,
+          "calcBrotli": 513
+        }
+      }
+    },
+    "interaction": {
+      "requests": 2,
+      "decoded": 831748,
+      "encoded": 832359,
+      "byType": {
+        "html": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "js": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "css": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "font": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 1,
+          "decoded": 72328,
+          "encoded": 72596,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 1,
+          "decoded": 759420,
+          "encoded": 759763,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        }
+      }
+    },
+    "jsInitial": {
+      "externalDecoded": 9869,
+      "inlineRaw": 1192,
+      "totalRaw": 11061,
+      "totalCalcGzip": 3943
+    },
+    "vitals": {
+      "lcpMs": 100,
+      "lcpElement": "img",
+      "lcpUrl": "http://127.0.0.1:4323/work/concepts/shop/shop-card-wide-960.webp",
+      "clsInitial": 0,
+      "clsAfterInteraction": 0,
+      "shiftNodes": [],
+      "longTasksInitial": 0,
+      "longTaskMaxInitialMs": 0,
+      "longTasksAfter": 0,
+      "sampledInteractionMaxMs": 64,
+      "sampledInteractionCount": 5
+    }
+  },
+  {
+    "profile": "desktop1440",
+    "route": "brindle",
+    "run": 2,
+    "loadMs": 116,
+    "nav": {
+      "dcl": 98,
+      "load": 100,
+      "ttfb": 9
+    },
+    "steps": [
+      "click did not start playback; keyboard Space on the focused video",
+      "user clicks video (media requests before click: 0; error: null; state: {\"paused\":false,\"readyState\":4,\"src\":\"brindle-pantry-concept-1080x1920.webm\"})"
+    ],
+    "initial": {
+      "requests": 12,
+      "decoded": 219982,
+      "encoded": 178405,
+      "byType": {
+        "html": {
+          "n": 1,
+          "decoded": 26734,
+          "encoded": 7049,
+          "calcGzip": 6719,
+          "calcBrotli": 5600
+        },
+        "js": {
+          "n": 2,
+          "decoded": 9869,
+          "encoded": 4096,
+          "calcGzip": 3339,
+          "calcBrotli": 2845
+        },
+        "css": {
+          "n": 3,
+          "decoded": 21465,
+          "encoded": 6795,
+          "calcGzip": 5832,
+          "calcBrotli": 5104
+        },
+        "font": {
+          "n": 2,
+          "decoded": 54420,
+          "encoded": 55060,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 3,
+          "decoded": 103674,
+          "encoded": 104478,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 1,
+          "decoded": 3820,
+          "encoded": 927,
+          "calcGzip": 592,
+          "calcBrotli": 513
+        }
+      }
+    },
+    "interaction": {
+      "requests": 2,
+      "decoded": 831748,
+      "encoded": 832359,
+      "byType": {
+        "html": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "js": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "css": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "font": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 1,
+          "decoded": 72328,
+          "encoded": 72596,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 1,
+          "decoded": 759420,
+          "encoded": 759763,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        }
+      }
+    },
+    "jsInitial": {
+      "externalDecoded": 9869,
+      "inlineRaw": 1192,
+      "totalRaw": 11061,
+      "totalCalcGzip": 3943
+    },
+    "vitals": {
+      "lcpMs": 100,
+      "lcpElement": "img",
+      "lcpUrl": "http://127.0.0.1:4323/work/concepts/shop/shop-card-wide-960.webp",
+      "clsInitial": 0,
+      "clsAfterInteraction": 0,
+      "shiftNodes": [],
+      "longTasksInitial": 0,
+      "longTaskMaxInitialMs": 0,
+      "longTasksAfter": 0,
+      "sampledInteractionMaxMs": 24,
+      "sampledInteractionCount": 5
+    }
+  },
+  {
+    "profile": "phone390",
+    "route": "home",
+    "run": 1,
+    "loadMs": 1725,
+    "nav": {
+      "dcl": 1642,
+      "load": 1714,
+      "ttfb": 7
+    },
+    "steps": [
+      "scroll x4",
+      "explore web",
+      "explore ads",
+      "hero pause + resume"
+    ],
+    "initial": {
+      "requests": 15,
+      "decoded": 241581,
+      "encoded": 121269,
+      "byType": {
+        "html": {
+          "n": 1,
+          "decoded": 89718,
+          "encoded": 13997,
+          "calcGzip": 13557,
+          "calcBrotli": 10875
+        },
+        "js": {
+          "n": 4,
+          "decoded": 18343,
+          "encoded": 8376,
+          "calcGzip": 6876,
+          "calcBrotli": 6012
+        },
+        "css": {
+          "n": 5,
+          "decoded": 45230,
+          "encoded": 12323,
+          "calcGzip": 10693,
+          "calcBrotli": 9339
+        },
+        "font": {
+          "n": 2,
+          "decoded": 54420,
+          "encoded": 55060,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 2,
+          "decoded": 30050,
+          "encoded": 30586,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 1,
+          "decoded": 3820,
+          "encoded": 927,
+          "calcGzip": 592,
+          "calcBrotli": 513
+        }
+      }
+    },
+    "interaction": {
+      "requests": 4,
+      "decoded": 91424,
+      "encoded": 92496,
+      "byType": {
+        "html": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "js": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "css": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "font": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 4,
+          "decoded": 91424,
+          "encoded": 92496,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        }
+      }
+    },
+    "jsInitial": {
+      "externalDecoded": 18343,
+      "inlineRaw": 1192,
+      "totalRaw": 19535,
+      "totalCalcGzip": 7480
+    },
+    "vitals": {
+      "lcpMs": 1420,
+      "lcpElement": "h1#hero-h.h-hero",
+      "lcpUrl": null,
+      "clsInitial": 0,
+      "clsAfterInteraction": 0,
+      "shiftNodes": [],
+      "longTasksInitial": 1,
+      "longTaskMaxInitialMs": 195,
+      "longTasksAfter": 0,
+      "sampledInteractionMaxMs": 72,
+      "sampledInteractionCount": 12
+    }
+  },
+  {
+    "profile": "phone390",
+    "route": "home",
+    "run": 2,
+    "loadMs": 1701,
+    "nav": {
+      "dcl": 1636,
+      "load": 1681,
+      "ttfb": 10
+    },
+    "steps": [
+      "scroll x4",
+      "explore web",
+      "explore ads",
+      "hero pause + resume"
+    ],
+    "initial": {
+      "requests": 15,
+      "decoded": 241581,
+      "encoded": 121269,
+      "byType": {
+        "html": {
+          "n": 1,
+          "decoded": 89718,
+          "encoded": 13997,
+          "calcGzip": 13557,
+          "calcBrotli": 10875
+        },
+        "js": {
+          "n": 4,
+          "decoded": 18343,
+          "encoded": 8376,
+          "calcGzip": 6876,
+          "calcBrotli": 6012
+        },
+        "css": {
+          "n": 5,
+          "decoded": 45230,
+          "encoded": 12323,
+          "calcGzip": 10693,
+          "calcBrotli": 9339
+        },
+        "font": {
+          "n": 2,
+          "decoded": 54420,
+          "encoded": 55060,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 2,
+          "decoded": 30050,
+          "encoded": 30586,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 1,
+          "decoded": 3820,
+          "encoded": 927,
+          "calcGzip": 592,
+          "calcBrotli": 513
+        }
+      }
+    },
+    "interaction": {
+      "requests": 4,
+      "decoded": 91424,
+      "encoded": 92496,
+      "byType": {
+        "html": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "js": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "css": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "font": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 4,
+          "decoded": 91424,
+          "encoded": 92496,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        }
+      }
+    },
+    "jsInitial": {
+      "externalDecoded": 18343,
+      "inlineRaw": 1192,
+      "totalRaw": 19535,
+      "totalCalcGzip": 7480
+    },
+    "vitals": {
+      "lcpMs": 1388,
+      "lcpElement": "h1#hero-h.h-hero",
+      "lcpUrl": null,
+      "clsInitial": 0,
+      "clsAfterInteraction": 0,
+      "shiftNodes": [],
+      "longTasksInitial": 1,
+      "longTaskMaxInitialMs": 226,
+      "longTasksAfter": 1,
+      "sampledInteractionMaxMs": 96,
+      "sampledInteractionCount": 12
+    }
+  },
+  {
+    "profile": "phone390",
+    "route": "plans",
+    "run": 1,
+    "loadMs": 1184,
+    "nav": {
+      "dcl": 1162,
+      "load": 1169,
+      "ttfb": 7
+    },
+    "steps": [],
+    "initial": {
+      "requests": 9,
+      "decoded": 144871,
+      "encoded": 75513,
+      "byType": {
+        "html": {
+          "n": 1,
+          "decoded": 52289,
+          "encoded": 7937,
+          "calcGzip": 7560,
+          "calcBrotli": 6004
+        },
+        "js": {
+          "n": 2,
+          "decoded": 9869,
+          "encoded": 4096,
+          "calcGzip": 3339,
+          "calcBrotli": 2845
+        },
+        "css": {
+          "n": 3,
+          "decoded": 24473,
+          "encoded": 7493,
+          "calcGzip": 6526,
+          "calcBrotli": 5702
+        },
+        "font": {
+          "n": 2,
+          "decoded": 54420,
+          "encoded": 55060,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 1,
+          "decoded": 3820,
+          "encoded": 927,
+          "calcGzip": 592,
+          "calcBrotli": 513
+        }
+      }
+    },
+    "interaction": {
+      "requests": 0,
+      "decoded": 0,
+      "encoded": 0,
+      "byType": {
+        "html": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "js": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "css": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "font": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        }
+      }
+    },
+    "jsInitial": {
+      "externalDecoded": 9869,
+      "inlineRaw": 1192,
+      "totalRaw": 11061,
+      "totalCalcGzip": 3943
+    },
+    "vitals": {
+      "lcpMs": 1132,
+      "lcpElement": "p#plans-note.plans-sec__note",
+      "lcpUrl": null,
+      "clsInitial": 0,
+      "clsAfterInteraction": 0,
+      "shiftNodes": [],
+      "longTasksInitial": 1,
+      "longTaskMaxInitialMs": 111,
+      "longTasksAfter": 0,
+      "sampledInteractionMaxMs": 0,
+      "sampledInteractionCount": 0
+    }
+  },
+  {
+    "profile": "phone390",
+    "route": "plans",
+    "run": 2,
+    "loadMs": 1159,
+    "nav": {
+      "dcl": 1132,
+      "load": 1141,
+      "ttfb": 8
+    },
+    "steps": [],
+    "initial": {
+      "requests": 9,
+      "decoded": 144871,
+      "encoded": 75513,
+      "byType": {
+        "html": {
+          "n": 1,
+          "decoded": 52289,
+          "encoded": 7937,
+          "calcGzip": 7560,
+          "calcBrotli": 6004
+        },
+        "js": {
+          "n": 2,
+          "decoded": 9869,
+          "encoded": 4096,
+          "calcGzip": 3339,
+          "calcBrotli": 2845
+        },
+        "css": {
+          "n": 3,
+          "decoded": 24473,
+          "encoded": 7493,
+          "calcGzip": 6526,
+          "calcBrotli": 5702
+        },
+        "font": {
+          "n": 2,
+          "decoded": 54420,
+          "encoded": 55060,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 1,
+          "decoded": 3820,
+          "encoded": 927,
+          "calcGzip": 592,
+          "calcBrotli": 513
+        }
+      }
+    },
+    "interaction": {
+      "requests": 0,
+      "decoded": 0,
+      "encoded": 0,
+      "byType": {
+        "html": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "js": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "css": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "font": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        }
+      }
+    },
+    "jsInitial": {
+      "externalDecoded": 9869,
+      "inlineRaw": 1192,
+      "totalRaw": 11061,
+      "totalCalcGzip": 3943
+    },
+    "vitals": {
+      "lcpMs": 1100,
+      "lcpElement": "p#plans-note.plans-sec__note",
+      "lcpUrl": null,
+      "clsInitial": 0,
+      "clsAfterInteraction": 0,
+      "shiftNodes": [],
+      "longTasksInitial": 1,
+      "longTaskMaxInitialMs": 109,
+      "longTasksAfter": 0,
+      "sampledInteractionMaxMs": 0,
+      "sampledInteractionCount": 0
+    }
+  },
+  {
+    "profile": "phone390",
+    "route": "audit",
+    "run": 1,
+    "loadMs": 1229,
+    "nav": {
+      "dcl": 1208,
+      "load": 1215,
+      "ttfb": 9
+    },
+    "steps": [],
+    "initial": {
+      "requests": 10,
+      "decoded": 118640,
+      "encoded": 75271,
+      "byType": {
+        "html": {
+          "n": 1,
+          "decoded": 24398,
+          "encoded": 5886,
+          "calcGzip": 5555,
+          "calcBrotli": 4586
+        },
+        "js": {
+          "n": 3,
+          "decoded": 14268,
+          "encoded": 6426,
+          "calcGzip": 5297,
+          "calcBrotli": 4506
+        },
+        "css": {
+          "n": 3,
+          "decoded": 21734,
+          "encoded": 6972,
+          "calcGzip": 6002,
+          "calcBrotli": 5268
+        },
+        "font": {
+          "n": 2,
+          "decoded": 54420,
+          "encoded": 55060,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 1,
+          "decoded": 3820,
+          "encoded": 927,
+          "calcGzip": 592,
+          "calcBrotli": 513
+        }
+      }
+    },
+    "interaction": {
+      "requests": 0,
+      "decoded": 0,
+      "encoded": 0,
+      "byType": {
+        "html": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "js": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "css": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "font": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        }
+      }
+    },
+    "jsInitial": {
+      "externalDecoded": 14268,
+      "inlineRaw": 1192,
+      "totalRaw": 15460,
+      "totalCalcGzip": 5901
+    },
+    "vitals": {
+      "lcpMs": 1000,
+      "lcpElement": "p.lead.ph__lead",
+      "lcpUrl": null,
+      "clsInitial": 0,
+      "clsAfterInteraction": 0,
+      "shiftNodes": [],
+      "longTasksInitial": 1,
+      "longTaskMaxInitialMs": 52,
+      "longTasksAfter": 0,
+      "sampledInteractionMaxMs": 0,
+      "sampledInteractionCount": 0
+    }
+  },
+  {
+    "profile": "phone390",
+    "route": "audit",
+    "run": 2,
+    "loadMs": 1892,
+    "nav": {
+      "dcl": 1858,
+      "load": 1872,
+      "ttfb": 10
+    },
+    "steps": [],
+    "initial": {
+      "requests": 10,
+      "decoded": 118640,
+      "encoded": 75271,
+      "byType": {
+        "html": {
+          "n": 1,
+          "decoded": 24398,
+          "encoded": 5886,
+          "calcGzip": 5555,
+          "calcBrotli": 4586
+        },
+        "js": {
+          "n": 3,
+          "decoded": 14268,
+          "encoded": 6426,
+          "calcGzip": 5297,
+          "calcBrotli": 4506
+        },
+        "css": {
+          "n": 3,
+          "decoded": 21734,
+          "encoded": 6972,
+          "calcGzip": 6002,
+          "calcBrotli": 5268
+        },
+        "font": {
+          "n": 2,
+          "decoded": 54420,
+          "encoded": 55060,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 1,
+          "decoded": 3820,
+          "encoded": 927,
+          "calcGzip": 592,
+          "calcBrotli": 513
+        }
+      }
+    },
+    "interaction": {
+      "requests": 0,
+      "decoded": 0,
+      "encoded": 0,
+      "byType": {
+        "html": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "js": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "css": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "font": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        }
+      }
+    },
+    "jsInitial": {
+      "externalDecoded": 14268,
+      "inlineRaw": 1192,
+      "totalRaw": 15460,
+      "totalCalcGzip": 5901
+    },
+    "vitals": {
+      "lcpMs": 1568,
+      "lcpElement": "p.lead.ph__lead",
+      "lcpUrl": null,
+      "clsInitial": 0,
+      "clsAfterInteraction": 0,
+      "shiftNodes": [],
+      "longTasksInitial": 0,
+      "longTaskMaxInitialMs": 0,
+      "longTasksAfter": 0,
+      "sampledInteractionMaxMs": 0,
+      "sampledInteractionCount": 0
+    }
+  },
+  {
+    "profile": "phone390",
+    "route": "brindle",
+    "run": 1,
+    "loadMs": 1108,
+    "nav": {
+      "dcl": 1075,
+      "load": 1083,
+      "ttfb": 10
+    },
+    "steps": [
+      "click did not start playback; keyboard Space on the focused video",
+      "user clicks video (media requests before click: 0; error: null; state: {\"paused\":false,\"readyState\":4,\"src\":\"brindle-pantry-concept-1080x1920.webm\"})"
+    ],
+    "initial": {
+      "requests": 12,
+      "decoded": 192472,
+      "encoded": 150895,
+      "byType": {
+        "html": {
+          "n": 1,
+          "decoded": 26734,
+          "encoded": 7049,
+          "calcGzip": 6719,
+          "calcBrotli": 5600
+        },
+        "js": {
+          "n": 2,
+          "decoded": 9869,
+          "encoded": 4096,
+          "calcGzip": 3339,
+          "calcBrotli": 2845
+        },
+        "css": {
+          "n": 3,
+          "decoded": 21465,
+          "encoded": 6795,
+          "calcGzip": 5832,
+          "calcBrotli": 5104
+        },
+        "font": {
+          "n": 2,
+          "decoded": 54420,
+          "encoded": 55060,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 3,
+          "decoded": 76164,
+          "encoded": 76968,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 1,
+          "decoded": 3820,
+          "encoded": 927,
+          "calcGzip": 592,
+          "calcBrotli": 513
+        }
+      }
+    },
+    "interaction": {
+      "requests": 2,
+      "decoded": 793190,
+      "encoded": 793801,
+      "byType": {
+        "html": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "js": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "css": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "font": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 1,
+          "decoded": 33770,
+          "encoded": 34038,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 1,
+          "decoded": 759420,
+          "encoded": 759763,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        }
+      }
+    },
+    "jsInitial": {
+      "externalDecoded": 9869,
+      "inlineRaw": 1192,
+      "totalRaw": 11061,
+      "totalCalcGzip": 3943
+    },
+    "vitals": {
+      "lcpMs": 1072,
+      "lcpElement": "img",
+      "lcpUrl": "http://127.0.0.1:4323/work/concepts/shop/shop-card-wide-640.webp",
+      "clsInitial": 0,
+      "clsAfterInteraction": 0,
+      "shiftNodes": [],
+      "longTasksInitial": 1,
+      "longTaskMaxInitialMs": 88,
+      "longTasksAfter": 0,
+      "sampledInteractionMaxMs": 32,
+      "sampledInteractionCount": 7
+    }
+  },
+  {
+    "profile": "phone390",
+    "route": "brindle",
+    "run": 2,
+    "loadMs": 2127,
+    "nav": {
+      "dcl": 2098,
+      "load": 2105,
+      "ttfb": 9
+    },
+    "steps": [
+      "click did not start playback; keyboard Space on the focused video",
+      "user clicks video (media requests before click: 0; error: null; state: {\"paused\":false,\"readyState\":4,\"src\":\"brindle-pantry-concept-1080x1920.webm\"})"
+    ],
+    "initial": {
+      "requests": 12,
+      "decoded": 192472,
+      "encoded": 150895,
+      "byType": {
+        "html": {
+          "n": 1,
+          "decoded": 26734,
+          "encoded": 7049,
+          "calcGzip": 6719,
+          "calcBrotli": 5600
+        },
+        "js": {
+          "n": 2,
+          "decoded": 9869,
+          "encoded": 4096,
+          "calcGzip": 3339,
+          "calcBrotli": 2845
+        },
+        "css": {
+          "n": 3,
+          "decoded": 21465,
+          "encoded": 6795,
+          "calcGzip": 5832,
+          "calcBrotli": 5104
+        },
+        "font": {
+          "n": 2,
+          "decoded": 54420,
+          "encoded": 55060,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 3,
+          "decoded": 76164,
+          "encoded": 76968,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 1,
+          "decoded": 3820,
+          "encoded": 927,
+          "calcGzip": 592,
+          "calcBrotli": 513
+        }
+      }
+    },
+    "interaction": {
+      "requests": 2,
+      "decoded": 793190,
+      "encoded": 793801,
+      "byType": {
+        "html": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "js": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "css": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "font": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "image": {
+          "n": 1,
+          "decoded": 33770,
+          "encoded": 34038,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "media": {
+          "n": 1,
+          "decoded": 759420,
+          "encoded": 759763,
+          "calcGzip": null,
+          "calcBrotli": null
+        },
+        "other": {
+          "n": 0,
+          "decoded": 0,
+          "encoded": 0,
+          "calcGzip": null,
+          "calcBrotli": null
+        }
+      }
+    },
+    "jsInitial": {
+      "externalDecoded": 9869,
+      "inlineRaw": 1192,
+      "totalRaw": 11061,
+      "totalCalcGzip": 3943
+    },
+    "vitals": {
+      "lcpMs": 1832,
+      "lcpElement": "img",
+      "lcpUrl": "http://127.0.0.1:4323/work/concepts/shop/shop-card-wide-640.webp",
+      "clsInitial": 0,
+      "clsAfterInteraction": 0,
+      "shiftNodes": [],
+      "longTasksInitial": 0,
+      "longTaskMaxInitialMs": 0,
+      "longTasksAfter": 0,
+      "sampledInteractionMaxMs": 48,
+      "sampledInteractionCount": 7
+    }
+  }
+]
