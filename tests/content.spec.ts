@@ -11,7 +11,8 @@ const t = {
   es: { free: 'Auditoría gratis', hero: 'Pide tu auditoría gratis', h1: 'Pide tu auditoría gratis.', submit: 'Probar envío de demostración', sending: 'Simulando…', expectH: 'Qué ocurre en esta demo', closing: 'Ver el formulario de consulta de ejemplo', simH: 'Envío simulado' },
   de: { free: 'Gratis-Analyse', hero: 'Kostenlose Analyse anfragen', h1: 'Kostenlose', submit: 'Demo-Absendung ausprobieren', sending: 'Wird simuliert…', expectH: 'Was in dieser Demo passiert', closing: 'Beispiel-Anfrageformular ansehen', simH: 'Simulierte Absendung' },
 };
-const recipients = /sebastian\.appl|sappl-digital|bastiappl12|gmail\.com/i;
+// The business email is now a deliberate public contact; the private second recipient must stay unpublished.
+const recipients = /bastiappl12|gmail\.com/i;
 const unsupported = /internationally|international\b|remote|remoto|time zones|zonas horarias|Zeitzonen|fluen|promise|no small print|fixed price|day one|free audit includes|short video|vídeo corto|kurzes Video|will contact you|nos pondremos en contacto|wir melden uns/i;
 const stripAllowed = (s: string) => s.replace(/Remote Control/g, '');
 

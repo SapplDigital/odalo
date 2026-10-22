@@ -16,7 +16,7 @@ const en = {
     about: { title: 'About — Odalo', description: 'How Odalo brings websites, local visibility, video and advertising into one connected approach.' },
     audit: { title: 'Request a free audit — Odalo', description: 'Tell us about your business and request a free audit.' },
     notFound: { title: 'Page not found — Odalo', description: 'This page does not exist.' },
-    legal: { title: 'Legal information — Odalo', description: 'Placeholder legal pages, pending approved content.' },
+    legal: { title: 'Legal information — Odalo', description: 'Legal notice, privacy notice and cookie notice.' },
   },
   a11y: {
     skip: 'Skip to main content',
@@ -178,7 +178,7 @@ const en = {
     cookies: 'Cookies',
     legalNotice: 'Legal notice',
     demo: 'Demo site. Content, prices and projects are examples.',
-    rights: '© Odalo',
+    rights: 'Odalo is a brand of Sebastian Tim Appl, trading as Sappl Digital Studios',
   },
   audit: {
     h1: { a: 'Request your', em: 'free audit.' } as Head,
@@ -191,8 +191,8 @@ const en = {
     ],
     noPromise: 'We have not set a response time yet, so we do not promise one.',
     altH: 'Prefer another way?',
-    altPending: 'Contact details are not published in this demo.',
-    demoNotice: 'Demo mode: no delivery service is connected. Submitting this form will not send anything.',
+    altPending: 'Contact details will be added once confirmed.',
+    demoNotice: 'Demo mode: no delivery service is connected. Submitting this form will not send anything. To contact us now, write to the email address on this page.',
     fields: {
       name: 'Name',
       email: 'Email',
@@ -206,7 +206,7 @@ const en = {
       plan: 'Plan of interest',
       phone: 'Phone number',
       noPref: 'No preference',
-      privacy: 'I have read the privacy notice (draft placeholder).',
+      privacy: 'I have read the privacy notice (draft).',
       marketing: 'I would also like to receive occasional news from Odalo (optional).',
     },
     errors: {
@@ -239,13 +239,6 @@ const en = {
     body: 'The page may have moved, or the address may be wrong. Choose where to go next.',
     home: 'Back to the homepage',
   },
-  legal: {
-    banner: 'DRAFT PLACEHOLDER. This is not an approved legal text. Approved content from the business or its legal adviser is required before launch.',
-    pending: 'Content pending approval.',
-    privacy: { title: 'Privacy notice', sections: ['Who is responsible for your data', 'What data we collect and why', 'How long we keep it', 'Your rights', 'Contact for privacy questions'] },
-    cookies: { title: 'Cookie notice', sections: ['What cookies and similar storage we use', 'Essential storage', 'Analytics and marketing (if enabled later)', 'Managing browser storage'] },
-    legal: { title: 'Legal notice', sections: ['Business identity and registration details', 'Contact details', 'Terms of use', 'Intellectual property'] },
-  },
 } as const;
 
 type DeepString<T> = T extends string
@@ -266,7 +259,7 @@ const es: Dict = {
     about: { title: 'Sobre nosotros — Odalo', description: 'Cómo reúne Odalo web, visibilidad local, vídeo y publicidad en un único enfoque conectado.' },
     audit: { title: 'Pide tu auditoría gratis — Odalo', description: 'Cuéntanos sobre tu negocio y pide una auditoría gratuita.' },
     notFound: { title: 'Página no encontrada — Odalo', description: 'Esta página no existe.' },
-    legal: { title: 'Información legal — Odalo', description: 'Páginas legales provisionales, pendientes de contenido aprobado.' },
+    legal: { title: 'Información legal — Odalo', description: 'Aviso legal, aviso de privacidad y aviso de cookies.' },
   },
   a11y: {
     skip: 'Saltar al contenido principal',
@@ -426,7 +419,7 @@ const es: Dict = {
     cookies: 'Cookies',
     legalNotice: 'Aviso legal',
     demo: 'Sitio de demostración. El contenido, los precios y los proyectos son ejemplos.',
-    rights: '© Odalo',
+    rights: 'Odalo es una marca de Sebastian Tim Appl, que opera como Sappl Digital Studios',
   },
   audit: {
     h1: { a: 'Pide tu', em: 'auditoría gratis.' },
@@ -439,8 +432,8 @@ const es: Dict = {
     ],
     noPromise: 'Aún no hemos fijado un plazo de respuesta, así que no lo prometemos.',
     altH: '¿Prefieres otra vía?',
-    altPending: 'Los datos de contacto no se publican en esta demo.',
-    demoNotice: 'Modo demo: no hay ningún servicio de envío conectado. Enviar este formulario no enviará nada.',
+    altPending: 'Los datos de contacto se añadirán cuando estén confirmados.',
+    demoNotice: 'Modo demo: no hay ningún servicio de envío conectado. Enviar este formulario no enviará nada. Para contactarnos ahora, escribe al correo electrónico de esta página.',
     fields: {
       name: 'Nombre',
       email: 'Correo electrónico',
@@ -454,7 +447,7 @@ const es: Dict = {
       plan: 'Plan de interés',
       phone: 'Teléfono',
       noPref: 'Sin preferencia',
-      privacy: 'He leído el aviso de privacidad (texto provisional).',
+      privacy: 'He leído el aviso de privacidad (borrador).',
       marketing: 'Quiero recibir novedades ocasionales de Odalo (opcional).',
     },
     errors: {
@@ -487,13 +480,6 @@ const es: Dict = {
     body: 'Puede que la página se haya movido o que la dirección sea incorrecta. Elige adónde ir.',
     home: 'Volver al inicio',
   },
-  legal: {
-    banner: 'TEXTO PROVISIONAL. No es un texto legal aprobado. Antes del lanzamiento se necesita el contenido aprobado por el negocio o su asesor legal.',
-    pending: 'Contenido pendiente de aprobación.',
-    privacy: { title: 'Aviso de privacidad', sections: ['Quién es responsable de tus datos', 'Qué datos recogemos y para qué', 'Cuánto tiempo los conservamos', 'Tus derechos', 'Contacto para dudas de privacidad'] },
-    cookies: { title: 'Aviso de cookies', sections: ['Qué cookies y almacenamiento similar usamos', 'Almacenamiento esencial', 'Analítica y marketing (si se activan más adelante)', 'Cómo gestionar el almacenamiento del navegador'] },
-    legal: { title: 'Aviso legal', sections: ['Identidad y datos de registro del negocio', 'Datos de contacto', 'Condiciones de uso', 'Propiedad intelectual'] },
-  },
 };
 
 const de: Dict = {
@@ -505,7 +491,7 @@ const de: Dict = {
     about: { title: 'Über uns — Odalo', description: 'Wie Odalo Website, lokale Sichtbarkeit, Video und Werbung in einem verbundenen Ansatz zusammenführt.' },
     audit: { title: 'Kostenlose Analyse anfragen — Odalo', description: 'Erzähl uns von deinem Unternehmen und frag eine kostenlose Analyse an.' },
     notFound: { title: 'Seite nicht gefunden — Odalo', description: 'Diese Seite existiert nicht.' },
-    legal: { title: 'Rechtliche Informationen — Odalo', description: 'Platzhalter für rechtliche Seiten, bis freigegebene Inhalte vorliegen.' },
+    legal: { title: 'Rechtliche Informationen — Odalo', description: 'Impressum, Datenschutzhinweise und Cookie-Hinweis.' },
   },
   a11y: {
     skip: 'Zum Hauptinhalt springen',
@@ -665,7 +651,7 @@ const de: Dict = {
     cookies: 'Cookies',
     legalNotice: 'Impressum',
     demo: 'Demo-Website. Inhalte, Preise und Projekte sind Beispiele.',
-    rights: '© Odalo',
+    rights: 'Odalo ist eine Marke von Sebastian Tim Appl, handelnd unter Sappl Digital Studios',
   },
   audit: {
     h1: { a: 'Frag deine', em: 'kostenlose Analyse an.' },
@@ -678,8 +664,8 @@ const de: Dict = {
     ],
     noPromise: 'Wir haben noch keine Antwortzeit festgelegt und versprechen deshalb keine.',
     altH: 'Lieber anders melden?',
-    altPending: 'Kontaktdaten werden in dieser Demo nicht veröffentlicht.',
-    demoNotice: 'Demo-Modus: Es ist kein Versanddienst angeschlossen. Mit diesem Formular wird nichts gesendet.',
+    altPending: 'Kontaktdaten werden ergänzt, sobald sie bestätigt sind.',
+    demoNotice: 'Demo-Modus: Es ist kein Versanddienst angeschlossen. Mit diesem Formular wird nichts gesendet. Um uns jetzt zu erreichen, schreibe an die E-Mail-Adresse auf dieser Seite.',
     fields: {
       name: 'Name',
       email: 'E-Mail',
@@ -693,7 +679,7 @@ const de: Dict = {
       plan: 'Interessantes Paket',
       phone: 'Telefonnummer',
       noPref: 'Keine Präferenz',
-      privacy: 'Ich habe die Daten­schutz­hinweise gelesen (Platzhaltertext).',
+      privacy: 'Ich habe die Datenschutzhinweise gelesen (Entwurf).',
       marketing: 'Ich möchte gelegentlich Neuigkeiten von Odalo erhalten (optional).',
     },
     errors: {
@@ -725,13 +711,6 @@ const de: Dict = {
     h1: 'Diese Seite wurde nicht gefunden',
     body: 'Die Seite wurde möglicherweise verschoben oder die Adresse ist falsch. Wähle, wohin es weitergeht.',
     home: 'Zur Startseite',
-  },
-  legal: {
-    banner: 'ENTWURF ALS PLATZHALTER. Dies ist kein freigegebener Rechtstext. Vor dem Launch werden freigegebene Inhalte des Unternehmens oder seiner Rechtsberatung benötigt.',
-    pending: 'Inhalt wartet auf Freigabe.',
-    privacy: { title: 'Daten­schutz­hinweise', sections: ['Wer für deine Daten verantwortlich ist', 'Welche Daten wir erheben und warum', 'Wie lange wir sie speichern', 'Deine Rechte', 'Kontakt für Datenschutzfragen'] },
-    cookies: { title: 'Cookie-Hinweis', sections: ['Welche Cookies und ähnlichen Speicher wir nutzen', 'Notwendiger Speicher', 'Analyse und Marketing (falls später aktiviert)', 'Browserspeicher verwalten'] },
-    legal: { title: 'Impressum', sections: ['Identität und Registerangaben des Unternehmens', 'Kontaktdaten', 'Nutzungsbedingungen', 'Geistiges Eigentum'] },
   },
 };
 

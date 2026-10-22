@@ -2,6 +2,7 @@ import { test, expect, type Page } from '@playwright/test';
 // eslint-disable-next-line
 import fs from 'node:fs';
 import { tr } from '../src/i18n/ui';
+import { legalCopy } from '../src/content/legal';
 
 const langs = ['en', 'es', 'de'] as const;
 const demo = {
@@ -35,10 +36,9 @@ test.describe('closing CTA: honest demo wording', () => {
       await expect(btn).toHaveAttribute('href', `/${l}/audit/`);
       await expect(btn).toHaveAttribute('data-track', 'audit_cta');
       await expect(btn).toHaveAttribute('data-location', 'final');
-      await expect(page.locator('.fin__contact p')).toHaveText(demo[l].contact);
-      await expect(page.locator('footer .ftr__muted')).toHaveText(demo[l].contact);
+      await expect(page.locator('.fin__contact a[href^="mailto:"]')).toBeVisible();
+      await expect(page.locator('footer a[href^="mailto:"]')).toBeVisible();
       expect(await page.locator('.fin, footer').allInnerTexts().then((a) => a.join(' '))).not.toMatch(stale);
-      expect(await page.locator('footer .ftr__muted a').count()).toBe(0);
     });
   }
 
@@ -105,7 +105,7 @@ test.describe('closing CTA: one connected composition', () => {
       const lum = (c: string) => { const [R, G, B] = c.match(/\d+(\.\d+)?/g)!.slice(0, 3).map(Number).map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }); return 0.2126 * R! + 0.7152 * G! + 0.0722 * B!; };
       const ratio = (a: string, b: string) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x! + 0.05) / (y! + 0.05); };
       const bg = getComputedStyle(document.querySelector('.fin__main')!).backgroundColor;
-      const out = ['#fin-h', '.fin__body', '.fin__h', '.fin__contact p'].map((q) => ({ q, ratio: ratio(getComputedStyle(document.querySelector(q)!).color, bg), size: parseFloat(getComputedStyle(document.querySelector(q)!).fontSize) }));
+      const out = ['#fin-h', '.fin__body', '.fin__h', '.fin__contact a'].map((q) => ({ q, ratio: ratio(getComputedStyle(document.querySelector(q)!).color, bg), size: parseFloat(getComputedStyle(document.querySelector(q)!).fontSize) }));
       const b = document.querySelector('.fin a.btn')!; out.push({ q: 'button', ratio: ratio(getComputedStyle(b).color, getComputedStyle(b).backgroundColor), size: 16 });
       return out;
     });
@@ -178,10 +178,9 @@ test.describe('cookie page: revised heading, draft status kept', () => {
     test(`${l}: heading replaced; draft banner, noindex and pending content kept; no consent controls`, async ({ page }) => {
       await page.goto(`/${l}/cookies/`);
       const heads = await page.locator('main h2').allInnerTexts();
-      expect(heads.at(-1)).toBe(demo[l].cookieH);
+      expect(heads.at(-1)).toBe(legalCopy[l].pages.cookies.sections.at(-1)!.h);
       expect(heads.join(' ')).not.toMatch(/choice|elecci|Auswahl/i);
-      await expect(page.locator('main')).toContainText(tr(l).legal.banner);
-      await expect(page.locator('main')).toContainText(tr(l).legal.pending);
+      await expect(page.locator('main')).toContainText(legalCopy[l].banner);
       expect(await page.locator('meta[name="robots"]').getAttribute('content')).toBe('noindex');
       expect(await page.locator('main button, main input').count()).toBe(0);
     });

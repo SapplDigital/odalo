@@ -2,22 +2,34 @@
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
 import { languages, type Lang } from '../../i18n';
-import { tr } from '../../i18n/ui';
+import { legalCopy } from '../../content/legal';
+import { site } from '../../config/site';
 export function getStaticPaths() {
   return languages.flatMap((lang) => (['privacy', 'cookies', 'legal'] as const).map((legal) => ({ params: { lang, legal } })));
 }
 const lang = Astro.params.lang as Lang;
 const slug = Astro.params.legal as 'privacy' | 'cookies' | 'legal';
-const t = tr(lang);
-const page = t.legal[slug];
+const copy = legalCopy[lang];
+const page = copy.pages[slug];
+const { operator } = site;
 ---
-<Base lang={lang} title={`${page.title} — Odalo`} description={t.meta.legal.description} noindex>
-  <PageHero lang={lang} title={{ a: page.title }} crumbs={[{ label: page.title }]} />
+<Base lang={lang} title={`${page.title} — Odalo`} description={page.lead} noindex>
+  <PageHero lang={lang} title={{ a: page.title }} lead={page.lead} crumbs={[{ label: page.title }]} />
   <section class="section lg">
     <div class="wrap lg__in">
-      <p class="lg__banner" role="note">{t.legal.banner}</p>
+      <p class="lg__banner" role="note">{copy.banner}</p>
+      <section class="lg__card" aria-labelledby="lg-card">
+        <h2 id="lg-card" class="h-tile">{copy.card.h}</h2>
+        <p>{copy.card.brandLine}</p>
+        <dl>
+          <div><dt>{copy.card.operator}</dt><dd>{operator.name}</dd></div>
+          <div><dt>{copy.card.brand}</dt><dd>{operator.tradeName}</dd></div>
+          <div><dt>{copy.card.address}</dt><dd>{operator.street}, {operator.postalCode} {operator.city}, {operator.country[lang]}</dd></div>
+          <div><dt>{copy.card.email}</dt><dd><a href={`mailto:${site.contact.email}`}>{site.contact.email}</a></dd></div>
+        </dl>
+      </section>
       <ol class="lg__list">
-        {page.sections.map((s) => <li><h2 class="h-tile">{s}</h2><p>{t.legal.pending}</p></li>)}
+        {page.sections.map((s) => <li><h2 class="h-tile">{s.h}</h2>{s.p.map((para) => <p>{para}</p>)}</li>)}
       </ol>
     </div>
   </section>
@@ -26,6 +38,13 @@ const page = t.legal[slug];
   .lg { padding-top: 0; }
   .lg__in { display: grid; gap: var(--s6); max-width: 60rem; }
   .lg__banner { background: var(--sand); border-left: 8px solid var(--coral); padding: 16px 20px; font-weight: 600; border-radius: 4px; }
+  .lg__card { display: grid; gap: var(--s3); padding: 20px; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; }
+  .lg__card dl { display: grid; gap: var(--s3); }
+  .lg__card dl div { display: grid; gap: 2px; }
+  .lg__card dt { font-size: 0.8125rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--rust-text); }
+  .lg__card dd { overflow-wrap: anywhere; }
+  .lg__card a, .lg__list a { text-underline-offset: 3px; }
+  .lg__list p { overflow-wrap: anywhere; }
   .lg__list { display: grid; gap: var(--s5); counter-reset: s; }
   .lg__list li { padding-bottom: var(--s5); border-bottom: 1px solid var(--line); display: grid; gap: 8px; }
   .lg__list h2 { font-size: 1.5rem; }

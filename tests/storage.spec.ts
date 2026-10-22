@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { tr } from '../src/i18n/ui';
+import { legalCopy } from '../src/content/legal';
 import fs from 'node:fs';
 
 const langs = ['en', 'es', 'de'] as const;
@@ -28,8 +29,8 @@ test.describe('browser-storage information replaces the cookie panel', () => {
       await expect(d.locator('p')).toContainText(body[l]);
       await expect(d.locator('p a')).toHaveAttribute('href', `/${l}/cookies/`);
       await page.goto(`/${l}/cookies/`);
-      await expect(page.locator('h1')).toHaveText(tr(l).legal.cookies.title);
-      await expect(page.locator('main')).toContainText(tr(l).legal.banner);
+      await expect(page.locator('h1')).toHaveText(legalCopy[l].pages.cookies.title);
+      await expect(page.locator('main')).toContainText(legalCopy[l].banner);
     });
   }
 
