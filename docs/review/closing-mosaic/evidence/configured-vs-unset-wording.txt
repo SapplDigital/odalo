@@ -1,0 +1,15 @@
+      2 Contact details are not published in this demo.
+      2 Request your free audit
+      1 Tell us what you need and we will start with an audit.
+--- unset endpoint (shipped default):
+      2 Contact details are not published in this demo.
+      1 Explore the example enquiry form. Submissions are simulated and are not sent.
+      1 View example enquiry form
+== es unset
+Explora el formulario de consulta de ejemplo. Los envíos son simulados y no se envían.
+== es configured
+Cuéntanos qué necesitas y empezamos por una auditoría.
+== de unset
+Sieh dir das Beispiel-Anfrageformular an. Absendungen werden simuliert und nicht gesendet.
+== de configured
+Erzähl uns, was du brauchst, und wir beginnen mit einer Analyse.

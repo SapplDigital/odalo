@@ -1,0 +1,12 @@
+.odalo-mosaic-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1000 / 606;
+  overflow: visible;
+}
+.odalo-mosaic-svg .odalo-mosaic-tile {
+  stroke: var(--odalo-gap, #f7f2e8);
+  stroke-width: 1px;
+  stroke-linejoin: miter;
+}

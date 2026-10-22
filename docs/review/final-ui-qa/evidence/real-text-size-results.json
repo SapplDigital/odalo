@@ -1,0 +1,349 @@
+{
+ "summary": {
+  "method": "Edge persistent context, temporary profile with webkit.webprefs.default_font_size=32",
+  "base": "http://localhost:4322",
+  "checked": 48,
+  "rootPxValues": [
+   "32px"
+  ],
+  "failing": 0
+ },
+ "rows": [
+  {
+   "url": "/en/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/plans/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/about/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/services/video/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/work/sample-clinic/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/audit/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/privacy/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/legal/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/plans/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/about/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/services/video/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/work/sample-clinic/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/audit/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/privacy/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/legal/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/plans/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/about/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/services/video/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/work/sample-clinic/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/audit/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/privacy/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/legal/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/plans/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/about/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/services/video/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/work/sample-clinic/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/audit/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/privacy/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/legal/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/plans/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/about/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/services/video/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/work/sample-clinic/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/audit/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/privacy/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/legal/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/plans/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/about/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/services/video/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/work/sample-clinic/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/audit/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/privacy/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/legal/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  }
+ ]
+}

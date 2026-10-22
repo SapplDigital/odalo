@@ -1,0 +1,20 @@
+---
+/**
+ * Static "odalo" word: the supplied animation's completed `word` arrangement (public/brand/odalo/word.svg, generated from
+ * src/mosaic/odalo/odalo-data.json by scripts/make-odalo-assets.mjs), inlined so it needs no JavaScript and no request.
+ * `tight`: cropped to the word (header). `stage`: the animation's own 1000x606 frame, so it can stand in for the live artwork
+ * until it initialises (hero fallback). Decorative: the surrounding link or region carries the name.
+ */
+import raw from '../../public/brand/odalo/word.svg?raw';
+interface Props { fit?: 'tight' | 'stage' }
+const { fit = 'tight' } = Astro.props;
+const pieces = raw.slice(raw.indexOf('<g stroke'), raw.lastIndexOf('</svg>')).replace(/ id="piece-(\d+)"/g, ' data-piece="$1"');
+const viewBox = fit === 'tight' ? '80 143 840 320' : '0 0 1000 606';
+---
+<svg class={`wordmark wordmark--${fit}`} viewBox={viewBox} preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" set:html={pieces} />
+<style is:global>
+  .wordmark { display: block; width: 100%; height: auto; overflow: visible; }
+  .wordmark--tight { aspect-ratio: 840 / 320; }
+  .wordmark--stage { aspect-ratio: 1000 / 606; }
+  .wordmark g[stroke] { stroke: var(--odalo-gap, var(--paper)); }
+</style>

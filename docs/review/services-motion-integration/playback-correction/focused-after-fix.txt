@@ -1,0 +1,13 @@
+Running 11 tests using 2 workers
+  ok  2 tests\services-motion.spec.ts:374:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › manual Play during the hold is not reversed by stale automatic ownership (3.0s)
+  ok  1 tests\services-motion.spec.ts:361:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › REGRESSION: Play then Pause during the automatic hold stays paused after the hold is released (3.0s)
+  ok  4 tests\services-motion.spec.ts:398:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › repeated and overlapping hold requests are idempotent and leave no dangling hold (560ms)
+  ok  5 tests\services-motion.spec.ts:416:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › a reduced-motion change during the hold leaves no dangling hold (727ms)
+  ok  3 tests\services-motion.spec.ts:384:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › automatic-only hold releases and resumes; a visitor pause made before the overlap stays (2.0s)
+  ok  6 tests\services-motion.spec.ts:425:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › navigating away and back leaves no dangling hold (2.1s)
+  ok  7 tests\services-motion.spec.ts:438:5 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › en: labels, pressed state and keyboard focus stay correct through hold, Play, Pause and release (1.5s)
+  ok  8 tests\services-motion.spec.ts:438:5 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › es: labels, pressed state and keyboard focus stay correct through hold, Play, Pause and release (1.5s)
+  ok  9 tests\services-motion.spec.ts:438:5 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › de: labels, pressed state and keyboard focus stay correct through hold, Play, Pause and release (1.5s)
+  ok 10 tests\services-motion.spec.ts:470:3 › hero and services motion are coordinated through the hero's own pause control › while a piece is travelling and the hero is on screen the hero pauses itself, then resumes when the pieces have docked (
+  ok 11 tests\services-motion.spec.ts:484:3 › hero and services motion are coordinated through the hero's own pause control › a visitor's own pause is never undone (868ms)
+  11 passed (15.4s)

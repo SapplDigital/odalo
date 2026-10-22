@@ -1,0 +1,8 @@
+before-fix: 1727 KB
+  1 loaded: hero playing: control reads "Pause animation", aria-pressed=false, assembling=true
+  2 pieces travelling: services holds the hero: control reads "Play animation", aria-pressed=true, assembling=true
+  3 visitor presses Play: control reads "Pause animation", aria-pressed=false, assembling=true
+  4 visitor presses Pause: control reads "Play animation", aria-pressed=true, assembling=true
+  5 pieces docked: services releases its hold: control reads "Pause animation", aria-pressed=false, assembling=false
+  6 back at the hero: what the visitor sees: control reads "Pause animation", aria-pressed=false, assembling=false
+  RESULT: the hero is PLAYING again (the visitor's last Pause was undone)

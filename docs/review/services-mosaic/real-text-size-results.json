@@ -1,0 +1,538 @@
+{
+ "summary": {
+  "method": "Edge persistent context, temporary profile with webkit.webprefs.default_font_size=32",
+  "base": "http://localhost:4322",
+  "checked": 75,
+  "rootPxValues": [
+   "32px"
+  ],
+  "failing": 0
+ },
+ "rows": [
+  {
+   "url": "/en/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/",
+   "width": 834,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/",
+   "width": 1024,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/",
+   "width": 1440,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/services/web/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/services/web/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/services/web/",
+   "width": 834,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/services/web/",
+   "width": 1024,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/services/web/",
+   "width": 1440,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/services/local/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/services/local/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/services/local/",
+   "width": 834,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/services/local/",
+   "width": 1024,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/services/local/",
+   "width": 1440,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/services/video/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/services/video/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/services/video/",
+   "width": 834,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/services/video/",
+   "width": 1024,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/services/video/",
+   "width": 1440,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/services/ads/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/services/ads/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/services/ads/",
+   "width": 834,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/services/ads/",
+   "width": 1024,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/en/services/ads/",
+   "width": 1440,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/",
+   "width": 834,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/",
+   "width": 1024,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/",
+   "width": 1440,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/services/web/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/services/web/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/services/web/",
+   "width": 834,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/services/web/",
+   "width": 1024,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/services/web/",
+   "width": 1440,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/services/local/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/services/local/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/services/local/",
+   "width": 834,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/services/local/",
+   "width": 1024,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/services/local/",
+   "width": 1440,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/services/video/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/services/video/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/services/video/",
+   "width": 834,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/services/video/",
+   "width": 1024,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/services/video/",
+   "width": 1440,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/services/ads/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/services/ads/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/services/ads/",
+   "width": 834,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/services/ads/",
+   "width": 1024,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/es/services/ads/",
+   "width": 1440,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/",
+   "width": 834,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/",
+   "width": 1024,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/",
+   "width": 1440,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/services/web/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/services/web/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/services/web/",
+   "width": 834,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/services/web/",
+   "width": 1024,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/services/web/",
+   "width": 1440,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/services/local/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/services/local/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/services/local/",
+   "width": 834,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/services/local/",
+   "width": 1024,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/services/local/",
+   "width": 1440,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/services/video/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/services/video/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/services/video/",
+   "width": 834,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/services/video/",
+   "width": 1024,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/services/video/",
+   "width": 1440,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/services/ads/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/services/ads/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/services/ads/",
+   "width": 834,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/services/ads/",
+   "width": 1024,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  },
+  {
+   "url": "/de/services/ads/",
+   "width": 1440,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "problems": []
+  }
+ ]
+}

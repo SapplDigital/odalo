@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Odalo motion prototype: Different pieces. One connected result.</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:,">
+<link rel="preload" href="assets/fonts/outfit-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-serif-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="proto.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#after">Skip the animation</a>
+<header class="bar">
+  <img class="bar__logo" src="assets/odalo-word.svg" width="840" height="320" alt="odalo">
+  <nav class="bar__lang" aria-label="Language"><a href="index.html" hreflang="en" lang="en" aria-current="page">EN</a><a href="index.es.html" hreflang="es" lang="es">ES</a><a href="index.de.html" hreflang="de" lang="de">DE</a></nav>
+</header>
+<main>
+<section class="proto" id="proto" aria-labelledby="proto-h" data-proto>
+  <div class="proto__run">
+    <div class="proto__stage">
+      <div class="head">
+        <div class="head__text">
+          <p class="eyebrow">Motion prototype</p>
+          <h2 id="proto-h" class="head__h"><span class="head__a">Different pieces.</span> <em class="head__b" data-em>One connected result.</em></h2>
+        </div>
+        <a class="cta" href="#after">Request your free audit</a>
+      </div>
+
+      <div class="arena" data-arena>
+        <div class="board" data-board>
+        <div class="plate plate--web" data-tone="ink" data-piece="plate" data-id="web" aria-hidden="true"></div>
+        <div class="plate plate--local" data-tone="sand" data-piece="plate" data-id="local" aria-hidden="true"></div>
+        <div class="plate plate--video" data-tone="coral" data-piece="plate" data-id="video" aria-hidden="true"></div>
+        <div class="plate plate--ads" data-tone="slate" data-piece="plate" data-id="ads" aria-hidden="true"></div>
+        <i class="seam seam--a" data-seam="a" aria-hidden="true"></i>
+        <i class="seam seam--b" data-seam="b" aria-hidden="true"></i>
+        <i class="seam seam--c" data-seam="c" aria-hidden="true"></i>
+        <i class="seam seam--d" data-seam="d" aria-hidden="true"></i>
+        <div class="card card--web" data-piece="card" data-id="web"><img src="assets/img/hotel-desktop-1024.webp" srcset="assets/img/hotel-desktop-640.webp 640w, assets/img/hotel-desktop-1024.webp 1024w" sizes="(min-width: 64em) 34vw, 46vw" width="1024" height="640" alt="Home page of the fictional Casa Almina hotel website: headline, illustration of a harbour house and a date request button." decoding="async"></div>
+        <div class="card card--local" data-piece="card" data-id="local"><img src="assets/img/services-local-info-1024.webp" srcset="assets/img/services-local-info-640.webp 640w, assets/img/services-local-info-1024.webp 1024w" sizes="(min-width: 64em) 34vw, 46vw" width="1024" height="420" alt="Local-information section of the fictional Tidewell practice page: street illustration with address, directions, access and hours." decoding="async"></div>
+        <div class="card card--video" data-piece="card" data-id="video"><img src="assets/img/services-video-strip-1280.webp" srcset="assets/img/services-video-strip-640.webp 640w, assets/img/services-video-strip-1280.webp 1280w" sizes="(min-width: 64em) 34vw, 46vw" width="1280" height="512" alt="Five frames from the fictional Brindle Pantry concept video on a film strip." decoding="async"></div>
+        <div class="card card--ads" data-piece="card" data-id="ads"><img src="assets/img/clinic-ad-square-540.webp" srcset="assets/img/clinic-ad-square-540.webp 540w" sizes="(min-width: 64em) 34vw, 46vw" width="540" height="540" alt="Square concept ad for the fictional Tidewell practice: headline, street illustration and a first-visit button." decoding="async"></div>
+        <i class="ring" data-piece="ring" aria-hidden="true"></i>
+        <i class="emblem" data-piece="emblem" aria-hidden="true"></i>
+        <div class="label label--web" data-tone="ink" data-piece="label" data-id="web">
+          <h3 class="label__h"><span class="label__n" aria-hidden="true">01</span> Websites and maintenance</h3>
+          <p class="label__badge">Fictional hotel concept</p>
+          <p class="label__cap">Casa Almina, website screen</p>
+        </div>
+        <div class="label label--local" data-tone="sand" data-piece="label" data-id="local">
+          <h3 class="label__h"><span class="label__n" aria-hidden="true">02</span> Local visibility</h3>
+          <p class="label__badge">Fictional practice concept</p>
+          <p class="label__cap">Tidewell, local-information section</p>
+        </div>
+        <div class="label label--video" data-tone="coral" data-piece="label" data-id="video">
+          <h3 class="label__h"><span class="label__n" aria-hidden="true">03</span> Video and content</h3>
+          <p class="label__badge">Fictional pantry campaign</p>
+          <p class="label__cap">Brindle Pantry, frames from the motion piece</p>
+        </div>
+        <div class="label label--ads" data-tone="slate" data-piece="label" data-id="ads">
+          <h3 class="label__h"><span class="label__n" aria-hidden="true">04</span> Paid advertising</h3>
+          <p class="label__badge">Fictional practice concept</p>
+          <p class="label__cap">Tidewell, square ad concept</p>
+        </div>
+        </div>
+      </div>
+
+      <div class="rail">
+        <ol class="steps" aria-label="Stages">
+        <li class="step" data-step="0"><span class="step__n" aria-hidden="true">01</span><span class="step__t">Approach</span><span class="step__note">Four kinds of work, still apart.</span></li>
+        <li class="step" data-step="1"><span class="step__n" aria-hidden="true">02</span><span class="step__t">Assembly</span><span class="step__note">Pieces dock edge to edge.</span></li>
+        <li class="step" data-step="2"><span class="step__n" aria-hidden="true">03</span><span class="step__t">Resolution</span><span class="step__note">One connected result.</span></li>
+        </ol>
+        <button class="replay" type="button" data-replay>Replay from the start</button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="after" id="after" tabindex="-1" aria-labelledby="after-h">
+  <h2 id="after-h" class="after__h">Joined, and still readable.</h2>
+  <p class="after__p">The mosaic above is the end state of the scroll. It stays on the page as a normal section: every label is live text and the audit button never moves.</p>
+  <p class="after__note">Prototype for review. Pictures are concept work for fictional clients, not real projects or results.</p>
+</section>
+</main>
+<script src="motion.js"></script>
+</body>
+</html>

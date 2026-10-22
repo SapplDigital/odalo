@@ -1,0 +1,134 @@
+[
+ {
+  "route": "/en/",
+  "w": 1440,
+  "stops": 58,
+  "problems": [
+   "a:\"Tidewell: Local campaign concept for a p\": focus order jumps up the page (3155 -> 2721)"
+  ]
+ },
+ {
+  "route": "/de/",
+  "w": 1440,
+  "stops": 58,
+  "problems": [
+   "a:\"Tidewell: Konzept für eine lokale Kampag\": focus order jumps up the page (3190 -> 2756)"
+  ]
+ },
+ {
+  "route": "/es/",
+  "w": 1440,
+  "stops": 58,
+  "problems": [
+   "a:\"Tidewell: Concepto de campaña local para\": focus order jumps up the page (3087 -> 2648)"
+  ]
+ },
+ {
+  "route": "/en/plans/",
+  "w": 1440,
+  "stops": 32,
+  "problems": []
+ },
+ {
+  "route": "/en/about/",
+  "w": 1440,
+  "stops": 30,
+  "problems": []
+ },
+ {
+  "route": "/en/work/",
+  "w": 1440,
+  "stops": 28,
+  "problems": [
+   "a:\"Tidewell: Local campaign concept for a p\": focus order jumps up the page (1072 -> 638)"
+  ]
+ },
+ {
+  "route": "/en/audit/",
+  "w": 1440,
+  "stops": 37,
+  "problems": [
+   "textarea:\"\": below the window (1010 > 900)"
+  ]
+ },
+ {
+  "route": "/en/services/video/",
+  "w": 1440,
+  "stops": 33,
+  "problems": []
+ },
+ {
+  "route": "/en/work/sample-clinic/",
+  "w": 1440,
+  "stops": 28,
+  "problems": []
+ },
+ {
+  "route": "/de/cookies/",
+  "w": 1440,
+  "stops": 23,
+  "problems": []
+ },
+ {
+  "route": "/en/",
+  "w": 390,
+  "stops": 54,
+  "problems": []
+ },
+ {
+  "route": "/de/",
+  "w": 390,
+  "stops": 54,
+  "problems": []
+ },
+ {
+  "route": "/es/",
+  "w": 390,
+  "stops": 54,
+  "problems": []
+ },
+ {
+  "route": "/en/plans/",
+  "w": 390,
+  "stops": 28,
+  "problems": []
+ },
+ {
+  "route": "/en/about/",
+  "w": 390,
+  "stops": 23,
+  "problems": []
+ },
+ {
+  "route": "/en/work/",
+  "w": 390,
+  "stops": 21,
+  "problems": []
+ },
+ {
+  "route": "/en/audit/",
+  "w": 390,
+  "stops": 30,
+  "problems": [
+   "input:\"\": below the window (861 > 844)"
+  ]
+ },
+ {
+  "route": "/en/services/video/",
+  "w": 390,
+  "stops": 26,
+  "problems": []
+ },
+ {
+  "route": "/en/work/sample-clinic/",
+  "w": 390,
+  "stops": 21,
+  "problems": []
+ },
+ {
+  "route": "/de/cookies/",
+  "w": 390,
+  "stops": 16,
+  "problems": []
+ }
+]

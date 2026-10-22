@@ -1,4 +1,5 @@
 import { test, expect, type Page } from '@playwright/test';
+import { assembleServices } from './helpers/services';
 
 /** Desktop table (revised: the active tile takes 8.5 of 12): [A, B] top row, [C, D] bottom row, in twelfths. */
 const TABLE = {
@@ -19,6 +20,7 @@ test.describe('service mosaic — desktop 1440', () => {
 
   test('rest state is unequal 7/5 and 5/7', async ({ page }) => {
     await page.goto('/en/');
+    await assembleServices(page);
     const w = await widths(page);
     const rowTop = w.web! + w.local!, rowBot = w.video! + w.ads!;
     expect(Math.round((w.web! / rowTop) * 12)).toBe(7);
@@ -28,6 +30,7 @@ test.describe('service mosaic — desktop 1440', () => {
   for (const id of ['web', 'local', 'video', 'ads'] as const) {
     test(`hovering ${id} moves the shared edge per Document 03 and keeps layout stable`, async ({ page }) => {
       await page.goto('/en/');
+      await assembleServices(page);
       await page.locator('[data-mosaic]').scrollIntoViewIfNeeded();
       const before = await metrics(page);
       const box = (await page.locator(`.tile[data-service="${id}"]`).boundingBox())!;
@@ -50,7 +53,7 @@ test.describe('service mosaic — desktop 1440', () => {
   test('no text clipping in any hover state (en/es/de)', async ({ page }) => {
     for (const lang of ['en', 'es', 'de']) {
       await page.goto(`/${lang}/`);
-      await page.locator('[data-mosaic]').scrollIntoViewIfNeeded();
+      await assembleServices(page);
       for (const id of ['web', 'local', 'video', 'ads']) {
         const box = (await page.locator(`.tile[data-service="${id}"]`).boundingBox())!;
         await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2, { steps: 4 });
@@ -66,6 +69,7 @@ test.describe('service mosaic — desktop 1440', () => {
 
   test('moving along the rest edge does not flicker (tolerance + intent delay)', async ({ page }) => {
     await page.goto('/en/');
+    await assembleServices(page);
     await page.locator('[data-mosaic]').scrollIntoViewIfNeeded();
     const box = (await page.locator('[data-mosaic]').boundingBox())!;
     const edge = box.x + box.width * 0.5833;
@@ -84,6 +88,7 @@ test.describe('service mosaic — desktop 1440', () => {
 
   test('pointer leaving resets to resting composition', async ({ page }) => {
     await page.goto('/en/');
+    await assembleServices(page);
     await page.locator('[data-mosaic]').scrollIntoViewIfNeeded();
     const box = (await page.locator('.tile[data-service="ads"]').boundingBox())!;
     await page.mouse.move(box.x + 100, box.y + 100, { steps: 4 });
@@ -94,6 +99,7 @@ test.describe('service mosaic — desktop 1440', () => {
 
   test('hover alone never opens the detail region', async ({ page }) => {
     await page.goto('/en/');
+    await assembleServices(page);
     await page.locator('[data-mosaic]').scrollIntoViewIfNeeded();
     const box = (await page.locator('.tile[data-service="web"]').boundingBox())!;
     await page.mouse.move(box.x + 50, box.y + 50, { steps: 4 });
@@ -174,10 +180,10 @@ test.describe('touch and mobile 390', () => {
 
   test('tap Explore reveals details inline after the tile; reading order kept', async ({ page }) => {
     await page.goto('/en/');
-    const before = await page.evaluate(() => [...document.querySelectorAll('.tile')].map((t) => Math.round(t.getBoundingClientRect().width)));
+    const before = await page.evaluate(() => [...document.querySelectorAll<HTMLElement>('.tile')].map((t) => t.offsetWidth));
     await page.locator('[data-explore="video"]').tap();
     await expect(page.locator('[data-detail-for="video"]')).toBeVisible();
-    const after = await page.evaluate(() => [...document.querySelectorAll('.tile')].map((t) => Math.round(t.getBoundingClientRect().width)));
+    const after = await page.evaluate(() => [...document.querySelectorAll<HTMLElement>('.tile')].map((t) => t.offsetWidth));
     expect(after).toEqual(before); // widths never change in the single-column layout
     const adjacent = await page.evaluate(() => document.querySelector('.tile[data-service="video"]')!.nextElementSibling?.id);
     expect(adjacent).toBe('svc-detail');
@@ -210,9 +216,9 @@ test.describe('reduced motion', () => {
     await page.goto('/en/');
     const dur = await page.locator('.row--top').evaluate((e) => getComputedStyle(e).transitionDuration);
     expect(parseFloat(dur)).toBeLessThan(0.05);
-    // hero pieces are final immediately
-    const op = await page.locator('.hero .piece').first().evaluate((e) => getComputedStyle(e).opacity);
-    expect(op).toBe('1');
+    // hero artwork rests on the word and offers no pause control
+    await expect(page.locator('.hero__stage .odalo-mosaic-svg')).toBeVisible();
+    await expect(page.locator('.hero__pause')).toBeHidden();
     await page.locator('[data-explore="ads"]').click();
     await expect(page.locator('[data-detail-for="ads"]')).toBeVisible();
     // process connector shown without drawing animation

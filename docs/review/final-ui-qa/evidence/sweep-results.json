@@ -1,0 +1,2358 @@
+[
+ {
+  "route": "/en/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"customers.\" in em"
+  ]
+ },
+ {
+  "route": "/en/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"customers.\" in em",
+   "word split: \"maintenance\" in h3.h-tile",
+   "word split: \"advertising\" in h3.h-tile",
+   "word split: \"Understand\" in h3.h-tile",
+   "word split: \"Different\" in h2.h-section",
+   "word split: \"direction.\" in em",
+   "word split: \"maintenance\" in a",
+   "word split: \"advertising\" in a",
+   "word split: \"Questions,\" in h2.h-section",
+   "word split: \"together\" in h2.h-section"
+  ]
+ },
+ {
+  "route": "/en/plans/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/plans/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/plans/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/plans/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/plans/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/plans/",
+  "w": 390,
+  "pct": 200,
+  "problems": []
+ },
+ {
+  "route": "/en/plans/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"Commercial\" in h2.h-section",
+   "word split: \"conditions\" in h2.h-section",
+   "word split: \"together\" in h2.h-section"
+  ]
+ },
+ {
+  "route": "/en/work/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/work/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/work/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/work/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/work/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/work/",
+  "w": 390,
+  "pct": 200,
+  "problems": []
+ },
+ {
+  "route": "/en/work/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"Concept\" in h1.h-hero",
+   "word split: \"together\" in h2.h-section"
+  ]
+ },
+ {
+  "route": "/en/about/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/about/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/about/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/about/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/about/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/about/",
+  "w": 390,
+  "pct": 200,
+  "problems": []
+ },
+ {
+  "route": "/en/about/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"Different\" in h1.h-section",
+   "word split: \"direction.\" in em",
+   "word split: \"maintenance\" in a",
+   "word split: \"advertising\" in a",
+   "word split: \"together\" in h2.h-section"
+  ]
+ },
+ {
+  "route": "/en/audit/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/audit/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/audit/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/audit/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/audit/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/audit/",
+  "w": 390,
+  "pct": 200,
+  "problems": []
+ },
+ {
+  "route": "/en/audit/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"Request\" in h1.h-hero"
+  ]
+ },
+ {
+  "route": "/en/privacy/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/privacy/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/privacy/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/privacy/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/privacy/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/privacy/",
+  "w": 390,
+  "pct": 200,
+  "problems": []
+ },
+ {
+  "route": "/en/privacy/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"PLACEHOLDER.\" in p.lg__banner"
+  ]
+ },
+ {
+  "route": "/en/cookies/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/cookies/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/cookies/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/cookies/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/cookies/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/cookies/",
+  "w": 390,
+  "pct": 200,
+  "problems": []
+ },
+ {
+  "route": "/en/cookies/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"PLACEHOLDER.\" in p.lg__banner"
+  ]
+ },
+ {
+  "route": "/en/legal/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/legal/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/legal/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/legal/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/legal/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/legal/",
+  "w": 390,
+  "pct": 200,
+  "problems": []
+ },
+ {
+  "route": "/en/legal/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"PLACEHOLDER.\" in p.lg__banner"
+  ]
+ },
+ {
+  "route": "/en/services/web/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/services/web/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/services/web/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/services/web/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/services/web/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/services/web/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"maintenance\" in h1.h-hero"
+  ]
+ },
+ {
+  "route": "/en/services/web/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"Websites\" in h1.h-hero",
+   "word split: \"maintenance\" in h1.h-hero",
+   "word split: \"Understand\" in h3.h-tile",
+   "word split: \"Questions\" in h2.h-section",
+   "word split: \"together\" in h2.h-section"
+  ]
+ },
+ {
+  "route": "/en/services/local/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/services/local/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/services/local/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/services/local/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/services/local/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/services/local/",
+  "w": 390,
+  "pct": 200,
+  "problems": []
+ },
+ {
+  "route": "/en/services/local/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"visibility\" in h1.h-hero",
+   "word split: \"Understand\" in h3.h-tile",
+   "word split: \"Questions\" in h2.h-section",
+   "word split: \"together\" in h2.h-section"
+  ]
+ },
+ {
+  "route": "/en/services/video/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/services/video/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/services/video/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/services/video/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/services/video/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/services/video/",
+  "w": 390,
+  "pct": 200,
+  "problems": []
+ },
+ {
+  "route": "/en/services/video/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"Understand\" in h3.h-tile",
+   "word split: \"Questions\" in h2.h-section",
+   "word split: \"together\" in h2.h-section"
+  ]
+ },
+ {
+  "route": "/en/services/ads/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/services/ads/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/services/ads/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/services/ads/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/services/ads/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/services/ads/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"advertising\" in h1.h-hero"
+  ]
+ },
+ {
+  "route": "/en/services/ads/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"advertising\" in h1.h-hero",
+   "word split: \"Understand\" in h3.h-tile",
+   "word split: \"Questions\" in h2.h-section",
+   "word split: \"together\" in h2.h-section"
+  ]
+ },
+ {
+  "route": "/en/work/sample-hotel/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/work/sample-hotel/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/work/sample-hotel/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/work/sample-hotel/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/work/sample-hotel/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/work/sample-hotel/",
+  "w": 390,
+  "pct": 200,
+  "problems": []
+ },
+ {
+  "route": "/en/work/sample-hotel/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"Boutique\" in h1.h-hero",
+   "word split: \"together\" in h2.h-section"
+  ]
+ },
+ {
+  "route": "/en/work/sample-clinic/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/work/sample-clinic/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/work/sample-clinic/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/work/sample-clinic/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/work/sample-clinic/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/work/sample-clinic/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"physiotherapy\" in h1.h-hero"
+  ]
+ },
+ {
+  "route": "/en/work/sample-clinic/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"campaign\" in h1.h-hero",
+   "word split: \"physiotherapy\" in h1.h-hero",
+   "word split: \"practice\" in h1.h-hero",
+   "word split: \"neighbourhood\" in p",
+   "word split: \"descriptions:\" in li",
+   "word split: \"together\" in h2.h-section"
+  ]
+ },
+ {
+  "route": "/en/work/sample-shop/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/work/sample-shop/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/work/sample-shop/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/work/sample-shop/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/work/sample-shop/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/en/work/sample-shop/",
+  "w": 390,
+  "pct": 200,
+  "problems": []
+ },
+ {
+  "route": "/en/work/sample-shop/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"campaign\" in h1.h-hero",
+   "word split: \"everywhere.\" in li",
+   "word split: \"together\" in h2.h-section"
+  ]
+ },
+ {
+  "route": "/es/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"mantenimiento\" in h3.h-tile"
+  ]
+ },
+ {
+  "route": "/es/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"llevamos\" in h1.h-hero",
+   "word split: \"mantenimiento\" in h3.h-tile",
+   "word split: \"Proyectos\" in h2.h-section",
+   "word split: \"conceptuales.\" in em",
+   "word split: \"Mantenimiento\" in li",
+   "word split: \"distintas.\" in h2.h-section",
+   "word split: \"dirección.\" in em",
+   "word split: \"mantenimiento\" in a",
+   "word split: \"conceptuales.\" in a.link-arrow",
+   "word split: \"Preguntas,\" in h2.h-section",
+   "word split: \"respondidas\" in em"
+  ]
+ },
+ {
+  "route": "/es/plans/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/plans/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/plans/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/plans/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/plans/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/plans/",
+  "w": 390,
+  "pct": 200,
+  "problems": []
+ },
+ {
+  "route": "/es/plans/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"Mantenimiento\" in li",
+   "word split: \"Condiciones\" in h2.h-section",
+   "word split: \"comerciales\" in h2.h-section",
+   "word split: \"Preguntas\" in h2.h-section"
+  ]
+ },
+ {
+  "route": "/es/work/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/work/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/work/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/work/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/work/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/work/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"conceptuales.\" in em"
+  ]
+ },
+ {
+  "route": "/es/work/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"Proyectos\" in h1.h-hero",
+   "word split: \"conceptuales.\" in em"
+  ]
+ },
+ {
+  "route": "/es/about/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/about/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/about/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/about/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/about/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/about/",
+  "w": 390,
+  "pct": 200,
+  "problems": []
+ },
+ {
+  "route": "/es/about/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"distintas.\" in h1.h-section",
+   "word split: \"dirección.\" in em",
+   "word split: \"mantenimiento\" in a",
+   "word split: \"conceptuales.\" in a.link-arrow",
+   "word split: \"honestidad\" in h3.h-tile"
+  ]
+ },
+ {
+  "route": "/es/audit/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/audit/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/audit/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/audit/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/audit/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/audit/",
+  "w": 390,
+  "pct": 200,
+  "problems": []
+ },
+ {
+  "route": "/es/audit/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"auditoría\" in em"
+  ]
+ },
+ {
+  "route": "/es/privacy/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/privacy/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/privacy/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/privacy/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/privacy/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/privacy/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"privacidad\" in h1.h-hero"
+  ]
+ },
+ {
+  "route": "/es/privacy/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"privacidad\" in h1.h-hero",
+   "word split: \"PROVISIONAL.\" in p.lg__banner",
+   "word split: \"conservamos\" in h2.h-tile"
+  ]
+ },
+ {
+  "route": "/es/cookies/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/cookies/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/cookies/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/cookies/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/cookies/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/cookies/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"almacenamiento\" in h2.h-tile",
+   "word split: \"Almacenamiento\" in h2.h-tile",
+   "word split: \"almacenamiento\" in h2.h-tile"
+  ]
+ },
+ {
+  "route": "/es/cookies/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"PROVISIONAL.\" in p.lg__banner",
+   "word split: \"almacenamiento\" in h2.h-tile",
+   "word split: \"Almacenamiento\" in h2.h-tile",
+   "word split: \"almacenamiento\" in h2.h-tile"
+  ]
+ },
+ {
+  "route": "/es/legal/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/legal/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/legal/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/legal/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/legal/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/legal/",
+  "w": 390,
+  "pct": 200,
+  "problems": []
+ },
+ {
+  "route": "/es/legal/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"PROVISIONAL.\" in p.lg__banner"
+  ]
+ },
+ {
+  "route": "/es/services/web/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/services/web/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/services/web/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/services/web/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/services/web/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/services/web/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"mantenimiento\" in h1.h-hero"
+  ]
+ },
+ {
+  "route": "/es/services/web/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"mantenimiento\" in h1.h-hero",
+   "word split: \"mantenimiento\" in li.piece",
+   "word split: \"Preguntas\" in h2.h-section"
+  ]
+ },
+ {
+  "route": "/es/services/local/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/services/local/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/services/local/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/services/local/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/services/local/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/services/local/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"Visibilidad\" in h1.h-hero"
+  ]
+ },
+ {
+  "route": "/es/services/local/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"Visibilidad\" in h1.h-hero",
+   "word split: \"Preguntas\" in h2.h-section"
+  ]
+ },
+ {
+  "route": "/es/services/video/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/services/video/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/services/video/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/services/video/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/services/video/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/services/video/",
+  "w": 390,
+  "pct": 200,
+  "problems": []
+ },
+ {
+  "route": "/es/services/video/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"contenido\" in h1.h-hero",
+   "word split: \"Preguntas\" in h2.h-section"
+  ]
+ },
+ {
+  "route": "/es/services/ads/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/services/ads/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/services/ads/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/services/ads/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/services/ads/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/services/ads/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"Publicidad\" in h1.h-hero"
+  ]
+ },
+ {
+  "route": "/es/services/ads/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"Publicidad\" in h1.h-hero",
+   "word split: \"Preguntas\" in h2.h-section"
+  ]
+ },
+ {
+  "route": "/es/work/sample-hotel/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/work/sample-hotel/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/work/sample-hotel/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/work/sample-hotel/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/work/sample-hotel/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/work/sample-hotel/",
+  "w": 390,
+  "pct": 200,
+  "problems": []
+ },
+ {
+  "route": "/es/work/sample-hotel/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"Concepto\" in h1.h-hero",
+   "word split: \"boutique\" in h1.h-hero"
+  ]
+ },
+ {
+  "route": "/es/work/sample-clinic/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/work/sample-clinic/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/work/sample-clinic/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/work/sample-clinic/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/work/sample-clinic/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/work/sample-clinic/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"fisioterapia\" in h1.h-hero"
+  ]
+ },
+ {
+  "route": "/es/work/sample-clinic/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"Concepto\" in h1.h-hero",
+   "word split: \"campaña\" in h1.h-hero",
+   "word split: \"consulta\" in h1.h-hero",
+   "word split: \"fisioterapia\" in h1.h-hero",
+   "word split: \"Descripciones\" in li",
+   "word split: \"seguimiento.\" in li"
+  ]
+ },
+ {
+  "route": "/es/work/sample-shop/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/work/sample-shop/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/work/sample-shop/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/work/sample-shop/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/work/sample-shop/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/es/work/sample-shop/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"movimiento\" in h1.h-hero"
+  ]
+ },
+ {
+  "route": "/es/work/sample-shop/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"Campaña\" in h1.h-hero",
+   "word split: \"movimiento\" in h1.h-hero",
+   "word split: \"despensa\" in h1.h-hero",
+   "word split: \"artesanal\" in h1.h-hero",
+   "word split: \"afirmaciones\" in li",
+   "word split: \"aparecerían\" in li",
+   "word split: \"manteniendo\" in li",
+   "word split: \"presupuesto\" in li",
+   "word split: \"consentimiento\" in li"
+  ]
+ },
+ {
+  "route": "/de/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"Konzeptarbeiten.\" in em",
+   "word split: \"Kampagnenbausteine\" in p",
+   "word split: \"Verschiedene\" in h2.h-section",
+   "word split: \"Unternehmens\" in em",
+   "word split: \"zusammenfügen.\" in em"
+  ]
+ },
+ {
+  "route": "/de/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"bringen\" in h1.h-hero",
+   "word split: \"Kunden.\" in em",
+   "word split: \"zusammenarbeiten\" in p.hero__body",
+   "word split: \"Zusammen\" in em",
+   "word split: \"Sichtbarkeit\" in h3.h-tile",
+   "word split: \"Feinkostladen\" in b",
+   "word split: \"Anzeigenentwurf\" in span.tile__concept",
+   "word split: \"Konzeptarbeiten.\" in em",
+   "word split: \"zusammenwirken\" in p",
+   "word split: \"verbundener\" in em",
+   "word split: \"Unternehmen\" in h3.h-tile",
+   "word split: \"vorgeschlagenen\" in p",
+   "word split: \"Kampagnenbausteine\" in p",
+   "word split: \"Verschiedene\" in h2.h-section",
+   "word split: \"Richtung.\" in em",
+   "word split: \"Sichtbarkeit\" in a",
+   "word split: \"Konzeptarbeiten\" in a.link-arrow",
+   "word split: \"beantwortet.\" in em",
+   "word split: \"Beispielprojekte?\" in span",
+   "word split: \"Kundenergebnisse.\" in p",
+   "word split: \"Unternehmens\" in em",
+   "word split: \"zusammenfügen.\" in em",
+   "word split: \"Kontaktdaten\" in h3.fin__h"
+  ]
+ },
+ {
+  "route": "/de/plans/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/plans/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/plans/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/plans/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/plans/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/plans/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"Kommerzielle\" in h2.h-section",
+   "word split: \"Bedingungen\" in h2.h-section",
+   "word split: \"Unternehmens\" in em",
+   "word split: \"zusammenfügen.\" in em"
+  ]
+ },
+ {
+  "route": "/de/plans/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"Werbebudget\" in li",
+   "word split: \"Werbebudget\" in li",
+   "word split: \"Kommerzielle\" in h2.h-section",
+   "word split: \"Bedingungen\" in h2.h-section",
+   "word split: \"Einrichtungsgebühren\" in span",
+   "word split: \"Korrekturschleifen\" in span",
+   "word split: \"Berichtskennzahlen\" in span",
+   "word split: \"Produktionszeiträume\" in span",
+   "word split: \"Unternehmens\" in em",
+   "word split: \"zusammenfügen.\" in em",
+   "word split: \"Kontaktdaten\" in h3.fin__h"
+  ]
+ },
+ {
+  "route": "/de/work/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/work/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/work/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/work/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/work/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/work/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"Konzeptarbeiten.\" in em",
+   "word split: \"Unternehmens\" in em",
+   "word split: \"zusammenfügen.\" in em"
+  ]
+ },
+ {
+  "route": "/de/work/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"Konzeptarbeiten.\" in em",
+   "word split: \"zusammenwirken\" in p",
+   "word split: \"Unternehmens\" in em",
+   "word split: \"zusammenfügen.\" in em",
+   "word split: \"Kontaktdaten\" in h3.fin__h"
+  ]
+ },
+ {
+  "route": "/de/about/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/about/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/about/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/about/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/about/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/about/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"Verschiedene\" in h1.h-section",
+   "word split: \"Unternehmens\" in em",
+   "word split: \"zusammenfügen.\" in em"
+  ]
+ },
+ {
+  "route": "/de/about/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"Verschiedene\" in h1.h-section",
+   "word split: \"Richtung.\" in em",
+   "word split: \"Sichtbarkeit\" in a",
+   "word split: \"Konzeptarbeiten\" in a.link-arrow",
+   "word split: \"Vorgeschlagene\" in p",
+   "word split: \"vorgeschlagenen\" in p",
+   "word split: \"Kundenergebnisse\" in p",
+   "word split: \"Unternehmens\" in em",
+   "word split: \"zusammenfügen.\" in em",
+   "word split: \"Kontaktdaten\" in h3.fin__h"
+  ]
+ },
+ {
+  "route": "/de/audit/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/audit/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/audit/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/audit/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/audit/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/audit/",
+  "w": 390,
+  "pct": 200,
+  "problems": []
+ },
+ {
+  "route": "/de/audit/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"kostenlose\" in em",
+   "word split: \"Datenschutzhinweise\" in label",
+   "word split: \"Datenschutzhinweise\" in a"
+  ]
+ },
+ {
+  "route": "/de/privacy/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/privacy/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/privacy/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/privacy/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/privacy/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/privacy/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"Datenschutzfragen\" in h2.h-tile"
+  ]
+ },
+ {
+  "route": "/de/privacy/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"PLATZHALTER.\" in p.lg__banner",
+   "word split: \"Rechtsberatung\" in p.lg__banner",
+   "word split: \"verantwortlich\" in h2.h-tile",
+   "word split: \"Datenschutzfragen\" in h2.h-tile"
+  ]
+ },
+ {
+  "route": "/de/cookies/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/cookies/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/cookies/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/cookies/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/cookies/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/cookies/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"Browserspeicher\" in h2.h-tile"
+  ]
+ },
+ {
+  "route": "/de/cookies/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"PLATZHALTER.\" in p.lg__banner",
+   "word split: \"Rechtsberatung\" in p.lg__banner",
+   "word split: \"Browserspeicher\" in h2.h-tile"
+  ]
+ },
+ {
+  "route": "/de/legal/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/legal/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/legal/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/legal/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/legal/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/legal/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"Impressum\" in h1.h-hero",
+   "word split: \"Registerangaben\" in h2.h-tile",
+   "word split: \"Nutzungsbedingungen\" in h2.h-tile"
+  ]
+ },
+ {
+  "route": "/de/legal/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"Impressum\" in h1.h-hero",
+   "word split: \"PLATZHALTER.\" in p.lg__banner",
+   "word split: \"Rechtsberatung\" in p.lg__banner",
+   "word split: \"Registerangaben\" in h2.h-tile",
+   "word split: \"Unternehmens\" in h2.h-tile",
+   "word split: \"Kontaktdaten\" in h2.h-tile",
+   "word split: \"Nutzungsbedingungen\" in h2.h-tile"
+  ]
+ },
+ {
+  "route": "/de/services/web/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/services/web/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/services/web/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/services/web/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/services/web/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/services/web/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"Kampagnenbausteine\" in p",
+   "word split: \"Unternehmens\" in em",
+   "word split: \"zusammenfügen.\" in em"
+  ]
+ },
+ {
+  "route": "/de/services/web/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"Website\" in h1.h-hero",
+   "word split: \"Wartung\" in h1.h-hero",
+   "word split: \"verbundener\" in em",
+   "word split: \"Unternehmen\" in h3.h-tile",
+   "word split: \"vorgeschlagenen\" in p",
+   "word split: \"Kampagnenbausteine\" in p",
+   "word split: \"Unternehmens\" in em",
+   "word split: \"zusammenfügen.\" in em",
+   "word split: \"Kontaktdaten\" in h3.fin__h"
+  ]
+ },
+ {
+  "route": "/de/services/local/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/services/local/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/services/local/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/services/local/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/services/local/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/services/local/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"Sichtbarkeit\" in h1.h-hero",
+   "word split: \"Kampagnenbausteine\" in p",
+   "word split: \"Physiotherapiepraxis\" in p.proj__text",
+   "word split: \"Unternehmens\" in em",
+   "word split: \"zusammenfügen.\" in em"
+  ]
+ },
+ {
+  "route": "/de/services/local/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"Sichtbarkeit\" in h1.h-hero",
+   "word split: \"verbundener\" in em",
+   "word split: \"Unternehmen\" in h3.h-tile",
+   "word split: \"vorgeschlagenen\" in p",
+   "word split: \"Kampagnenbausteine\" in p",
+   "word split: \"Physiotherapiepraxis\" in p.proj__text",
+   "word split: \"Beispielprojekte?\" in span",
+   "word split: \"Kundenergebnisse.\" in p",
+   "word split: \"Unternehmens\" in em",
+   "word split: \"zusammenfügen.\" in em",
+   "word split: \"Kontaktdaten\" in h3.fin__h"
+  ]
+ },
+ {
+  "route": "/de/services/video/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/services/video/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/services/video/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/services/video/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/services/video/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/services/video/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"Kampagnenbausteine\" in p",
+   "word split: \"Unternehmens\" in em",
+   "word split: \"zusammenfügen.\" in em"
+  ]
+ },
+ {
+  "route": "/de/services/video/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"Content\" in h1.h-hero",
+   "word split: \"verbundener\" in em",
+   "word split: \"Unternehmen\" in h3.h-tile",
+   "word split: \"vorgeschlagenen\" in p",
+   "word split: \"Kampagnenbausteine\" in p",
+   "word split: \"Unternehmens\" in em",
+   "word split: \"zusammenfügen.\" in em",
+   "word split: \"Kontaktdaten\" in h3.fin__h"
+  ]
+ },
+ {
+  "route": "/de/services/ads/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/services/ads/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/services/ads/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/services/ads/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/services/ads/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/services/ads/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"Kampagnenbausteine\" in p",
+   "word split: \"Unternehmens\" in em",
+   "word split: \"zusammenfügen.\" in em"
+  ]
+ },
+ {
+  "route": "/de/services/ads/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"verbundener\" in em",
+   "word split: \"Unternehmen\" in h3.h-tile",
+   "word split: \"vorgeschlagenen\" in p",
+   "word split: \"Kampagnenbausteine\" in p",
+   "word split: \"Unternehmens\" in em",
+   "word split: \"zusammenfügen.\" in em",
+   "word split: \"Kontaktdaten\" in h3.fin__h"
+  ]
+ },
+ {
+  "route": "/de/work/sample-hotel/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/work/sample-hotel/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/work/sample-hotel/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/work/sample-hotel/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/work/sample-hotel/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/work/sample-hotel/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"Vorgeschlagener\" in h2.cs__h",
+   "word split: \"Unternehmens\" in em",
+   "word split: \"zusammenfügen.\" in em"
+  ]
+ },
+ {
+  "route": "/de/work/sample-hotel/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"Vorgeschlagener\" in h2.cs__h",
+   "word split: \"vorgeschlagen\" in h2.cs__h",
+   "word split: \"Datenformular,\" in p",
+   "word split: \"vorgeschlagen,\" in p",
+   "word split: \"Unternehmens\" in em",
+   "word split: \"zusammenfügen.\" in em",
+   "word split: \"Kontaktdaten\" in h3.fin__h"
+  ]
+ },
+ {
+  "route": "/de/work/sample-clinic/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/work/sample-clinic/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/work/sample-clinic/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/work/sample-clinic/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/work/sample-clinic/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/work/sample-clinic/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"Kampagne\" in h1.h-hero",
+   "word split: \"Physiotherapiepraxis\" in p",
+   "word split: \"Vorgeschlagener\" in h2.cs__h",
+   "word split: \"Unternehmensprofil\" in p",
+   "word split: \"Konzeptanzeigen\" in h2.h-tile",
+   "word split: \"Vorgeschlagener\" in h2.h-tile",
+   "word split: \"Unternehmensprofil\" in li",
+   "word split: \"wiederverwendet.\" in li",
+   "word split: \"Übereinstimmende\" in li",
+   "word split: \"Gesundheitsdaten\" in li",
+   "word split: \"Unternehmens\" in em",
+   "word split: \"zusammenfügen.\" in em"
+  ]
+ },
+ {
+  "route": "/de/work/sample-clinic/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"Konzept\" in h1.h-hero",
+   "word split: \"Kampagne\" in h1.h-hero",
+   "word split: \"Physiotherapiepraxis\" in p",
+   "word split: \"Vorgeschlagener\" in h2.cs__h",
+   "word split: \"vorgeschlagen\" in h2.cs__h",
+   "word split: \"Konzeptanzeigen\" in p",
+   "word split: \"vorgeschlagen,\" in p",
+   "word split: \"Unternehmensprofil\" in p",
+   "word split: \"Konzeptanzeigen\" in h2.h-tile",
+   "word split: \"Vorgeschlagener\" in h2.h-tile",
+   "word split: \"Unternehmensprofil,\" in p.shots__lead",
+   "word split: \"Öffnungszeiten,\" in li",
+   "word split: \"Zugangsinfos\" in li",
+   "word split: \"Leistungsliste\" in li",
+   "word split: \"Unternehmensprofil\" in li",
+   "word split: \"wiederverwendet.\" in li",
+   "word split: \"Übereinstimmende\" in li",
+   "word split: \"Beschreibungen:\" in li",
+   "word split: \"beschrieben,\" in li",
+   "word split: \"Suchergebnis,\" in li",
+   "word split: \"vorgeschlagen:\" in li",
+   "word split: \"beantwortet\" in li",
+   "word split: \"Gesundheitsdaten\" in li",
+   "word split: \"Unternehmens\" in em",
+   "word split: \"zusammenfügen.\" in em",
+   "word split: \"Kontaktdaten\" in h3.fin__h"
+  ]
+ },
+ {
+  "route": "/de/work/sample-shop/",
+  "w": 1440,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/work/sample-shop/",
+  "w": 1024,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/work/sample-shop/",
+  "w": 834,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/work/sample-shop/",
+  "w": 390,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/work/sample-shop/",
+  "w": 320,
+  "pct": 100,
+  "problems": []
+ },
+ {
+  "route": "/de/work/sample-shop/",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "word split: \"Vorgeschlagener\" in h2.cs__h",
+   "word split: \"Verpackungsillustrationen,\" in p",
+   "word split: \"Kampagnenentwurf.\" in p",
+   "word split: \"Konzeptanzeigen\" in h2.h-tile",
+   "word split: \"Veröffentlichung\" in h2.h-tile",
+   "word split: \"Produktbeschreibung\" in li",
+   "word split: \"Veröffentlichung:\" in li",
+   "word split: \"personenbezogene\" in li",
+   "word split: \"Unternehmens\" in em",
+   "word split: \"zusammenfügen.\" in em"
+  ]
+ },
+ {
+  "route": "/de/work/sample-shop/",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "word split: \"Produktillustrationen,\" in p.lead",
+   "word split: \"Vorgeschlagener\" in h2.cs__h",
+   "word split: \"ausgeschaltetem\" in p",
+   "word split: \"vorgeschlagen\" in h2.cs__h",
+   "word split: \"Verpackungsillustrationen,\" in p",
+   "word split: \"zehnsekündiges\" in p",
+   "word split: \"Kampagnenentwurf.\" in p",
+   "word split: \"vorgeschlagen,\" in p",
+   "word split: \"veröffentlichen\" in p",
+   "word split: \"Konzeptanzeigen\" in h2.h-tile",
+   "word split: \"Vorgeschlagene\" in h2.h-tile",
+   "word split: \"Veröffentlichung\" in h2.h-tile",
+   "word split: \"Aufnahmen:\" in li",
+   "word split: \"Verpackungen\" in li",
+   "word split: \"Produktbeschreibung\" in li",
+   "word split: \"Veröffentlichung:\" in li",
+   "word split: \"quadratische\" in li",
+   "word split: \"Öffnungszeiten.\" in li",
+   "word split: \"personenbezogene\" in li",
+   "word split: \"Unternehmens\" in em",
+   "word split: \"zusammenfügen.\" in em",
+   "word split: \"Kontaktdaten\" in h3.fin__h"
+  ]
+ },
+ {
+  "route": "/404.html",
+  "w": 1440,
+  "pct": 100,
+  "problems": [
+   "isolated punctuation node \".\" in span"
+  ]
+ },
+ {
+  "route": "/404.html",
+  "w": 1024,
+  "pct": 100,
+  "problems": [
+   "isolated punctuation node \".\" in span"
+  ]
+ },
+ {
+  "route": "/404.html",
+  "w": 834,
+  "pct": 100,
+  "problems": [
+   "isolated punctuation node \".\" in span"
+  ]
+ },
+ {
+  "route": "/404.html",
+  "w": 390,
+  "pct": 100,
+  "problems": [
+   "isolated punctuation node \".\" in span"
+  ]
+ },
+ {
+  "route": "/404.html",
+  "w": 320,
+  "pct": 100,
+  "problems": [
+   "isolated punctuation node \".\" in span"
+  ]
+ },
+ {
+  "route": "/404.html",
+  "w": 390,
+  "pct": 200,
+  "problems": [
+   "isolated punctuation node \".\" in span"
+  ]
+ },
+ {
+  "route": "/404.html",
+  "w": 320,
+  "pct": 200,
+  "problems": [
+   "isolated punctuation node \".\" in span"
+  ]
+ }
+]

@@ -1,0 +1,158 @@
+/* Odalo signature motion prototype. Tokens copied from src/styles/global.css; nothing here touches the site. */
+@font-face { font-family: 'Outfit Variable'; src: url(assets/fonts/outfit-latin-wght-normal.woff2) format('woff2'); font-weight: 100 900; font-display: optional; }
+@font-face { font-family: 'Instrument Serif'; src: url(assets/fonts/instrument-serif-latin-400-italic.woff2) format('woff2'); font-style: italic; font-weight: 400; font-display: optional; }
+
+:root {
+  --ink: #203b57; --coral: #d98165; --sand: #efe7d3; --paper: #f7f9f8; --slate: #50718b; --rust: #b65a40;
+  --ink-deep: #132338; --coral-light: #efa58c; --rust-text: #9a4630; --line: rgb(32 59 87 / 0.18);
+  --font-sans: 'Outfit Variable', 'Segoe UI', system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', 'Iowan Old Style', Georgia, serif;
+  --margin: 20px;
+  --ratio: 0.7;
+  --focus: var(--ink);
+}
+@media (min-width: 48em) { :root { --margin: 32px; } }
+@media (min-width: 64em) { :root { --margin: 48px; --ratio: 2.2; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 1.0625rem/1.55 var(--font-sans); -webkit-font-smoothing: antialiased; overflow-wrap: break-word; }
+h1, h2, h3, p, ol { margin: 0; } ol { padding: 0; list-style: none; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-underline-offset: 0.18em; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 3px; }
+.skip { position: absolute; left: 12px; top: 12px; z-index: 200; background: var(--ink); color: var(--paper); padding: 10px 18px; border-radius: 999px; font-weight: 600; transform: translateY(-200%); transition: transform 0.15s; }
+.skip:focus { transform: none; --focus: var(--coral-light); }
+
+/* ---------- page furniture around the prototype ---------- */
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px var(--margin); min-height: 56px; border-bottom: 1px solid var(--line); }
+.bar__logo { width: 96px; height: auto; }
+.bar__lang { display: flex; gap: 4px; font-weight: 600; font-size: 0.9375rem; }
+.bar__lang a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; text-decoration: none; border-radius: 999px; }
+.bar__lang a[aria-current] { background: var(--ink); color: var(--paper); }
+.after { padding: 72px var(--margin) 96px; max-width: 52rem; margin-inline: auto; display: grid; gap: 16px; }
+.after__h { font-size: clamp(1.75rem, 1.2rem + 2vw, 2.75rem); line-height: 1.1; font-weight: 800; }
+.after__note { font-size: 0.9375rem; color: var(--rust-text); }
+
+/* ---------- the stage ---------- */
+.rail, .replay { display: none; } /* shown only by the live block below */
+.proto__stage { display: flex; flex-direction: column; gap: 14px; padding: 20px var(--margin) 14px; background: var(--paper); }
+.head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; }
+.eyebrow { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rust-text); }
+.head__h { font-size: clamp(1.85rem, 0.9rem + 3.3vw, 3.75rem); line-height: 1.04; font-weight: 800; letter-spacing: -0.02em; }
+.head__a, .head__b { display: inline-block; }
+.head__b { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--rust-text); letter-spacing: 0; opacity: var(--em, 1); }
+.cta { display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 999px; background: var(--coral); color: var(--ink-deep); font-weight: 700; text-decoration: none; white-space: nowrap; }
+.cta:hover { background: var(--coral-light); }
+
+.arena { position: relative; container-type: inline-size; display: grid; justify-items: center; align-items: center; overflow: clip; }
+.board {
+  --c: 52; --r: 50;       /* where the four pieces meet, in % of the board */
+  --R: min(116px, 11cqw); /* the one large curved corner */
+  --in: 0px;              /* inner corner radius (animated while pieces are apart) */
+  --emb: 11cqw;
+  position: relative; width: min(100cqw, 1296px); aspect-ratio: var(--ratio); container-type: size;
+}
+@media (min-width: 64em) { .board { --c: 58; --r: 56; --R: min(116px, 9cqw); --emb: 5.2cqw; } }
+
+/* every piece sits in its FINAL slot; the script only adds a transform while the pieces are apart */
+.plate, .card, .seam, .emblem, .ring, .label { position: absolute; }
+.plate { left: 0; top: 0; background: var(--tone); box-shadow: 0 0 0 0.6px var(--tone); /* closes hairlines where docked edges meet under a fractional transform */ }
+.plate::before, .card::before { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: 0 26px 44px -14px rgb(19 35 56 / 0.5); opacity: var(--sh, 0); pointer-events: none; }
+[data-tone='ink'] { --tone: var(--ink); --fg: var(--paper); }
+[data-tone='sand'] { --tone: var(--sand); --fg: var(--ink); }
+[data-tone='coral'] { --tone: var(--coral); --fg: var(--ink-deep); }
+[data-tone='slate'] { --tone: var(--slate); --fg: var(--paper); }
+.plate--web   { width: calc(var(--c) * 1%);         height: calc(var(--r) * 1%);         border-radius: var(--R) var(--in) var(--in) var(--in); }
+.plate--local { left: calc(var(--c) * 1%); width: calc((100 - var(--c)) * 1%); height: calc(var(--r) * 1%); border-radius: var(--in) 6px var(--in) var(--in); }
+.plate--video { top: calc(var(--r) * 1%);  width: calc(var(--c) * 1%);         height: calc((100 - var(--r)) * 1%); border-radius: var(--in) var(--in) var(--in) 6px; }
+.plate--ads   { left: calc(var(--c) * 1%); top: calc(var(--r) * 1%); width: calc((100 - var(--c)) * 1%); height: calc((100 - var(--r)) * 1%); border-radius: var(--in) var(--in) var(--R) var(--in); }
+
+.card { background: var(--paper); border-radius: 6px 22px 6px 6px; }
+.card img { position: relative; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; box-shadow: 0 0 0 1px rgb(19 35 56 / 0.14); }
+/* final slots, tall board (phones, tablets in portrait): picture on top, label under it, flowing down to the surface's edge */
+.card--web   { left: 6%;  top: 6.5%; width: 40%; height: 17%; } .card--web img { object-position: 62% 22%; }
+.card--local { left: 56%; top: 6.5%; width: 38%; height: 12.5%; } .card--local img { object-position: 12% 35%; }
+.card--video { left: 5%;  top: 56.5%; width: 42%; height: 18%; } .card--video img { object-position: 50% 50%; }
+.card--ads   { left: 59%; top: 56%; width: 28%; height: 19.6%; }
+.label--web   { left: 6%;  top: 25%;   width: 42%; height: 20%; }
+.label--local { left: 56%; top: 20.5%; width: 40%; height: 24.5%; }
+.label--video { left: 5%;  top: 76%;   width: 44%; height: 22%; }
+.label--ads   { left: 57%; top: 76.5%; width: 39%; height: 21.5%; }
+@media (min-width: 64em) {
+  .card--web   { left: 7%;    top: 9%;  width: 33%; height: 40%; }
+  .card--local { left: 62%;   top: 7%;  width: 34%; height: 30%; }
+  .card--video { left: 3%;    top: 62%; width: 34%; height: 30%; }
+  .card--ads   { left: 60.5%; top: 62%; width: 15.5%; height: 34%; }
+  .label--web   { left: 42%;   top: 9%;  width: 15%; height: 40%; }
+  .label--local { left: 62%;   top: 39%; width: 34%; height: 15%; }
+  .label--video { left: 38.5%; top: 62%; width: 18%; height: 30%; }
+  .label--ads   { left: 78%;   top: 62%; width: 19%; height: 34%; }
+}
+
+/* labels: live text on the finished surfaces; nothing else is ever drawn above them */
+.label { z-index: 90; display: flex; flex-direction: column; justify-content: flex-start; gap: 0.3em; color: var(--fg); min-width: 0; }
+.label__h { font-size: clamp(0.9rem, 4.2cqw, 1.7rem); line-height: 1.12; font-weight: 700; letter-spacing: -0.005em; }
+.label__n { display: inline-block; margin-right: 0.35em; font-size: 0.85em; font-weight: 800; letter-spacing: 0.08em; opacity: 0.85; }
+.label__badge { align-self: flex-start; font-size: clamp(0.75rem, 2.5cqw, 0.95rem); line-height: 1.25; font-weight: 600; padding: 1px 9px; border: 1.5px solid currentColor; border-radius: 12px; }
+.label__cap { display: none; font-size: 0.8125rem; line-height: 1.3; opacity: 0.92; }
+@media (min-width: 64em) {
+  .label { justify-content: flex-end; }
+  .label__h { font-size: clamp(0.95rem, 1.5cqw, 1.5rem); }
+  .label__badge { font-size: clamp(0.75rem, 0.95cqw, 0.85rem); }
+  .label__cap { display: block; font-size: clamp(0.75rem, 0.95cqw, 0.875rem); }
+}
+
+.seam { z-index: 35; background: var(--paper); box-shadow: 0 0 0 1px rgb(19 35 56 / 0.28), 0 0 14px 2px rgb(255 255 255 / 0.7); opacity: 0; pointer-events: none; }
+.seam--a { left: calc(var(--c) * 1%); top: 0; width: 4px; height: calc(var(--r) * 1%); margin-left: -2px; }
+.seam--b { left: 0; top: calc(var(--r) * 1%); height: 4px; width: calc(var(--c) * 1%); margin-top: -2px; }
+.seam--c { left: calc(var(--c) * 1%); top: calc(var(--r) * 1%); width: 4px; height: calc((100 - var(--r)) * 1%); margin-left: -2px; }
+.seam--d { left: calc(var(--c) * 1%); top: calc(var(--r) * 1%); height: 4px; width: calc((100 - var(--c)) * 1%); margin-top: -2px; }
+
+/* the joint: four quarters, one disc, where all four pieces meet */
+.emblem, .ring { left: calc(var(--c) * 1%); top: calc(var(--r) * 1%); width: var(--emb); aspect-ratio: 1; translate: -50% -50%; border-radius: 50%; pointer-events: none; }
+.emblem { z-index: 80; background: conic-gradient(var(--slate) 0 25%, var(--sand) 0 50%, var(--ink) 0 75%, var(--coral) 0); box-shadow: 0 0 0 0.45cqw var(--paper), 0 6px 18px rgb(19 35 56 / 0.3); }
+.ring { z-index: 79; border: 3px solid var(--ink); opacity: 0; }
+
+/* ---------- live mode: a short sticky stage driven by normal scrolling ----------
+ * The live layout is decided by CSS alone (the same conditions as the script's matchMedia), so the page is laid out correctly at first paint:
+ * the runway height exists before the script runs and nothing below it moves when the script starts.
+ * motion.js only adds .proto-off when it decides the stage would be too small (rare), and .proto-ready after the first scene frame. */
+@media (prefers-reduced-motion: no-preference) and (min-width: 64em) and (min-height: 520px), (prefers-reduced-motion: no-preference) and (max-width: 63.99em) and (min-height: 600px) {
+  .js:not(.proto-off) .proto__run { --scrub: 115svh; height: calc(100svh + var(--scrub)); }
+  .js:not(.proto-off) .proto__stage { position: sticky; top: 0; height: 100svh; }
+  .js:not(.proto-off) .arena { flex: 1 1 auto; min-height: 0; container-type: size; }
+  .js:not(.proto-off) .board { width: min(96cqw, calc(94cqh * var(--ratio)), 1296px); }
+  .js:not(.proto-off) .plate, .js:not(.proto-off) .card, .js:not(.proto-off) .emblem, .js:not(.proto-off) .ring { will-change: transform; }
+  .js:not(.proto-off):not(.proto-ready) .board { visibility: hidden; animation: proto-show 0s linear 1.2s forwards; } /* never leave the board hidden if the script fails */
+  .js:not(.proto-off) .rail { display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; flex-wrap: wrap; position: relative; padding-top: 12px; }
+  .js:not(.proto-off) .rail::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--line); }
+  .js:not(.proto-off) .rail::after { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--coral); transform-origin: left; transform: scaleX(var(--p, 0)); }
+  .js:not(.proto-off) .replay { display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border: 2px solid var(--ink); border-radius: 999px; background: transparent; color: var(--ink); font: 600 0.9375rem/1 var(--font-sans); cursor: pointer; }
+  .js:not(.proto-off) .replay:hover { background: var(--ink); color: var(--paper); }
+}
+@media (prefers-reduced-motion: no-preference) and (min-width: 64em) and (min-height: 520px) { .js:not(.proto-off) .board { width: min(92cqw, calc(88cqh * var(--ratio)), 1296px); } }
+@keyframes proto-show { to { visibility: visible; } }
+
+/* ---------- progress rail (shown in live mode only) ---------- */
+.steps { display: flex; gap: 8px 28px; flex-wrap: wrap; }
+.step { display: grid; grid-template-columns: auto 1fr; column-gap: 8px; align-items: baseline; opacity: 0.5; transition: opacity 0.2s; }
+.step[aria-current='step'] { opacity: 1; }
+.step__n { font-weight: 800; font-size: 0.8125rem; letter-spacing: 0.08em; color: var(--rust-text); }
+.step__t { font-weight: 700; }
+.step__note { grid-column: 2; font-size: 0.875rem; line-height: 1.3; }
+@media (max-width: 63.99em) {
+  .step__note { display: none; } .step[aria-current='step'] .step__note { display: block; }
+  .steps { gap: 6px 16px; }
+  .step__t { font-size: 0.9375rem; }
+}
+@media (max-width: 47.99em) and (max-height: 760px) { .eyebrow { display: none; } .proto__stage { padding-top: 14px; gap: 10px; } }
+@media (max-width: 47.99em) {
+  .head { gap: 10px 16px; }
+  .head__text { flex: 1 1 100%; }
+  .cta { min-height: 44px; padding: 0 18px; }
+  .step__n { display: none; }
+  .step__note { display: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } .skip { transition: none; } }

@@ -1,0 +1,11 @@
+  ok 1 tests\qa.spec.ts:93:5 › form error and result states do not overflow at narrow widths with enlarged text › en 320px at 100% root font: the validation summary and every field error stay inside the vie
+  ok 2 tests\qa.spec.ts:93:5 › form error and result states do not overflow at narrow widths with enlarged text › en 320px at 200% root font: the validation summary and every field error stay inside the vie
+  ok 3 tests\qa.spec.ts:93:5 › form error and result states do not overflow at narrow widths with enlarged text › en 390px at 200% root font: the validation summary and every field error stay inside the vie
+  ok 5 tests\qa.spec.ts:93:5 › form error and result states do not overflow at narrow widths with enlarged text › es 390px at 200% root font: the validation summary and every field error stay inside the vie
+  ok 6 tests\qa.spec.ts:93:5 › form error and result states do not overflow at narrow widths with enlarged text › es 320px at 100% root font: the validation summary and every field error stay inside the vie
+  ok 4 tests\qa.spec.ts:93:5 › form error and result states do not overflow at narrow widths with enlarged text › es 320px at 200% root font: the validation summary and every field error stay inside the vie
+  ok 9 tests\qa.spec.ts:93:5 › form error and result states do not overflow at narrow widths with enlarged text › de 320px at 100% root font: the validation summary and every field error stay inside the vie
+  ok 8 tests\qa.spec.ts:93:5 › form error and result states do not overflow at narrow widths with enlarged text › de 390px at 200% root font: the validation summary and every field error stay inside the vie
+  x  7 tests\qa.spec.ts:93:5 › form error and result states do not overflow at narrow widths with enlarged text › de 320px at 200% root font: the validation summary and every field error stay inside the vie
+  1 failed
+  8 passed (11.9s)

@@ -1,0 +1,24 @@
+---
+/**
+ * A project picture with responsive sources (public/work/concepts/<folder>/<file>-<width>.webp).
+ * width/height are the intrinsic size of the largest file, so the box is reserved before the image loads.
+ * `variants`: purpose-made alternatives that replace the default picture under their own media query (each record's `media`),
+ * e.g. a phone crop for narrow cards or a portrait creative for a tall card slot, so no picture is stretched into the wrong shape.
+ */
+import type { ProjectImage } from '../content/projects';
+import type { Lang } from '../i18n';
+interface Props { image: ProjectImage; lang: Lang; sizes: string; eager?: boolean; class?: string; variants?: ProjectImage[] }
+const { image, lang, sizes, eager = false, class: cls, variants = [] } = Astro.props;
+const root = import.meta.env.BASE_URL.replace(/\/$/, '');
+const srcsetOf = (i: ProjectImage) => [...i.widths].sort((a, b) => a - b).map((w) => `${root}/work/concepts/${i.folder}/${i.file}-${w}.webp ${w}w`).join(', ');
+const mid = (i: ProjectImage) => { const w = [...i.widths].sort((a, b) => a - b); return `${root}/work/concepts/${i.folder}/${i.file}-${w[Math.floor(w.length / 2)]}.webp`; };
+const variantSizes = (v: ProjectImage) => (v.role === 'card-tall' ? '(min-width: 80em) 24vw, 100vw' : '100vw');
+---
+{variants.length > 0 ? (
+  <picture>
+    {variants.map((v) => <source media={v.media} srcset={srcsetOf(v)} sizes={variantSizes(v)} width={v.width} height={v.height} />)}
+    <img class={cls} src={mid(image)} srcset={srcsetOf(image)} sizes={sizes} width={image.width} height={image.height} alt={image.alt[lang]} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+  </picture>
+) : (
+  <img class={cls} src={mid(image)} srcset={srcsetOf(image)} sizes={sizes} width={image.width} height={image.height} alt={image.alt[lang]} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+)}

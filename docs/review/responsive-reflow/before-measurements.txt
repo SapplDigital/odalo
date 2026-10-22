@@ -1,0 +1,74 @@
+en / 320px 100%: docSw=320 over=0
+en / 320px 200%: docSw=380 over=60
+   .hero box beyond viewport x11 e.g. div.hero__text "DIGITAL STUDIO FOR BUS" r=380
+   #work box beyond viewport x5 e.g. p.proj__meta "Sample project · illus" r=348
+   .faq__head box beyond viewport x3 e.g. header.faq__head "FAQQuestions, answered" r=332
+   #faq box beyond viewport x41 e.g. div.faq__list "Can I hire one service" r=332
+   .hero text beyond viewport x5 e.g. p.eyebrow "DIGITAL STUDIO FOR BUS" r=380
+   #services text beyond viewport x4 e.g. span.sr-only ": Websites and mainten" r=62
+   #work text beyond viewport x1 e.g. a. "Physiotherapy practice" r=348
+   .faq__head text beyond viewport x1 e.g. h2.h-section "Questions, answered pl" r=332
+   #faq text beyond viewport x4 e.g. p. "No. Ad spend is paid d" r=328
+en / 390px 100%: docSw=390 over=0
+   #services text beyond viewport x1 e.g. span.sr-only ": Websites and mainten" r=178
+en / 390px 200%: docSw=390 over=0
+   #services text beyond viewport x2 e.g. span.sr-only ": Websites and mainten" r=62
+en /plans/ 320px 100%: docSw=320 over=0
+en /plans/ 320px 200%: docSw=363 over=43
+   .section box beyond viewport x21 e.g. div. "Commercial conditionsT" r=363
+   .section text beyond viewport x7 e.g. h2.h-section "Commercial conditions" r=363
+en /plans/ 390px 100%: docSw=390 over=0
+en /plans/ 390px 200%: docSw=390 over=0
+es / 320px 100%: docSw=320 over=0
+es / 320px 200%: docSw=362 over=42
+   .hero box beyond viewport x12 e.g. div.hero__text "ESTUDIO DIGITAL PARA N" r=362
+   #work box beyond viewport x8 e.g. p.proj__meta "Proyecto de ejemplo · " r=360
+   .faq__head box beyond viewport x4 e.g. header.faq__head "PreguntasPreguntas, re" r=327
+   #faq box beyond viewport x41 e.g. div.faq__list "¿Puedo contratar un so" r=327
+   .hero text beyond viewport x4 e.g. p.eyebrow "ESTUDIO DIGITAL PARA N" r=362
+   #services text beyond viewport x6 e.g. span.sr-only ": Web y mantenimiento" r=62
+   #work text beyond viewport x3 e.g. a. "Relanzamiento de un ho" r=360
+   .faq__head text beyond viewport x2 e.g. h2.h-section "Preguntas, respondidas" r=327
+   #faq text beyond viewport x2 e.g. p. "Esperamos que sí, pero" r=323
+es / 390px 100%: docSw=390 over=0
+es / 390px 200%: docSw=390 over=0
+   #services text beyond viewport x2 e.g. span.sr-only ": Web y mantenimiento" r=62
+es /plans/ 320px 100%: docSw=320 over=0
+es /plans/ 320px 200%: docSw=363 over=43
+   .section box beyond viewport x21 e.g. div. "Condiciones comerciale" r=363
+   .section text beyond viewport x8 e.g. h2.h-section "Condiciones comerciale" r=363
+es /plans/ 390px 100%: docSw=390 over=0
+es /plans/ 390px 200%: docSw=390 over=0
+de / 320px 100%: docSw=320 over=0
+de / 320px 200%: docSw=495 over=175
+   .hero box beyond viewport x8 e.g. div.hero__text "DIGITALSTUDIO FÜR UNTE" r=327
+   #work box beyond viewport x23 e.g. article.proj "Beispielprojekt · illu" r=341
+   #process box beyond viewport x16 e.g. li.step "011. Kostenlose Analys" r=378
+   .faq__head box beyond viewport x4 e.g. header.faq__head "FAQFragen, klar beantw" r=331
+   #faq box beyond viewport x41 e.g. div.faq__list "Kann ich nur eine Leis" r=331
+   .fin box beyond viewport x11 e.g. div.fin__main "Lass uns die Teile dei" r=495
+   .hero text beyond viewport x1 e.g. p.hero__body "Website, Video und Anz" r=327
+   #services text beyond viewport x6 e.g. span.sr-only ": Website und Wartung" r=62
+   #work text beyond viewport x3 e.g. span.proj__badge "Beispielprojekt · illu" r=364
+   #process text beyond viewport x4 e.g. p. "Wir prüfen, was ein Ku" r=356
+   .faq__head text beyond viewport x1 e.g. em. "klar beantwortet." r=331
+   #faq text beyond viewport x1 e.g. p. "Nein. Das Werbebudget " r=327
+   .fin text beyond viewport x5 e.g. h2.h-section "Lass uns die Teile dei" r=473
+de / 390px 100%: docSw=390 over=0
+de / 390px 200%: docSw=495 over=105
+   #work box beyond viewport x4 e.g. p.proj__meta "Beispielprojekt · illu" r=493
+   .fin box beyond viewport x11 e.g. div.fin__main "Lass uns die Teile dei" r=495
+   #work text beyond viewport x1 e.g. a. "Physiotherapiepraxis" r=493
+   .fin text beyond viewport x4 e.g. em. "deines Unternehmens zu" r=473
+de /plans/ 320px 100%: docSw=320 over=0
+de /plans/ 320px 200%: docSw=495 over=175
+   .section box beyond viewport x22 e.g. div. "Kommerzielle Bedingung" r=409
+   .fin box beyond viewport x11 e.g. div.fin__main "Lass uns die Teile dei" r=495
+   .section text beyond viewport x6 e.g. h2.h-section "Kommerzielle Bedingung" r=409
+   .fin text beyond viewport x5 e.g. h2.h-section "Lass uns die Teile dei" r=473
+de /plans/ 390px 100%: docSw=390 over=0
+de /plans/ 390px 200%: docSw=495 over=105
+   .section box beyond viewport x21 e.g. div. "Kommerzielle Bedingung" r=409
+   .fin box beyond viewport x11 e.g. div.fin__main "Lass uns die Teile dei" r=495
+   .section text beyond viewport x1 e.g. h2.h-section "Kommerzielle Bedingung" r=409
+   .fin text beyond viewport x4 e.g. em. "deines Unternehmens zu" r=473

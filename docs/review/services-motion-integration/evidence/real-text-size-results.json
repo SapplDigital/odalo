@@ -1,0 +1,133 @@
+{
+ "summary": {
+  "method": "Edge persistent context, temporary profile with webkit.webprefs.default_font_size=32",
+  "base": "http://localhost:4322",
+  "checked": 15,
+  "rootPxValues": [
+   "32px"
+  ],
+  "failing": 0
+ },
+ "rows": [
+  {
+   "url": "/en/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "assembling": true,
+   "problems": []
+  },
+  {
+   "url": "/en/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "assembling": true,
+   "problems": []
+  },
+  {
+   "url": "/en/",
+   "width": 834,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "assembling": true,
+   "problems": []
+  },
+  {
+   "url": "/en/",
+   "width": 1024,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "assembling": true,
+   "problems": []
+  },
+  {
+   "url": "/en/",
+   "width": 1440,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "assembling": true,
+   "problems": []
+  },
+  {
+   "url": "/es/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "assembling": true,
+   "problems": []
+  },
+  {
+   "url": "/es/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "assembling": true,
+   "problems": []
+  },
+  {
+   "url": "/es/",
+   "width": 834,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "assembling": true,
+   "problems": []
+  },
+  {
+   "url": "/es/",
+   "width": 1024,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "assembling": true,
+   "problems": []
+  },
+  {
+   "url": "/es/",
+   "width": 1440,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "assembling": true,
+   "problems": []
+  },
+  {
+   "url": "/de/",
+   "width": 320,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "assembling": true,
+   "problems": []
+  },
+  {
+   "url": "/de/",
+   "width": 390,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "assembling": true,
+   "problems": []
+  },
+  {
+   "url": "/de/",
+   "width": 834,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "assembling": true,
+   "problems": []
+  },
+  {
+   "url": "/de/",
+   "width": 1024,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "assembling": true,
+   "problems": []
+  },
+  {
+   "url": "/de/",
+   "width": 1440,
+   "rootPx": "32px",
+   "narrowLayout": true,
+   "assembling": true,
+   "problems": []
+  }
+ ]
+}

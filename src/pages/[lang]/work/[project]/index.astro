@@ -2,8 +2,9 @@
 import Base from '../../../../layouts/Base.astro';
 import PageHero from '../../../../components/PageHero.astro';
 import Art from '../../../../components/Art.astro';
+import ConceptImage from '../../../../components/ConceptImage.astro';
 import FinalCta from '../../../../components/FinalCta.astro';
-import { languages, href, type Lang } from '../../../../i18n';
+import { languages, href, languageNames, type Lang } from '../../../../i18n';
 import { tr } from '../../../../i18n/ui';
 import { projects, projectById } from '../../../../content/projects';
 import { serviceById } from '../../../../content/services';
@@ -16,36 +17,108 @@ const p = projectById(Astro.params.project!)!;
 const rel = projectById(p.related)!;
 const t = tr(lang);
 const artTone = { ink: 'slate', sand: 'coral', coral: 'sand', slate: 'ink' } as const;
+const badge = p.badge ? p.badge[lang] : t.work.sampleBadge;
+const hero = p.images?.find((i) => i.role === 'card');
+const screens = (p.images ?? []).filter((i) => i.role === 'screen');
+const creatives = (p.images ?? []).filter((i) => i.role === 'creative');
+const videos = p.videos ?? [];
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const mediaUrl = (folder: string, file: string) => `${base}/work/concepts/${folder}/${file}`;
+const shotLang = (i: NonNullable<typeof p.images>[number]) => t.work.concept.shotLang.replace('{lang}', languageNames[i.screenshotLang].label[lang]);
 ---
-<Base lang={lang} title={`${p.title[lang]} — ${t.common.sample} — Odalo`} description={p.context[lang]}>
-  <PageHero lang={lang} eyebrow={`${p.kind[lang]} · ${t.work.sampleBadge}`} title={{ a: p.title[lang] }} lead={t.common.sampleNote}
+<Base lang={lang} title={`${p.title[lang]} — ${p.badge ? p.badge[lang] : t.common.sample} — Odalo`} description={p.context[lang]}>
+  <PageHero lang={lang} eyebrow={`${p.kind[lang]} · ${badge}`} title={{ a: p.title[lang] }} lead={p.concept ? (p.status ? p.status[lang] : t.common.sampleNote) : t.common.sampleNote}
     crumbs={[{ label: t.nav.work, to: href(lang, 'work/') }, { label: p.title[lang] }]} />
 
   <section class="section cs" aria-label={t.work.imagery}>
-    <div class="wrap cs__grid">
-      <figure class="cs__art c-tl">
-        <Art variant={p.art} tone={artTone[p.tone]} label={`${p.title[lang]}. ${t.a11y.sampleArt}`} />
-        <figcaption>{t.work.imageryNote}</figcaption>
-      </figure>
+    <div class:list={['wrap cs__grid', { 'cs__grid--concept': p.concept }]}>
+      {hero ? (
+        <figure class="cs__shot">
+          <ConceptImage image={hero} lang={lang} sizes="(min-width: 64em) 58vw, 100vw" />
+          <figcaption>{hero.caption[lang]} {shotLang(hero)}</figcaption>
+        </figure>
+      ) : (
+        <figure class="cs__art c-tl">
+          <Art variant={p.art} tone={artTone[p.tone]} label={`${p.title[lang]}. ${t.a11y.sampleArt}`} />
+          <figcaption>{t.work.imageryNote}</figcaption>
+        </figure>
+      )}
       <div class="cs__block cs__block--sand">
-        <h2 class="cs__h">{t.work.context}</h2>
+        <h2 class="cs__h">{p.concept ? t.work.concept.brief : t.work.context}</h2>
         <p>{p.context[lang]}</p>
       </div>
       <div class="cs__block cs__block--ink on-dark c-br">
-        <h2 class="cs__h">{t.work.challenge}</h2>
+        <h2 class="cs__h">{p.concept ? t.work.concept.approach : t.work.challenge}</h2>
         <p>{p.challenge[lang]}</p>
       </div>
       <div class="cs__block cs__block--paper">
-        <h2 class="cs__h">{t.work.connected}</h2>
+        <h2 class="cs__h">{p.concept ? t.work.concept.produced : t.work.connected}</h2>
         <p>{p.connected[lang]}</p>
         <ul class="cs__svc">{p.services.map((sid) => <li><a href={href(lang, `services/${sid}/`)}>{serviceById(sid)!.name[lang]}</a></li>)}</ul>
       </div>
-      <div class="cs__block cs__block--coral on-coral c-tr">
-        <h2 class="cs__h">{t.work.outcomes}</h2>
-        <p>{t.work.outcomesPending}</p>
-      </div>
+      {!p.concept && (
+        <div class="cs__block cs__block--coral on-coral c-tr">
+          <h2 class="cs__h">{t.work.outcomes}</h2>
+          <p>{t.work.outcomesPending}</p>
+        </div>
+      )}
     </div>
   </section>
+
+  {p.concept && (screens.length > 0 || videos.length > 0) && (
+    <section class="section shots" aria-labelledby="shots-h">
+      <div class="wrap">
+        <h2 id="shots-h" class="h-tile">{p.outputsTitle ? p.outputsTitle[lang] : t.work.concept.screensH}</h2>
+        {p.screens && <p class="shots__lead">{p.screens[lang]}</p>}
+        <div class="shots__grid" aria-label={t.work.concept.shotsLabel}>
+          {screens.map((img) => (
+            <figure class:list={['shot', `shot--${img.id.replace(/^[a-z]+-/, '')}`]}>
+              <ConceptImage image={img} lang={lang} sizes={img.height > img.width ? '(min-width: 48em) 30vw, 22rem' : '(min-width: 48em) 62vw, 100vw'} />
+              <figcaption>{img.caption[lang]} {shotLang(img)}</figcaption>
+            </figure>
+          ))}
+          {videos.map((v) => (
+            <figure class="shot shot--video">
+              <video controls preload="none" playsinline width={v.width} height={v.height} poster={`${mediaUrl(v.folder, v.poster.file)}-${v.poster.width}.webp`} aria-label={v.label[lang]}>
+                {v.formats.map((f) => <source src={`${mediaUrl(v.folder, v.file)}.${f.ext}`} type={f.type} />)}
+                <p>{t.work.concept.videoFallback}</p>
+              </video>
+              <figcaption>{v.caption[lang]} {t.work.concept.videoNote}</figcaption>
+            </figure>
+          ))}
+        </div>
+        {creatives.length === 0 && <p class="shots__src"><strong>{t.work.concept.imageSource}.</strong> {(screens[0] ?? creatives[0]).provenance[lang]}</p>}
+      </div>
+    </section>
+  )}
+
+  {p.concept && creatives.length > 0 && (
+    <section class="section creatives" aria-labelledby="creatives-h">
+      <div class="wrap">
+        <h2 id="creatives-h" class="h-tile">{t.work.concept.creativesH}</h2>
+        <p class="shots__lead">{t.work.concept.creativesNote}</p>
+        <div class="creatives__grid">
+          {creatives.map((img) => (
+            <figure class:list={['shot', 'shot--creative']}>
+              <ConceptImage image={img} lang={lang} sizes="(min-width: 48em) 45vw, 100vw" />
+              <figcaption>{img.caption[lang]} {shotLang(img)}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <p class="shots__src"><strong>{t.work.concept.imageSource}.</strong> {creatives[0].provenance[lang]}</p>
+      </div>
+    </section>
+  )}
+
+  {p.concept && p.plan && (
+    <section class="section plan" aria-labelledby="plan-h">
+      <div class="wrap">
+        <h2 id="plan-h" class="h-tile">{p.planTitle ? p.planTitle[lang] : t.work.concept.planH}</h2>
+        <p class="shots__lead">{p.planNote ? p.planNote[lang] : t.work.concept.planNote}</p>
+        <ol class="plan__list">{p.plan[lang].map((step) => <li>{step}</li>)}</ol>
+      </div>
+    </section>
+  )}
 
   <section class="section next" aria-labelledby="next-h">
     <div class="wrap next__in">
@@ -57,8 +130,26 @@ const artTone = { ink: 'slate', sand: 'coral', coral: 'sand', slate: 'ink' } as 
 </Base>
 <style>
   .cs__grid { display: grid; gap: var(--gutter); }
-  .cs__art { position: relative; margin: 0; aspect-ratio: 16 / 10; overflow: hidden; border-radius: var(--r-small); }
-  .cs__art figcaption { position: absolute; left: 12px; bottom: 12px; background: var(--paper); color: var(--ink); font-size: 0.8125rem; font-weight: 600; padding: 3px 12px; border-radius: 999px; max-width: calc(100% - 24px); }
+  /* The picture and its caption share one grid cell, so the cell grows with the caption instead of clipping it at large text sizes. */
+  .cs__art { position: relative; margin: 0; display: grid; overflow: hidden; border-radius: var(--r-small); }
+  .cs__art > :global(svg.art) { grid-area: 1 / 1; width: 100%; height: auto; aspect-ratio: 16 / 10; align-self: stretch; }
+  .cs__art figcaption { grid-area: 1 / 1; align-self: end; justify-self: start; margin: 12px; background: var(--paper); color: var(--ink); font-size: 0.8125rem; font-weight: 600; padding: 3px 12px; border-radius: 999px; max-width: calc(100% - 24px); overflow-wrap: anywhere; }
+  .cs__shot { margin: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; align-content: start; }
+  .cs__shot :global(img) { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border: 1px solid var(--line); border-radius: var(--r-small); border-top-left-radius: var(--r-big); }
+  .cs__shot figcaption, .shot figcaption { font-size: 0.9375rem; max-width: 62ch; overflow-wrap: anywhere; }
+  .shots__lead { margin-top: var(--s3); max-width: 62ch; }
+  .shots__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s6); margin-top: var(--s6); align-items: start; }
+  .shot { margin: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; align-content: start; }
+  .shot :global(img) { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--r-small); }
+  .shot--mobile, .shot--video { max-width: 24rem; }
+  .shot--video video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; background: var(--ink); border: 1px solid var(--line); border-radius: var(--r-small); }
+  .shot--video video:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+  .creatives__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s6); margin-top: var(--s6); align-items: start; }
+  .shot--creative :global(img) { max-width: 36rem; }
+  .plan__list { margin-top: var(--s5); display: grid; gap: var(--s4); max-width: 70ch; padding-left: 0; counter-reset: plan; list-style: none; }
+  .plan__list li { counter-increment: plan; position: relative; padding-left: 3rem; overflow-wrap: anywhere; }
+  .plan__list li::before { content: counter(plan); position: absolute; left: 0; top: 0; width: 2rem; height: 2rem; border: 2px solid var(--ink); border-radius: 999px; display: grid; place-items: center; font-weight: 700; font-size: 0.9375rem; }
+  .shots__src { margin-top: var(--s6); max-width: 70ch; font-size: 0.9375rem; overflow-wrap: anywhere; }
   .c-tl { border-top-left-radius: var(--r-big); } .c-br { border-bottom-right-radius: var(--r-big); } .c-tr { border-top-right-radius: var(--r-big); }
   .cs__block { padding: var(--pad); border-radius: var(--r-small); display: grid; gap: var(--s3); align-content: start; font-size: 1.125rem; }
   .cs__block--sand { background: var(--sand); } .cs__block--ink { background: var(--ink); color: var(--paper); } .cs__block--paper { background: var(--paper); box-shadow: inset 0 0 0 2px var(--ink); } .cs__block--coral { background: var(--coral); color: var(--ink-deep); }
@@ -68,11 +159,17 @@ const artTone = { ink: 'slate', sand: 'coral', coral: 'sand', slate: 'ink' } as 
   .cs__svc { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
   .cs__svc a { display: inline-flex; align-items: center; min-height: 44px; padding: 4px 16px; border: 2px solid var(--ink); border-radius: 999px; font-weight: 600; font-size: 1rem; text-decoration: none; }
   .cs__svc a:hover { background: var(--ink); color: var(--paper); }
+  .next__link { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
   .next__in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s5); border-top: 2px solid var(--ink); padding-top: var(--s6); }
+  @media (min-width: 48em) { .shots__grid { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); } .creatives__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (min-width: 64em) {
     .cs__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); }
-    .cs__art { grid-column: 1 / span 7; grid-row: 1 / span 2; aspect-ratio: auto; min-height: 24rem; }
+    .cs__shot { grid-column: 1 / span 7; grid-row: 1 / span 2; }
+    .cs__art { grid-column: 1 / span 7; grid-row: 1 / span 2; display: block; min-height: 24rem; }
+    .cs__art > :global(svg.art) { position: absolute; inset: 0; height: 100%; aspect-ratio: auto; }
+    .cs__art figcaption { position: absolute; left: 0; bottom: 0; }
     .cs__block--sand { grid-column: 8 / -1; } .cs__block--ink { grid-column: 8 / -1; }
-    .cs__block--paper { grid-column: 1 / span 7; } .cs__block--coral { grid-column: 8 / -1; }
+    .cs__block--paper { grid-column: 1 / span 7; }
+    .cs__grid--concept .cs__block--paper { grid-column: 1 / -1; } .cs__block--coral { grid-column: 8 / -1; }
   }
 </style>

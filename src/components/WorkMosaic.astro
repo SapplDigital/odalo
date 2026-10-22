@@ -1,5 +1,6 @@
 ---
 import Art from './Art.astro';
+import ConceptImage from './ConceptImage.astro';
 import { projects } from '../content/projects';
 import { serviceById } from '../content/services';
 import { href, type Lang } from '../i18n';
@@ -9,25 +10,33 @@ const { num, lang, heading = true, ids, explainer = true, id = 'work', h1 = fals
 const t = tr(lang);
 const artTone = { ink: 'slate', sand: 'coral', coral: 'sand', slate: 'ink' } as const;
 const list = ids ? ids.map((i) => projects.find((p) => p.id === i)!).filter(Boolean) : projects;
-const corners = ['c-tl', 'c-br', 'c-tr'];
+const cardImage = (p: (typeof projects)[number]) => p.images?.find((i) => i.role === 'card');
+const narrowImage = (p: (typeof projects)[number]) => p.images?.find((i) => i.role === 'card-narrow');
+// A tall creative suits the portrait art slot of a supporting card in the 3-column desktop layout only.
+const variantsFor = (p: (typeof projects)[number], i: number) => (p.images ?? []).filter((im) => im.role === 'card-narrow' || (im.role === 'card-tall' && !two && i > 0));
 const all = list;
 const two = all.length === 2 || !explainer;
+const last = all.length - 1;
 ---
 <section id={id} class="work section" aria-labelledby="work-h">
   <div class="wrap">
     {heading && (
       <header class="work__head">
         <p class="eyebrow">{num ? `${num} — ` : ''}{t.nav.work}</p>
-        {h1 ? <h1 id="work-h" class="h-section">{t.work.h2.a} <em>{t.work.h2.em}</em></h1> : <h2 id="work-h" class="h-section">{t.work.h2.a} <em>{t.work.h2.em}</em></h2>}
+        {h1 ? <h1 id="work-h" class="h-section">{t.work.h2.a}{t.work.h2.a && ' '}<em>{t.work.h2.em}</em></h1> : <h2 id="work-h" class="h-section">{t.work.h2.a}{t.work.h2.a && ' '}<em>{t.work.h2.em}</em></h2>}
       </header>
     )}
-    <div class:list={['grid', { 'grid--two': two }]}>
+    <div class:list={['grid', { 'grid--two': two, 'grid--explain': explainer }]}>
       {all.map((p, i) => (
-        <article class:list={['proj', `proj--${p.tone}`, `proj--${i === 0 ? 'feat' : 'sup'}`, corners[i], { 'on-dark': p.tone === 'ink' || p.tone === 'slate', 'on-coral': p.tone === 'coral' }]}>
-          <div class="proj__art"><Art variant={p.art} tone={artTone[p.tone]} label={`${p.title[lang]}. ${t.a11y.sampleArt}`} /></div>
+        <article data-p={p.id} class:list={['proj', `proj--${p.tone}`, `proj--${i === 0 ? 'feat' : 'sup'}`, { 'proj--last': i === last && !explainer, 'on-dark': p.tone === 'ink' || p.tone === 'slate', 'on-coral': p.tone === 'coral' }]}>
+          <div class:list={['proj__art', { 'proj__art--shot': !!cardImage(p) }]} style={narrowImage(p) ? `--ar-narrow:${narrowImage(p)!.width} / ${narrowImage(p)!.height}` : undefined}>
+            {cardImage(p)
+              ? <ConceptImage image={cardImage(p)!} variants={variantsFor(p, i)} lang={lang} sizes="(min-width: 64em) 55vw, (min-width: 48em) 90vw, 100vw" />
+              : <Art variant={p.art} tone={artTone[p.tone]} label={`${p.title[lang]}. ${t.a11y.sampleArt}`} />}
+          </div>
           <div class="proj__body">
-            <p class="proj__meta"><span class="proj__badge">{t.work.sampleBadge}</span> <span>{p.kind[lang]}</span></p>
-            <h3 class="h-tile proj__title"><a href={href(lang, `work/${p.id}/`)}>{p.title[lang]}</a></h3>
+            <p class="proj__meta"><span class="proj__badge">{p.badge ? p.badge[lang] : t.work.sampleBadge}</span> <span>{p.kind[lang]}</span></p>
+            <h3 class="h-tile proj__title"><a href={href(lang, `work/${p.id}/`)}>{(p.cardTitle ?? p.title)[lang]}{p.cardTitle && <span class="sr-only">: {p.title[lang]}</span>}</a></h3>
             {i === 0 && <p class="proj__text">{p.context[lang]}</p>}
             <ul class="proj__svc" aria-label={t.work.connected}>
               {p.services.map((sid) => <li>{serviceById(sid)!.name[lang]}</li>)}
@@ -37,7 +46,7 @@ const two = all.length === 2 || !explainer;
         </article>
       ))}
       {explainer && (
-        <aside class="explain on-dark c-bl">
+        <aside class="explain on-dark">
           <p>{t.work.explainer}</p>
           <a class="link-arrow" href={href(lang, 'work/')}>{t.common.viewAll}</a>
         </aside>
@@ -46,47 +55,67 @@ const two = all.length === 2 || !explainer;
   </div>
 </section>
 <style>
-  .work__head { display: grid; gap: var(--s4); margin-bottom: var(--s7); max-width: 60rem; }
-  .grid { display: grid; gap: var(--gutter); grid-template-columns: 1fr; }
-  .proj { position: relative; display: flex; flex-direction: column; overflow: hidden; border-radius: var(--r-small); min-width: 0; }
+  .work__head { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s4); margin-bottom: var(--s7); max-width: 60rem; }
+  /* One connected composition: no gutters, flat internal edges. Only the outer silhouette is curved (large top left and bottom right,
+     small top right and bottom left), set per layout below. The pieces keep distinct surfaces. */
+  .grid { display: grid; gap: 0; grid-template-columns: minmax(0, 1fr); }
+  .proj { position: relative; display: flex; flex-direction: column; overflow: hidden; min-width: 0; border-radius: 0; }
   .proj--ink { background: var(--ink); color: var(--paper); }
   .proj--sand { background: var(--sand); color: var(--ink); }
   .proj--coral { background: var(--coral); color: var(--ink-deep); }
-  .c-tl { border-top-left-radius: var(--r-big); } .c-br { border-bottom-right-radius: var(--r-big); } .c-tr { border-top-right-radius: var(--r-big); } .c-bl { border-bottom-left-radius: var(--r-big); }
-  .proj__art { aspect-ratio: 16 / 10; overflow: hidden; }
+  .proj--feat { border-top-left-radius: var(--r-big); }
+  .proj--last, .explain { border-bottom-right-radius: var(--r-big); }
+  .proj__art { position: relative; aspect-ratio: 16 / 10; overflow: hidden; }
+  /* Phones get the purpose-made phone crop in its own shape instead of a squeezed desktop picture. */
+  @media (max-width: 47.99em) { .proj__art--shot { aspect-ratio: var(--ar-narrow, 16 / 10); } }
+  .proj__art--shot :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; }
   .proj__art :global(svg) { transition: transform 0.4s ease; }
   .proj:hover .proj__art :global(svg), .proj:focus-within .proj__art :global(svg) { transform: scale(1.025); }
-  .proj__body { display: grid; gap: var(--s3); padding: var(--pad); align-content: start; }
+  .proj__body { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s3); padding: var(--pad); align-content: start; }
   .proj__meta { display: flex; flex-wrap: wrap; gap: 6px 12px; font-size: 0.875rem; font-weight: 500; align-items: center; }
   .proj__badge { border: 1.5px solid currentColor; border-radius: 999px; padding: 1px 10px; font-weight: 600; font-size: 0.8125rem; }
   .proj__title a { text-decoration: none; }
   .proj__title a::after { content: ''; position: absolute; inset: 0; }
-  .proj__title a:focus-visible { outline-offset: -6px; }
+  .proj__title a:focus-visible { outline-offset: -6px; } /* inside the card: the focus ring is never cut off at the composition's outer edge */
   .proj__text { max-width: 46ch; }
   .proj__svc { display: flex; flex-wrap: wrap; gap: 6px; }
   .proj__svc li { font-size: 0.875rem; font-weight: 600; padding: 3px 12px; border-radius: 999px; background: rgb(255 255 255 / 0.16); }
   .proj--sand .proj__svc li { background: rgb(32 59 87 / 0.1); }
   .proj--coral .proj__svc li { background: rgb(255 255 255 / 0.32); }
   .proj__more { font-weight: 700; }
-  .explain { background: var(--slate); color: var(--paper); padding: var(--pad); display: grid; gap: var(--s4); align-content: space-between; border-radius: var(--r-small); }
-  .explain.c-bl { border-bottom-left-radius: var(--r-big); }
+  .explain { background: var(--slate); color: var(--paper); padding: var(--pad); display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s4); align-content: space-between; border-radius: 0; border-bottom-right-radius: var(--r-big); }
   .explain p { font-size: 1.0625rem; max-width: 46ch; }
   .explain .link-arrow { color: var(--paper); }
 
+  /* Tablet: the featured card spans both columns; a screenshot keeps its own 16:10 shape. Supporting cards sit side by side
+     (stacked picture over text), the context panel spans the row under them. */
   @media (min-width: 48em) {
     .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .proj--feat { grid-column: 1 / -1; }
-    .proj--feat .proj__art { aspect-ratio: 21 / 8; }
+    .proj--feat .proj__art { aspect-ratio: 16 / 10; }
+    .proj--feat { border-top-right-radius: var(--r-small); }
+    .explain { grid-column: 1 / -1; }
+    .grid--two .proj--sup { border-bottom-left-radius: 0; }
+    .grid--two .proj--sup:last-of-type { border-bottom-right-radius: var(--r-big); }
   }
-  @media (min-width: 64em) {
+  /* Wide desktop (80em and up; narrower windows keep the tablet arrangement, where the pictures stay large enough): featured card left, supporting cards and the context panel stacked right. Height is led by the content: the featured
+     picture keeps its 16:10 shape, the right column rows follow their own pictures, and any difference is shared by the right-hand
+     cards' pictures (cropped, never stretched), so no empty coloured area is left under the hotel. */
+  @media (min-width: 80em) {
     .grid { grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto auto auto; }
-    .proj--feat { grid-column: 1 / span 7; grid-row: 1 / span 3; }
-    .proj--feat .proj__art { aspect-ratio: auto; flex: 1; min-height: 16rem; }
+    .proj--feat { grid-column: 1 / span 7; grid-row: 1 / span 3; border-top-right-radius: 0; border-bottom-left-radius: var(--r-small); }
+    .proj--feat .proj__art { flex: none; }
     .proj--sup { grid-column: 8 / -1; flex-direction: row; align-items: stretch; }
-    .proj--sup .proj__art { aspect-ratio: auto; width: 40%; flex: none; }
+    .proj--sup + .proj--sup { grid-row: 2; }
+    .proj--sup:nth-of-type(2) { grid-row: 1; border-top-right-radius: var(--r-small); }
+    .proj--sup .proj__art { aspect-ratio: 4 / 5; width: 42%; flex: none; }
+    .proj--sup .proj__art--shot :global(img) { object-position: 50% 0; }
+    .proj--sup[data-p='sample-shop'] .proj__art--shot :global(img) { object-position: 50% 100%; }
     .proj--sup .proj__body { align-content: center; }
     .explain { grid-column: 8 / -1; grid-row: 3; }
-    .grid--two .proj--sup { grid-row: 1 / span 3; flex-direction: column; }
+    .grid--two .proj--feat { grid-row: 1; }
+    .grid--two .proj--sup { grid-column: 7 / -1; grid-row: 1; flex-direction: column; border-top-right-radius: var(--r-small); border-bottom-right-radius: var(--r-big); }
     .grid--two .proj--sup .proj__art { width: auto; aspect-ratio: 16 / 10; }
+    .grid--two .proj--feat { grid-column: 1 / span 6; }
   }
 </style>

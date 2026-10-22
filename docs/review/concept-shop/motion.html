@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Brindle Pantry, concept motion piece (fictional shop, 9:16, 10 s, silent)</title>
+<style>
+  html, body { margin: 0; background: #1b2220; color: #fafaf6; font: 16px/1.4 "Segoe UI", system-ui, sans-serif; }
+  .wrap { display: grid; justify-items: center; gap: 12px; padding: 16px; }
+  #stage { display: block; width: min(100%, calc((100vh - 140px) * 0.5625)); height: auto; aspect-ratio: 9 / 16; background: #f2542d; }
+  .bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; max-width: 560px; }
+  button { min-height: 44px; min-width: 44px; padding: 0 18px; border: 2px solid #fafaf6; border-radius: 6px; background: transparent; color: #fafaf6; font: 600 1rem "Segoe UI", sans-serif; cursor: pointer; }
+  button:focus-visible, input:focus-visible { outline: 3px solid #f7b32b; outline-offset: 3px; }
+  input[type=range] { width: 260px; accent-color: #f7b32b; }
+  .note { font-size: 0.9rem; max-width: 560px; text-align: center; opacity: 0.85; }
+  body.export .bar, body.export .note { display: none; }
+  body.export .wrap { padding: 0; }
+  body.export #stage { width: 1080px; height: 1920px; }
+  body.export, body.export html { background: #000; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <svg id="stage" viewBox="0 0 1080 1920" width="1080" height="1920" role="img" aria-label="Silent motion piece for the fictional Brindle Pantry: ingredients drop in, become jars, tins and boxes on a shelf, then sit in a shop window with an invitation to fill a basket.">
+    <defs>
+      <clipPath id="shelfClip"><rect id="shelfClipRect" x="0" y="0" width="1080" height="1920"/></clipPath>
+      <clipPath id="stripClip"><rect x="0" y="0" width="1080" height="1920"/></clipPath>
+    </defs>
+    <rect id="bg" width="1080" height="1920" fill="#f2542d"/>
+    <g id="s1">
+      <text id="t1a" x="84" y="300" font-family="Rockwell, Georgia, serif" font-weight="800" font-size="158" fill="#fafaf6">Small</text>
+      <text id="t1b" x="84" y="450" font-family="Rockwell, Georgia, serif" font-weight="800" font-size="158" fill="#fafaf6">batches.</text>
+      <g id="ing"></g>
+    </g>
+    <circle id="wipe2" cx="540" cy="1300" r="0" fill="#f7b32b"/>
+    <g id="s2">
+      <text id="t2a" x="84" y="310" font-family="Rockwell, Georgia, serif" font-weight="800" font-size="94" fill="#1b2220">Jams, salts, oils</text>
+      <text id="t2b" x="84" y="420" font-family="Rockwell, Georgia, serif" font-weight="800" font-size="94" fill="#f2542d">and crackers.</text>
+    </g>
+    <circle id="wipe3" cx="540" cy="0" r="0" fill="#0b5d4a"/>
+    <g id="shop">
+      <g id="awning"></g>
+      <g id="sign"></g>
+      <rect id="winFrame" x="152" y="692" width="776" height="556" rx="6" fill="none" stroke="#fafaf6" stroke-width="16" opacity="0"/>
+      <rect id="winIn" x="160" y="700" width="760" height="540" fill="#fff6df" opacity="0"/>
+    </g>
+    <g id="shelfG" clip-path="url(#shelfClip)">
+      <rect id="plank" x="60" y="1360" width="0" height="38" rx="4" fill="#b98a56"/>
+      <rect id="plankTop" x="60" y="1360" width="0" height="10" rx="4" fill="#8d6439"/>
+      <g id="prods"></g>
+    </g>
+    <g id="s3text">
+      <text id="t3a" x="540" y="1580" text-anchor="middle" font-family="Rockwell, Georgia, serif" font-weight="800" font-size="104" fill="#fafaf6">Come and fill</text>
+      <text id="t3b" x="540" y="1690" text-anchor="middle" font-family="Rockwell, Georgia, serif" font-weight="800" font-size="104" fill="#f7b32b">a basket.</text>
+      <text id="t3c" x="540" y="1770" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-weight="600" font-size="40" fill="#fafaf6">Tuesday to Saturday, 9 to 5</text>
+      <text id="t3d" x="540" y="1826" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-weight="600" font-size="40" fill="#f7b32b">brindle.example</text>
+    </g>
+    <text id="brand" x="84" y="130" font-family="Rockwell, Georgia, serif" font-weight="800" font-size="46" letter-spacing="5" fill="#fafaf6">BRINDLE PANTRY</text>
+    <text id="label" x="540" y="1894" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="26" fill="#fafaf6" opacity="0.85">Concept animation for a fictional shop. Not filmed footage.</text>
+  </svg>
+  <div class="bar">
+    <button id="play" type="button" aria-pressed="true">Pause</button>
+    <label for="scrub" class="note" style="margin:0">Time</label><input id="scrub" type="range" min="0" max="10" step="0.01" value="0">
+    <span id="clock" class="note" style="margin:0">0.0 s / 10 s</span>
+  </div>
+  <p class="note">Motion prototype and export source for the Brindle Pantry concept (fictional). Silent. Illustration and motion design, not filmed footage. Reduced-motion visitors start paused on a still frame.</p>
+</div>
+<script src="shop-art.js"></script>
+<script>
+(function () {
+  var A = window.ShopArt, P = A.palette, DUR = 10;
+  var $ = function (id) { return document.getElementById(id); };
+  var clamp = function (v) { return Math.max(0, Math.min(1, v)); };
+  var lerp = function (a, b, k) { return a + (b - a) * k; };
+  var E = {
+    out3: function (k) { return 1 - Math.pow(1 - k, 3); },
+    inout3: function (k) { return k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2; },
+    in3: function (k) { return k * k * k; },
+    back: function (k) { var c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(k - 1, 3) + c1 * Math.pow(k - 1, 2); },
+    bounce: function (k) { var n1 = 7.5625, d1 = 2.75; if (k < 1 / d1) return n1 * k * k; if (k < 2 / d1) return n1 * (k -= 1.5 / d1) * k + 0.75; if (k < 2.5 / d1) return n1 * (k -= 2.25 / d1) * k + 0.9375; return n1 * (k -= 2.625 / d1) * k + 0.984375; },
+  };
+  var seg = function (t, t0, t1, ease) { var k = clamp((t - t0) / (t1 - t0)); return ease ? ease(k) : k; };
+
+  // ---- build the scene graph once
+  var ingNames = ['plum', 'lemon', 'thyme', 'seeds', 'chilli', 'salt'];
+  var ingFinal = { plum: [330, 1040, -12, 1.9], lemon: [740, 980, 14, 1.8], thyme: [190, 1440, 24, 1.9], seeds: [560, 1290, 0, 2.4], chilli: [880, 1400, -28, 1.8], salt: [420, 1640, 16, 2.2] };
+  var prodNames = ['jam', 'salt', 'oil', 'crackers', 'honey'];
+  var prodX = { jam: 170, salt: 385, oil: 560, crackers: 750, honey: 940 };
+  var ingTarget = { plum: 'jam', lemon: 'oil', thyme: 'jam', seeds: 'crackers', chilli: 'honey', salt: 'salt' };
+  var ingG = $('ing'), prodG = $('prods');
+  var ingEl = {}, prodEl = {};
+  ingNames.forEach(function (n) { var g = document.createElementNS('http://www.w3.org/2000/svg', 'g'); g.innerHTML = A.ingredients[n]; ingG.appendChild(g); ingEl[n] = g; });
+  prodNames.forEach(function (n) { var g = document.createElementNS('http://www.w3.org/2000/svg', 'g'); g.innerHTML = A.products[n](); prodG.appendChild(g); prodEl[n] = g; });
+  // shop front: awning scallops + sign
+  var awn = $('awning'), sg = $('sign');
+  var stripes = '';
+  for (var i = 0; i < 9; i++) stripes += '<path d="M' + (i * 120) + ' 0h120v70a60 60 0 0 1 -120 0Z" fill="' + (i % 2 ? '#fafaf6' : '#f2542d') + '"/>';
+  awn.innerHTML = '<rect x="0" y="-40" width="1080" height="50" fill="#f2542d"/>' + stripes;
+  sg.innerHTML = '<rect x="130" y="0" width="820" height="170" rx="10" fill="#1b2220"/><rect x="146" y="16" width="788" height="138" rx="6" fill="none" stroke="#f7b32b" stroke-width="4"/><text x="540" y="104" text-anchor="middle" font-family="' + A.fonts.slab + '" font-weight="800" font-size="66" fill="#fafaf6" letter-spacing="3">BRINDLE PANTRY</text><line x1="300" y1="-120" x2="300" y2="0" stroke="#1b2220" stroke-width="6"/><line x1="780" y1="-120" x2="780" y2="0" stroke="#1b2220" stroke-width="6"/>';
+  // ground strip + door hint drawn into the shop group at build time
+  var shop = $('shop');
+  var ground = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+  ground.setAttribute('id', 'ground'); ground.setAttribute('x', 0); ground.setAttribute('y', 1250); ground.setAttribute('width', 1080); ground.setAttribute('height', 150); ground.setAttribute('fill', '#094a3b'); ground.setAttribute('opacity', 0);
+  shop.insertBefore(ground, shop.firstChild);
+
+  function render(t) {
+    t = Math.max(0, Math.min(DUR, t));
+    // ---------- scene 1: ingredients drop in
+    var wk = seg(t, 3.0, 3.7, E.inout3);
+    $('t1a').setAttribute('transform', 'translate(0 ' + lerp(120, 0, seg(t, 0.2, 0.9, E.out3)) + ')');
+    $('t1b').setAttribute('transform', 'translate(0 ' + lerp(120, 0, seg(t, 0.35, 1.05, E.out3)) + ')');
+    var o1 = seg(t, 0.2, 0.7) * (1 - seg(t, 3.0, 3.4));
+    $('t1a').setAttribute('opacity', o1); $('t1b').setAttribute('opacity', o1);
+    ingNames.forEach(function (n, i) {
+      var f = ingFinal[n], t0 = 0.5 + i * 0.18, fall = seg(t, t0, t0 + 0.95, E.bounce), pop = seg(t, t0, t0 + 0.5, E.back);
+      var x = f[0], y = lerp(-260, f[1], fall) + Math.sin(t * 2.2 + i) * 7 * seg(t, t0 + 1, t0 + 1.4), rot = lerp(f[2] - 160, f[2], seg(t, t0, t0 + 0.95, E.out3));
+      var s = f[3] * lerp(0.6, 1, pop);
+      // scene 2: fly to the product they belong to, shrinking away
+      var fly = seg(t, 3.2 + i * 0.05, 4.1 + i * 0.05, E.in3);
+      var tx = prodX[ingTarget[n]], ty = 1240;
+      x = lerp(x, tx, fly); y = lerp(y, ty, fly); s = s * lerp(1, 0.08, fly);
+      ingEl[n].setAttribute('transform', 'translate(' + x.toFixed(1) + ' ' + y.toFixed(1) + ') rotate(' + rot.toFixed(1) + ') scale(' + s.toFixed(3) + ')');
+      ingEl[n].setAttribute('opacity', fly >= 1 ? 0 : 1);
+    });
+    // ---------- scene 2 wipe, title and shelf
+    $('wipe2').setAttribute('r', (lerp(0, 2400, wk)).toFixed(1));
+    var o2 = seg(t, 3.9, 4.5) * (1 - seg(t, 6.2, 6.5));
+    $('t2a').setAttribute('transform', 'translate(' + lerp(-160, 0, seg(t, 3.9, 4.6, E.out3)) + ' 0)');
+    $('t2b').setAttribute('transform', 'translate(' + lerp(-160, 0, seg(t, 4.05, 4.75, E.out3)) + ' 0)');
+    $('t2a').setAttribute('opacity', o2); $('t2b').setAttribute('opacity', o2);
+    var pw = lerp(0, 960, seg(t, 3.3, 4.2, E.out3));
+    $('plank').setAttribute('width', pw); $('plankTop').setAttribute('width', pw);
+    prodNames.forEach(function (n, i) {
+      var t0 = 3.5 + i * 0.22, k = seg(t, t0, t0 + 0.95, E.back), y = lerp(2700, 1360, k);
+      var wob = Math.sin((t - 5.0 - i * 0.12) * 7) * 2.2 * clamp(1 - (t - 5.0) / 1.1) * seg(t, 5.0, 5.05);
+      prodEl[n].setAttribute('transform', 'translate(' + prodX[n] + ' ' + y.toFixed(1) + ') scale(1.38) rotate(' + wob.toFixed(2) + ')');
+    });
+    // brand colour follows the background
+    var brandInk = t > 3.45 && t < 6.7;
+    $('brand').setAttribute('fill', brandInk ? '#1b2220' : '#fafaf6');
+    $('brand').setAttribute('opacity', (1 - seg(t, 6.3, 6.6)) * seg(t, 0.1, 0.5));
+    $('label').setAttribute('fill', brandInk ? '#1b2220' : '#fafaf6');
+    // ---------- scene 3: pull back into a shop window
+    var w3 = seg(t, 6.3, 7.1, E.inout3);
+    $('wipe3').setAttribute('r', lerp(0, 2700, w3).toFixed(1));
+    var pull = seg(t, 6.4, 7.4, E.inout3);
+    var sc = lerp(1, 0.7, pull), cx = lerp(0, 0, pull);
+    // shelf centre (540,1170) -> window centre (540,970)
+    var tyy = lerp(0, 970 - 1170 * sc, pull);
+    var txx = lerp(0, 540 - 540 * sc, pull);
+    $('shelfG').setAttribute('transform', 'translate(' + (txx + cx).toFixed(1) + ' ' + tyy.toFixed(1) + ') scale(' + sc.toFixed(4) + ')');
+    // clip: whole frame before the pull, the window opening during it (in the shelf's own coordinates)
+    var wx0 = (160 - txx) / sc, wy0 = (700 - tyy) / sc, wx1 = (920 - txx) / sc, wy1 = (1240 - tyy) / sc;
+    var full = [0, 0, 1080, 1920], win = [wx0, wy0, wx1 - wx0, wy1 - wy0];
+    var ck = clamp((pull - 0.55) / 0.45);
+    var rect = $('shelfClipRect');
+    rect.setAttribute('x', lerp(full[0], win[0], ck)); rect.setAttribute('y', lerp(full[1], win[1], ck)); rect.setAttribute('width', lerp(full[2], win[2], ck)); rect.setAttribute('height', lerp(full[3], win[3], ck));
+    $('winIn').setAttribute('opacity', seg(t, 6.8, 7.3));
+    $('winFrame').setAttribute('opacity', seg(t, 6.9, 7.4));
+    $('ground').setAttribute('opacity', seg(t, 6.9, 7.4));
+    var breathe = 1 + Math.sin(t * 2.4) * 0.006 * seg(t, 8.8, 9.2);
+    $('awning').setAttribute('transform', 'translate(0 ' + lerp(-300, 525, seg(t, 6.9, 7.6, E.back)) + ')');
+    $('sign').setAttribute('transform', 'translate(0 ' + lerp(-300, 300, seg(t, 7.1, 7.95, E.bounce)).toFixed(1) + ') scale(' + breathe.toFixed(4) + ')');
+    ['t3a', 't3b', 't3c', 't3d'].forEach(function (id, i) {
+      var k = seg(t, 7.7 + i * 0.18, 8.3 + i * 0.18, E.out3);
+      $(id).setAttribute('opacity', k); $(id).setAttribute('transform', 'translate(0 ' + lerp(60, 0, k) + ')');
+    });
+    $('bg').setAttribute('fill', P.tomato);
+    // shop group is hidden until its own wipe has started (it only draws on top of the wipe)
+    $('shop').setAttribute('opacity', seg(t, 6.6, 6.8));
+    $('s3text').setAttribute('opacity', seg(t, 7.6, 7.7));
+  }
+  window.__seek = function (t) { render(t); return t; };
+  window.__duration = DUR;
+
+  // ---- review controls (hidden when exporting)
+  var q = new URLSearchParams(location.search);
+  if (q.get('export')) document.body.classList.add('export');
+  var playing = !q.get('export') && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var t0 = performance.now(), base = q.get('t') ? parseFloat(q.get('t')) : 0, now = base;
+  var btn = $('play'), scrub = $('scrub'), clock = $('clock');
+  var setPlay = function (v) { playing = v; btn.textContent = v ? 'Pause' : 'Play'; btn.setAttribute('aria-pressed', String(v)); t0 = performance.now(); base = now; };
+  btn.addEventListener('click', function () { setPlay(!playing); });
+  scrub.addEventListener('input', function () { now = parseFloat(scrub.value); base = now; t0 = performance.now(); render(now); clock.textContent = now.toFixed(1) + ' s / 10 s'; });
+  function frame() {
+    if (playing) { now = (base + (performance.now() - t0) / 1000) % DUR; render(now); scrub.value = now; clock.textContent = now.toFixed(1) + ' s / 10 s'; }
+    requestAnimationFrame(frame);
+  }
+  if (!playing) { now = q.get('export') ? 0 : (q.get('t') ? base : 6.0); render(now); scrub.value = now; btn.textContent = 'Play'; btn.setAttribute('aria-pressed', 'false'); clock.textContent = now.toFixed(1) + ' s / 10 s'; }
+  else setPlay(true);
+  if (!q.get('export')) requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

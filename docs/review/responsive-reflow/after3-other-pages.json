@@ -1,0 +1,943 @@
+[
+ {
+  "lang": "en",
+  "path": "services/web/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "services/web/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "services/web/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "services/web/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "services/ads/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "services/ads/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "services/ads/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "services/ads/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "work/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "work/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "work/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "work/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "work/sample-hotel/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "work/sample-hotel/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "work/sample-hotel/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "work/sample-hotel/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "work/sample-shop/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "work/sample-shop/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "work/sample-shop/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "work/sample-shop/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "about/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "about/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "about/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "about/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "audit/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "audit/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 468,
+  "over": 148,
+  "offenders": {
+   ".section box beyond viewport": {
+    "n": 1,
+    "ex": [
+     "button.btn \"Request audit\" r=468"
+    ]
+   },
+   ".section text beyond viewport": {
+    "n": 1,
+    "ex": [
+     "button.btn \"Request audit\" r=468"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "en",
+  "path": "audit/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "audit/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 468,
+  "over": 78,
+  "offenders": {
+   ".section box beyond viewport": {
+    "n": 1,
+    "ex": [
+     "button.btn \"Request audit\" r=468"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "en",
+  "path": "privacy/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "privacy/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "privacy/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "privacy/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "services/web/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "services/web/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "services/web/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "services/web/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "services/ads/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "services/ads/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "services/ads/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "services/ads/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "work/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "work/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "work/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "work/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "work/sample-hotel/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "work/sample-hotel/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "work/sample-hotel/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "work/sample-hotel/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "work/sample-shop/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "work/sample-shop/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "work/sample-shop/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "work/sample-shop/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "about/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "about/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "about/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "about/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "audit/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "audit/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 468,
+  "over": 148,
+  "offenders": {
+   ".section box beyond viewport": {
+    "n": 1,
+    "ex": [
+     "button.btn \"Pedir auditoría\" r=468"
+    ]
+   },
+   ".section text beyond viewport": {
+    "n": 1,
+    "ex": [
+     "button.btn \"Pedir auditoría\" r=468"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "es",
+  "path": "audit/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "audit/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 468,
+  "over": 78,
+  "offenders": {
+   ".section box beyond viewport": {
+    "n": 1,
+    "ex": [
+     "button.btn \"Pedir auditoría\" r=468"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "es",
+  "path": "privacy/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "privacy/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "privacy/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "privacy/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "services/web/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "services/web/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "services/web/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "services/web/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "services/ads/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "services/ads/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "services/ads/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "services/ads/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "work/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "work/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "work/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "work/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "work/sample-hotel/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "work/sample-hotel/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 389,
+  "over": 69,
+  "offenders": {
+   ".section box beyond viewport": {
+    "n": 1,
+    "ex": [
+     "a.next__link \"Physiotherapiepraxis\" r=389"
+    ]
+   },
+   ".section text beyond viewport": {
+    "n": 1,
+    "ex": [
+     "a.next__link \"Physiotherapiepraxis\" r=389"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "de",
+  "path": "work/sample-hotel/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "work/sample-hotel/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "work/sample-shop/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "work/sample-shop/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "work/sample-shop/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "work/sample-shop/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "about/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "about/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "about/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "about/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "audit/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "audit/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 468,
+  "over": 148,
+  "offenders": {
+   ".section box beyond viewport": {
+    "n": 3,
+    "ex": [
+     "label. \"Ich habe die Datenschu\" r=358",
+     "a. \"Datenschutzhinweise\" r=358",
+     "button.btn \"Analyse anfragen\" r=468"
+    ]
+   },
+   ".section text beyond viewport": {
+    "n": 3,
+    "ex": [
+     "label. \"Ich habe die Datenschu\" r=358",
+     "a. \"Datenschutzhinweise\" r=358",
+     "button.btn \"Analyse anfragen\" r=468"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "de",
+  "path": "audit/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "audit/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 468,
+  "over": 78,
+  "offenders": {
+   ".section box beyond viewport": {
+    "n": 1,
+    "ex": [
+     "button.btn \"Analyse anfragen\" r=468"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "de",
+  "path": "privacy/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "privacy/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "privacy/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "privacy/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ }
+]

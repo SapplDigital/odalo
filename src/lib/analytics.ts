@@ -13,8 +13,13 @@ export type TrackEvent =
 
 export interface TrackProps { lang?: string; service?: string; plan?: string; location?: string }
 
+/**
+ * The demo has no consent mechanism and sends nothing. An old `odalo.cookies` value left in a browser by an earlier version of the demo
+ * ("essential" or "analytics") is NOT read and is never treated as consent. A production consent policy has to be designed and approved
+ * before this can return true.
+ */
 export function hasAnalyticsConsent(): boolean {
-  try { return localStorage.getItem('odalo.cookies') === 'analytics'; } catch { return false; }
+  return false;
 }
 
 export function track(event: TrackEvent, props: TrackProps = {}): void {

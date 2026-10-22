@@ -1,0 +1,1561 @@
+[
+ {
+  "lang": "en",
+  "path": "services/web/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "services/web/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 477,
+  "over": 157,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 9,
+    "ex": [
+     "div.ph__text \"01 — ServicesWebsites \" r=477",
+     "p.eyebrow \"01 — Services\" r=477",
+     "h1.h-hero \"Websites and maintenan\" r=477"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 3,
+    "ex": [
+     "h1.h-hero \"Websites and maintenan\" r=477",
+     "p.lead \"A clear, fast, well-ke\" r=477",
+     "a.btn \"Request your free audi\" r=437"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "en",
+  "path": "services/web/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "services/web/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 477,
+  "over": 87,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 9,
+    "ex": [
+     "div.ph__text \"01 — ServicesWebsites \" r=477",
+     "p.eyebrow \"01 — Services\" r=477",
+     "h1.h-hero \"Websites and maintenan\" r=477"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 3,
+    "ex": [
+     "h1.h-hero \"Websites and maintenan\" r=477",
+     "p.lead \"A clear, fast, well-ke\" r=477",
+     "a.btn \"Request your free audi\" r=437"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "en",
+  "path": "services/ads/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "services/ads/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 417,
+  "over": 97,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 9,
+    "ex": [
+     "div.ph__text \"04 — ServicesPaid adve\" r=417",
+     "p.eyebrow \"04 — Services\" r=417",
+     "h1.h-hero \"Paid advertising\" r=417"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 3,
+    "ex": [
+     "h1.h-hero \"Paid advertising\" r=417",
+     "p.lead \"Google and Meta campai\" r=417",
+     "a.btn \"Request your free audi\" r=417"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "en",
+  "path": "services/ads/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "services/ads/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 417,
+  "over": 27,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 9,
+    "ex": [
+     "div.ph__text \"04 — ServicesPaid adve\" r=417",
+     "p.eyebrow \"04 — Services\" r=417",
+     "h1.h-hero \"Paid advertising\" r=417"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 2,
+    "ex": [
+     "h1.h-hero \"Paid advertising\" r=417",
+     "p.lead \"Google and Meta campai\" r=417"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "en",
+  "path": "work/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "work/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 328,
+  "over": 8,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 5,
+    "ex": [
+     "div.ph__text \"WorkWork, shown as con\" r=328",
+     "p.eyebrow \"Work\" r=328",
+     "h1.h-hero \"Work, shown as connect\" r=328"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 2,
+    "ex": [
+     "em. \"connected pieces.\" r=328",
+     "p.lead \"Illustrative projects \" r=328"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "en",
+  "path": "work/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "work/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "work/sample-hotel/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "work/sample-hotel/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 332,
+  "over": 12,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 4,
+    "ex": [
+     "div.ph__text \"Hospitality · Sample p\" r=332",
+     "p.eyebrow \"Hospitality · Sample p\" r=332",
+     "h1.h-hero \"Boutique hotel relaunc\" r=332"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 1,
+    "ex": [
+     "h1.h-hero \"Boutique hotel relaunc\" r=332"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "en",
+  "path": "work/sample-hotel/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "work/sample-hotel/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "work/sample-shop/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "work/sample-shop/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "work/sample-shop/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "work/sample-shop/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "about/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "about/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "about/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "about/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "audit/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "audit/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 468,
+  "over": 148,
+  "offenders": {
+   ".section box beyond viewport": {
+    "n": 62,
+    "ex": [
+     "div.au__form \"Demo mode: no delivery\" r=468",
+     "div.af \"Demo mode: no delivery\" r=468",
+     "p.af__demo \"Demo mode: no delivery\" r=468"
+    ]
+   },
+   ".section text beyond viewport": {
+    "n": 23,
+    "ex": [
+     "p.af__demo \"Demo mode: no delivery\" r=468",
+     "span.req \"(required)\" r=382",
+     "label. \"What do you need? A sh\" r=468"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "en",
+  "path": "audit/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "audit/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 468,
+  "over": 78,
+  "offenders": {
+   ".section box beyond viewport": {
+    "n": 58,
+    "ex": [
+     "div.au__form \"Demo mode: no delivery\" r=468",
+     "div.af \"Demo mode: no delivery\" r=468",
+     "p.af__demo \"Demo mode: no delivery\" r=468"
+    ]
+   },
+   ".section text beyond viewport": {
+    "n": 14,
+    "ex": [
+     "p.af__demo \"Demo mode: no delivery\" r=468",
+     "label. \"What do you need? A sh\" r=468",
+     "span.opt \"(optional)\" r=402"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "en",
+  "path": "privacy/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "privacy/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 322,
+  "over": 2,
+  "offenders": {
+   ".section box beyond viewport": {
+    "n": 17,
+    "ex": [
+     "p.lg__banner \"DRAFT PLACEHOLDER. Thi\" r=322",
+     "ol.lg__list \"Who is responsible for\" r=322",
+     "li. \"Who is responsible for\" r=322"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "en",
+  "path": "privacy/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "privacy/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "services/web/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "services/web/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 555,
+  "over": 235,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 9,
+    "ex": [
+     "div.ph__text \"01 — ServiciosWeb y ma\" r=555",
+     "p.eyebrow \"01 — Servicios\" r=555",
+     "h1.h-hero \"Web y mantenimiento\" r=555"
+    ]
+   },
+   ".section box beyond viewport": {
+    "n": 6,
+    "ex": [
+     "div.deliver__lead \"Qué incluyeDiseñamos y\" r=326",
+     "ul.deliver__list \"01Alojamiento y manten\" r=326",
+     "li.piece \"01Alojamiento y manten\" r=326"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 3,
+    "ex": [
+     "h1.h-hero \"Web y mantenimiento\" r=555",
+     "p.lead \"Una presencia digital \" r=555",
+     "a.btn \"Pide tu auditoría grat\" r=431"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "es",
+  "path": "services/web/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "services/web/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 555,
+  "over": 165,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 9,
+    "ex": [
+     "div.ph__text \"01 — ServiciosWeb y ma\" r=555",
+     "p.eyebrow \"01 — Servicios\" r=555",
+     "h1.h-hero \"Web y mantenimiento\" r=555"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 3,
+    "ex": [
+     "h1.h-hero \"Web y mantenimiento\" r=555",
+     "p.lead \"Una presencia digital \" r=555",
+     "a.btn \"Pide tu auditoría grat\" r=431"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "es",
+  "path": "services/ads/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "services/ads/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 386,
+  "over": 66,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 9,
+    "ex": [
+     "div.ph__text \"04 — ServiciosPublicid\" r=386",
+     "p.eyebrow \"04 — Servicios\" r=386",
+     "h1.h-hero \"Publicidad digital\" r=386"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 3,
+    "ex": [
+     "h1.h-hero \"Publicidad digital\" r=386",
+     "p.lead \"Campañas en Google y M\" r=386",
+     "a.btn \"Pide tu auditoría grat\" r=386"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "es",
+  "path": "services/ads/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "services/ads/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "work/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "work/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 380,
+  "over": 60,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 5,
+    "ex": [
+     "div.ph__text \"TrabajoTrabajo, mostra\" r=380",
+     "p.eyebrow \"Trabajo\" r=380",
+     "h1.h-hero \"Trabajo, mostrado como\" r=380"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 3,
+    "ex": [
+     "h1.h-hero \"Trabajo, mostrado como\" r=380",
+     "em. \"piezas conectadas.\" r=380",
+     "p.lead \"Proyectos ilustrativos\" r=380"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "es",
+  "path": "work/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "work/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "work/sample-hotel/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "work/sample-hotel/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 544,
+  "over": 224,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 4,
+    "ex": [
+     "div.ph__text \"Alojamiento · Proyecto\" r=544",
+     "p.eyebrow \"Alojamiento · Proyecto\" r=544",
+     "h1.h-hero \"Relanzamiento de un ho\" r=544"
+    ]
+   },
+   ".section box beyond viewport": {
+    "n": 6,
+    "ex": [
+     "figure.cs__art \"Ilustración geométrica\" r=321",
+     "svg.[object \"\" r=321",
+     "div.cs__block \"ContextoUn alojamiento\" r=321"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 3,
+    "ex": [
+     "p.eyebrow \"Alojamiento · Proyecto\" r=544",
+     "h1.h-hero \"Relanzamiento de un ho\" r=544",
+     "p.lead \"Ejemplo ilustrativo, n\" r=544"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "es",
+  "path": "work/sample-hotel/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "work/sample-hotel/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 544,
+  "over": 154,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 4,
+    "ex": [
+     "div.ph__text \"Alojamiento · Proyecto\" r=544",
+     "p.eyebrow \"Alojamiento · Proyecto\" r=544",
+     "h1.h-hero \"Relanzamiento de un ho\" r=544"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 3,
+    "ex": [
+     "p.eyebrow \"Alojamiento · Proyecto\" r=544",
+     "h1.h-hero \"Relanzamiento de un ho\" r=544",
+     "p.lead \"Ejemplo ilustrativo, n\" r=544"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "es",
+  "path": "work/sample-shop/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "work/sample-shop/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 475,
+  "over": 155,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 4,
+    "ex": [
+     "div.ph__text \"Comercio · Proyecto de\" r=475",
+     "p.eyebrow \"Comercio · Proyecto de\" r=475",
+     "h1.h-hero \"Tienda de alimentación\" r=475"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 3,
+    "ex": [
+     "p.eyebrow \"Comercio · Proyecto de\" r=475",
+     "h1.h-hero \"Tienda de alimentación\" r=475",
+     "p.lead \"Ejemplo ilustrativo, n\" r=475"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "es",
+  "path": "work/sample-shop/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "work/sample-shop/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 475,
+  "over": 85,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 4,
+    "ex": [
+     "div.ph__text \"Comercio · Proyecto de\" r=475",
+     "p.eyebrow \"Comercio · Proyecto de\" r=475",
+     "h1.h-hero \"Tienda de alimentación\" r=475"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 3,
+    "ex": [
+     "p.eyebrow \"Comercio · Proyecto de\" r=475",
+     "h1.h-hero \"Tienda de alimentación\" r=475",
+     "p.lead \"Ejemplo ilustrativo, n\" r=475"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "es",
+  "path": "about/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "about/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "about/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "about/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "audit/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "audit/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 468,
+  "over": 148,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 5,
+    "ex": [
+     "div.ph__text \"Auditoría gratisPide t\" r=325",
+     "p.eyebrow \"Auditoría gratis\" r=325",
+     "h1.h-hero \"Pide tu auditoría grat\" r=325"
+    ]
+   },
+   ".section box beyond viewport": {
+    "n": 62,
+    "ex": [
+     "div.au__form \"Modo demo: no hay ning\" r=468",
+     "div.af \"Modo demo: no hay ning\" r=468",
+     "p.af__demo \"Modo demo: no hay ning\" r=468"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 1,
+    "ex": [
+     "em. \"auditoría gratis.\" r=325"
+    ]
+   },
+   ".section text beyond viewport": {
+    "n": 22,
+    "ex": [
+     "p.af__demo \"Modo demo: no hay ning\" r=468",
+     "label. \"Nombre del negocio (ob\" r=468",
+     "label. \"¿Qué necesitas? Una de\" r=468"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "es",
+  "path": "audit/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "audit/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 468,
+  "over": 78,
+  "offenders": {
+   ".section box beyond viewport": {
+    "n": 58,
+    "ex": [
+     "div.au__form \"Modo demo: no hay ning\" r=468",
+     "div.af \"Modo demo: no hay ning\" r=468",
+     "p.af__demo \"Modo demo: no hay ning\" r=468"
+    ]
+   },
+   ".section text beyond viewport": {
+    "n": 12,
+    "ex": [
+     "p.af__demo \"Modo demo: no hay ning\" r=468",
+     "span.req \"(obligatorio)\" r=461",
+     "p.hint \"Opcional. Déjalo vacío\" r=468"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "es",
+  "path": "privacy/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "privacy/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 395,
+  "over": 75,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 2,
+    "ex": [
+     "div.ph__text \"Aviso de privacidad\" r=395",
+     "h1.h-hero \"Aviso de privacidad\" r=395"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 1,
+    "ex": [
+     "h1.h-hero \"Aviso de privacidad\" r=395"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "es",
+  "path": "privacy/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "privacy/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 395,
+  "over": 5,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 2,
+    "ex": [
+     "div.ph__text \"Aviso de privacidad\" r=395",
+     "h1.h-hero \"Aviso de privacidad\" r=395"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 1,
+    "ex": [
+     "h1.h-hero \"Aviso de privacidad\" r=395"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "de",
+  "path": "services/web/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "services/web/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 409,
+  "over": 89,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 10,
+    "ex": [
+     "div.ph__text \"01 — LeistungenWebsite\" r=331",
+     "p.eyebrow \"01 — Leistungen\" r=331",
+     "h1.h-hero \"Website und Wartung\" r=331"
+    ]
+   },
+   ".section box beyond viewport": {
+    "n": 12,
+    "ex": [
+     "div.deliver__lead \"Das bekommst duWir ges\" r=409",
+     "h2.h-tile \"Das bekommst du\" r=387",
+     "p. \"Wir gestalten und pfle\" r=387"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 2,
+    "ex": [
+     "h1.h-hero \"Website und Wartung\" r=331",
+     "p.lead \"Ein klarer, schneller \" r=331"
+    ]
+   },
+   ".section text beyond viewport": {
+    "n": 4,
+    "ex": [
+     "h2.h-tile \"Das bekommst du\" r=387",
+     "p. \"Wir gestalten und pfle\" r=387",
+     "li.piece \"0330 Minuten Änderunge\" r=409"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "de",
+  "path": "services/web/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "services/web/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 409,
+  "over": 19,
+  "offenders": {
+   ".section box beyond viewport": {
+    "n": 6,
+    "ex": [
+     "div.deliver__lead \"Das bekommst duWir ges\" r=409",
+     "ul.deliver__list \"01Hosting und Wartung0\" r=409",
+     "li.piece \"01Hosting und Wartung\" r=409"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "de",
+  "path": "services/ads/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "services/ads/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 341,
+  "over": 21,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 10,
+    "ex": [
+     "div.ph__text \"04 — LeistungenOnline-\" r=341",
+     "p.eyebrow \"04 — Leistungen\" r=341",
+     "h1.h-hero \"Online-Werbung\" r=341"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 2,
+    "ex": [
+     "h1.h-hero \"Online-Werbung\" r=341",
+     "p.lead \"Kampagnen auf Google u\" r=341"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "de",
+  "path": "services/ads/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "services/ads/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "work/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "work/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 388,
+  "over": 68,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 5,
+    "ex": [
+     "div.ph__text \"ProjekteProjekte, geze\" r=388",
+     "p.eyebrow \"Projekte\" r=388",
+     "h1.h-hero \"Projekte, gezeigt als \" r=388"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 3,
+    "ex": [
+     "h1.h-hero \"Projekte, gezeigt als \" r=388",
+     "em. \"verbundene Teile.\" r=388",
+     "p.lead \"Illustrative Projekte,\" r=388"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "de",
+  "path": "work/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "work/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "work/sample-hotel/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "work/sample-hotel/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 389,
+  "over": 69,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 4,
+    "ex": [
+     "div.ph__text \"Gastgewerbe · Beispiel\" r=368",
+     "p.eyebrow \"Gastgewerbe · Beispiel\" r=368",
+     "h1.h-hero \"Relaunch eines Boutiqu\" r=368"
+    ]
+   },
+   ".section box beyond viewport": {
+    "n": 23,
+    "ex": [
+     "figure.cs__art \"Geometrische Platzhalt\" r=380",
+     "svg.[object \"\" r=380",
+     "figcaption. \"Geometrische Platzhalt\" r=368"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 2,
+    "ex": [
+     "h1.h-hero \"Relaunch eines Boutiqu\" r=368",
+     "p.lead \"Illustratives Beispiel\" r=368"
+    ]
+   },
+   ".section text beyond viewport": {
+    "n": 9,
+    "ex": [
+     "figcaption. \"Geometrische Platzhalt\" r=368",
+     "p. \"Ein kleines Hotel mit \" r=358",
+     "h2.cs__h \"Herausforderung\" r=358"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "de",
+  "path": "work/sample-hotel/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "work/sample-hotel/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "work/sample-shop/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "work/sample-shop/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 536,
+  "over": 216,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 4,
+    "ex": [
+     "div.ph__text \"Einzelhandel · Beispie\" r=536",
+     "p.eyebrow \"Einzelhandel · Beispie\" r=536",
+     "h1.h-hero \"Laden für handwerklich\" r=536"
+    ]
+   },
+   ".section box beyond viewport": {
+    "n": 18,
+    "ex": [
+     "figure.cs__art \"Geometrische Platzhalt\" r=380",
+     "svg.[object \"\" r=380",
+     "figcaption. \"Geometrische Platzhalt\" r=368"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 3,
+    "ex": [
+     "p.eyebrow \"Einzelhandel · Beispie\" r=536",
+     "h1.h-hero \"Laden für handwerklich\" r=536",
+     "p.lead \"Illustratives Beispiel\" r=536"
+    ]
+   },
+   ".section text beyond viewport": {
+    "n": 7,
+    "ex": [
+     "figcaption. \"Geometrische Platzhalt\" r=368",
+     "p. \"Ein Laden mit Produkte\" r=358",
+     "h2.cs__h \"Herausforderung\" r=358"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "de",
+  "path": "work/sample-shop/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "work/sample-shop/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 536,
+  "over": 146,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 4,
+    "ex": [
+     "div.ph__text \"Einzelhandel · Beispie\" r=536",
+     "p.eyebrow \"Einzelhandel · Beispie\" r=536",
+     "h1.h-hero \"Laden für handwerklich\" r=536"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 3,
+    "ex": [
+     "p.eyebrow \"Einzelhandel · Beispie\" r=536",
+     "h1.h-hero \"Laden für handwerklich\" r=536",
+     "p.lead \"Illustratives Beispiel\" r=536"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "de",
+  "path": "about/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "about/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 509,
+  "over": 189,
+  "offenders": {
+   ".section box beyond viewport": {
+    "n": 14,
+    "ex": [
+     "h2.h-section \"Arbeitsprinzipien\" r=509",
+     "ol.pr__list \"01Verbunden statt isol\" r=509",
+     "li. \"01Verbunden statt isol\" r=509"
+    ]
+   },
+   ".section text beyond viewport": {
+    "n": 7,
+    "ex": [
+     "h2.h-section \"Arbeitsprinzipien\" r=509",
+     "h3.h-tile \"Verbunden statt isolie\" r=487",
+     "p. \"Website, Video und Anz\" r=487"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "de",
+  "path": "about/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "about/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 509,
+  "over": 119,
+  "offenders": {
+   ".section box beyond viewport": {
+    "n": 14,
+    "ex": [
+     "h2.h-section \"Arbeitsprinzipien\" r=509",
+     "ol.pr__list \"01Verbunden statt isol\" r=509",
+     "li. \"01Verbunden statt isol\" r=509"
+    ]
+   },
+   ".section text beyond viewport": {
+    "n": 5,
+    "ex": [
+     "h2.h-section \"Arbeitsprinzipien\" r=509",
+     "p. \"Website, Video und Anz\" r=487",
+     "p. \"Wir erklären, was wir \" r=487"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "de",
+  "path": "audit/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "audit/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 468,
+  "over": 148,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 5,
+    "ex": [
+     "div.ph__text \"Gratis-AnalyseFrag dei\" r=327",
+     "p.eyebrow \"Gratis-Analyse\" r=327",
+     "h1.h-hero \"Frag deine kostenlose \" r=327"
+    ]
+   },
+   ".section box beyond viewport": {
+    "n": 61,
+    "ex": [
+     "div.au__form \"Demo-Modus: Es ist kei\" r=468",
+     "div.af \"Demo-Modus: Es ist kei\" r=468",
+     "p.af__demo \"Demo-Modus: Es ist kei\" r=468"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 1,
+    "ex": [
+     "em. \"kostenlose Analyse an.\" r=327"
+    ]
+   },
+   ".section text beyond viewport": {
+    "n": 25,
+    "ex": [
+     "p.af__demo \"Demo-Modus: Es ist kei\" r=468",
+     "label. \"Name des Unternehmens \" r=468",
+     "label. \"Was brauchst du? Eine \" r=468"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "de",
+  "path": "audit/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "audit/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 468,
+  "over": 78,
+  "offenders": {
+   ".section box beyond viewport": {
+    "n": 59,
+    "ex": [
+     "div.au__form \"Demo-Modus: Es ist kei\" r=468",
+     "div.af \"Demo-Modus: Es ist kei\" r=468",
+     "p.af__demo \"Demo-Modus: Es ist kei\" r=468"
+    ]
+   },
+   ".section text beyond viewport": {
+    "n": 16,
+    "ex": [
+     "p.af__demo \"Demo-Modus: Es ist kei\" r=468",
+     "label. \"Name des Unternehmens \" r=468",
+     "label. \"Was brauchst du? Eine \" r=468"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "de",
+  "path": "privacy/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 393,
+  "over": 73,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 2,
+    "ex": [
+     "div.ph__text \"Datenschutzhinweise\" r=393",
+     "h1.h-hero \"Datenschutzhinweise\" r=393"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 1,
+    "ex": [
+     "h1.h-hero \"Datenschutzhinweise\" r=393"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "de",
+  "path": "privacy/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 766,
+  "over": 446,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 2,
+    "ex": [
+     "div.ph__text \"Datenschutzhinweise\" r=766",
+     "h1.h-hero \"Datenschutzhinweise\" r=766"
+    ]
+   },
+   ".section box beyond viewport": {
+    "n": 17,
+    "ex": [
+     "p.lg__banner \"ENTWURF ALS PLATZHALTE\" r=431",
+     "ol.lg__list \"Wer für deine Daten ve\" r=431",
+     "li. \"Wer für deine Daten ve\" r=431"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 1,
+    "ex": [
+     "h1.h-hero \"Datenschutzhinweise\" r=766"
+    ]
+   },
+   ".section text beyond viewport": {
+    "n": 10,
+    "ex": [
+     "p.lg__banner \"ENTWURF ALS PLATZHALTE\" r=431",
+     "h2.h-tile \"Wer für deine Daten ve\" r=431",
+     "p. \"Inhalt wartet auf Frei\" r=431"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "de",
+  "path": "privacy/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 393,
+  "over": 3,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 2,
+    "ex": [
+     "div.ph__text \"Datenschutzhinweise\" r=393",
+     "h1.h-hero \"Datenschutzhinweise\" r=393"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 1,
+    "ex": [
+     "h1.h-hero \"Datenschutzhinweise\" r=393"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "de",
+  "path": "privacy/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 766,
+  "over": 376,
+  "offenders": {
+   ".ph box beyond viewport": {
+    "n": 2,
+    "ex": [
+     "div.ph__text \"Datenschutzhinweise\" r=766",
+     "h1.h-hero \"Datenschutzhinweise\" r=766"
+    ]
+   },
+   ".section box beyond viewport": {
+    "n": 17,
+    "ex": [
+     "p.lg__banner \"ENTWURF ALS PLATZHALTE\" r=431",
+     "ol.lg__list \"Wer für deine Daten ve\" r=431",
+     "li. \"Wer für deine Daten ve\" r=431"
+    ]
+   },
+   ".ph text beyond viewport": {
+    "n": 1,
+    "ex": [
+     "h1.h-hero \"Datenschutzhinweise\" r=766"
+    ]
+   },
+   ".section text beyond viewport": {
+    "n": 9,
+    "ex": [
+     "p.lg__banner \"ENTWURF ALS PLATZHALTE\" r=431",
+     "h2.h-tile \"Wer für deine Daten ve\" r=431",
+     "p. \"Inhalt wartet auf Frei\" r=431"
+    ]
+   }
+  }
+ }
+]

@@ -1,0 +1,26 @@
+{
+ "en": {
+  "rootPx": "32px",
+  "narrowQuery48em": true,
+  "tablet72em": false,
+  "docSw": 363,
+  "pricingSw": 320,
+  "pricingCw": 320
+ },
+ "es": {
+  "rootPx": "32px",
+  "narrowQuery48em": true,
+  "tablet72em": false,
+  "docSw": 363,
+  "pricingSw": 320,
+  "pricingCw": 320
+ },
+ "de": {
+  "rootPx": "32px",
+  "narrowQuery48em": true,
+  "tablet72em": false,
+  "docSw": 495,
+  "pricingSw": 320,
+  "pricingCw": 320
+ }
+}

@@ -1,0 +1,584 @@
+{
+ "measuredAt": "2026-10-20T14:03:22.319Z",
+ "environment": {
+  "os": "Windows_NT 10.0.26200",
+  "cpu": "AMD Ryzen AI 7 350 w/ Radeon 860M              ",
+  "cores": 16,
+  "memGB": 15,
+  "browser": "155.0.4283.62",
+  "mode": "Edge via Playwright (headless), real wheel and touch input over CDP, localhost, consent stored (no cookie panel), whole home page from the top"
+ },
+ "conditions": {
+  "desktop 1440x900 | integrated, motion": {
+   "runs": 3,
+   "frameMs": {
+    "median": 16.7,
+    "p95": 16.8,
+    "p99": 16.9,
+    "worst": 33.3
+   },
+   "over20Share": 0.0003,
+   "over33": [
+    0,
+    0,
+    0
+   ],
+   "over50": [
+    0,
+    0,
+    0
+   ],
+   "intervals": [
+    2040,
+    2022,
+    2031
+   ],
+   "cls": [
+    0,
+    0,
+    0
+   ],
+   "shifts": [
+    0,
+    0,
+    0
+   ],
+   "longTasks": [
+    1,
+    1,
+    1
+   ],
+   "longTaskMax": 59,
+   "mainThreadMs": {
+    "script": 405.5,
+    "layout": 29.8,
+    "style": 108.9,
+    "task": 1687.4
+   },
+   "load": {
+    "requests": 18,
+    "bytes": 379422
+   },
+   "domNodes": 1230,
+   "heapMB": [
+    1.3,
+    1.3,
+    1.3
+   ]
+  },
+  "desktop 1440x900 | integrated, reduced motion (control)": {
+   "runs": 3,
+   "frameMs": {
+    "median": 16.7,
+    "p95": 16.8,
+    "p99": 16.8,
+    "worst": 49.9
+   },
+   "over20Share": 0.0002,
+   "over33": [
+    0,
+    1,
+    0
+   ],
+   "over50": [
+    0,
+    0,
+    0
+   ],
+   "intervals": [
+    1960,
+    1951,
+    1952
+   ],
+   "cls": [
+    0,
+    0,
+    0
+   ],
+   "shifts": [
+    0,
+    0,
+    0
+   ],
+   "longTasks": [
+    0,
+    0,
+    0
+   ],
+   "longTaskMax": 0,
+   "mainThreadMs": {
+    "script": 251.9,
+    "layout": 0.4,
+    "style": 0,
+    "task": 890.1
+   },
+   "load": {
+    "requests": 18,
+    "bytes": 379422
+   },
+   "domNodes": 1230,
+   "heapMB": [
+    1.2,
+    1.2,
+    1.2
+   ]
+  },
+  "desktop 1440x900 | before the integration": {
+   "runs": 3,
+   "frameMs": {
+    "median": 16.7,
+    "p95": 16.8,
+    "p99": 16.9,
+    "worst": 49.9
+   },
+   "over20Share": 0.0002,
+   "over33": [
+    0,
+    0,
+    1
+   ],
+   "over50": [
+    0,
+    0,
+    0
+   ],
+   "intervals": [
+    2029,
+    2031,
+    2020
+   ],
+   "cls": [
+    0,
+    0,
+    0
+   ],
+   "shifts": [
+    0,
+    0,
+    0
+   ],
+   "longTasks": [
+    0,
+    1,
+    0
+   ],
+   "longTaskMax": 55,
+   "mainThreadMs": {
+    "script": 306.7,
+    "layout": 28.9,
+    "style": 55.9,
+    "task": 1327.7
+   },
+   "load": {
+    "requests": 17,
+    "bytes": 373401
+   },
+   "domNodes": 1230,
+   "heapMB": [
+    1.3,
+    1.3,
+    1.3
+   ]
+  },
+  "desktop 1440x900 | integrated, motion, CPU x4": {
+   "runs": 3,
+   "frameMs": {
+    "median": 16.7,
+    "p95": 16.8,
+    "p99": 16.9,
+    "worst": 17.3
+   },
+   "over20Share": 0,
+   "over33": [
+    0,
+    0,
+    0
+   ],
+   "over50": [
+    0,
+    0,
+    0
+   ],
+   "intervals": [
+    2078,
+    2071,
+    2069
+   ],
+   "cls": [
+    0,
+    0,
+    0
+   ],
+   "shifts": [
+    0,
+    0,
+    0
+   ],
+   "longTasks": [
+    1,
+    1,
+    1
+   ],
+   "longTaskMax": 65,
+   "mainThreadMs": {
+    "script": 1892.7,
+    "layout": 119,
+    "style": 433.8,
+    "task": 7319.2
+   },
+   "load": {
+    "requests": 18,
+    "bytes": 379422
+   },
+   "domNodes": 1230,
+   "heapMB": [
+    1.3,
+    1.3,
+    1.3
+   ]
+  },
+  "desktop 1440x900 | before the integration, CPU x4": {
+   "runs": 3,
+   "frameMs": {
+    "median": 16.7,
+    "p95": 16.8,
+    "p99": 16.9,
+    "worst": 17.3
+   },
+   "over20Share": 0,
+   "over33": [
+    0,
+    0,
+    0
+   ],
+   "over50": [
+    0,
+    0,
+    0
+   ],
+   "intervals": [
+    2070,
+    2081,
+    2063
+   ],
+   "cls": [
+    0,
+    0,
+    0
+   ],
+   "shifts": [
+    0,
+    0,
+    0
+   ],
+   "longTasks": [
+    1,
+    0,
+    0
+   ],
+   "longTaskMax": 57,
+   "mainThreadMs": {
+    "script": 1465,
+    "layout": 112.3,
+    "style": 206.2,
+    "task": 5680.9
+   },
+   "load": {
+    "requests": 17,
+    "bytes": 373401
+   },
+   "domNodes": 1230,
+   "heapMB": [
+    1.3,
+    1.3,
+    1.3
+   ]
+  },
+  "phone 390x844 touch | integrated, motion": {
+   "runs": 3,
+   "frameMs": {
+    "median": 16.7,
+    "p95": 16.8,
+    "p99": 16.8,
+    "worst": 49.9
+   },
+   "over20Share": 0.0002,
+   "over33": [
+    1,
+    0,
+    0
+   ],
+   "over50": [
+    0,
+    0,
+    0
+   ],
+   "intervals": [
+    2077,
+    2086,
+    2088
+   ],
+   "cls": [
+    0,
+    0,
+    0
+   ],
+   "shifts": [
+    0,
+    0,
+    0
+   ],
+   "longTasks": [
+    1,
+    0,
+    0
+   ],
+   "longTaskMax": 52,
+   "mainThreadMs": {
+    "script": 412.4,
+    "layout": 26.5,
+    "style": 125.3,
+    "task": 1877.6
+   },
+   "load": {
+    "requests": 16,
+    "bytes": 250354
+   },
+   "domNodes": 1230,
+   "heapMB": [
+    1.4,
+    1.4,
+    1.4
+   ]
+  },
+  "phone 390x844 touch | integrated, reduced motion (control)": {
+   "runs": 3,
+   "frameMs": {
+    "median": 16.7,
+    "p95": 16.8,
+    "p99": 16.9,
+    "worst": 17.3
+   },
+   "over20Share": 0,
+   "over33": [
+    0,
+    0,
+    0
+   ],
+   "over50": [
+    0,
+    0,
+    0
+   ],
+   "intervals": [
+    2006,
+    2009,
+    1994
+   ],
+   "cls": [
+    0,
+    0,
+    0
+   ],
+   "shifts": [
+    0,
+    0,
+    0
+   ],
+   "longTasks": [
+    0,
+    0,
+    0
+   ],
+   "longTaskMax": 0,
+   "mainThreadMs": {
+    "script": 219.3,
+    "layout": 1,
+    "style": 0,
+    "task": 1006.1
+   },
+   "load": {
+    "requests": 16,
+    "bytes": 250354
+   },
+   "domNodes": 1230,
+   "heapMB": [
+    1.3,
+    1.3,
+    1.3
+   ]
+  },
+  "phone 390x844 touch | before the integration": {
+   "runs": 3,
+   "frameMs": {
+    "median": 16.7,
+    "p95": 16.8,
+    "p99": 16.9,
+    "worst": 17.2
+   },
+   "over20Share": 0,
+   "over33": [
+    0,
+    0,
+    0
+   ],
+   "over50": [
+    0,
+    0,
+    0
+   ],
+   "intervals": [
+    2079,
+    2087,
+    2080
+   ],
+   "cls": [
+    0,
+    0,
+    0
+   ],
+   "shifts": [
+    0,
+    0,
+    0
+   ],
+   "longTasks": [
+    0,
+    0,
+    0
+   ],
+   "longTaskMax": 0,
+   "mainThreadMs": {
+    "script": 288.7,
+    "layout": 28.2,
+    "style": 63.9,
+    "task": 1446.9
+   },
+   "load": {
+    "requests": 15,
+    "bytes": 244333
+   },
+   "domNodes": 1230,
+   "heapMB": [
+    1.3,
+    1.3,
+    1.3
+   ]
+  },
+  "phone 390x844 touch | integrated, motion, CPU x4": {
+   "runs": 3,
+   "frameMs": {
+    "median": 16.7,
+    "p95": 16.8,
+    "p99": 16.9,
+    "worst": 66.7
+   },
+   "over20Share": 0.0022,
+   "over33": [
+    3,
+    1,
+    1
+   ],
+   "over50": [
+    0,
+    0,
+    1
+   ],
+   "intervals": [
+    2152,
+    2127,
+    2127
+   ],
+   "cls": [
+    0,
+    0,
+    0
+   ],
+   "shifts": [
+    0,
+    0,
+    0
+   ],
+   "longTasks": [
+    0,
+    0,
+    0
+   ],
+   "longTaskMax": 0,
+   "mainThreadMs": {
+    "script": 1853.8,
+    "layout": 102.5,
+    "style": 478.4,
+    "task": 7770.6
+   },
+   "load": {
+    "requests": 16,
+    "bytes": 250354
+   },
+   "domNodes": 1230,
+   "heapMB": [
+    1.4,
+    1.4,
+    1.4
+   ]
+  },
+  "phone 390x844 touch | before the integration, CPU x4": {
+   "runs": 3,
+   "frameMs": {
+    "median": 16.7,
+    "p95": 16.8,
+    "p99": 16.9,
+    "worst": 33.4
+   },
+   "over20Share": 0.0011,
+   "over33": [
+    0,
+    1,
+    0
+   ],
+   "over50": [
+    0,
+    0,
+    0
+   ],
+   "intervals": [
+    2129,
+    2123,
+    2134
+   ],
+   "cls": [
+    0,
+    0,
+    0
+   ],
+   "shifts": [
+    0,
+    0,
+    0
+   ],
+   "longTasks": [
+    0,
+    0,
+    0
+   ],
+   "longTaskMax": 0,
+   "mainThreadMs": {
+    "script": 1334.4,
+    "layout": 111.8,
+    "style": 234.3,
+    "task": 6059.2
+   },
+   "load": {
+    "requests": 15,
+    "bytes": 244333
+   },
+   "domNodes": 1230,
+   "heapMB": [
+    1.5,
+    1.5,
+    1.3
+   ]
+  }
+ },
+ "note": "The first version of this script also reported a hero/services 'overlap' that counted tiles displaced anywhere on the page; it is superseded by overlap.json (tools/overlap.mjs) and removed here."
+}

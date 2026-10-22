@@ -1,0 +1,30 @@
+desktop 1440x900 | integrated, motion
+  frames median 16.7 p95 16.8 p99 16.9 worst 33.3 | >20ms 0.03% | >33ms 0,0,0 | >50ms 0,0,0
+  CLS 0, 0, 0 | long tasks 1,1,1 (max 59 ms) | main thread (median of runs) script 405.5 layout 29.8 style 108.9 task 1687.4 ms
+desktop 1440x900 | integrated, reduced motion (control)
+  frames median 16.7 p95 16.8 p99 16.8 worst 49.9 | >20ms 0.02% | >33ms 0,1,0 | >50ms 0,0,0
+  CLS 0, 0, 0 | long tasks 0,0,0 (max 0 ms) | main thread (median of runs) script 251.9 layout 0.4 style 0 task 890.1 ms
+desktop 1440x900 | before the integration
+  frames median 16.7 p95 16.8 p99 16.9 worst 49.9 | >20ms 0.02% | >33ms 0,0,1 | >50ms 0,0,0
+  CLS 0, 0, 0 | long tasks 0,1,0 (max 55 ms) | main thread (median of runs) script 306.7 layout 28.9 style 55.9 task 1327.7 ms
+desktop 1440x900 | integrated, motion, CPU x4
+  frames median 16.7 p95 16.8 p99 16.9 worst 17.3 | >20ms 0.00% | >33ms 0,0,0 | >50ms 0,0,0
+  CLS 0, 0, 0 | long tasks 1,1,1 (max 65 ms) | main thread (median of runs) script 1892.7 layout 119 style 433.8 task 7319.2 ms
+desktop 1440x900 | before the integration, CPU x4
+  frames median 16.7 p95 16.8 p99 16.9 worst 17.3 | >20ms 0.00% | >33ms 0,0,0 | >50ms 0,0,0
+  CLS 0, 0, 0 | long tasks 1,0,0 (max 57 ms) | main thread (median of runs) script 1465 layout 112.3 style 206.2 task 5680.9 ms
+phone 390x844 touch | integrated, motion
+  frames median 16.7 p95 16.8 p99 16.8 worst 49.9 | >20ms 0.02% | >33ms 1,0,0 | >50ms 0,0,0
+  CLS 0, 0, 0 | long tasks 1,0,0 (max 52 ms) | main thread (median of runs) script 412.4 layout 26.5 style 125.3 task 1877.6 ms
+phone 390x844 touch | integrated, reduced motion (control)
+  frames median 16.7 p95 16.8 p99 16.9 worst 17.3 | >20ms 0.00% | >33ms 0,0,0 | >50ms 0,0,0
+  CLS 0, 0, 0 | long tasks 0,0,0 (max 0 ms) | main thread (median of runs) script 219.3 layout 1 style 0 task 1006.1 ms
+phone 390x844 touch | before the integration
+  frames median 16.7 p95 16.8 p99 16.9 worst 17.2 | >20ms 0.00% | >33ms 0,0,0 | >50ms 0,0,0
+  CLS 0, 0, 0 | long tasks 0,0,0 (max 0 ms) | main thread (median of runs) script 288.7 layout 28.2 style 63.9 task 1446.9 ms
+phone 390x844 touch | integrated, motion, CPU x4
+  frames median 16.7 p95 16.8 p99 16.9 worst 66.7 | >20ms 0.22% | >33ms 3,1,1 | >50ms 0,0,1
+  CLS 0, 0, 0 | long tasks 0,0,0 (max 0 ms) | main thread (median of runs) script 1853.8 layout 102.5 style 478.4 task 7770.6 ms
+phone 390x844 touch | before the integration, CPU x4
+  frames median 16.7 p95 16.8 p99 16.9 worst 33.4 | >20ms 0.11% | >33ms 0,1,0 | >50ms 0,0,0
+  CLS 0, 0, 0 | long tasks 0,0,0 (max 0 ms) | main thread (median of runs) script 1334.4 layout 111.8 style 234.3 task 6059.2 ms

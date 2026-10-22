@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prototipo de movimiento de Odalo: Piezas distintas. Un resultado conectado.</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:,">
+<link rel="preload" href="assets/fonts/outfit-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-serif-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="proto.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#after">Saltar la animación</a>
+<header class="bar">
+  <img class="bar__logo" src="assets/odalo-word.svg" width="840" height="320" alt="odalo">
+  <nav class="bar__lang" aria-label="Language"><a href="index.html" hreflang="en" lang="en">EN</a><a href="index.es.html" hreflang="es" lang="es" aria-current="page">ES</a><a href="index.de.html" hreflang="de" lang="de">DE</a></nav>
+</header>
+<main>
+<section class="proto" id="proto" aria-labelledby="proto-h" data-proto>
+  <div class="proto__run">
+    <div class="proto__stage">
+      <div class="head">
+        <div class="head__text">
+          <p class="eyebrow">Prototipo de movimiento</p>
+          <h2 id="proto-h" class="head__h"><span class="head__a">Piezas distintas.</span> <em class="head__b" data-em>Un resultado conectado.</em></h2>
+        </div>
+        <a class="cta" href="#after">Pide tu auditoría gratis</a>
+      </div>
+
+      <div class="arena" data-arena>
+        <div class="board" data-board>
+        <div class="plate plate--web" data-tone="ink" data-piece="plate" data-id="web" aria-hidden="true"></div>
+        <div class="plate plate--local" data-tone="sand" data-piece="plate" data-id="local" aria-hidden="true"></div>
+        <div class="plate plate--video" data-tone="coral" data-piece="plate" data-id="video" aria-hidden="true"></div>
+        <div class="plate plate--ads" data-tone="slate" data-piece="plate" data-id="ads" aria-hidden="true"></div>
+        <i class="seam seam--a" data-seam="a" aria-hidden="true"></i>
+        <i class="seam seam--b" data-seam="b" aria-hidden="true"></i>
+        <i class="seam seam--c" data-seam="c" aria-hidden="true"></i>
+        <i class="seam seam--d" data-seam="d" aria-hidden="true"></i>
+        <div class="card card--web" data-piece="card" data-id="web"><img src="assets/img/hotel-desktop-1024.webp" srcset="assets/img/hotel-desktop-640.webp 640w, assets/img/hotel-desktop-1024.webp 1024w" sizes="(min-width: 64em) 34vw, 46vw" width="1024" height="640" alt="Página de inicio de la web del hotel ficticio Casa Almina: titular, ilustración de una casa junto al puerto y un botón para pedir fechas." decoding="async"></div>
+        <div class="card card--local" data-piece="card" data-id="local"><img src="assets/img/services-local-info-1024.webp" srcset="assets/img/services-local-info-640.webp 640w, assets/img/services-local-info-1024.webp 1024w" sizes="(min-width: 64em) 34vw, 46vw" width="1024" height="420" alt="Sección de información local de la página de la consulta ficticia Tidewell: ilustración de la calle con dirección, cómo llegar, accesos y horario." decoding="async"></div>
+        <div class="card card--video" data-piece="card" data-id="video"><img src="assets/img/services-video-strip-1280.webp" srcset="assets/img/services-video-strip-640.webp 640w, assets/img/services-video-strip-1280.webp 1280w" sizes="(min-width: 64em) 34vw, 46vw" width="1280" height="512" alt="Cinco fotogramas del vídeo de concepto de la despensa ficticia Brindle Pantry sobre una tira de película." decoding="async"></div>
+        <div class="card card--ads" data-piece="card" data-id="ads"><img src="assets/img/clinic-ad-square-540.webp" srcset="assets/img/clinic-ad-square-540.webp 540w" sizes="(min-width: 64em) 34vw, 46vw" width="540" height="540" alt="Anuncio cuadrado de concepto de la consulta ficticia Tidewell: titular, ilustración de la calle y un botón para una primera visita." decoding="async"></div>
+        <i class="ring" data-piece="ring" aria-hidden="true"></i>
+        <i class="emblem" data-piece="emblem" aria-hidden="true"></i>
+        <div class="label label--web" data-tone="ink" data-piece="label" data-id="web">
+          <h3 class="label__h"><span class="label__n" aria-hidden="true">01</span> Web y mantenimiento</h3>
+          <p class="label__badge">Concepto de hotel ficticio</p>
+          <p class="label__cap">Casa Almina, pantalla web</p>
+        </div>
+        <div class="label label--local" data-tone="sand" data-piece="label" data-id="local">
+          <h3 class="label__h"><span class="label__n" aria-hidden="true">02</span> Visibilidad local</h3>
+          <p class="label__badge">Concepto de consulta ficticia</p>
+          <p class="label__cap">Tidewell, sección de información local</p>
+        </div>
+        <div class="label label--video" data-tone="coral" data-piece="label" data-id="video">
+          <h3 class="label__h"><span class="label__n" aria-hidden="true">03</span> Vídeo y contenido</h3>
+          <p class="label__badge">Campaña de despensa ficticia</p>
+          <p class="label__cap">Brindle Pantry, fotogramas de la pieza en movimiento</p>
+        </div>
+        <div class="label label--ads" data-tone="slate" data-piece="label" data-id="ads">
+          <h3 class="label__h"><span class="label__n" aria-hidden="true">04</span> Publicidad digital</h3>
+          <p class="label__badge">Concepto de consulta ficticia</p>
+          <p class="label__cap">Tidewell, creatividad cuadrada</p>
+        </div>
+        </div>
+      </div>
+
+      <div class="rail">
+        <ol class="steps" aria-label="Etapas">
+        <li class="step" data-step="0"><span class="step__n" aria-hidden="true">01</span><span class="step__t">Acercamiento</span><span class="step__note">Cuatro tipos de trabajo, aún separados.</span></li>
+        <li class="step" data-step="1"><span class="step__n" aria-hidden="true">02</span><span class="step__t">Ensamblaje</span><span class="step__note">Las piezas encajan borde con borde.</span></li>
+        <li class="step" data-step="2"><span class="step__n" aria-hidden="true">03</span><span class="step__t">Resolución</span><span class="step__note">Un resultado conectado.</span></li>
+        </ol>
+        <button class="replay" type="button" data-replay>Repetir desde el principio</button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="after" id="after" tabindex="-1" aria-labelledby="after-h">
+  <h2 id="after-h" class="after__h">Unidas, y legibles.</h2>
+  <p class="after__p">El mosaico de arriba es el estado final del desplazamiento. Queda en la página como una sección normal: cada etiqueta es texto real y el botón de auditoría nunca se mueve.</p>
+  <p class="after__note">Prototipo para revisión. Las imágenes son trabajos de concepto para clientes ficticios, no proyectos ni resultados reales.</p>
+</section>
+</main>
+<script src="motion.js"></script>
+</body>
+</html>

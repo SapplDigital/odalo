@@ -1,0 +1,39 @@
+# Task 17: final responsive, keyboard and motion QA
+
+Scope note: existing coverage was reused (reflow, mosaic, services motion, content, closing, storage, about, process and portfolio suites, 540 tests at the start). New work is a sweep for gaps, then targeted corrections. No new motion, no delivery or provider, no new dependencies or browsers.
+
+## Changed files
+`src/components/AuditForm.astro` (error layout, focus reveal), `src/styles/global.css` (scroll-margin for controls), `src/i18n/ui.ts`, `src/content/plans.ts`, `src/content/services.ts` (soft hyphens in long German words), `tests/qa.spec.ts` (new, 18 tests), `tests/services-motion.spec.ts` (the restored-scroll test rewritten). Tools in `tools/`, evidence in `evidence/` and `screens/`.
+
+## Methods (exact)
+- **Routes:** 3 languages x home, plans, work, about, audit, privacy, cookies, legal, 4 service pages, 3 case studies = 51, plus `/404.html` = 52 (shared templates: header, footer, closing CTA, FAQ, form, legal template, 404).
+- **Responsive sweep** (`tools/sweep.mjs`, results `evidence/sweep-results.json`): every route at 1440, 1024, 834, 390 and 320 px, plus 390 and 320 px with **root-font simulation** (`html{font-size:200%!important}`); all `<details>` opened; the page scrolled once to load lazy content; the repo's `auditInPage` (actual text-range and control bounds incl. clipping ancestors, not scrollWidth alone) plus two heuristics (word split across lines, isolated punctuation). 322 combinations.
+- **Real browser text setting** (`tools/real-text-size.mjs`, `evidence/real-text-size-results.json`): Edge launched with a temporary profile whose default font size is 32 px (not a stylesheet override; the user's own browser was not touched). Worst cases: home, plans, About, a service page, a case study, audit (validation errors open), privacy, legal x EN/ES/DE x 320 and 390 px = 48 combinations, same bounds audit.
+- **Keyboard sweep** (`tools/keys.mjs`, `evidence/keyboard-results.json`): Tab through 10 pages at 1440x900 and 390x844 (home in 3 languages, plans, About, work, audit, a service, a case study, cookies), disclosures opened; after each stop wait for smooth scroll to finish, then check ring, clearance from the sticky header, visibility in the window, covering elements and reading order.
+- Existing suites already cover: skip link, menu open/close/Escape, services Explore/Escape/focus, pricing comparisons, form errors/results, footer disclosure, no-JavaScript and reduced motion.
+
+## Findings (prioritized) and fixes
+| # | Priority | Finding | Fix | Regression test |
+|---|---|---|---|---|
+| 1 | High | **Real overflow:** `/de/audit/` at 320 px with the real 32 px setting: the checkbox error text ("...Datenschutzhinweise gelesen hast.") widened the page to 376 px (text 88..362 of 320). Cause: `.err` was a flex row, so its text could not shrink. Reproduced first (`evidence/reproduction-form-error-overflow.txt`: `de 320px at 200%` fails on the old CSS, passes after). Not covered by the earlier reflow suites (no error state). | `.err` is a grid with a shrinkable text column and `overflow-wrap` | `qa.spec.ts` "form error and result states..." (EN/ES/DE x 320/390 at 200%, 320 at 100%) |
+| 2 | Medium | **Mid-word breaks without a hyphen** in German at 390/320 px (browser hyphenation is not guaranteed; Edge here does not hyphenate): legal title "Datenschutzhinwei/se", comparison labels "Bewertungsmanagement", "Gestaltungsprinzipien", "Aufnahmesession", and "Datenschutzhinweise" in the form labels and errors. | Soft hyphens (U+00AD) in those words, i.e. language-aware wrapping that does not depend on a dictionary; the same convention is already used in project titles | `qa.spec.ts` "long German words break at soft hyphens" (no bare mid-word breaks; soft hyphens present in the content) |
+| 3 | Medium | **Focus partly out of the window:** keyboard focus on `/audit/` fields left a tall control cut by the window edge (email 861 > 844 px; the message field 156 px tall with 46 px visible at 1440x900): browsers reveal only the caret of text fields. | `scrollIntoView({block:'nearest'})` on form-control focus and `scroll-margin` (clear of the sticky header and the window edge) on interactive elements | `qa.spec.ts` keyboard sweep (3 pages x 2 viewports) |
+| 4 | Test gap | **Restored scroll (task 13 note):** the earlier test was flaky, had been weakened (a lower-row assertion removed) and its title overstated it. | Rewritten with stable conditions: pictures (eager and near-window lazy) and fonts settled, restoration awaited by polling `scrollY`, expectations derived from **real tile geometry** (tiles whose top is inside the window must be docked; tiles clearly below must still be eligible; scrolling to them completes assembly). 12/12 passes under 4 workers (`--repeat-each=12`). No application change was needed: the behaviour was correct and the earlier geometry (lower row at 944 px of a 900 px window) was borderline. | same test, accurate title |
+
+Reviewed, no change: the portfolio tab order goes hotel, clinic, shop, which is DOM order and reads left column then right column on wide desktop (the sweep flagged it as an upward jump; intentional). The `/404.html` "isolated punctuation" flag is the logo's dot (false positive). Header, menu and skip link are clear of the sticky header and visibly ringed in all 20 keyboard runs.
+
+## Results
+- `astro check` 0 errors, 0 warnings; build ok; normal isolated suite **558 passed** (540 before, 18 new) (`evidence/full-suite.txt`).
+- Responsive sweep after fixes: 0 findings for text/control bounds, clipping or sideways scroll in 322 combinations. At 100% text the only remaining flag is the 404 logo dot. At 200% root font (and the real 32 px setting) long words in large headings still break inside the word at 320/390 px (extreme sizes; nothing clipped; kept as a limitation, since shrinking display sizes would be scaling).
+- Real 32 px: 48 combinations, **0 failing** after fix 1 (1 failing before).
+- Keyboard sweep: 20 runs; after fix 3 no stop under the header or mostly outside the window; rings present everywhere. The 75 % visibility threshold in `qa.spec.ts` allows the browser's own small shortfall for tall controls.
+- Browsers: **Edge (Chromium) only.** WebKit is in the local Playwright cache but for an older build than the installed Playwright expects (`webkit-2365` vs 2370), so it cannot launch without installing; Firefox is absent. Nothing was installed (`evidence/webkit-results.json`).
+
+## Screens (true viewport) and what was inspected
+`screens/`: `de-320-200-audit-errors-corrected.png` (inspected), `en-390-audit-keyboard-focus-email.png` (inspected), `en-390-services-explore-open-focus.png` (inspected), `de-390-privacy-title-hyphen.png` (inspected earlier, before the final rebuild), `de-320-privacy-title-hyphen.png`, `de-320-200-home-worst-case.png`, `en-390-menu-open.png`, `en-390-footer-storage-open.png`, `de-390-plans-comparison-open.png` (these five were captured but not individually inspected), `de-320-*-real32.png` (real 32 px captures, not inspected). Earlier audits' screenshots were not repeated.
+
+## Automated versus manual
+Everything above is automated Chromium checking (Playwright over CDP, simulated and real text-size settings). **Not done:** screen-reader testing (NVDA, JAWS, VoiceOver, TalkBack), physical devices, Safari/iOS, Firefox, human keyboard-only review, forced-colours/high-contrast, 400% browser zoom.
+
+## Production blockers (separate from the completed demo checks)
+Unchanged and outside this task: real enquiry delivery (recipients recorded in HANDOFF.md), confirmed audit scope/format/response time, approved legal/privacy/cookie text and consent policy, owner-confirmed business facts and contact details, final prices and conditions, translation review, SEO/metadata and hosting, final performance review, and the manual/device/screen-reader testing listed above.

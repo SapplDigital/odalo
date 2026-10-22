@@ -1,0 +1,609 @@
+[
+ {
+  "lang": "en",
+  "path": "home",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "home",
+  "w": 320,
+  "pct": 200,
+  "docSw": 380,
+  "over": 60,
+  "offenders": {
+   ".hero box beyond viewport": {
+    "n": 11,
+    "ex": [
+     "div.hero__text \"DIGITAL STUDIO FOR BUS\" r=380",
+     "p.eyebrow \"DIGITAL STUDIO FOR BUS\" r=380",
+     "h1.h-hero \"We bring you closer to\" r=380"
+    ]
+   },
+   "#work box beyond viewport": {
+    "n": 5,
+    "ex": [
+     "p.proj__meta \"Sample project · illus\" r=348",
+     "span.proj__badge \"Sample project · illus\" r=348",
+     "h3.h-tile \"Physiotherapy practice\" r=348"
+    ]
+   },
+   ".faq__head box beyond viewport": {
+    "n": 3,
+    "ex": [
+     "header.faq__head \"FAQQuestions, answered\" r=332",
+     "p.eyebrow \"FAQ\" r=332",
+     "h2.h-section \"Questions, answered pl\" r=332"
+    ]
+   },
+   "#faq box beyond viewport": {
+    "n": 41,
+    "ex": [
+     "div.faq__list \"Can I hire one service\" r=332",
+     "details.qa \"Can I hire one service\" r=332",
+     "summary. \"Can I hire one service\" r=332"
+    ]
+   },
+   ".hero text beyond viewport": {
+    "n": 5,
+    "ex": [
+     "p.eyebrow \"DIGITAL STUDIO FOR BUS\" r=380",
+     "h1.h-hero \"We bring you closer to\" r=380",
+     "em. \"your customers.\" r=380"
+    ]
+   },
+   "#services text beyond viewport": {
+    "n": 4,
+    "ex": [
+     "span.sr-only \": Websites and mainten\" r=62",
+     "span.sr-only \": Websites and mainten\" r=42",
+     "span.sr-only \": Video and content\" r=62"
+    ]
+   },
+   "#work text beyond viewport": {
+    "n": 1,
+    "ex": [
+     "a. \"Physiotherapy practice\" r=348"
+    ]
+   },
+   ".faq__head text beyond viewport": {
+    "n": 1,
+    "ex": [
+     "h2.h-section \"Questions, answered pl\" r=332"
+    ]
+   },
+   "#faq text beyond viewport": {
+    "n": 4,
+    "ex": [
+     "p. \"No. Ad spend is paid d\" r=328",
+     "p. \"Yes. We work remotely \" r=328",
+     "p. \"We work in Spanish, En\" r=328"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "en",
+  "path": "home",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {
+   "#services text beyond viewport": {
+    "n": 1,
+    "ex": [
+     "span.sr-only \": Websites and mainten\" r=178"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "en",
+  "path": "home",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {
+   "#services text beyond viewport": {
+    "n": 2,
+    "ex": [
+     "span.sr-only \": Websites and mainten\" r=62",
+     "span.sr-only \": Websites and mainten\" r=42"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "en",
+  "path": "plans/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "plans/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 363,
+  "over": 43,
+  "offenders": {
+   ".section box beyond viewport": {
+    "n": 21,
+    "ex": [
+     "div. \"Commercial conditionsT\" r=363",
+     "h2.h-section \"Commercial conditions\" r=363",
+     "p.lead \"These points are not s\" r=363"
+    ]
+   },
+   ".section text beyond viewport": {
+    "n": 7,
+    "ex": [
+     "h2.h-section \"Commercial conditions\" r=363",
+     "p.lead \"These points are not s\" r=363",
+     "span. \"Initial design or setu\" r=359"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "en",
+  "path": "plans/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "plans/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "home",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "home",
+  "w": 320,
+  "pct": 200,
+  "docSw": 362,
+  "over": 42,
+  "offenders": {
+   ".hero box beyond viewport": {
+    "n": 12,
+    "ex": [
+     "div.hero__text \"ESTUDIO DIGITAL PARA N\" r=362",
+     "p.eyebrow \"ESTUDIO DIGITAL PARA N\" r=362",
+     "h1.h-hero \"Te llevamos hasta tus \" r=362"
+    ]
+   },
+   "#work box beyond viewport": {
+    "n": 8,
+    "ex": [
+     "p.proj__meta \"Proyecto de ejemplo · \" r=360",
+     "span.proj__badge \"Proyecto de ejemplo · \" r=360",
+     "h3.h-tile \"Relanzamiento de un ho\" r=360"
+    ]
+   },
+   ".faq__head box beyond viewport": {
+    "n": 4,
+    "ex": [
+     "header.faq__head \"PreguntasPreguntas, re\" r=327",
+     "p.eyebrow \"Preguntas\" r=327",
+     "h2.h-section \"Preguntas, respondidas\" r=327"
+    ]
+   },
+   "#faq box beyond viewport": {
+    "n": 41,
+    "ex": [
+     "div.faq__list \"¿Puedo contratar un so\" r=327",
+     "details.qa \"¿Puedo contratar un so\" r=327",
+     "summary. \"¿Puedo contratar un so\" r=327"
+    ]
+   },
+   ".hero text beyond viewport": {
+    "n": 4,
+    "ex": [
+     "p.eyebrow \"ESTUDIO DIGITAL PARA N\" r=362",
+     "h1.h-hero \"Te llevamos hasta tus \" r=362",
+     "em. \"tus clientes.\" r=354"
+    ]
+   },
+   "#services text beyond viewport": {
+    "n": 6,
+    "ex": [
+     "span.sr-only \": Web y mantenimiento\" r=62",
+     "span.sr-only \": Web y mantenimiento\" r=42",
+     "span.sr-only \": Vídeo y contenido\" r=62"
+    ]
+   },
+   "#work text beyond viewport": {
+    "n": 3,
+    "ex": [
+     "a. \"Relanzamiento de un ho\" r=360",
+     "p.proj__text \"Un alojamiento pequeño\" r=360",
+     "li. \"Web y mantenimiento\" r=342"
+    ]
+   },
+   ".faq__head text beyond viewport": {
+    "n": 2,
+    "ex": [
+     "h2.h-section \"Preguntas, respondidas\" r=327",
+     "em. \"respondidas con clarid\" r=322"
+    ]
+   },
+   "#faq text beyond viewport": {
+    "n": 2,
+    "ex": [
+     "p. \"Esperamos que sí, pero\" r=323",
+     "p. \"Revisamos qué ve un cl\" r=323"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "es",
+  "path": "home",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "home",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {
+   "#services text beyond viewport": {
+    "n": 2,
+    "ex": [
+     "span.sr-only \": Web y mantenimiento\" r=62",
+     "span.sr-only \": Web y mantenimiento\" r=42"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "es",
+  "path": "plans/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "plans/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 363,
+  "over": 43,
+  "offenders": {
+   ".section box beyond viewport": {
+    "n": 21,
+    "ex": [
+     "div. \"Condiciones comerciale\" r=363",
+     "h2.h-section \"Condiciones comerciale\" r=363",
+     "p.lead \"Estos puntos aún no es\" r=363"
+    ]
+   },
+   ".section text beyond viewport": {
+    "n": 8,
+    "ex": [
+     "h2.h-section \"Condiciones comerciale\" r=363",
+     "span. \"Compromiso mínimo y ca\" r=359",
+     "span. \"Propiedad de la web y \" r=359"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "es",
+  "path": "plans/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "plans/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "home",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "home",
+  "w": 320,
+  "pct": 200,
+  "docSw": 495,
+  "over": 175,
+  "offenders": {
+   ".hero box beyond viewport": {
+    "n": 8,
+    "ex": [
+     "div.hero__text \"DIGITALSTUDIO FÜR UNTE\" r=327",
+     "p.eyebrow \"DIGITALSTUDIO FÜR UNTE\" r=327",
+     "h1.h-hero \"Wir bringen dich näher\" r=327"
+    ]
+   },
+   "#work box beyond viewport": {
+    "n": 23,
+    "ex": [
+     "article.proj \"Beispielprojekt · illu\" r=341",
+     "div.proj__art \"\" r=341",
+     "svg.[object \"\" r=341"
+    ]
+   },
+   "#process box beyond viewport": {
+    "n": 16,
+    "ex": [
+     "li.step \"011. Kostenlose Analys\" r=378",
+     "span.step__num \"01\" r=356",
+     "h3.h-tile \"1. Kostenlose Analyse\" r=356"
+    ]
+   },
+   ".faq__head box beyond viewport": {
+    "n": 4,
+    "ex": [
+     "header.faq__head \"FAQFragen, klar beantw\" r=331",
+     "p.eyebrow \"FAQ\" r=331",
+     "h2.h-section \"Fragen, klar beantwort\" r=331"
+    ]
+   },
+   "#faq box beyond viewport": {
+    "n": 41,
+    "ex": [
+     "div.faq__list \"Kann ich nur eine Leis\" r=331",
+     "details.qa \"Kann ich nur eine Leis\" r=331",
+     "summary. \"Kann ich nur eine Leis\" r=331"
+    ]
+   },
+   ".fin box beyond viewport": {
+    "n": 11,
+    "ex": [
+     "div.fin__main \"Lass uns die Teile dei\" r=495",
+     "h2.h-section \"Lass uns die Teile dei\" r=473",
+     "em. \"deines Unternehmens zu\" r=473"
+    ]
+   },
+   ".hero text beyond viewport": {
+    "n": 1,
+    "ex": [
+     "p.hero__body \"Website, Video und Anz\" r=327"
+    ]
+   },
+   "#services text beyond viewport": {
+    "n": 6,
+    "ex": [
+     "span.sr-only \": Website und Wartung\" r=62",
+     "span.sr-only \": Website und Wartung\" r=42",
+     "span.sr-only \": Lokale Sichtbarkeit\" r=62"
+    ]
+   },
+   "#work text beyond viewport": {
+    "n": 3,
+    "ex": [
+     "span.proj__badge \"Beispielprojekt · illu\" r=364",
+     "a. \"Physiotherapiepraxis\" r=493",
+     "a. \"Laden für handwerklich\" r=354"
+    ]
+   },
+   "#process text beyond viewport": {
+    "n": 4,
+    "ex": [
+     "p. \"Wir prüfen, was ein Ku\" r=356",
+     "p. \"Ein Paket mit Festprei\" r=356",
+     "p. \"Website, Aufnahmen und\" r=356"
+    ]
+   },
+   ".faq__head text beyond viewport": {
+    "n": 1,
+    "ex": [
+     "em. \"klar beantwortet.\" r=331"
+    ]
+   },
+   "#faq text beyond viewport": {
+    "n": 1,
+    "ex": [
+     "p. \"Nein. Das Werbebudget \" r=327"
+    ]
+   },
+   ".fin text beyond viewport": {
+    "n": 5,
+    "ex": [
+     "h2.h-section \"Lass uns die Teile dei\" r=473",
+     "em. \"deines Unternehmens zu\" r=473",
+     "p.fin__body \"Erzähl uns, was du bra\" r=473"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "de",
+  "path": "home",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "home",
+  "w": 390,
+  "pct": 200,
+  "docSw": 495,
+  "over": 105,
+  "offenders": {
+   "#work box beyond viewport": {
+    "n": 4,
+    "ex": [
+     "p.proj__meta \"Beispielprojekt · illu\" r=493",
+     "h3.h-tile \"Physiotherapiepraxis\" r=493",
+     "a. \"Physiotherapiepraxis\" r=493"
+    ]
+   },
+   ".fin box beyond viewport": {
+    "n": 11,
+    "ex": [
+     "div.fin__main \"Lass uns die Teile dei\" r=495",
+     "h2.h-section \"Lass uns die Teile dei\" r=473",
+     "em. \"deines Unternehmens zu\" r=473"
+    ]
+   },
+   "#work text beyond viewport": {
+    "n": 1,
+    "ex": [
+     "a. \"Physiotherapiepraxis\" r=493"
+    ]
+   },
+   ".fin text beyond viewport": {
+    "n": 4,
+    "ex": [
+     "em. \"deines Unternehmens zu\" r=473",
+     "p.fin__body \"Erzähl uns, was du bra\" r=473",
+     "a.btn \"Kostenlose Analyse anf\" r=473"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "de",
+  "path": "plans/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "plans/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 495,
+  "over": 175,
+  "offenders": {
+   ".section box beyond viewport": {
+    "n": 22,
+    "ex": [
+     "div. \"Kommerzielle Bedingung\" r=409",
+     "h2.h-section \"Kommerzielle Bedingung\" r=409",
+     "p.lead \"Diese Punkte sind noch\" r=409"
+    ]
+   },
+   ".fin box beyond viewport": {
+    "n": 11,
+    "ex": [
+     "div.fin__main \"Lass uns die Teile dei\" r=495",
+     "h2.h-section \"Lass uns die Teile dei\" r=473",
+     "em. \"deines Unternehmens zu\" r=473"
+    ]
+   },
+   ".section text beyond viewport": {
+    "n": 6,
+    "ex": [
+     "h2.h-section \"Kommerzielle Bedingung\" r=409",
+     "p.lead \"Diese Punkte sind noch\" r=409",
+     "span. \"Einmalige Design- oder\" r=405"
+    ]
+   },
+   ".fin text beyond viewport": {
+    "n": 5,
+    "ex": [
+     "h2.h-section \"Lass uns die Teile dei\" r=473",
+     "em. \"deines Unternehmens zu\" r=473",
+     "p.fin__body \"Erzähl uns, was du bra\" r=473"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "de",
+  "path": "plans/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "plans/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 495,
+  "over": 105,
+  "offenders": {
+   ".section box beyond viewport": {
+    "n": 21,
+    "ex": [
+     "div. \"Kommerzielle Bedingung\" r=409",
+     "h2.h-section \"Kommerzielle Bedingung\" r=409",
+     "p.lead \"Diese Punkte sind noch\" r=409"
+    ]
+   },
+   ".fin box beyond viewport": {
+    "n": 11,
+    "ex": [
+     "div.fin__main \"Lass uns die Teile dei\" r=495",
+     "h2.h-section \"Lass uns die Teile dei\" r=473",
+     "em. \"deines Unternehmens zu\" r=473"
+    ]
+   },
+   ".section text beyond viewport": {
+    "n": 1,
+    "ex": [
+     "h2.h-section \"Kommerzielle Bedingung\" r=409"
+    ]
+   },
+   ".fin text beyond viewport": {
+    "n": 4,
+    "ex": [
+     "em. \"deines Unternehmens zu\" r=473",
+     "p.fin__body \"Erzähl uns, was du bra\" r=473",
+     "a.btn \"Kostenlose Analyse anf\" r=473"
+    ]
+   }
+  }
+ }
+]

@@ -1,0 +1,2 @@
+[497/558] tests\site.spec.ts:114:3 › audit form › fixing errors after a failed submit never moves controls under the pointer (regression)
+  558 passed (3.3m)

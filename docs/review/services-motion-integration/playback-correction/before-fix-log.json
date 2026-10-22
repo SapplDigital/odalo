@@ -1,0 +1,44 @@
+[
+ {
+  "step": "1 loaded: hero playing",
+  "label": "Pause animation",
+  "pressed": "false",
+  "assembling": true,
+  "scrollY": 0
+ },
+ {
+  "step": "2 pieces travelling: services holds the hero",
+  "label": "Play animation",
+  "pressed": "true",
+  "assembling": true,
+  "scrollY": 414
+ },
+ {
+  "step": "3 visitor presses Play",
+  "label": "Pause animation",
+  "pressed": "false",
+  "assembling": true,
+  "scrollY": 414
+ },
+ {
+  "step": "4 visitor presses Pause",
+  "label": "Play animation",
+  "pressed": "true",
+  "assembling": true,
+  "scrollY": 414
+ },
+ {
+  "step": "5 pieces docked: services releases its hold",
+  "label": "Pause animation",
+  "pressed": "false",
+  "assembling": false,
+  "scrollY": 1314
+ },
+ {
+  "step": "6 back at the hero: what the visitor sees",
+  "label": "Pause animation",
+  "pressed": "false",
+  "assembling": false,
+  "scrollY": 0
+ }
+]

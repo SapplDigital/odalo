@@ -39,13 +39,18 @@ const { email, phone, address } = site.contact;
           {phone && <li><a href={`tel:${phone}`}>{phone}</a></li>}
           {address && <li>{address}</li>}
         </ul>
-      ) : <p class="ftr__muted">{t.common.pending}. <a href={href(lang, 'audit/')}>{t.nav.audit}</a></p>}
+      ) : <p class="ftr__muted">{t.cta.contactDemo}</p>}
     </div>
     <nav aria-label={t.a11y.legalNav} class="ftr__col">
       <h2 class="ftr__h">{t.footer.legal}</h2>
       <ul>
         {legal.map((n) => <li><a href={n.to}>{n.label}</a></li>)}
-        <li><button type="button" class="ftr__btn" data-cookie-open>{t.footer.cookiePrefs}</button></li>
+        <li class="ftr__store">
+          <details>
+            <summary>{t.storage.h}</summary>
+            <p>{t.storage.body} <a href={href(lang, 'cookies/')}>{t.footer.cookies}</a></p>
+          </details>
+        </li>
       </ul>
     </nav>
   </div>
@@ -58,16 +63,23 @@ const { email, phone, address } = site.contact;
 </footer>
 <style>
   .ftr { background: var(--ink); color: var(--paper); padding-top: var(--s8); font-size: 1rem; }
-  .ftr__grid { display: grid; gap: var(--s7) var(--s6); grid-template-columns: 1fr; padding-bottom: var(--s7); }
+  .ftr__grid { display: grid; gap: var(--s7) var(--s6); grid-template-columns: minmax(0, 1fr); padding-bottom: var(--s7); }
   @media (min-width: 48em) { .ftr__grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
   .ftr__brand { display: grid; gap: var(--s4); align-content: start; justify-items: start; }
   .ftr__tag { font-family: var(--font-serif); font-style: italic; font-size: 1.5rem; line-height: 1.15; max-width: 22ch; color: var(--sand); }
   .ftr__h { font-size: 0.8125rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--coral-light); margin-bottom: var(--s3); }
   .ftr__col ul { display: grid; gap: 2px; }
-  .ftr a, .ftr__btn { display: inline-flex; align-items: center; min-height: 44px; color: var(--paper); text-decoration: none; }
-  .ftr a:hover, .ftr__btn:hover { text-decoration: underline; text-underline-offset: 5px; text-decoration-color: var(--coral); }
-  .ftr__btn { background: none; border: 0; padding: 0; font: inherit; cursor: pointer; }
-  .ftr__muted { color: var(--sand); max-width: 28ch; }
+  .ftr a, .ftr__store summary { display: inline-flex; align-items: center; min-height: 44px; color: var(--paper); text-decoration: none; }
+  .ftr a:hover { text-decoration: underline; text-underline-offset: 5px; text-decoration-color: var(--coral); }
+  /* browser-storage information: native disclosure, in the flow of the footer (never fixed, never over content) */
+  .ftr__store summary { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; cursor: pointer; list-style: none; }
+  .ftr__store summary::-webkit-details-marker { display: none; }
+  .ftr__store summary::after { content: '+'; font-weight: 700; }
+  .ftr__store details[open] summary::after { content: '\2212'; }
+  .ftr__store summary:hover { text-decoration: underline; text-underline-offset: 5px; text-decoration-color: var(--coral); }
+  .ftr__store p { max-width: 34ch; padding-block: 4px 8px; font-size: 0.9375rem; line-height: 1.5; }
+  .ftr__store p a { text-decoration: underline; text-underline-offset: 4px; }
+  .ftr__muted { color: var(--sand); max-width: 28ch; overflow-wrap: anywhere; }
   .ftr__base { padding-bottom: var(--s6); color: var(--sand); font-size: 0.9375rem; }
   .strip { display: grid; grid-template-columns: repeat(8, 1fr); height: 40px; }
   .strip i { display: block; }

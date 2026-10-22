@@ -36,7 +36,7 @@ export const plans: Plan[] = [
     own: {
       es: ['SEO local completo', 'Gestión de reseñas', 'Publicaciones en Google', 'Informe mensual'],
       en: ['Full local SEO', 'Review management', 'Google posts', 'Monthly report'],
-      de: ['Vollständige lokale SEO', 'Bewertungsmanagement', 'Google-Beiträge', 'Monatlicher Bericht'],
+      de: ['Vollständige lokale SEO', 'Bewertungs­management', 'Google-Beiträge', 'Monatlicher Bericht'],
     },
     notIncluded: {
       es: ['Publicidad', 'Vídeo y contenido'],
@@ -54,7 +54,7 @@ export const plans: Plan[] = [
     notIncluded: {
       es: ['Inversión en anuncios (se paga a Google o Meta)', 'Segundo canal de anuncios', 'Sesiones de grabación'],
       en: ['Ad spend (paid to Google or Meta)', 'Second ad channel', 'Recording sessions'],
-      de: ['Werbebudget (zahlst du an Google oder Meta)', 'Zweiter Werbekanal', 'Aufnahmesessions'],
+      de: ['Werbebudget (zahlst du an Google oder Meta)', 'Zweiter Werbekanal', 'Aufnahme­sessions'],
     },
   },
   {
@@ -62,7 +62,7 @@ export const plans: Plan[] = [
     own: {
       es: ['Dos canales de anuncios', 'Una sesión de grabación al mes', '12 publicaciones', 'SEO en 2–3 idiomas'],
       en: ['Two ad channels', 'One recording session per month', '12 posts', 'SEO in 2–3 languages'],
-      de: ['Zwei Werbekanäle', 'Eine Aufnahmesession pro Monat', '12 Beiträge', 'SEO in 2–3 Sprachen'],
+      de: ['Zwei Werbekanäle', 'Eine Aufnahme­session pro Monat', '12 Beiträge', 'SEO in 2–3 Sprachen'],
     },
     notIncluded: {
       es: ['Inversión en anuncios (se paga a Google o Meta)'],
@@ -87,13 +87,13 @@ export const features: Feature[] = [
   { id: 'changes', label: { es: 'Cambios en la web', en: 'Website changes', de: 'Änderungen an der Website' }, values: all({ es: '30 min', en: '30 min', de: '30 Min.' }) },
   { id: 'gbp', label: { es: 'Ficha de Google', en: 'Google business profile', de: 'Google-Unternehmensprofil' }, values: { base: { es: 'Básica', en: 'Basic', de: 'Einfach' }, local: true, captacion: true, '360': true } },
   { id: 'seo', label: { es: 'SEO local', en: 'Local SEO', de: 'Lokale SEO' }, values: fromLocal(true) },
-  { id: 'reviews', label: { es: 'Gestión de reseñas', en: 'Review management', de: 'Bewertungsmanagement' }, values: fromLocal(true) },
+  { id: 'reviews', label: { es: 'Gestión de reseñas', en: 'Review management', de: 'Bewertungs­management' }, values: fromLocal(true) },
   { id: 'posts', label: { es: 'Publicaciones en Google', en: 'Google posts', de: 'Google-Beiträge' }, values: fromLocal(true) },
   { id: 'report', label: { es: 'Informe mensual', en: 'Monthly report', de: 'Monatlicher Bericht' }, values: fromLocal(true) },
   { id: 'channels', label: { es: 'Canales de anuncios', en: 'Ad channels', de: 'Werbekanäle' }, values: { base: false, local: false, captacion: { es: '1 (Google o Meta)', en: '1 (Google or Meta)', de: '1 (Google oder Meta)' }, '360': { es: '2', en: '2', de: '2' } } },
   { id: 'reels', label: { es: 'Reels al mes', en: 'Reels per month', de: 'Reels pro Monat' }, values: { base: false, local: false, captacion: { es: '2', en: '2', de: '2' }, '360': { es: '2', en: '2', de: '2' } } },
   { id: 'dashboard', label: { es: 'Panel de resultados', en: 'Results dashboard', de: 'Ergebnis-Dashboard' }, values: { base: false, local: false, captacion: true, '360': true } },
-  { id: 'recording', label: { es: 'Sesión de grabación al mes', en: 'Recording session per month', de: 'Aufnahmesession pro Monat' }, values: { base: false, local: false, captacion: false, '360': { es: '1', en: '1', de: '1' } } },
+  { id: 'recording', label: { es: 'Sesión de grabación al mes', en: 'Recording session per month', de: 'Aufnahme­session pro Monat' }, values: { base: false, local: false, captacion: false, '360': { es: '1', en: '1', de: '1' } } },
   { id: 'socialposts', label: { es: 'Publicaciones al mes', en: 'Posts per month', de: 'Beiträge pro Monat' }, values: { base: false, local: false, captacion: false, '360': { es: '12', en: '12', de: '12' } } },
   { id: 'multilang', label: { es: 'SEO en varios idiomas', en: 'Multilingual SEO', de: 'Mehrsprachige SEO' }, values: { base: false, local: false, captacion: false, '360': { es: '2–3 idiomas', en: '2–3 languages', de: '2–3 Sprachen' } } },
 ];
@@ -102,5 +102,5 @@ export const features: Feature[] = [
 export const pendingConditions: LList = {
   es: ['Cuotas iniciales de diseño o puesta en marcha', 'Compromiso mínimo y cancelación', 'Propiedad de la web y de los materiales creativos', 'Límite de revisiones', 'Lugar y desplazamientos de las sesiones de grabación', 'Titularidad de las cuentas publicitarias', 'Medidas exactas de los informes', 'Plazos de producción', 'Entregables multilingües por plan'],
   en: ['Initial design or setup fees', 'Minimum commitment and cancellation', 'Ownership of websites and creative assets', 'Revision limits', 'Recording-session location and travel', 'Advertising-account ownership', 'Exact reporting measures', 'Production timelines', 'Multilingual deliverables by plan'],
-  de: ['Einmalige Design- oder Einrichtungsgebühren', 'Mindestlaufzeit und Kündigung', 'Eigentum an Websites und kreativen Materialien', 'Anzahl der Korrekturschleifen', 'Ort und Anreise bei Aufnahmesessions', 'Inhaberschaft der Werbekonten', 'Genaue Berichtskennzahlen', 'Produktionszeiträume', 'Mehrsprachige Lieferungen je Paket'],
+  de: ['Einmalige Design- oder Einrichtungsgebühren', 'Mindestlaufzeit und Kündigung', 'Eigentum an Websites und kreativen Materialien', 'Anzahl der Korrekturschleifen', 'Ort und Anreise bei Aufnahme­sessions', 'Inhaberschaft der Werbekonten', 'Genaue Berichtskennzahlen', 'Produktionszeiträume', 'Mehrsprachige Lieferungen je Paket'],
 };

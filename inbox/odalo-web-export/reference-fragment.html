@@ -1,0 +1,74 @@
+<div id="odalo-rigid-animation">
+  <div class="viz-controls">
+    <button class="btn" type="button" data-state="word" aria-pressed="false">odalo</button>
+    <button class="btn" type="button" data-state="fish" aria-pressed="false">Fish</button>
+    <button class="btn" type="button" data-state="bird" aria-pressed="false">Bird</button>
+    <button class="btn btn-primary" type="button" data-state="sailboat" aria-pressed="true">Sailboat</button>
+    <button class="btn" type="button" data-state="fox" aria-pressed="false">Fox</button>
+    <button class="btn" type="button" data-state="hexagon" aria-pressed="false">Hexagon</button>
+    <button class="btn" type="button" data-play>Play cycle</button>
+    <label class="form-check"><input class="form-check-input" type="checkbox" data-numbers><span class="form-check-label">Piece numbers</span></label>
+  </div>
+  <svg class="odalo-stage" role="img" aria-label="The same 29 geometric tiles rearrange into odalo, a fish, a bird, a sailboat, a fox, and a hexagon."><title>odalo — 29 identical pieces in six arrangements</title><g data-scene></g></svg>
+  <div class="text-small" data-status aria-live="polite">Sailboat · 29 pieces · movement and rotation only</div>
+</div>
+<style>
+  #odalo-rigid-animation .odalo-stage { display:block; width:100%; height:auto; aspect-ratio:1.65; overflow:visible; }
+  #odalo-rigid-animation .piece-label { fill:var(--background); paint-order:stroke; stroke:var(--foreground); stroke-width:2px; font-family:Arial,sans-serif; font-weight:500; text-anchor:middle; dominant-baseline:middle; pointer-events:none; }
+  #odalo-rigid-animation .tile-shape { stroke:var(--background); stroke-width:1px; stroke-linejoin:miter; }
+</style>
+<script>
+(() => {
+  const root=document.getElementById('odalo-rigid-animation');
+  const data={"tiles":[{"id":1,"type":"slant","points":[[0,0],[1,0],[2,1],[1,1]],"color":"#D96A43"},{"id":2,"type":"tri","points":[[1,0],[3,0],[2,1]],"color":"#E6AE2F"},{"id":3,"type":"trap","points":[[0,0],[3,0],[2,1],[1,1]],"color":"#DDA4A8"},{"id":4,"type":"trap","points":[[0,0],[3,0],[2,1],[1,1]],"color":"#245C4B"},{"id":5,"type":"trap","points":[[0,0],[3,0],[2,1],[1,1]],"color":"#2354AA"},{"id":6,"type":"slantM","points":[[1,1],[2,1],[3,0],[2,0]],"color":"#E6AE2F"},{"id":7,"type":"tri","points":[[1,0],[3,0],[2,1]],"color":"#DDA4A8"},{"id":8,"type":"trap","points":[[0,0],[3,0],[2,1],[1,1]],"color":"#245C4B"},{"id":9,"type":"small","points":[[0,0],[1,0],[1,1]],"color":"#2354AA"},{"id":10,"type":"small","points":[[0,0],[1,0],[1,1]],"color":"#D96A43"},{"id":11,"type":"square","points":[[0,0],[1,0],[1,1],[0,1]],"color":"#E6AE2F"},{"id":12,"type":"trap","points":[[0,0],[3,0],[2,1],[1,1]],"color":"#DDA4A8"},{"id":13,"type":"bar2","points":[[0,0],[1,0],[1,2],[0,2]],"color":"#245C4B"},{"id":14,"type":"slant","points":[[0,0],[1,0],[2,1],[1,1]],"color":"#D96A43"},{"id":15,"type":"tri","points":[[1,0],[3,0],[2,1]],"color":"#E6AE2F"},{"id":16,"type":"trap","points":[[0,0],[3,0],[2,1],[1,1]],"color":"#DDA4A8"},{"id":17,"type":"small","points":[[0,0],[1,0],[1,1]],"color":"#245C4B"},{"id":18,"type":"small","points":[[0,0],[1,0],[1,1]],"color":"#2354AA"},{"id":19,"type":"square","points":[[0,0],[1,0],[1,1],[0,1]],"color":"#D96A43"},{"id":20,"type":"trap","points":[[0,0],[3,0],[2,1],[1,1]],"color":"#E6AE2F"},{"id":21,"type":"square","points":[[0,0],[1,0],[1,1],[0,1]],"color":"#DDA4A8"},{"id":22,"type":"slantM","points":[[1,1],[2,1],[3,0],[2,0]],"color":"#2354AA"},{"id":23,"type":"tri","points":[[1,0],[3,0],[2,1]],"color":"#D96A43"},{"id":24,"type":"trap","points":[[0,0],[3,0],[2,1],[1,1]],"color":"#E6AE2F"},{"id":25,"type":"trap","points":[[0,0],[3,0],[2,1],[1,1]],"color":"#DDA4A8"},{"id":26,"type":"trap","points":[[0,0],[3,0],[2,1],[1,1]],"color":"#245C4B"},{"id":27,"type":"bar3","points":[[0,0],[3,0],[3,1],[0,1]],"color":"#DDA4A8"},{"id":28,"type":"bar2","points":[[0,0],[1,0],[1,2],[0,2]],"color":"#2354AA"},{"id":29,"type":"bar3","points":[[0,0],[3,0],[3,1],[0,1]],"color":"#D96A43"}],"arrangements":{"word":[{"id":1,"x":0,"y":2,"r":0},{"id":2,"x":0,"y":2,"r":0},{"id":3,"x":3,"y":2,"r":90},{"id":4,"x":3,"y":5,"r":180},{"id":5,"x":0,"y":5,"r":270},{"id":6,"x":3.35,"y":2,"r":0},{"id":7,"x":2.35,"y":2,"r":0},{"id":8,"x":6.35,"y":2,"r":90},{"id":9,"x":6.35,"y":5,"r":180},{"id":10,"x":4.35,"y":4,"r":90},{"id":11,"x":5.35,"y":5,"r":180},{"id":12,"x":3.35,"y":5,"r":270},{"id":13,"x":5.35,"y":0,"r":0},{"id":14,"x":6.7,"y":2,"r":0},{"id":15,"x":6.7,"y":2,"r":0},{"id":16,"x":9.7,"y":2,"r":90},{"id":17,"x":9.7,"y":5,"r":180},{"id":18,"x":7.7,"y":4,"r":90},{"id":19,"x":8.7,"y":5,"r":180},{"id":20,"x":6.7,"y":5,"r":270},{"id":21,"x":8.7,"y":5,"r":0},{"id":22,"x":13.4,"y":2,"r":0},{"id":23,"x":12.4,"y":2,"r":0},{"id":24,"x":16.4,"y":2,"r":90},{"id":25,"x":16.4,"y":5,"r":180},{"id":26,"x":13.4,"y":5,"r":270},{"id":27,"x":11.05,"y":0,"r":90},{"id":28,"x":10.05,"y":3,"r":0},{"id":29,"x":10.05,"y":5,"r":0}],"fish":[{"id":3,"x":2,"y":1,"r":0},{"id":4,"x":4,"y":0,"r":0},{"id":5,"x":6,"y":2,"r":0},{"id":8,"x":0,"y":0,"r":90},{"id":12,"x":3,"y":2,"r":180},{"id":16,"x":4,"y":1,"r":180},{"id":20,"x":7,"y":2,"r":180},{"id":24,"x":7,"y":3,"r":180},{"id":25,"x":9,"y":1,"r":180},{"id":26,"x":-4,"y":4,"r":270},{"id":1,"x":3,"y":0,"r":0},{"id":14,"x":9,"y":2,"r":90},{"id":6,"x":-3,"y":-1,"r":90},{"id":22,"x":0,"y":1,"r":90},{"id":2,"x":-1,"y":0,"r":0},{"id":7,"x":-1,"y":0,"r":90},{"id":15,"x":0,"y":3,"r":270},{"id":23,"x":9,"y":4,"r":270},{"id":13,"x":3,"y":2,"r":0},{"id":28,"x":2,"y":2,"r":90},{"id":11,"x":2,"y":2,"r":0},{"id":19,"x":7,"y":3,"r":0},{"id":21,"x":8,"y":1,"r":0},{"id":27,"x":0,"y":3,"r":0},{"id":29,"x":4,"y":3,"r":0},{"id":9,"x":6,"y":1,"r":0},{"id":10,"x":-2,"y":2,"r":180},{"id":17,"x":-3,"y":3,"r":270},{"id":18,"x":4,"y":3,"r":270}],"bird":[{"id":3,"x":-5,"y":-5,"r":0},{"id":4,"x":-4,"y":-4,"r":0},{"id":5,"x":-3,"y":-3,"r":0},{"id":8,"x":-2,"y":-2,"r":0},{"id":12,"x":1,"y":1,"r":0},{"id":16,"x":0,"y":-4,"r":180},{"id":20,"x":1,"y":-3,"r":180},{"id":24,"x":2,"y":-2,"r":180},{"id":25,"x":3,"y":-1,"r":180},{"id":26,"x":4,"y":3,"r":270},{"id":1,"x":4,"y":0,"r":0},{"id":14,"x":5,"y":0,"r":0},{"id":6,"x":4,"y":-1,"r":0},{"id":22,"x":5,"y":-2,"r":0},{"id":2,"x":-2,"y":-1,"r":0},{"id":7,"x":1,"y":-2,"r":90},{"id":15,"x":4,"y":0,"r":90},{"id":23,"x":3,"y":5,"r":270},{"id":13,"x":7,"y":1,"r":90},{"id":28,"x":9,"y":-3,"r":90},{"id":11,"x":1,"y":-1,"r":0},{"id":19,"x":2,"y":-1,"r":0},{"id":21,"x":2,"y":2,"r":0},{"id":27,"x":0,"y":3,"r":0},{"id":29,"x":1,"y":0,"r":0},{"id":9,"x":2,"y":2,"r":90},{"id":10,"x":4,"y":0,"r":180},{"id":17,"x":8,"y":2,"r":180},{"id":18,"x":10,"y":-2,"r":180}],"sailboat":[{"id":3,"x":0,"y":0,"r":0},{"id":4,"x":2,"y":1,"r":0},{"id":5,"x":6,"y":1,"r":0},{"id":8,"x":4,"y":-3,"r":90},{"id":12,"x":5,"y":1,"r":180},{"id":16,"x":7,"y":2,"r":180},{"id":20,"x":8,"y":1,"r":180},{"id":24,"x":10,"y":-1,"r":180},{"id":25,"x":11,"y":0,"r":180},{"id":26,"x":7,"y":-1,"r":270},{"id":1,"x":1,"y":1,"r":0},{"id":14,"x":4,"y":-4,"r":90},{"id":6,"x":6,"y":-7,"r":90},{"id":22,"x":8,"y":-2,"r":90},{"id":2,"x":3,"y":0,"r":0},{"id":7,"x":6,"y":-1,"r":0},{"id":15,"x":7,"y":0,"r":0},{"id":23,"x":3,"y":-4,"r":90},{"id":13,"x":4,"y":-3,"r":0},{"id":28,"x":5,"y":-3,"r":0},{"id":11,"x":4,"y":-5,"r":0},{"id":19,"x":4,"y":-1,"r":0},{"id":21,"x":5,"y":-1,"r":0},{"id":27,"x":4,"y":-4,"r":0},{"id":29,"x":7,"y":-3,"r":90},{"id":9,"x":6,"y":-4,"r":180},{"id":10,"x":7,"y":-4,"r":180},{"id":17,"x":9,"y":-2,"r":180},{"id":18,"x":9,"y":1,"r":180}],"fox":[{"id":3,"x":0,"y":2,"r":0},{"id":4,"x":-4,"y":-1,"r":90},{"id":5,"x":-3,"y":1,"r":90},{"id":8,"x":0,"y":4,"r":180},{"id":12,"x":3,"y":4,"r":180},{"id":16,"x":4,"y":0,"r":180},{"id":20,"x":6,"y":4,"r":180},{"id":24,"x":-3,"y":4,"r":270},{"id":25,"x":0,"y":0,"r":270},{"id":26,"x":3,"y":4,"r":270},{"id":1,"x":1,"y":0,"r":0},{"id":14,"x":2,"y":-3,"r":90},{"id":6,"x":-1,"y":-1,"r":0},{"id":22,"x":-4,"y":0,"r":90},{"id":2,"x":-5,"y":-1,"r":90},{"id":7,"x":3,"y":1,"r":90},{"id":15,"x":4,"y":-1,"r":180},{"id":23,"x":0,"y":5,"r":270},{"id":13,"x":2,"y":1,"r":90},{"id":28,"x":4,"y":4,"r":90},{"id":11,"x":-2,"y":4,"r":0},{"id":19,"x":0,"y":0,"r":0},{"id":21,"x":2,"y":1,"r":0},{"id":27,"x":-1,"y":4,"r":0},{"id":29,"x":4,"y":4,"r":0},{"id":9,"x":-1,"y":3,"r":180},{"id":10,"x":2,"y":1,"r":180},{"id":17,"x":5,"y":3,"r":180},{"id":18,"x":-4,"y":2,"r":270}],"hexagon":[{"id":3,"x":2,"y":5,"r":0},{"id":4,"x":4,"y":1,"r":0},{"id":5,"x":4,"y":4,"r":0},{"id":8,"x":1,"y":2,"r":90},{"id":12,"x":7,"y":1,"r":90},{"id":16,"x":3,"y":6,"r":180},{"id":20,"x":4,"y":2,"r":180},{"id":24,"x":5,"y":1,"r":180},{"id":25,"x":5,"y":5,"r":180},{"id":26,"x":2,"y":5,"r":270},{"id":1,"x":3,"y":1,"r":0},{"id":14,"x":8,"y":4,"r":90},{"id":6,"x":3,"y":5,"r":0},{"id":22,"x":5,"y":4,"r":0},{"id":2,"x":3,"y":0,"r":0},{"id":7,"x":8,"y":1,"r":180},{"id":15,"x":8,"y":6,"r":180},{"id":23,"x":0,"y":7,"r":270},{"id":13,"x":7,"y":1,"r":0},{"id":28,"x":6,"y":3,"r":90},{"id":11,"x":3,"y":3,"r":0},{"id":19,"x":7,"y":0,"r":0},{"id":21,"x":7,"y":3,"r":0},{"id":27,"x":3,"y":2,"r":0},{"id":29,"x":2,"y":2,"r":90},{"id":9,"x":2,"y":2,"r":0},{"id":10,"x":6,"y":0,"r":0},{"id":17,"x":6,"y":5,"r":0},{"id":18,"x":7,"y":4,"r":180}]},"outlines":{"fish":[[[0,0],[8,0],[10,2],[8,4],[0,4],[-2,2]],[[-2,2],[-4,0],[-4,4]]],"bird":[[[0,0],[6,0],[8,2],[2,2]],[[-5,-5],[-1,-5],[4,0],[0,0]],[[7,-3],[9,-3],[9,-2],[7,-2]],[[5,0],[7,-2],[8,-2],[6,0]],[[9,-3],[10,-2],[9,-2]],[[2,2],[5,2],[3,4],[0,4]],[[0,4],[1,3],[0,3]]],"sailboat":[[[0,0],[10,0],[8,2],[2,2]],[[4,-5],[5,-5],[5,0],[4,0]],[[5,-6],[11,0],[5,0]],[[4,-4],[4,0],[2,-2]]],"fox":[[[0,0],[2,0],[6,4],[0,4]],[[0,4],[7,4],[7,5],[0,5]],[[0,-2],[2,-2],[4,0],[0,0]],[[0,-2],[0,-3],[1,-2]],[[1,-2],[2,-3],[2,-2]],[[0,4],[-3,4],[-6,1],[-3,1]],[[-6,1],[-4,-1],[-4,1]],[[-2,4],[0,4],[0,5],[-2,5]]],"hexagon":[[[3,0],[8,0],[8,5],[7,6],[0,6],[0,3]]]},"holes":{"fish":[[[7,1],[8,1],[8,2],[7,2]]]}};
+  const stage=root.querySelector('.odalo-stage'),scene=root.querySelector('[data-scene]');
+  const status=root.querySelector('[data-status]'),play=root.querySelector('[data-play]');
+  const ns='http://www.w3.org/2000/svg';
+  let width=736,height=446,unit=36.8,current='word',playing=false,timer=0,raf=0,live=[];
+  const elems=data.tiles.map(t=>{
+    const g=document.createElementNS(ns,'g');
+    const p=document.createElementNS(ns,'polygon');p.setAttribute('class','tile-shape');p.setAttribute('fill',t.color);p.setAttribute('points',t.points.map(p=>p.join(',')).join(' '));
+    const title=document.createElementNS(ns,'title');title.textContent='Piece '+t.id+' · '+t.type;g.append(title,p);
+    const label=document.createElementNS(ns,'text');label.setAttribute('class','piece-label');label.textContent=t.id;label.style.display='none';g.append(label);scene.append(g);
+    const c=t.points.reduce((s,p)=>[s[0]+p[0]/t.points.length,s[1]+p[1]/t.points.length],[0,0]);
+    return {g,p,label,center:c};
+  });
+  function layout(name){
+    const poses=data.arrangements[name];const points=poses.flatMap(p=>data.tiles[p.id-1].points.map(([x,y])=>{const a=p.r*Math.PI/180;return [p.x+x*Math.cos(a)-y*Math.sin(a),p.y+x*Math.sin(a)+y*Math.cos(a)];}));
+    const xs=points.map(p=>p[0]),ys=points.map(p=>p[1]);
+    const cx=(Math.min(...xs)+Math.max(...xs))/2,cy=(Math.min(...ys)+Math.max(...ys))/2;
+    const result=[];poses.forEach(p=>result[p.id-1]={x:width/2+(p.x-cx)*unit,y:height/2+(p.y-cy)*unit,r:p.r});return result;
+  }
+  function paint(values){values.forEach((v,i)=>{
+    const e=elems[i];e.g.setAttribute('transform',`translate(${v.x} ${v.y}) rotate(${v.r})`);e.p.setAttribute('points',data.tiles[i].points.map(([x,y])=>`${x*unit},${y*unit}`).join(' '));
+    e.label.setAttribute('x',e.center[0]*unit);e.label.setAttribute('y',e.center[1]*unit);e.label.setAttribute('font-size','12');e.label.setAttribute('transform',`rotate(${-v.r} ${e.center[0]*unit} ${e.center[1]*unit})`);
+  });}
+  function go(name,animate=true){
+    cancelAnimationFrame(raf);const from=live.length?live:layout(name),to=layout(name);current=name;
+    root.querySelectorAll('[data-state]').forEach(b=>{const chosen=b.dataset.state===name;b.setAttribute('aria-pressed',chosen);b.classList.toggle('btn-primary',chosen);});
+    status.textContent=(name==='word'?'odalo':name[0].toUpperCase()+name.slice(1))+' · 29 pieces · movement and rotation only';
+    if(!animate||matchMedia('(prefers-reduced-motion: reduce)').matches){live=to;paint(live);return;}
+    const start=performance.now();
+    function tick(now){const t=Math.min(1,(now-start)/1900),e=t*t*(3-2*t);
+      live=to.map((b,i)=>{const a=from[i],dr=((b.r-a.r+540)%360)-180;return{x:a.x+(b.x-a.x)*e,y:a.y+(b.y-a.y)*e,r:a.r+dr*e};});paint(live);if(t<1)raf=requestAnimationFrame(tick);
+    }raf=requestAnimationFrame(tick);
+  }
+  function stop(){playing=false;clearTimeout(timer);play.textContent='Play cycle';}
+  function remember(){if(typeof window.openai?.setWidgetState==='function')window.openai.setWidgetState({modelContent:{form:current},privateContent:{pieceNumbers:root.querySelector('[data-numbers]').checked}}).catch(()=>{});}
+  function restore(state){
+    const form=state?.modelContent?.form;
+    if(Object.hasOwn(data.arrangements,form)){stop();go(form,false);}
+    if(typeof state?.privateContent?.pieceNumbers==='boolean'){
+      const checked=state.privateContent.pieceNumbers;root.querySelector('[data-numbers]').checked=checked;elems.forEach(p=>p.label.style.display=checked?'':'none');
+    }
+  }
+  root.querySelectorAll('[data-state]').forEach(b=>b.addEventListener('click',()=>{stop();go(b.dataset.state);remember();}));
+  root.querySelector('[data-numbers]').addEventListener('change',e=>{elems.forEach(p=>p.label.style.display=e.target.checked?'':'none');remember();});
+  let cyclePosition=0;
+  play.addEventListener('click',()=>{if(playing){stop();return;}playing=true;cyclePosition=["word","fish","word","bird","word","sailboat","word","fox","word","hexagon"].indexOf(current);play.textContent='Pause cycle';const cycle=()=>{const order=["word","fish","word","bird","word","sailboat","word","fox","word","hexagon"];cyclePosition=(cyclePosition+1)%order.length;go(order[cyclePosition]);timer=setTimeout(cycle,3400);};cycle();});
+  new ResizeObserver(entries=>{width=Math.max(280,entries[0].contentRect.width);height=width/1.65;unit=width/20;stage.setAttribute('viewBox',`0 0 ${width} ${height}`);go(current,false);}).observe(stage);
+  go('word',false);
+  restore(window.openai?.widgetState);
+  window.addEventListener('openai:set_globals',e=>restore(e.detail?.globals?.widgetState));
+})();
+</script>

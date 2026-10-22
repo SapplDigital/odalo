@@ -1,0 +1,240 @@
+[
+ {
+  "lang": "en",
+  "path": "home",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "home",
+  "w": 320,
+  "pct": 200,
+  "docSw": 328,
+  "over": 8,
+  "offenders": {
+   "#faq box beyond viewport": {
+    "n": 1,
+    "ex": [
+     "span.qa__ico \"\" r=328"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "en",
+  "path": "home",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "home",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "plans/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "plans/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "plans/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "en",
+  "path": "plans/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "home",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "home",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "home",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "home",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "plans/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "plans/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "plans/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "es",
+  "path": "plans/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "home",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "home",
+  "w": 320,
+  "pct": 200,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "home",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "home",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "plans/",
+  "w": 320,
+  "pct": 100,
+  "docSw": 320,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "plans/",
+  "w": 320,
+  "pct": 200,
+  "docSw": 356,
+  "over": 36,
+  "offenders": {
+   ".section box beyond viewport": {
+    "n": 2,
+    "ex": [
+     "span. \"Einmalige Design- oder\" r=355",
+     "span. \"Produktionszeiträume\" r=356"
+    ]
+   },
+   ".section text beyond viewport": {
+    "n": 2,
+    "ex": [
+     "span. \"Einmalige Design- oder\" r=355",
+     "span. \"Produktionszeiträume\" r=356"
+    ]
+   }
+  }
+ },
+ {
+  "lang": "de",
+  "path": "plans/",
+  "w": 390,
+  "pct": 100,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ },
+ {
+  "lang": "de",
+  "path": "plans/",
+  "w": 390,
+  "pct": 200,
+  "docSw": 390,
+  "over": 0,
+  "offenders": {}
+ }
+]

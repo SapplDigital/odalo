@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>odalo — website animation</title>
+  <link rel="stylesheet" href="odalo-mosaic.css">
+  <style>
+    body{margin:0;padding:24px;background:#f7f2e8;color:#24443a;font:16px Arial,sans-serif}
+    main{max-width:1000px;margin:auto}nav{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+    button{font:inherit;padding:9px 14px;background:transparent;color:inherit;border:1px solid #b6bdae;border-radius:5px}
+    p{line-height:1.5}small{display:block;margin-top:12px}
+  </style>
+</head>
+<body>
+  <main>
+    <nav aria-label="Animation controls"><button id="toggle" type="button">Pause</button><button data-form="word" type="button">odalo</button><button data-form="fish" type="button">Fish</button><button data-form="bird" type="button">Bird</button><button data-form="sailboat" type="button">Sailboat</button><button data-form="fox" type="button">Fox</button><button data-form="hexagon" type="button">Hexagon</button></nav>
+    <div id="odalo-animation"></div>
+    <small id="state" aria-live="polite">odalo</small>
+    <p>odalo → fish → odalo → bird → odalo → sailboat → odalo → fox → odalo → hexagon → repeat</p>
+  </main>
+  <script src="odalo-mosaic.js"></script>
+  <script>
+    const root=document.getElementById('odalo-animation');
+    const animation=OdaloMosaic.mount(root);
+    const toggle=document.getElementById('toggle');
+    root.addEventListener('odalo:statechange',event=>document.getElementById('state').textContent=event.detail.state==='word'?'odalo':event.detail.state);
+    toggle.addEventListener('click',()=>{if(animation.getState().playing){animation.pause();toggle.textContent='Play';}else{animation.play();toggle.textContent='Pause';}});
+    document.querySelectorAll('[data-form]').forEach(button=>button.addEventListener('click',()=>{animation.show(button.dataset.form);toggle.textContent='Play';}));
+  </script>
+</body>
+</html>

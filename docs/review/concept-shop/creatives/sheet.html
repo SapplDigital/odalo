@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Brindle Pantry packaging illustrations, 1600x1000</title>
+<link rel="stylesheet" href="common.css">
+<style>
+  html, body { width: 1600px; height: 1000px; background: var(--paper); }
+  .sheet { position: relative; width: 1600px; height: 1000px; }
+  .tiles { position: absolute; left: 60px; top: 60px; right: 60px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+  .tile { height: 640px; border-radius: 6px; position: relative; overflow: hidden; }
+  .tile svg { position: absolute; left: 0; bottom: 70px; }
+  .tile p { position: absolute; left: 0; right: 0; bottom: 20px; text-align: center; font: 800 28px/1.1 var(--slab); }
+  .ing { position: absolute; left: 60px; right: 60px; top: 740px; height: 160px; display: flex; gap: 30px; align-items: center; background: var(--green); color: var(--paper); border-radius: 6px; padding: 0 40px; }
+  .ing svg { flex: none; }
+  .ing p { font: 600 30px/1.2 var(--body); margin-left: 20px; max-width: 640px; }
+  .label { position: absolute; left: 60px; bottom: 36px; font: 500 24px/1.2 var(--body); color: #3b4743; }
+</style></head>
+<body><main class="sheet">
+  <div class="tiles" id="tiles"></div>
+  <div class="ing" id="ing"></div>
+  <div class="label">Brindle Pantry, a fictional shop. Packaging and ingredient illustrations made for a design concept. Not photographs.</div>
+</main>
+<script src="../shop-art.js"></script>
+<script>
+  var A = window.ShopArt, t = '';
+  [['jam', 'Plum &amp; Thyme jam', '#f2542d', '#fafaf6'], ['salt', 'Smoked Sea Salt', '#f7b32b', '#1b2220'], ['oil', 'Lemon Oil', '#0b5d4a', '#fafaf6'], ['crackers', 'Seed Crackers', '#f7b32b', '#1b2220'], ['honey', 'Chilli Honey', '#1b2220', '#f7b32b']].forEach(function (p) {
+    t += '<div class="tile" style="background:' + p[2] + ';color:' + p[3] + '"><svg width="270" height="500" viewBox="-135 -420 270 500"><ellipse cx="0" cy="8" rx="100" ry="11" fill="#000" opacity="0.18"/>' + A.products[p[0]]() + '</svg><p>' + p[1] + '</p></div>';
+  });
+  document.getElementById('tiles').innerHTML = t;
+  var g = '';
+  ['plum', 'lemon', 'thyme', 'seeds', 'chilli', 'salt'].forEach(function (n) { g += '<svg width="130" height="130" viewBox="-80 -80 160 160">' + A.ingredients[n] + '</svg>'; });
+  document.getElementById('ing').innerHTML = g + '<p>Ingredient shapes: plum, lemon, thyme, seeds, chilli and salt. Illustrations only; no product claims.</p>';
+</script></body></html>

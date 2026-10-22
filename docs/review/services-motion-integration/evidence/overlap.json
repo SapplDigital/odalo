@@ -1,0 +1,90 @@
+{
+ "desktop 1440x900 | coordination on (as shipped)": {
+  "heroVisibleShare": [
+   0.434,
+   0.436,
+   0.434
+  ],
+  "tilesTravellingOnScreenShare": [
+   0.278,
+   0.272,
+   0.274
+  ],
+  "bothShare": [
+   0.097,
+   0.096,
+   0.097
+  ],
+  "heroPausedWhileBoth": [
+   0.993,
+   0.993,
+   0.993
+  ]
+ },
+ "desktop 1440x900 | coordination off": {
+  "heroVisibleShare": [
+   0.444,
+   0.447,
+   0.446
+  ],
+  "tilesTravellingOnScreenShare": [
+   0.297,
+   0.298,
+   0.294
+  ],
+  "bothShare": [
+   0.12,
+   0.12,
+   0.12
+  ],
+  "heroPausedWhileBoth": [
+   0,
+   0,
+   0
+  ]
+ },
+ "phone 390x844 | coordination on (as shipped)": {
+  "heroVisibleShare": [
+   0.468,
+   0.466,
+   0.455
+  ],
+  "tilesTravellingOnScreenShare": [
+   0.489,
+   0.492,
+   0.489
+  ],
+  "bothShare": [
+   0.105,
+   0.105,
+   0.094
+  ],
+  "heroPausedWhileBoth": [
+   0.994,
+   0.994,
+   0.993
+  ]
+ },
+ "phone 390x844 | coordination off": {
+  "heroVisibleShare": [
+   0.468,
+   0.454,
+   0.466
+  ],
+  "tilesTravellingOnScreenShare": [
+   0.485,
+   0.505,
+   0.486
+  ],
+  "bothShare": [
+   0.101,
+   0.101,
+   0.099
+  ],
+  "heroPausedWhileBoth": [
+   0,
+   0,
+   0
+  ]
+ }
+}

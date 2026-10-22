@@ -1,7 +1,7 @@
 ---
 import { faqs, faqById } from '../content/faqs';
 import type { Lang } from '../i18n';
-import { tr } from '../i18n/ui';
+import { tr, isDemoEnquiry } from '../i18n/ui';
 interface Props { lang: Lang; ids?: string[]; heading?: { a: string; em: string }; id?: string; level?: 1 | 2 }
 const { lang, ids, heading, id = 'faq' } = Astro.props;
 const t = tr(lang);
@@ -18,18 +18,18 @@ const h = heading ?? t.faq.h2;
       {items.map((f) => (
         <details class="qa" name={`${id}-group`}>
           <summary><span>{f.q[lang]}</span><span class="qa__ico" aria-hidden="true"></span></summary>
-          <div class="qa__a"><p>{f.a[lang]}</p></div>
+          <div class="qa__a"><p>{(!isDemoEnquiry && f.aConfigured ? f.aConfigured : f.a)[lang]}</p></div>
         </details>
       ))}
     </div>
   </div>
 </section>
 <style>
-  .faq__grid { display: grid; gap: var(--s7); }
-  .faq__head { display: grid; gap: var(--s4); align-content: start; }
+  .faq__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s7); }
+  .faq__head { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s4); align-content: start; }
   .faq__list { border-top: 2px solid var(--ink); }
   .qa { border-bottom: 1px solid var(--line); }
-  .qa summary { display: flex; justify-content: space-between; align-items: center; gap: var(--s4); min-height: 64px; padding: 14px 4px; cursor: pointer; font-weight: 600; font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.3125rem); list-style: none; }
+  .qa summary { overflow-wrap: anywhere; display: flex; justify-content: space-between; align-items: center; gap: var(--s4); min-height: 64px; padding: 14px 4px; cursor: pointer; font-weight: 600; font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.3125rem); list-style: none; }
   .qa summary::-webkit-details-marker { display: none; }
   .qa summary:hover { color: var(--rust-text); }
   .qa__ico { position: relative; width: 44px; height: 44px; flex: none; border: 2px solid var(--ink); border-radius: 999px; }

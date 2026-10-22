@@ -15,7 +15,7 @@ const t = tr(lang);
         ? <h1 id="plans-h" class="h-section">{t.plans.h2.a} <em>{t.plans.h2.em}</em> <span class="pill pill--line plans-sec__ex">{t.common.examplePrices}</span></h1>
         : <h2 id="plans-h" class="h-section">{t.plans.h2.a} <em>{t.plans.h2.em}</em> <span class="pill pill--line plans-sec__ex">{t.common.examplePrices}</span></h2>}
       {asPage && <p class="lead">{t.plans.pageLead}</p>}
-      <p class="plans-sec__note">{t.plans.note}</p>
+      <p class="plans-sec__note" id="plans-note">{t.plans.note}</p>
     </header>
     <PlansMosaic lang={lang} detailed={asPage} />
     <div class="plans-sec__cmp">

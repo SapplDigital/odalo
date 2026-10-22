@@ -1,7 +1,6 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import About from '../../../components/About.astro';
-import Faq from '../../../components/Faq.astro';
 import FinalCta from '../../../components/FinalCta.astro';
 import { languages, type Lang } from '../../../i18n';
 import { tr } from '../../../i18n/ui';
@@ -21,14 +20,18 @@ const t = tr(lang);
       </ol>
     </div>
   </section>
-  <Faq lang={lang} ids={['international', 'languages']} heading={{ a: t.about.international, em: '' }} id="about-faq" />
   <FinalCta lang={lang} />
 </Base>
 <style>
-  .pr__in { display: grid; gap: var(--s7); }
-  .pr__list { display: grid; gap: var(--gutter); }
-  .pr__list li { padding: var(--pad); background: var(--sand); border-radius: var(--r-small); display: grid; gap: var(--s3); align-content: start; }
-  .pr__list li:nth-child(1) { border-top-left-radius: 56px; } .pr__list li:nth-child(2) { background: var(--paper); box-shadow: inset 0 0 0 2px var(--ink); } .pr__list li:nth-child(3) { border-bottom-right-radius: 56px; }
+  .pr__in { display: grid; gap: var(--s6); }
+  /* quiet connected composition: one sand block, shared 2px dividers, curved outer corners only */
+  .pr__list { display: grid; gap: 0; background: var(--sand); border-top-left-radius: var(--r-big); border-bottom-right-radius: var(--r-big); border-top-right-radius: var(--r-small); border-bottom-left-radius: var(--r-small); overflow: hidden; }
+  .pr__list li { padding: var(--pad); display: grid; gap: var(--s3); align-content: start; }
+  .pr__list li + li { border-top: 2px solid var(--ink); }
   .pr__n { font-weight: 800; color: var(--rust-text); letter-spacing: 0.1em; }
-  @media (min-width: 64em) { .pr__list { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (min-width: 64em) {
+    .pr__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .pr__list li + li { border-top: 0; border-left: 2px solid var(--ink); }
+    .pr__list li:first-child { padding-left: calc(var(--pad) + 24px); }
+  }
 </style>

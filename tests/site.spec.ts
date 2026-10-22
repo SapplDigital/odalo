@@ -91,7 +91,7 @@ test.describe('plans', () => {
 test.describe('audit form', () => {
   test('required validation: messages, summary, focus and aria-invalid', async ({ page }) => {
     await page.goto('/en/audit/');
-    await page.getByRole('button', { name: 'Request audit' }).click();
+    await page.locator('[data-submit]').click();
     await expect(page.locator('[data-summary]')).toBeVisible();
     for (const f of ['name', 'email', 'business', 'need', 'privacy']) await expect(page.locator(`#e-${f}`)).toBeVisible();
     await expect(page.locator('#f-name')).toBeFocused();
@@ -103,11 +103,11 @@ test.describe('audit form', () => {
     await page.goto('/en/audit/');
     await page.fill('#f-name', 'Ada'); await page.fill('#f-email', 'not-an-email'); await page.fill('#f-business', 'Studio'); await page.fill('#f-need', 'A site');
     await page.fill('#f-website', 'http//bad'); await page.check('#f-privacy');
-    await page.getByRole('button', { name: 'Request audit' }).click();
+    await page.locator('[data-submit]').click();
     await expect(page.locator('#e-email')).toContainText('valid email');
     await expect(page.locator('#e-website')).toContainText('full web address');
     await page.fill('#f-email', 'ada@example.com'); await page.fill('#f-website', '');
-    await page.getByRole('button', { name: 'Request audit' }).click();
+    await page.locator('[data-submit]').click();
     await expect(page.locator('[data-summary]')).toBeHidden();
   });
 
@@ -124,10 +124,10 @@ test.describe('audit form', () => {
 
   test('validation messages are localized', async ({ page }) => {
     await page.goto('/de/audit/');
-    await page.getByRole('button', { name: 'Analyse anfragen' }).click();
+    await page.locator('[data-submit]').click();
     await expect(page.locator('#e-name')).toHaveText('Bitte gib deinen Namen ein.');
     await page.goto('/es/audit/');
-    await page.getByRole('button', { name: 'Pedir auditoría' }).click();
+    await page.locator('[data-submit]').click();
     await expect(page.locator('#e-email')).toHaveText('Escribe tu correo electrónico.');
   });
 
@@ -144,7 +144,7 @@ test.describe('audit form', () => {
     const btn = page.locator('[data-submit]');
     await btn.click();
     await expect(btn).toHaveAttribute('aria-busy', 'true');
-    await expect(btn).toHaveText('Sending…');
+    await expect(btn).toHaveText('Simulating…');
     await btn.click({ force: true }); // duplicate click while sending is ignored
     const result = page.locator('[data-result]');
     await expect(result).toBeVisible();
@@ -161,7 +161,7 @@ test.describe('audit form', () => {
     await page.goto('/en/audit/');
     await page.evaluate(() => document.querySelector<HTMLElement>('[data-audit]')!.setAttribute('data-endpoint', '/api/audit'));
     await fill(page);
-    await page.getByRole('button', { name: 'Request audit' }).click();
+    await page.locator('[data-submit]').click();
     await expect(page.locator('[data-result]')).toContainText('Request received');
     expect(calls).toBe(1);
   });
@@ -172,7 +172,7 @@ test.describe('audit form', () => {
     await page.goto('/en/audit/');
     await page.evaluate(() => document.querySelector<HTMLElement>('[data-audit]')!.setAttribute('data-endpoint', '/api/audit'));
     await fill(page);
-    await page.getByRole('button', { name: 'Request audit' }).click();
+    await page.locator('[data-submit]').click();
     const result = page.locator('[data-result]');
     await expect(result).toContainText('could not send your request');
     await expect(result).not.toContainText('Request received');

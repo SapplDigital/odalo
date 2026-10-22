@@ -1,0 +1,22 @@
+== en configured (original strings)
+<title>Request a free audit — Odalo</title>
+ph__lead[data-astro-cid-75ysl5lo]{font-size:clamp(1.125rem,1.05rem + .35vw,1.375rem)}.ph__actions[data-astro-cid-75ysl5lo]{gap:var(--s3) var(--s4);flex-wrap:wrap;display:flex}.ph__actions[data-astro-cid-75ysl5lo]:empty,.ph__aside[data-astro-cid-75ysl5lo]:empty{display:none}@media (width>=64em){.ph[data-astro-cid-75ysl5lo]{padding-top:var(--s7)}.ph__grid[data-astro-cid-75ysl5lo]:has(.ph__aside>*){gap:var(--s8);grid-template-columns:minmax(0,7fr) minmax(0,5fr)}}
+data-submit data-astro-cid-2qu5qozh>Request audit
+== es configured (original strings)
+<title>Pide tu auditoría gratis — Odalo</title>
+ph__lead[data-astro-cid-75ysl5lo]{font-size:clamp(1.125rem,1.05rem + .35vw,1.375rem)}.ph__actions[data-astro-cid-75ysl5lo]{gap:var(--s3) var(--s4);flex-wrap:wrap;display:flex}.ph__actions[data-astro-cid-75ysl5lo]:empty,.ph__aside[data-astro-cid-75ysl5lo]:empty{display:none}@media (width>=64em){.ph[data-astro-cid-75ysl5lo]{padding-top:var(--s7)}.ph__grid[data-astro-cid-75ysl5lo]:has(.ph__aside>*){gap:var(--s8);grid-template-columns:minmax(0,7fr) minmax(0,5fr)}}
+data-submit data-astro-cid-2qu5qozh>Pedir auditoría
+== de configured (original strings)
+<title>Kostenlose Analyse anfragen — Odalo</title>
+ph__lead[data-astro-cid-75ysl5lo]{font-size:clamp(1.125rem,1.05rem + .35vw,1.375rem)}.ph__actions[data-astro-cid-75ysl5lo]{gap:var(--s3) var(--s4);flex-wrap:wrap;display:flex}.ph__actions[data-astro-cid-75ysl5lo]:empty,.ph__aside[data-astro-cid-75ysl5lo]:empty{display:none}@media (width>=64em){.ph[data-astro-cid-75ysl5lo]{padding-top:var(--s7)}.ph__grid[data-astro-cid-75ysl5lo]:has(.ph__aside>*){gap:var(--s8);grid-template-columns:minmax(0,7fr) minmax(0,5fr)}}
+data-submit data-astro-cid-2qu5qozh>Analyse anfragen
+
+== en unset (demo wording)
+ph__lead[data-astro-cid-75ysl5lo]{font-size:clamp(1.125rem,1.05rem + .35vw,1.375rem)}.ph__actions[data-astro-cid-75ysl5lo]{gap:var(--s3) var(--s4);flex-wrap:wrap;display:flex}.ph__actions[data-astro-cid-75ysl5lo]:empty,.ph__aside[data-astro-cid-75ysl5lo]:empty{display:none}@media (width>=64em){.ph[data-astro-cid-75ysl5lo]{padding-top:var(--s7)}.ph__grid[data-astro-cid-75ysl5lo]:has(.ph__aside>*){gap:var(--s8);grid-template-columns:minmax(0,7fr) minmax(0,5fr)}}
+data-submit data-astro-cid-2qu5qozh>Try demo submission
+== es unset (demo wording)
+ph__lead[data-astro-cid-75ysl5lo]{font-size:clamp(1.125rem,1.05rem + .35vw,1.375rem)}.ph__actions[data-astro-cid-75ysl5lo]{gap:var(--s3) var(--s4);flex-wrap:wrap;display:flex}.ph__actions[data-astro-cid-75ysl5lo]:empty,.ph__aside[data-astro-cid-75ysl5lo]:empty{display:none}@media (width>=64em){.ph[data-astro-cid-75ysl5lo]{padding-top:var(--s7)}.ph__grid[data-astro-cid-75ysl5lo]:has(.ph__aside>*){gap:var(--s8);grid-template-columns:minmax(0,7fr) minmax(0,5fr)}}
+data-submit data-astro-cid-2qu5qozh>Probar envío de demostración
+== de unset (demo wording)
+ph__lead[data-astro-cid-75ysl5lo]{font-size:clamp(1.125rem,1.05rem + .35vw,1.375rem)}.ph__actions[data-astro-cid-75ysl5lo]{gap:var(--s3) var(--s4);flex-wrap:wrap;display:flex}.ph__actions[data-astro-cid-75ysl5lo]:empty,.ph__aside[data-astro-cid-75ysl5lo]:empty{display:none}@media (width>=64em){.ph[data-astro-cid-75ysl5lo]{padding-top:var(--s7)}.ph__grid[data-astro-cid-75ysl5lo]:has(.ph__aside>*){gap:var(--s8);grid-template-columns:minmax(0,7fr) minmax(0,5fr)}}
+data-submit data-astro-cid-2qu5qozh>Demo-Absendung ausprobieren

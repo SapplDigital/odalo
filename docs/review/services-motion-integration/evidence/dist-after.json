@@ -1,0 +1,85 @@
+{
+ "label": "after",
+ "home": [
+  {
+   "file": "en/index.html",
+   "bytes": 87438,
+   "gzip": 13372
+  },
+  {
+   "file": "es/index.html",
+   "bytes": 88488,
+   "gzip": 13826
+  },
+  {
+   "file": "de/index.html",
+   "bytes": 88895,
+   "gzip": 14036
+  }
+ ],
+ "jsFiles": 4,
+ "jsBytes": 18022,
+ "jsGzip": 6737,
+ "cssFiles": 7,
+ "cssBytes": 55706,
+ "cssGzip": 13383,
+ "js": [
+  {
+   "file": "_astro/Hero.astro_astro_type_script_index_0_lang.HIOLPXUF.js",
+   "bytes": 1055,
+   "gzip": 561
+  },
+  {
+   "file": "_astro/Logo.astro_astro_type_script_index_0_lang.CanS7bHB.js",
+   "bytes": 324,
+   "gzip": 260
+  },
+  {
+   "file": "_astro/odalo-mosaic.B7-QSyub.js",
+   "bytes": 9545,
+   "gzip": 3079
+  },
+  {
+   "file": "_astro/ServiceMosaic.astro_astro_type_script_index_0_lang.CnoOnjLa.js",
+   "bytes": 7098,
+   "gzip": 2837
+  }
+ ],
+ "css": [
+  {
+   "file": "_astro/Base.CINkT6nC.css",
+   "bytes": 7265,
+   "gzip": 1764
+  },
+  {
+   "file": "_astro/index.C3QNTcOw.css",
+   "bytes": 5839,
+   "gzip": 1419
+  },
+  {
+   "file": "_astro/index.DvIpbKyE.css",
+   "bytes": 5647,
+   "gzip": 1267
+  },
+  {
+   "file": "_astro/index.nDn5qgoW.css",
+   "bytes": 15389,
+   "gzip": 3047
+  },
+  {
+   "file": "_astro/Plans.CsVGn8fI.css",
+   "bytes": 8655,
+   "gzip": 1961
+  },
+  {
+   "file": "_astro/ui.gbV5v4Mx.css",
+   "bytes": 7997,
+   "gzip": 2829
+  },
+  {
+   "file": "_astro/WorkMosaic.CnEOq1CM.css",
+   "bytes": 4914,
+   "gzip": 1096
+  }
+ ]
+}

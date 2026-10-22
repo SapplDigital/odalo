@@ -1,0 +1,22 @@
+{
+  "pieces": 29,
+  "arrangements": 6,
+  "exactGeometryAndColours": true,
+  "cycle": [
+    "fish",
+    "word",
+    "bird",
+    "word",
+    "sailboat",
+    "word",
+    "fox",
+    "word",
+    "hexagon",
+    "word"
+  ],
+  "reducedMotion": true,
+  "mobile": true,
+  "cleanup": true,
+  "esmImport": true,
+  "browserErrors": 0
+}

@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Casa Almina, a fictional boutique hotel (website concept)</title>
+<meta name="description" content="Design concept for a fictional boutique hotel website. Original illustrations, sample content, no booking.">
+<style>
+  /* Casa Almina: palette, one accent (terracotta), one shape rule:
+     buttons are pills, panels and images 16px, inputs 10px, the hero frame is an arch. */
+  :root {
+    --ink: #1f3b3f; --ink-deep: #12292c; --paper: #eef1ee; --paper-2: #e2e8e4; --sea: #2f6f73;
+    --accent: #c4552f; --accent-text: #a23e1c; --line: rgb(31 59 63 / 0.18);
+    --serif: Constantia, "Cormorant Garamond", "Palatino Linotype", Georgia, serif;
+    --sans: Corbel, "Segoe UI", "Helvetica Neue", system-ui, sans-serif;
+    --pad: clamp(20px, 4vw, 64px);
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); font: 400 1.0625rem/1.6 var(--sans); }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.06; letter-spacing: -0.01em; text-wrap: balance; overflow-wrap: break-word; }
+  p { overflow-wrap: break-word; }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+  .wrap { width: 100%; max-width: 1360px; margin-inline: auto; padding-inline: var(--pad); }
+
+  /* shared controls */
+  .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 28px; border-radius: 999px; border: 2px solid var(--accent); background: var(--accent); color: #fff; font: 700 1rem/1 var(--sans); letter-spacing: 0.01em; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color 0.18s, transform 0.18s; }
+  .btn:hover { background: var(--accent-text); border-color: var(--accent-text); }
+  .btn:active { transform: translateY(1px); }
+  .btn--quiet { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn--quiet:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .link { font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 2px; }
+  .link:hover { color: var(--accent-text); }
+
+  /* header */
+  .site-head { position: sticky; top: 0; z-index: 10; background: var(--paper); border-bottom: 1px solid var(--line); }
+  .site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 72px; }
+  .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font: 500 1.5rem/1 var(--serif); letter-spacing: 0.01em; }
+  .brand svg { width: 22px; height: 30px; }
+  .site-nav { display: flex; gap: clamp(16px, 2.4vw, 36px); }
+  .site-nav a { text-decoration: none; font-weight: 600; font-size: 0.98rem; padding-block: 8px; }
+  .site-nav a:hover { color: var(--accent-text); }
+  .head-cta { min-height: 44px; padding-inline: 22px; }
+
+  /* hero */
+  .hero { padding-block: clamp(24px, 4vw, 48px) clamp(40px, 6vw, 88px); }
+  .hero .wrap { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
+  .hero h1 { font-size: clamp(2.7rem, 1.2rem + 4.6vw, 5.2rem); line-height: 1.02; padding-bottom: 0.06em; }
+  .hero p { margin-top: 24px; max-width: 34ch; font-size: clamp(1.1rem, 1rem + 0.4vw, 1.3rem); }
+  .hero .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+  .hero figure { border-radius: 999px 999px 16px 16px; overflow: hidden; aspect-ratio: 5 / 6; background: #27465a; }
+  .hero figure img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+
+  /* rooms */
+  section { padding-block: clamp(56px, 8vw, 112px); }
+  .section-head { max-width: 38rem; margin-bottom: clamp(28px, 4vw, 56px); }
+  .section-head h2 { font-size: clamp(2rem, 1.2rem + 2.8vw, 3.4rem); }
+  .section-head p { margin-top: 14px; max-width: 46ch; }
+  .rooms .grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(16px, 2vw, 28px); }
+  .room { background: #fff; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+  .room img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+  .room .body { padding: clamp(20px, 2.4vw, 32px); display: grid; gap: 10px; align-content: start; }
+  .room h3 { font-size: clamp(1.6rem, 1.2rem + 1.2vw, 2.3rem); }
+  .room .facts { font-size: 0.95rem; color: #3b585c; font-weight: 600; }
+  .room .rate { font-size: 0.95rem; }
+  .room .rate strong { font: 500 1.5rem/1 var(--serif); }
+  .room .foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; margin-top: 8px; }
+  .room--lead { grid-row: span 2; }
+  .room--lead img { aspect-ratio: 4 / 3; }
+  .stack { display: grid; gap: clamp(16px, 2vw, 28px); grid-template-rows: 1fr 1fr; }
+  .room--row { flex-direction: row; }
+  .room--row img { width: 42%; aspect-ratio: auto; height: 100%; min-height: 100%; flex: none; }
+  .room--row .body { padding: clamp(18px, 2vw, 28px); flex: 1; }
+
+  /* experiences */
+  .days { background: var(--paper-2); }
+  .days .grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-areas: "a a a a a b b b b b b b" "a a a a a b b b b b b b" "a a a a a c c c c d d d"; gap: clamp(16px, 2vw, 28px); }
+  .cell { border-radius: 16px; overflow: hidden; min-width: 0; display: flex; flex-direction: column; background: #fff; }
+  .cell img { width: 100%; object-fit: cover; flex: 1; min-height: 0; }
+  .cell .cap { padding: 18px 24px 22px; }
+  .cell h3 { font-size: 1.5rem; }
+  .cell p { font-size: 0.98rem; margin-top: 6px; max-width: 40ch; }
+  .cell--a { grid-area: a; } .cell--b { grid-area: b; } .cell--c { grid-area: c; } .cell--d { grid-area: d; }
+  .cell--c { background: var(--ink); color: var(--paper); padding: clamp(22px, 2.4vw, 32px); justify-content: center; gap: 10px; }
+  .cell--c h3 { font-size: clamp(1.4rem, 1rem + 0.9vw, 1.9rem); }
+  .cell--c p { color: #d9e3df; }
+  .cell--d img { height: 100%; }
+
+  /* booking enquiry */
+  .stay { background: var(--ink); color: var(--paper); }
+  .stay .wrap { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(28px, 6vw, 96px); align-items: center; }
+  .stay h2 { font-size: clamp(2.1rem, 1.2rem + 3vw, 3.6rem); }
+  .stay .lead { margin-top: 16px; max-width: 36ch; color: #d9e3df; }
+  .panel { background: var(--paper); color: var(--ink); border-radius: 16px; padding: clamp(22px, 3vw, 40px); }
+  .fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 16px; }
+  .field { display: grid; gap: 6px; }
+  .field label { font-weight: 700; font-size: 0.92rem; }
+  .field input, .field select { width: 100%; min-height: 50px; border: 1.5px solid #5b7478; border-radius: 10px; background: #fff; color: var(--ink); font: inherit; padding: 0 14px; }
+  .field--wide { grid-column: 1 / -1; }
+  .panel .btn { margin-top: 24px; }
+  .note { margin-top: 14px; font-size: 0.92rem; color: #35545a; }
+  .result { margin-top: 16px; padding: 14px 16px; border-radius: 10px; background: var(--paper-2); border-left: 4px solid var(--accent); font-weight: 600; }
+  .result[hidden] { display: none; }
+
+  footer { padding-block: 48px; font-size: 0.95rem; }
+  footer .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.4fr); gap: 32px; }
+  footer .brand { font-size: 1.4rem; }
+  footer h3 { font: 700 0.95rem/1.3 var(--sans); margin-bottom: 8px; }
+  footer p { max-width: 42ch; }
+
+  /* tablet and mobile */
+  @media (max-width: 1024px) {
+    .site-nav { display: none; }
+    .hero .wrap { grid-template-columns: minmax(0, 1fr); }
+    .hero figure { max-width: 520px; }
+    .rooms .grid { grid-template-columns: minmax(0, 1fr); }
+    .room--lead { grid-row: auto; }
+    .stay .wrap { grid-template-columns: minmax(0, 1fr); }
+    .days .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "a b" "a b" "c d"; }
+  }
+  @media (max-width: 680px) {
+    .head-cta { padding-inline: 16px; }
+    .hero h1 { font-size: clamp(2.5rem, 12vw, 3.4rem); }
+    .hero figure { max-width: none; aspect-ratio: 5 / 6; }
+    .room--row { flex-direction: column; }
+    .room--row img { width: 100%; height: auto; aspect-ratio: 16 / 10; }
+    .stack { grid-template-rows: none; }
+    .days .grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "a" "b" "c" "d"; }
+    .cell img { aspect-ratio: 16 / 11; flex: none; }
+    .cell--d img { aspect-ratio: 16 / 9; }
+    .fields { grid-template-columns: minmax(0, 1fr); }
+    footer .wrap { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Casa Almina, home">
+      <svg viewBox="0 0 22 30" aria-hidden="true" focusable="false"><path d="M1 29V11a10 10 0 0 1 20 0v18Z" fill="none" stroke="#c4552f" stroke-width="2.4"/><path d="M6 29V12a5 5 0 0 1 10 0v17" fill="#1f3b3f"/></svg>
+      Casa Almina
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#rooms">Rooms</a><a href="#days">Courtyard and table</a><a href="#stay">Find us</a>
+    </nav>
+    <a class="btn head-cta" href="#stay">Request dates</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding-top: clamp(24px, 4vw, 48px)">
+    <div class="wrap">
+      <div>
+        <h1>Eight rooms above the harbour.</h1>
+        <p>A small whitewashed house with a courtyard, a terrace breakfast and rooms that open to the water.</p>
+        <div class="actions">
+          <a class="btn" href="#stay">Request dates</a>
+          <a class="btn btn--quiet" href="#rooms">See the rooms</a>
+        </div>
+      </div>
+      <figure>
+        <img src="assets/hero-house.svg" width="1000" height="1250" alt="Illustration of the whitewashed hotel at dusk, with arched lit windows, teal shutters and bougainvillea above a quiet harbour.">
+      </figure>
+    </div>
+  </section>
+
+  <section class="rooms" id="rooms">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Rooms with the water in them</h2>
+        <p>Eight rooms in three kinds. Lime plaster walls, oak floors, linen beds and windows that stay open in the evening.</p>
+      </div>
+      <div class="grid">
+        <article class="room room--lead">
+          <img src="assets/room-harbour.svg" width="1600" height="1000" alt="Illustration of the Harbour Suite: a linen bed, a terracotta armchair and an arched window looking over the sea at dusk.">
+          <div class="body">
+            <h3>Harbour Suite</h3>
+            <p class="facts">38 square metres, king bed, arched window to the sea</p>
+            <p>Two arched windows, a deep sill for breakfast trays and a bath you can see the boats from.</p>
+            <div class="foot"><p class="rate">From <strong>190</strong> euros a night</p><a class="link" href="#stay">Request dates</a></div>
+          </div>
+        </article>
+        <div class="stack">
+          <article class="room room--row">
+            <img src="assets/room-garden.svg" width="1600" height="1000" alt="Illustration of the Garden Room: a bed with a green headboard beside tall glazed doors onto a leafy garden.">
+            <div class="body">
+              <h3>Garden Room</h3>
+              <p class="facts">26 square metres, double bed, glazed doors</p>
+              <p>Opens onto the quiet side of the courtyard.</p>
+              <div class="foot"><p class="rate">From <strong>140</strong> euros a night</p><a class="link" href="#stay">Request dates</a></div>
+            </div>
+          </article>
+          <article class="room room--row">
+            <img src="assets/room-attic.svg" width="1600" height="1000" alt="Illustration of the Attic Room: exposed beams, a rust-red headboard and a round window with a view over roof tiles.">
+            <div class="body">
+              <h3>Attic Room</h3>
+              <p class="facts">22 square metres, low double bed, round window</p>
+              <p>Under the beams, with the best light in the morning.</p>
+              <div class="foot"><p class="rate">From <strong>120</strong> euros a night</p><a class="link" href="#stay">Request dates</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="days" id="days">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Slow days at the house</h2>
+        <p>Swim before the others wake, eat on the terrace, walk down to the water.</p>
+      </div>
+      <div class="grid">
+        <article class="cell cell--a">
+          <img src="assets/courtyard-pool.svg" width="1600" height="1000" alt="Illustration of the courtyard: a turquoise pool between arched walls, loungers, olive trees in pots and string lights.">
+          <div class="cap"><h3>Courtyard and pool</h3><p>A small pool in the shade of the old walls, open until the lights go on.</p></div>
+        </article>
+        <article class="cell cell--b">
+          <img src="assets/terrace-breakfast.svg" width="1600" height="1000" alt="Illustration of the terrace breakfast table under a wooden pergola, laid with bread, oranges, coffee and a view of the sea.">
+          <div class="cap"><h3>Breakfast on the terrace</h3><p>Bread from the bakery down the lane, citrus, eggs and strong coffee.</p></div>
+        </article>
+        <article class="cell cell--c">
+          <h3>Bicycles and a hand-drawn map</h3>
+          <p>Borrow a bicycle and follow the harbour road. The map is drawn by the people who work here.</p>
+        </article>
+        <article class="cell cell--d">
+          <img src="assets/tile-pattern.svg" width="800" height="800" alt="Illustration of the hand-glazed floor tiles used in the courtyard, in teal and terracotta on lime white.">
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="stay" id="stay">
+    <div class="wrap">
+      <div>
+        <h2>Plan your stay</h2>
+        <p class="lead">Choose your dates and a room. On a live site this goes to the front desk.</p>
+      </div>
+      <form class="panel" novalidate onsubmit="return false" aria-labelledby="form-h">
+        <h3 id="form-h" style="font-size:1.6rem;margin-bottom:20px">Request dates</h3>
+        <div class="fields">
+          <div class="field"><label for="arrive">Arrival</label><input id="arrive" type="date" value="2027-05-14"></div>
+          <div class="field"><label for="leave">Departure</label><input id="leave" type="date" value="2027-05-17"></div>
+          <div class="field"><label for="guests">Guests</label>
+            <select id="guests"><option>1 guest</option><option selected>2 guests</option><option>3 guests</option><option>4 guests</option></select></div>
+          <div class="field"><label for="room">Room</label>
+            <select id="room"><option>Harbour Suite</option><option>Garden Room</option><option>Attic Room</option><option>No preference</option></select></div>
+        </div>
+        <button class="btn" type="button" id="send">Request dates</button>
+        <p class="note">Concept page: nothing is sent, no dates are held and no personal details are collected.</p>
+        <p class="result" id="result" role="status" hidden>This is a design concept. A live page would send these dates to the front desk.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><a class="brand" href="#top">Casa Almina</a><p style="margin-top:12px">Harbour Lane 12<br>A fictional town by the sea</p></div>
+    <div><h3>Front desk</h3><p>Open every day, 8:00 to 22:00. Check-in from 15:00, check-out by 11:00.</p></div>
+    <div><h3>About this page</h3><p>Casa Almina is a fictional hotel. This page is a website design concept with original illustrations. Rooms, rates and services are sample content.</p></div>
+  </div>
+</footer>
+<script>
+  document.getElementById('send').addEventListener('click', function () { document.getElementById('result').hidden = false; });
+</script>
+</body>
+</html>

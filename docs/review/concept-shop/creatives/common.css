@@ -1,0 +1,5 @@
+:root { --tomato: #f2542d; --mustard: #f7b32b; --green: #0b5d4a; --ink: #1b2220; --paper: #fafaf6; --slab: Rockwell, "Roboto Slab", Georgia, serif; --body: "Segoe UI", system-ui, sans-serif; }
+* { box-sizing: border-box; margin: 0; }
+html, body { overflow: hidden; background: var(--paper); color: var(--ink); font-family: var(--body); }
+.slab { font-family: var(--slab); font-weight: 800; }
+svg { display: block; }
