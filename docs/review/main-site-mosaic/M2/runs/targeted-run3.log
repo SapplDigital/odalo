@@ -1,0 +1,629 @@
+
+Running 152 tests using 8 workers
+
+[1/152] tests\concept-clinic.spec.ts:65:5 › sample-clinic local campaign concept › en: the case study has a project-specific status, no results panel, produced and proposed work kept apart, screens, creatives and the plan
+[2/152] tests\concept-clinic.spec.ts:15:3 › sample-clinic local campaign concept › record: stable id, sample flag, services; complete trilingual image records; files exist; hotel wording untouched
+[3/152] tests\concept-clinic.spec.ts:38:5 › sample-clinic local campaign concept › es: cards show the clinic pictures with the right source per layout, a visible concept label and live text
+[4/152] tests\concept-clinic.spec.ts:38:5 › sample-clinic local campaign concept › en: cards show the clinic pictures with the right source per layout, a visible concept label and live text
+[5/152] tests\concept-clinic.spec.ts:65:5 › sample-clinic local campaign concept › es: the case study has a project-specific status, no results panel, produced and proposed work kept apart, screens, creatives and the plan
+[6/152] tests\concept-clinic.spec.ts:38:5 › sample-clinic local campaign concept › de: cards show the clinic pictures with the right source per layout, a visible concept label and live text
+[7/152] tests\concept-clinic.spec.ts:65:5 › sample-clinic local campaign concept › de: the case study has a project-specific status, no results panel, produced and proposed work kept apart, screens, creatives and the plan
+[8/152] tests\concept-clinic.spec.ts:93:3 › sample-clinic local campaign concept › the hotel case study still carries the hotel status and no creatives or plan sections
+[9/152] tests\concept-clinic.spec.ts:99:33 › sample-clinic local campaign concept › image boxes are reserved before the pictures load (images blocked) at 1440px: home, work index, service pages, case study
+[10/152] tests\concept-clinic.spec.ts:99:33 › sample-clinic local campaign concept › image boxes are reserved before the pictures load (images blocked) at 390px: home, work index, service pages, case study
+[11/152] tests\concept-clinic.spec.ts:118:3 › sample-clinic local campaign concept › related-project placements: service pages show the clinic picture; the hotel case study links to the clinic by its new title only via the related link
+[12/152] tests\concept-shop.spec.ts:39:5 › sample-shop content-and-motion campaign concept › en: cards use the wide card (portrait still only in the 3-column desktop slot), keep a concept badge and live text, and are not stretched
+[13/152] tests\concept-shop.spec.ts:16:3 › sample-shop content-and-motion campaign concept › record: stable id, sample flag, services; trilingual records; files on disk; video specs; other projects unchanged
+[14/152] tests\concept-shop.spec.ts:64:5 › sample-shop content-and-motion campaign concept › en: the case study has a project-specific status, no results panel, produced and proposed work apart, outputs, a user-triggered silent video and the plan
+[15/152] tests\concept-shop.spec.ts:39:5 › sample-shop content-and-motion campaign concept › es: cards use the wide card (portrait still only in the 3-column desktop slot), keep a concept badge and live text, and are not stretched
+[16/152] tests\concept-shop.spec.ts:64:5 › sample-shop content-and-motion campaign concept › es: the case study has a project-specific status, no results panel, produced and proposed work apart, outputs, a user-triggered silent video and the plan
+[17/152] tests\concept-shop.spec.ts:39:5 › sample-shop content-and-motion campaign concept › de: cards use the wide card (portrait still only in the 3-column desktop slot), keep a concept badge and live text, and are not stretched
+[18/152] tests\concept-shop.spec.ts:64:5 › sample-shop content-and-motion campaign concept › de: the case study has a project-specific status, no results panel, produced and proposed work apart, outputs, a user-triggered silent video and the plan
+[19/152] tests\concept-shop.spec.ts:93:3 › sample-shop content-and-motion campaign concept › video requests: none for the video files on load; playing is user-triggered, works with the keyboard, reaches the end, and a reduced-motion visitor sees a still
+[20/152] tests\concept-shop.spec.ts:127:3 › sample-shop content-and-motion campaign concept › image boxes are reserved before media loads (images and video blocked) at 1440 and 390 px; service pages show the shop picture
+[21/152] tests\concept-shop.spec.ts:148:3 › sample-shop content-and-motion campaign concept › related placements: video and advertising service pages show the shop card with its picture and live title
+[22/152] tests\concept.spec.ts:9:3 › sample-hotel concept images and wording › the project record keeps its id, sample flag and service associations, and carries a complete image record
+[23/152] tests\concept.spec.ts:26:5 › sample-hotel concept images and wording › en: home and work index show the concept picture with reserved size and a visible concept label; the other cards carry their own concept labels
+[24/152] tests\concept.spec.ts:44:5 › sample-hotel concept images and wording › en: the case study is labelled as a fictional concept, shows three screens with captions and language, and claims no outcomes
+[25/152] tests\concept.spec.ts:26:5 › sample-hotel concept images and wording › es: home and work index show the concept picture with reserved size and a visible concept label; the other cards carry their own concept labels
+[26/152] tests\concept.spec.ts:44:5 › sample-hotel concept images and wording › es: the case study is labelled as a fictional concept, shows three screens with captions and language, and claims no outcomes
+[27/152] tests\concept.spec.ts:26:5 › sample-hotel concept images and wording › de: home and work index show the concept picture with reserved size and a visible concept label; the other cards carry their own concept labels
+[28/152] tests\concept.spec.ts:44:5 › sample-hotel concept images and wording › de: the case study is labelled as a fictional concept, shows three screens with captions and language, and claims no outcomes
+[29/152] tests\concept.spec.ts:71:33 › sample-hotel concept images and wording › image boxes are reserved before the pictures load (images blocked) at 1440px: home card, work index card, case study
+[30/152] tests\concept.spec.ts:71:33 › sample-hotel concept images and wording › image boxes are reserved before the pictures load (images blocked) at 390px: home card, work index card, case study
+[31/152] tests\concept.spec.ts:89:3 › sample-hotel concept images and wording › the pictures actually load (all widths used) and the old generic hotel artwork is gone from the hotel card
+[32/152] tests\concept.spec.ts:97:3 › sample-hotel concept images and wording › narrow cards use the purpose-made phone crop in its own shape; wider cards keep the desktop picture
+[33/152] tests\mosaic.spec.ts:21:3 › service mosaic — desktop 1440 › rest state is unequal 7/5 and 5/7
+[34/152] tests\mosaic.spec.ts:31:5 › service mosaic — desktop 1440 › hovering web moves the shared edge per Document 03 and keeps layout stable
+[35/152] tests\mosaic.spec.ts:31:5 › service mosaic — desktop 1440 › hovering local moves the shared edge per Document 03 and keeps layout stable
+[36/152] tests\mosaic.spec.ts:31:5 › service mosaic — desktop 1440 › hovering video moves the shared edge per Document 03 and keeps layout stable
+[37/152] tests\mosaic.spec.ts:31:5 › service mosaic — desktop 1440 › hovering ads moves the shared edge per Document 03 and keeps layout stable
+[38/152] tests\mosaic.spec.ts:53:3 › service mosaic — desktop 1440 › no text clipping in any hover state (en/es/de)
+[39/152] tests\mosaic.spec.ts:70:3 › service mosaic — desktop 1440 › moving along the rest edge does not flicker (tolerance + intent delay)
+[40/152] tests\mosaic.spec.ts:89:3 › service mosaic — desktop 1440 › pointer leaving resets to resting composition
+[41/152] tests\mosaic.spec.ts:100:3 › service mosaic — desktop 1440 › hover alone never opens the detail region
+[42/152] tests\mosaic.spec.ts:114:3 › exploration, keyboard › keyboard: focus emphasises tile, Enter opens, Escape closes and restores focus
+[43/152] tests\mosaic.spec.ts:145:3 › exploration, keyboard › focus order is A, B, C, D and full service links work independently
+[44/152] tests\mosaic.spec.ts:156:3 › exploration, keyboard › all four details show heading, deliverables, related plan and full link
+[45/152] tests\mosaic.spec.ts:133:3 › exploration, keyboard › Space activates and only one detail region is open at a time
+[46/152] tests\mosaic.spec.ts:169:3 › exploration, keyboard › details open below the mosaic on desktop
+[47/152] tests\mosaic.spec.ts:181:3 › touch and mobile 390 › tap Explore reveals details inline after the tile; reading order kept
+[48/152] tests\mosaic.spec.ts:192:3 › touch and mobile 390 › touch never changes geometry; essential content is visible before any tap
+[49/152] tests\mosaic.spec.ts:203:3 › touch and mobile 390 › closing returns the detail to the slot and focus to the control
+[50/152] tests\mosaic.spec.ts:215:3 › reduced motion › transitions are disabled yet every action still works
+[51/152] tests\mosaic.spec.ts:230:1 › essential content is present when JavaScript fails
+[52/152] tests\portfolio.spec.ts:18:3 › portfolio: content › cards use the short editable names; full titles stay on the records; IDs, badges and services are kept
+[53/152] tests\portfolio.spec.ts:23:5 › portfolio: content › en: heading, context panel and view-all link are the new copy; cards keep concept badges, services and working links
+[54/152] tests\portfolio.spec.ts:23:5 › portfolio: content › es: heading, context panel and view-all link are the new copy; cards keep concept badges, services and working links
+[55/152] tests\portfolio.spec.ts:23:5 › portfolio: content › de: heading, context panel and view-all link are the new copy; cards keep concept badges, services and working links
+[56/152] tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › en 1440px home: no gutters, flat inner edges, curved outer corners only, no holes
+[57/152] tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › en 1440px work/: no gutters, flat inner edges, curved outer corners only, no holes
+[58/152] tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › en 1024px home: no gutters, flat inner edges, curved outer corners only, no holes
+[59/152] tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › en 834px home: no gutters, flat inner edges, curved outer corners only, no holes
+[60/152] tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › en 390px home: no gutters, flat inner edges, curved outer corners only, no holes
+  1) tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › en 1024px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 4
+    Received length: 3
+    Received array:  [{"b": 3324.48095703125, "cls": "proj proj--ink proj--feat on-dark", "l": 48, "r": 976, "radii": [0, 6, 0, 0], "t": 2415.79345703125}, {"b": 3946.31298828125, "cls": "proj proj--sand proj--sup", "l": 48, "r": 434.65625, "radii": [0, 0, 0, 0], "t": 3320.34423828125}, {"b": 3937.698974609375, "cls": "proj proj--coral proj--sup proj--end on-coral", "l": 434.65625, "r": 976, "radii": [0, 0, 92.16, 0], "t": 3311.730224609375}]
+
+      48 |       await page.goto(`/${l}/${url}`);
+      49 |       const { grid, items } = await geo(page, sel);
+    > 50 |       expect(items).toHaveLength(4);
+         |                     ^
+      51 |       // the union of the cards exactly tiles the grid: sum of areas equals the grid area (no overlaps, no holes)
+      52 |       const area = items.reduce((a, i) => a + (i.r - i.l) * (i.b - i.t), 0);
+      53 |       expect(Math.abs(area - (grid.r - grid.l) * (grid.b - grid.t)), `${vw}: uncovered or overlapping area`).toBeLessThan(40);
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:50:21
+
+    Error Context: test-results\portfolio-portfolio-one-co-4b891-outer-corners-only-no-holes\error-context.md
+
+
+  2) tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › en 1440px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 4
+    Received length: 3
+    Received array:  [{"b": 3157.967529296875, "cls": "proj proj--ink proj--feat on-dark", "l": 48, "r": 720, "radii": [0, 0, 0, 6], "t": 2386.967529296875}, {"b": 2766.36767578125, "cls": "proj proj--sand proj--sup", "l": 720, "r": 1392, "radii": [0, 0, 0, 0], "t": 2380.86767578125}, {"b": 3142.53125, "cls": "proj proj--coral proj--sup proj--end on-coral", "l": 720, "r": 1392, "radii": [0, 0, 0, 0], "t": 2757.03125}]
+
+      48 |       await page.goto(`/${l}/${url}`);
+      49 |       const { grid, items } = await geo(page, sel);
+    > 50 |       expect(items).toHaveLength(4);
+         |                     ^
+      51 |       // the union of the cards exactly tiles the grid: sum of areas equals the grid area (no overlaps, no holes)
+      52 |       const area = items.reduce((a, i) => a + (i.r - i.l) * (i.b - i.t), 0);
+      53 |       expect(Math.abs(area - (grid.r - grid.l) * (grid.b - grid.t)), `${vw}: uncovered or overlapping area`).toBeLessThan(40);
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:50:21
+
+    Error Context: test-results\portfolio-portfolio-one-co-c304a-outer-corners-only-no-holes\error-context.md
+
+
+  3) tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › en 834px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 4
+    Received length: 3
+    Received array:  [{"b": 3560.802490234375, "cls": "proj proj--ink proj--feat on-dark", "l": 32, "r": 802, "radii": [0, 6, 0, 0], "t": 2770.474365234375}, {"b": 4109.1103515625, "cls": "proj proj--sand proj--sup", "l": 32, "r": 384.90625, "radii": [0, 0, 0, 0], "t": 3551.3603515625}, {"b": 4106.96875, "cls": "proj proj--coral proj--sup proj--end on-coral", "l": 384.90625, "r": 802, "radii": [0, 0, 75.06, 0], "t": 3549.21875}]
+
+      48 |       await page.goto(`/${l}/${url}`);
+      49 |       const { grid, items } = await geo(page, sel);
+    > 50 |       expect(items).toHaveLength(4);
+         |                     ^
+      51 |       // the union of the cards exactly tiles the grid: sum of areas equals the grid area (no overlaps, no holes)
+      52 |       const area = items.reduce((a, i) => a + (i.r - i.l) * (i.b - i.t), 0);
+      53 |       expect(Math.abs(area - (grid.r - grid.l) * (grid.b - grid.t)), `${vw}: uncovered or overlapping area`).toBeLessThan(40);
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:50:21
+
+    Error Context: test-results\portfolio-portfolio-one-co-1ab93-outer-corners-only-no-holes\error-context.md
+
+
+[61/152] tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › es 1024px home: no gutters, flat inner edges, curved outer corners only, no holes
+  4) tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › en 390px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 4
+    Received length: 3
+    Received array:  [{"b": 4621.5615234375, "cls": "proj proj--ink proj--feat on-dark", "l": 20, "r": 370, "radii": [0, 0, 0, 0], "t": 3641.546142578125}, {"b": 5128.859375, "cls": "proj proj--sand proj--sup", "l": 20, "r": 370, "radii": [0, 0, 0, 0], "t": 4613.953125}, {"b": 5616.546875, "cls": "proj proj--coral proj--sup proj--end on-coral", "l": 20, "r": 370, "radii": [0, 0, 56, 0], "t": 5128.859375}]
+
+      48 |       await page.goto(`/${l}/${url}`);
+      49 |       const { grid, items } = await geo(page, sel);
+    > 50 |       expect(items).toHaveLength(4);
+         |                     ^
+      51 |       // the union of the cards exactly tiles the grid: sum of areas equals the grid area (no overlaps, no holes)
+      52 |       const area = items.reduce((a, i) => a + (i.r - i.l) * (i.b - i.t), 0);
+      53 |       expect(Math.abs(area - (grid.r - grid.l) * (grid.b - grid.t)), `${vw}: uncovered or overlapping area`).toBeLessThan(40);
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:50:21
+
+    Error Context: test-results\portfolio-portfolio-one-co-39b5c-outer-corners-only-no-holes\error-context.md
+
+
+[62/152] tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › en 320px home: no gutters, flat inner edges, curved outer corners only, no holes
+[63/152] tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › es 1440px home: no gutters, flat inner edges, curved outer corners only, no holes
+[64/152] tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › es 1440px work/: no gutters, flat inner edges, curved outer corners only, no holes
+  5) tests\portfolio.spec.ts:23:5 › portfolio: content › es: heading, context panel and view-all link are the new copy; cards keep concept badges, services and working links 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('#work .explain p')
+    Expected: "Tres conceptos de iniciativa propia que muestran cómo pueden trabajar juntos la web, la visibilidad local, el contenido y la publicidad."
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveText" locator('#work .explain p') with timeout 5000ms
+      - waiting for locator('#work .explain p')
+
+
+      25 |       await page.goto(`/${l}/`);
+      26 |       await expect(page.locator('#work-h')).toHaveText(heading[l]);
+    > 27 |       await expect(page.locator('#work .explain p')).toHaveText(tr(l).work.explainer);
+         |                                                      ^
+      28 |       expect(tr(l).work.explainer).not.toMatch(/sample|ejemplo|Beispiel/i);
+      29 |       await expect(page.locator('#work .explain a')).toHaveAttribute('href', `/${l}/work/`);
+      30 |       for (const [i, p] of projects.entries()) {
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:27:54
+
+    Error Context: test-results\portfolio-portfolio-conten-768ff--services-and-working-links\error-context.md
+
+
+  6) tests\portfolio.spec.ts:23:5 › portfolio: content › en: heading, context panel and view-all link are the new copy; cards keep concept badges, services and working links 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('#work .explain p')
+    Expected: "Three self-initiated concepts showing how websites, local visibility, content and advertising can work together."
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveText" locator('#work .explain p') with timeout 5000ms
+      - waiting for locator('#work .explain p')
+
+
+      25 |       await page.goto(`/${l}/`);
+      26 |       await expect(page.locator('#work-h')).toHaveText(heading[l]);
+    > 27 |       await expect(page.locator('#work .explain p')).toHaveText(tr(l).work.explainer);
+         |                                                      ^
+      28 |       expect(tr(l).work.explainer).not.toMatch(/sample|ejemplo|Beispiel/i);
+      29 |       await expect(page.locator('#work .explain a')).toHaveAttribute('href', `/${l}/work/`);
+      30 |       for (const [i, p] of projects.entries()) {
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:27:54
+
+    Error Context: test-results\portfolio-portfolio-conten-d5db4--services-and-working-links\error-context.md
+
+
+  7) tests\portfolio.spec.ts:23:5 › portfolio: content › de: heading, context panel and view-all link are the new copy; cards keep concept badges, services and working links 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('#work .explain p')
+    Expected: "Drei selbst initiierte Konzepte zeigen, wie Website, lokale Sichtbarkeit, Inhalte und Werbung zusammenwirken können."
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveText" locator('#work .explain p') with timeout 5000ms
+      - waiting for locator('#work .explain p')
+
+
+      25 |       await page.goto(`/${l}/`);
+      26 |       await expect(page.locator('#work-h')).toHaveText(heading[l]);
+    > 27 |       await expect(page.locator('#work .explain p')).toHaveText(tr(l).work.explainer);
+         |                                                      ^
+      28 |       expect(tr(l).work.explainer).not.toMatch(/sample|ejemplo|Beispiel/i);
+      29 |       await expect(page.locator('#work .explain a')).toHaveAttribute('href', `/${l}/work/`);
+      30 |       for (const [i, p] of projects.entries()) {
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:27:54
+
+    Error Context: test-results\portfolio-portfolio-conten-fd0cf--services-and-working-links\error-context.md
+
+
+[65/152] tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › es 834px home: no gutters, flat inner edges, curved outer corners only, no holes
+  8) tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › es 1024px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 4
+    Received length: 3
+    Received array:  [{"b": 3360.050048828125, "cls": "proj proj--ink proj--feat on-dark", "l": 48, "r": 976, "radii": [0, 6, 0, 0], "t": 2451.362548828125}, {"b": 4005.6220703125, "cls": "proj proj--sand proj--sup", "l": 48, "r": 434.65625, "radii": [0, 0, 0, 0], "t": 3350.6064453125}, {"b": 4003.484375, "cls": "proj proj--coral proj--sup proj--end on-coral", "l": 434.65625, "r": 976, "radii": [0, 0, 92.16, 0], "t": 3348.46875}]
+
+      48 |       await page.goto(`/${l}/${url}`);
+      49 |       const { grid, items } = await geo(page, sel);
+    > 50 |       expect(items).toHaveLength(4);
+         |                     ^
+      51 |       // the union of the cards exactly tiles the grid: sum of areas equals the grid area (no overlaps, no holes)
+      52 |       const area = items.reduce((a, i) => a + (i.r - i.l) * (i.b - i.t), 0);
+      53 |       expect(Math.abs(area - (grid.r - grid.l) * (grid.b - grid.t)), `${vw}: uncovered or overlapping area`).toBeLessThan(40);
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:50:21
+
+    Error Context: test-results\portfolio-portfolio-one-co-f31c0-outer-corners-only-no-holes\error-context.md
+
+
+[66/152] tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › es 320px home: no gutters, flat inner edges, curved outer corners only, no holes
+[67/152] tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › es 390px home: no gutters, flat inner edges, curved outer corners only, no holes
+[68/152] tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › de 1440px home: no gutters, flat inner edges, curved outer corners only, no holes
+[69/152] tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › de 1440px work/: no gutters, flat inner edges, curved outer corners only, no holes
+[70/152] tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › de 1024px home: no gutters, flat inner edges, curved outer corners only, no holes
+  9) tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › en 320px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 4
+    Received length: 3
+    Received array:  [{"b": 4752.7431640625, "cls": "proj proj--ink proj--feat on-dark", "l": 20, "r": 300, "radii": [0, 0, 0, 0], "t": 3833.384033203125}, {"b": 5313.2353515625, "cls": "proj proj--sand proj--sup", "l": 20, "r": 300, "radii": [0, 0, 0, 0], "t": 4752.2666015625}, {"b": 5817.53466796875, "cls": "proj proj--coral proj--sup proj--end on-coral", "l": 20, "r": 300, "radii": [0, 0, 56, 0], "t": 5312.14404296875}]
+
+      48 |       await page.goto(`/${l}/${url}`);
+      49 |       const { grid, items } = await geo(page, sel);
+    > 50 |       expect(items).toHaveLength(4);
+         |                     ^
+      51 |       // the union of the cards exactly tiles the grid: sum of areas equals the grid area (no overlaps, no holes)
+      52 |       const area = items.reduce((a, i) => a + (i.r - i.l) * (i.b - i.t), 0);
+      53 |       expect(Math.abs(area - (grid.r - grid.l) * (grid.b - grid.t)), `${vw}: uncovered or overlapping area`).toBeLessThan(40);
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:50:21
+
+    Error Context: test-results\portfolio-portfolio-one-co-14954-outer-corners-only-no-holes\error-context.md
+
+
+  10) tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › es 1440px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 4
+    Received length: 3
+    Received array:  [{"b": 3267.46484375, "cls": "proj proj--ink proj--feat on-dark", "l": 48, "r": 720, "radii": [0, 0, 0, 6], "t": 2383.46484375}, {"b": 2825.340087890625, "cls": "proj proj--sand proj--sup", "l": 720, "r": 1392, "radii": [0, 0, 0, 0], "t": 2383.340087890625}, {"b": 3266.9384765625, "cls": "proj proj--coral proj--sup proj--end on-coral", "l": 720, "r": 1392, "radii": [0, 0, 0, 0], "t": 2824.9384765625}]
+
+      48 |       await page.goto(`/${l}/${url}`);
+      49 |       const { grid, items } = await geo(page, sel);
+    > 50 |       expect(items).toHaveLength(4);
+         |                     ^
+      51 |       // the union of the cards exactly tiles the grid: sum of areas equals the grid area (no overlaps, no holes)
+      52 |       const area = items.reduce((a, i) => a + (i.r - i.l) * (i.b - i.t), 0);
+      53 |       expect(Math.abs(area - (grid.r - grid.l) * (grid.b - grid.t)), `${vw}: uncovered or overlapping area`).toBeLessThan(40);
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:50:21
+
+    Error Context: test-results\portfolio-portfolio-one-co-bf2fc-outer-corners-only-no-holes\error-context.md
+
+
+[71/152] tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › de 320px home: no gutters, flat inner edges, curved outer corners only, no holes
+  11) tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › es 834px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 4
+    Received length: 3
+    Received array:  [{"b": 3484.244140625, "cls": "proj proj--ink proj--feat on-dark", "l": 32, "r": 802, "radii": [0, 6, 0, 0], "t": 2693.916015625}, {"b": 4069.641845703125, "cls": "proj proj--sand proj--sup", "l": 32, "r": 384.90625, "radii": [0, 0, 0, 0], "t": 3483.376220703125}, {"b": 4067.70166015625, "cls": "proj proj--coral proj--sup proj--end on-coral", "l": 384.90625, "r": 802, "radii": [0, 0, 75.06, 0], "t": 3481.43603515625}]
+
+      48 |       await page.goto(`/${l}/${url}`);
+      49 |       const { grid, items } = await geo(page, sel);
+    > 50 |       expect(items).toHaveLength(4);
+         |                     ^
+      51 |       // the union of the cards exactly tiles the grid: sum of areas equals the grid area (no overlaps, no holes)
+      52 |       const area = items.reduce((a, i) => a + (i.r - i.l) * (i.b - i.t), 0);
+      53 |       expect(Math.abs(area - (grid.r - grid.l) * (grid.b - grid.t)), `${vw}: uncovered or overlapping area`).toBeLessThan(40);
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:50:21
+
+    Error Context: test-results\portfolio-portfolio-one-co-6a44b-outer-corners-only-no-holes\error-context.md
+
+
+  12) tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › de 1440px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 4
+    Received length: 3
+    Received array:  [{"b": 3233.78125, "cls": "proj proj--ink proj--feat on-dark", "l": 48, "r": 720, "radii": [0, 0, 0, 6], "t": 2406.46875}, {"b": 2820.125, "cls": "proj proj--sand proj--sup", "l": 720, "r": 1392, "radii": [0, 0, 0, 0], "t": 2406.46875}, {"b": 3233.78125, "cls": "proj proj--coral proj--sup proj--end on-coral", "l": 720, "r": 1392, "radii": [0, 0, 120, 0], "t": 2820.125}]
+
+      48 |       await page.goto(`/${l}/${url}`);
+      49 |       const { grid, items } = await geo(page, sel);
+    > 50 |       expect(items).toHaveLength(4);
+         |                     ^
+      51 |       // the union of the cards exactly tiles the grid: sum of areas equals the grid area (no overlaps, no holes)
+      52 |       const area = items.reduce((a, i) => a + (i.r - i.l) * (i.b - i.t), 0);
+      53 |       expect(Math.abs(area - (grid.r - grid.l) * (grid.b - grid.t)), `${vw}: uncovered or overlapping area`).toBeLessThan(40);
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:50:21
+
+    Error Context: test-results\portfolio-portfolio-one-co-7e99c-outer-corners-only-no-holes\error-context.md
+
+
+  13) tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › es 320px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 4
+    Received length: 3
+    Received array:  [{"b": 4868.93115234375, "cls": "proj proj--ink proj--feat on-dark", "l": 20, "r": 300, "radii": [0, 0, 0, 0], "t": 3921.181396484375}, {"b": 5456.501953125, "cls": "proj proj--sand proj--sup", "l": 20, "r": 300, "radii": [0, 0, 0, 0], "t": 4868.345703125}, {"b": 6043.33837890625, "cls": "proj proj--coral proj--sup proj--end on-coral", "l": 20, "r": 300, "radii": [0, 0, 56, 0], "t": 5455.18212890625}]
+
+      48 |       await page.goto(`/${l}/${url}`);
+      49 |       const { grid, items } = await geo(page, sel);
+    > 50 |       expect(items).toHaveLength(4);
+         |                     ^
+      51 |       // the union of the cards exactly tiles the grid: sum of areas equals the grid area (no overlaps, no holes)
+      52 |       const area = items.reduce((a, i) => a + (i.r - i.l) * (i.b - i.t), 0);
+      53 |       expect(Math.abs(area - (grid.r - grid.l) * (grid.b - grid.t)), `${vw}: uncovered or overlapping area`).toBeLessThan(40);
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:50:21
+
+    Error Context: test-results\portfolio-portfolio-one-co-524af-outer-corners-only-no-holes\error-context.md
+
+
+  14) tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › es 390px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 4
+    Received length: 3
+    Received array:  [{"b": 4908.8662109375, "cls": "proj proj--ink proj--feat on-dark", "l": 20, "r": 370, "radii": [0, 0, 0, 0], "t": 3928.850830078125}, {"b": 5423.388671875, "cls": "proj proj--sand proj--sup", "l": 20, "r": 370, "radii": [0, 0, 0, 0], "t": 4908.482421875}, {"b": 5937.392578125, "cls": "proj proj--coral proj--sup proj--end on-coral", "l": 20, "r": 370, "radii": [0, 0, 56, 0], "t": 5422.486328125}]
+
+      48 |       await page.goto(`/${l}/${url}`);
+      49 |       const { grid, items } = await geo(page, sel);
+    > 50 |       expect(items).toHaveLength(4);
+         |                     ^
+      51 |       // the union of the cards exactly tiles the grid: sum of areas equals the grid area (no overlaps, no holes)
+      52 |       const area = items.reduce((a, i) => a + (i.r - i.l) * (i.b - i.t), 0);
+      53 |       expect(Math.abs(area - (grid.r - grid.l) * (grid.b - grid.t)), `${vw}: uncovered or overlapping area`).toBeLessThan(40);
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:50:21
+
+    Error Context: test-results\portfolio-portfolio-one-co-35bf5-outer-corners-only-no-holes\error-context.md
+
+
+[72/152] tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › de 834px home: no gutters, flat inner edges, curved outer corners only, no holes
+[73/152] tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › de 390px home: no gutters, flat inner edges, curved outer corners only, no holes
+[74/152] tests\portfolio.spec.ts:65:3 › portfolio: one connected composition › wide desktop: hotel left, clinic and shop and the context panel right; the hotel has no large empty navy area; right edge joins the hotel
+[75/152] tests\portfolio.spec.ts:76:3 › portfolio: one connected composition › related-work variant keeps two projects side by side on desktop and stacked on phones, joined
+[76/152] tests\portfolio.spec.ts:91:5 › portfolio: pictures › 1440px: the right source per layout, undistorted and fully loaded; reserved space with images blocked
+[77/152] tests\portfolio.spec.ts:91:5 › portfolio: pictures › 1024px: the right source per layout, undistorted and fully loaded; reserved space with images blocked
+  15) tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › de 1024px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 4
+    Received length: 3
+    Received array:  [{"b": 3365.926025390625, "cls": "proj proj--ink proj--feat on-dark", "l": 48, "r": 976, "radii": [0, 6, 0, 0], "t": 2457.238525390625}, {"b": 4013.328125, "cls": "proj proj--sand proj--sup", "l": 48, "r": 434.65625, "radii": [0, 0, 0, 0], "t": 3358.3125}, {"b": 4013.328125, "cls": "proj proj--coral proj--sup proj--end on-coral", "l": 434.65625, "r": 976, "radii": [0, 0, 92.16, 0], "t": 3358.3125}]
+
+      48 |       await page.goto(`/${l}/${url}`);
+      49 |       const { grid, items } = await geo(page, sel);
+    > 50 |       expect(items).toHaveLength(4);
+         |                     ^
+      51 |       // the union of the cards exactly tiles the grid: sum of areas equals the grid area (no overlaps, no holes)
+      52 |       const area = items.reduce((a, i) => a + (i.r - i.l) * (i.b - i.t), 0);
+      53 |       expect(Math.abs(area - (grid.r - grid.l) * (grid.b - grid.t)), `${vw}: uncovered or overlapping area`).toBeLessThan(40);
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:50:21
+
+    Error Context: test-results\portfolio-portfolio-one-co-4a676-outer-corners-only-no-holes\error-context.md
+
+
+[78/152] tests\portfolio.spec.ts:91:5 › portfolio: pictures › 834px: the right source per layout, undistorted and fully loaded; reserved space with images blocked
+  16) tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › de 320px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 4
+    Received length: 3
+    Received array:  [{"b": 4915.28125, "cls": "proj proj--ink proj--feat on-dark", "l": 20, "r": 300, "radii": [0, 0, 0, 0], "t": 3967.53125}, {"b": 5503.4375, "cls": "proj proj--sand proj--sup", "l": 20, "r": 300, "radii": [0, 0, 0, 0], "t": 4915.28125}, {"b": 6112.390625, "cls": "proj proj--coral proj--sup proj--end on-coral", "l": 20, "r": 300, "radii": [0, 0, 56, 0], "t": 5503.4375}]
+
+      48 |       await page.goto(`/${l}/${url}`);
+      49 |       const { grid, items } = await geo(page, sel);
+    > 50 |       expect(items).toHaveLength(4);
+         |                     ^
+      51 |       // the union of the cards exactly tiles the grid: sum of areas equals the grid area (no overlaps, no holes)
+      52 |       const area = items.reduce((a, i) => a + (i.r - i.l) * (i.b - i.t), 0);
+      53 |       expect(Math.abs(area - (grid.r - grid.l) * (grid.b - grid.t)), `${vw}: uncovered or overlapping area`).toBeLessThan(40);
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:50:21
+
+    Error Context: test-results\portfolio-portfolio-one-co-56695-outer-corners-only-no-holes\error-context.md
+
+
+[79/152] tests\portfolio.spec.ts:91:5 › portfolio: pictures › 390px: the right source per layout, undistorted and fully loaded; reserved space with images blocked
+  17) tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › de 834px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 4
+    Received length: 3
+    Received array:  [{"b": 3556.830078125, "cls": "proj proj--ink proj--feat on-dark", "l": 32, "r": 802, "radii": [0, 6, 0, 0], "t": 2766.501953125}, {"b": 4163.875, "cls": "proj proj--sand proj--sup", "l": 32, "r": 384.90625, "radii": [0, 0, 0, 0], "t": 3549.21875}, {"b": 4163.875, "cls": "proj proj--coral proj--sup proj--end on-coral", "l": 384.90625, "r": 802, "radii": [0, 0, 75.06, 0], "t": 3549.21875}]
+
+      48 |       await page.goto(`/${l}/${url}`);
+      49 |       const { grid, items } = await geo(page, sel);
+    > 50 |       expect(items).toHaveLength(4);
+         |                     ^
+      51 |       // the union of the cards exactly tiles the grid: sum of areas equals the grid area (no overlaps, no holes)
+      52 |       const area = items.reduce((a, i) => a + (i.r - i.l) * (i.b - i.t), 0);
+      53 |       expect(Math.abs(area - (grid.r - grid.l) * (grid.b - grid.t)), `${vw}: uncovered or overlapping area`).toBeLessThan(40);
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:50:21
+
+    Error Context: test-results\portfolio-portfolio-one-co-f22b4-outer-corners-only-no-holes\error-context.md
+
+
+  18) tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › de 390px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 4
+    Received length: 3
+    Received array:  [{"b": 4943.4150390625, "cls": "proj proj--ink proj--feat on-dark", "l": 20, "r": 370, "radii": [0, 0, 0, 0], "t": 3963.3994140625}, {"b": 5508.6875, "cls": "proj proj--sand proj--sup", "l": 20, "r": 370, "radii": [0, 0, 0, 0], "t": 4938.171875}, {"b": 6079.203125, "cls": "proj proj--coral proj--sup proj--end on-coral", "l": 20, "r": 370, "radii": [0, 0, 56, 0], "t": 5508.6875}]
+
+      48 |       await page.goto(`/${l}/${url}`);
+      49 |       const { grid, items } = await geo(page, sel);
+    > 50 |       expect(items).toHaveLength(4);
+         |                     ^
+      51 |       // the union of the cards exactly tiles the grid: sum of areas equals the grid area (no overlaps, no holes)
+      52 |       const area = items.reduce((a, i) => a + (i.r - i.l) * (i.b - i.t), 0);
+      53 |       expect(Math.abs(area - (grid.r - grid.l) * (grid.b - grid.t)), `${vw}: uncovered or overlapping area`).toBeLessThan(40);
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:50:21
+
+    Error Context: test-results\portfolio-portfolio-one-co-87d16-outer-corners-only-no-holes\error-context.md
+
+
+[80/152] tests\services-mosaic.spec.ts:36:5 › services mosaic imagery: content › en: the intro is the new sentence and the interaction instruction is gone
+[81/152] tests\portfolio.spec.ts:106:3 › portfolio: pictures › keyboard focus is visible on every card, including at the outer edges (outline drawn inside the card)
+  19) tests\portfolio.spec.ts:65:3 › portfolio: one connected composition › wide desktop: hotel left, clinic and shop and the context panel right; the hotel has no large empty navy area; right edge joins the hotel 
+
+    TypeError: Cannot read properties of undefined (reading 't')
+
+      68 |     const { grid, items } = await geo(page, '#work .grid');
+      69 |     const [hotel, clinic, shop, ex] = items as [typeof items[0], typeof items[0], typeof items[0], typeof items[0]];
+    > 70 |     expect(Math.abs(hotel.r - clinic.l)).toBeLessThan(1); expect(Math.abs(clinic.b - shop.t)).toBeLessThan(1); expect(Math.abs(shop.b - ex.t)).toBeLessThan(1);
+         |                                                                                                                                            ^
+      71 |     expect(Math.abs(hotel.t - grid.t)).toBeLessThan(1); expect(Math.abs(ex.b - grid.b)).toBeLessThan(1);
+      72 |     const empty = await page.evaluate(() => { const h = document.querySelector('#work .proj--feat')!; const kids = [...h.querySelectorAll<HTMLElement>('.proj__body > *')]; const last = Math.max(...kids.map((k) => k.getBoundingClientRect().bottom)); return h.getBoundingClientRect().bottom - last - parseFloat(getComputedStyle(h.querySelector('.proj__body')!).paddingBottom); });
+      73 |     expect(empty, `blank space under the hotel text: ${Math.round(empty)}px`).toBeLessThan(70);
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:70:140
+
+    Error Context: test-results\portfolio-portfolio-one-co-52a4d--right-edge-joins-the-hotel\error-context.md
+
+
+[82/152] tests\services-mosaic.spec.ts:21:3 › services mosaic imagery: content › each service maps to an existing concept output, with files on disk and complete localized text
+[83/152] tests\services-mosaic.spec.ts:36:5 › services mosaic imagery: content › de: the intro is the new sentence and the interaction instruction is gone
+[84/152] tests\services-mosaic.spec.ts:36:5 › services mosaic imagery: content › es: the intro is the new sentence and the interaction instruction is gone
+[85/152] tests\services-mosaic.spec.ts:46:5 › services mosaic imagery: tiles › en: every tile shows its concept picture, a visible concept label and live text; no video is requested
+[86/152] tests\services-mosaic.spec.ts:46:5 › services mosaic imagery: tiles › es: every tile shows its concept picture, a visible concept label and live text; no video is requested
+[87/152] tests\services-mosaic.spec.ts:46:5 › services mosaic imagery: tiles › de: every tile shows its concept picture, a visible concept label and live text; no video is requested
+[88/152] tests\services-mosaic.spec.ts:77:5 › services mosaic imagery: tiles › titles, descriptions and action groups line up across neighbouring tiles at rest, top row, 1440px (en/es/de)
+[89/152] tests\services-mosaic.spec.ts:77:5 › services mosaic imagery: tiles › titles, descriptions and action groups line up across neighbouring tiles at rest, bot row, 1440px (en/es/de)
+[90/152] tests\services-mosaic.spec.ts:77:5 › services mosaic imagery: tiles › titles, descriptions and action groups line up across neighbouring tiles at rest, top row, 1024px (en/es/de)
+[91/152] tests\services-mosaic.spec.ts:77:5 › services mosaic imagery: tiles › titles, descriptions and action groups line up across neighbouring tiles at rest, bot row, 1024px (en/es/de)
+  20) tests\portfolio.spec.ts:106:3 › portfolio: pictures › keyboard focus is visible on every card, including at the outer edges (outline drawn inside the card) 
+
+    Error: expect(received).not.toBe(expected) // Object.is equality
+
+    Expected: not "none"
+
+      111 |       await a.focus();
+      112 |       const o = await a.evaluate((e) => { const cs = getComputedStyle(e); const card = e.closest('.proj')!.getBoundingClientRect(); const r = e.getBoundingClientRect(); return { style: cs.outlineStyle, offset: parseFloat(cs.outlineOffset), width: parseFloat(cs.outlineWidth), insideX: r.left >= card.left && r.right <= card.right }; });
+    > 113 |       expect(o.style).not.toBe('none'); expect(o.width).toBeGreaterThanOrEqual(3); expect(o.offset).toBeLessThan(0);
+          |                           ^
+      114 |     }
+      115 |   });
+      116 | });
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:113:27
+
+    Error Context: test-results\portfolio-portfolio-pictur-cc1b6-line-drawn-inside-the-card-\error-context.md
+
+
+[92/152] tests\services-mosaic.spec.ts:77:5 › services mosaic imagery: tiles › titles, descriptions and action groups line up across neighbouring tiles at rest, bot row, 834px (en/es/de)
+[93/152] tests\services-mosaic.spec.ts:89:5 › services mosaic imagery: tiles › 1440px: no content is clipped and the picture stays usable in any active state; hover never moves later sections (en/es/de)
+[94/152] tests\services-mosaic.spec.ts:89:5 › services mosaic imagery: tiles › 1024px: no content is clipped and the picture stays usable in any active state; hover never moves later sections (en/es/de)
+[95/152] tests\services-mosaic.spec.ts:89:5 › services mosaic imagery: tiles › 834px: no content is clipped and the picture stays usable in any active state; hover never moves later sections (en/es/de)
+[96/152] tests\services-mosaic.spec.ts:115:3 › services mosaic imagery: tiles › a stationary pointer near the moving edge does not make the active tile flicker; rapid crossing settles on one tile
+[97/152] tests\services-mosaic.spec.ts:77:5 › services mosaic imagery: tiles › titles, descriptions and action groups line up across neighbouring tiles at rest, top row, 834px (en/es/de)
+[98/152] tests\services-mosaic.spec.ts:142:3 › services mosaic imagery: tiles › Explore, Escape and focus still work on the picture tiles; full service links stay independent
+[99/152] tests\services-mosaic.spec.ts:161:5 › services mosaic imagery: phones, motion, no-JS, blocked images › 390px: one connected column in reading order, pictures sized to their shape, no sideways scroll, essential text visible
+[100/152] tests\services-mosaic.spec.ts:161:5 › services mosaic imagery: phones, motion, no-JS, blocked images › 320px: one connected column in reading order, pictures sized to their shape, no sideways scroll, essential text visible
+[101/152] tests\services-mosaic.spec.ts:175:3 › services mosaic imagery: phones, motion, no-JS, blocked images › reduced motion: the picture and edge transitions are off, every action still works
+[102/152] tests\services-mosaic.spec.ts:186:3 › services mosaic imagery: phones, motion, no-JS, blocked images › without JavaScript the pictures, labels, text and full-service links are all present
+[103/152] tests\services-mosaic.spec.ts:202:5 › services mosaic imagery: phones, motion, no-JS, blocked images › 1440px: picture boxes are reserved with images blocked (no layout shift when they load)
+[104/152] tests\services-mosaic.spec.ts:202:5 › services mosaic imagery: phones, motion, no-JS, blocked images › 834px: picture boxes are reserved with images blocked (no layout shift when they load)
+[105/152] tests\services-mosaic.spec.ts:202:5 › services mosaic imagery: phones, motion, no-JS, blocked images › 390px: picture boxes are reserved with images blocked (no layout shift when they load)
+[106/152] tests\services-mosaic.spec.ts:221:5 › service pages (all 12): artwork, caption, enquiry preselection › /en/services/web/ shows the web concept picture with its label and keeps the enquiry link
+[107/152] tests\services-mosaic.spec.ts:221:5 › service pages (all 12): artwork, caption, enquiry preselection › /en/services/local/ shows the local concept picture with its label and keeps the enquiry link
+[108/152] tests\services-mosaic.spec.ts:221:5 › service pages (all 12): artwork, caption, enquiry preselection › /en/services/video/ shows the video concept picture with its label and keeps the enquiry link
+[109/152] tests\services-mosaic.spec.ts:221:5 › service pages (all 12): artwork, caption, enquiry preselection › /en/services/ads/ shows the ads concept picture with its label and keeps the enquiry link
+[110/152] tests\services-mosaic.spec.ts:221:5 › service pages (all 12): artwork, caption, enquiry preselection › /es/services/web/ shows the web concept picture with its label and keeps the enquiry link
+[111/152] tests\services-mosaic.spec.ts:221:5 › service pages (all 12): artwork, caption, enquiry preselection › /es/services/local/ shows the local concept picture with its label and keeps the enquiry link
+[112/152] tests\services-mosaic.spec.ts:221:5 › service pages (all 12): artwork, caption, enquiry preselection › /es/services/video/ shows the video concept picture with its label and keeps the enquiry link
+[113/152] tests\services-mosaic.spec.ts:221:5 › service pages (all 12): artwork, caption, enquiry preselection › /es/services/ads/ shows the ads concept picture with its label and keeps the enquiry link
+[114/152] tests\services-mosaic.spec.ts:221:5 › service pages (all 12): artwork, caption, enquiry preselection › /de/services/web/ shows the web concept picture with its label and keeps the enquiry link
+[115/152] tests\services-mosaic.spec.ts:221:5 › service pages (all 12): artwork, caption, enquiry preselection › /de/services/local/ shows the local concept picture with its label and keeps the enquiry link
+[116/152] tests\services-mosaic.spec.ts:221:5 › service pages (all 12): artwork, caption, enquiry preselection › /de/services/video/ shows the video concept picture with its label and keeps the enquiry link
+[117/152] tests\services-mosaic.spec.ts:221:5 › service pages (all 12): artwork, caption, enquiry preselection › /de/services/ads/ shows the ads concept picture with its label and keeps the enquiry link
+[118/152] tests\services-mosaic.spec.ts:246:3 › service pages (all 12): artwork, caption, enquiry preselection › service pages at 390px: picture fits the column, caption visible, no sideways scroll
+[119/152] tests\services-motion.spec.ts:26:5 › services assembly: content first, then travel › 1440px: every name, outcome, concept label, Explore button and link is visible, opaque and inside the viewport width before any travel completes
+[120/152] tests\services-motion.spec.ts:26:5 › services assembly: content first, then travel › 834px: every name, outcome, concept label, Explore button and link is visible, opaque and inside the viewport width before any travel completes
+[121/152] tests\services-motion.spec.ts:26:5 › services assembly: content first, then travel › 390px: every name, outcome, concept label, Explore button and link is visible, opaque and inside the viewport width before any travel completes
+[122/152] tests\services-motion.spec.ts:46:3 › services assembly: content first, then travel › desktop: pieces below the fold start apart, dock as they scroll in, stay docked when scrolling back, and the mosaic then behaves as before
+[123/152] tests\services-motion.spec.ts:69:3 › services assembly: content first, then travel › reverse scrolling before a piece has docked is decorative and exact; it never touches focus
+[124/152] tests\services-motion.spec.ts:91:3 › services assembly: actions never wait for the travel › keyboard focus entering the section settles every piece, with an eased move and no lost focus
+[125/152] tests\services-motion.spec.ts:114:3 › services assembly: actions never wait for the travel › Explore on a tile that is still travelling opens its panel at once, keeps focus on the button, and Escape closes as before
+[126/152] tests\services-motion.spec.ts:130:3 › services assembly: actions never wait for the travel › phone: tapping Explore on a tile that is still arriving opens the panel inline and settles the stack
+[127/152] tests\services-motion.spec.ts:144:3 › services assembly: actions never wait for the travel › a link to the section settles it: /#services, and a hashchange from the page
+[128/152] tests\services-motion.spec.ts:189:3 › services assembly: actions never wait for the travel › after a reload that restores the scroll position (real browser restoration), a tile is docked exactly when it was on screen when the assembly looked, and the lower row can still assemble
+[129/152] tests\services-motion.spec.ts:221:3 › services assembly: actions never wait for the travel › restoration that lands after the script ran and before load: the top row is docked, the lower row stays eligible, scrolling completes it, and docked tiles never scatter again
+[130/152] tests\services-motion.spec.ts:253:3 › services assembly: actions never wait for the travel › resizing mid-assembly keeps a coherent state: no sideways scroll, nothing outside the viewport, and docking still completes
+[131/152] tests\services-motion.spec.ts:272:3 › services assembly: nothing covers the section on a first visit › with fresh storage no fixed overlay exists, and pieces start from the whole window
+[132/152] tests\services-motion.spec.ts:285:3 › services assembly: fallbacks › reduced motion: the complete composition from first render, no travel at any scroll position
+[133/152] tests\services-motion.spec.ts:296:3 › services assembly: fallbacks › no JavaScript: the same complete composition, every link present
+[134/152] tests\services-motion.spec.ts:309:3 › services assembly: fallbacks › a short window (under 480px high) is shown complete, without travel
+[135/152] tests\services-motion.spec.ts:320:3 › services assembly: the settled mosaic is the one it was › connected single column on phones: no gap between any two stacked tiles; outer silhouette corners as before
+[136/152] tests\services-motion.spec.ts:335:3 › services assembly: the settled mosaic is the one it was › desktop: tiles share edges exactly again after docking; only the outer corners are curved
+[137/152] tests\services-motion.spec.ts:349:5 › services assembly: the settled mosaic is the one it was › 1440px: after docking, hovering moves the shared edge and never moves the sections below
+[138/152] tests\services-motion.spec.ts:349:5 › services assembly: the settled mosaic is the one it was › 1024px: after docking, hovering moves the shared edge and never moves the sections below
+[139/152] tests\services-motion.spec.ts:365:3 › services assembly: the settled mosaic is the one it was › hover does not resize a tile that is still travelling, and a stationary pointer under the scrolling content cannot trigger it
+[140/152] tests\services-motion.spec.ts:375:3 › services assembly: the settled mosaic is the one it was › no layout shift from load through the whole scroll, the finish and a reset (EN/DE, desktop and phone)
+[141/152] tests\services-motion.spec.ts:390:3 › services assembly: the settled mosaic is the one it was › image space is reserved: with images blocked the tile picture boxes keep their layout size while pieces travel (1440 and 390)
+[142/152] tests\services-motion.spec.ts:426:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › REGRESSION: Play then Pause during the automatic hold stays paused after the hold is released
+[143/152] tests\services-motion.spec.ts:439:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › manual Play during the hold is not reversed by stale automatic ownership
+  21) tests\services-motion.spec.ts:320:3 › services assembly: the settled mosaic is the one it was › connected single column on phones: no gap between any two stacked tiles; outer silhouette corners as before 
+
+    Error: expect(received).toBeGreaterThan(expected)
+
+    Expected: > 40
+    Received:   6
+
+      328 |       });
+      329 |       for (let i = 1; i < r.length; i++) { expect(Math.abs(r[i]!.top - r[i - 1]!.bottom), `${lang}: gap between tile ${i} and ${i + 1}`).toBeLessThan(0.6); expect(Math.abs(r[i]!.left - r[0]!.left)).toBeLessThan(0.6); expect(Math.abs(r[i]!.right - r[0]!.right)).toBeLessThan(0.6); }
+    > 330 |       expect(r[0]!.radii[0]).toBeGreaterThan(40); expect(r[0]!.radii[1]).toBe(6); expect(r[3]!.radii[2]).toBeGreaterThan(40); expect(r[3]!.radii[3]).toBe(6);
+          |                                                                                                          ^
+      331 |       expect(r[1]!.radii.every((v) => v === 0)).toBe(true); expect(r[2]!.radii.every((v) => v === 0)).toBe(true);
+      332 |     }
+      333 |   });
+        at C:\Users\basti\source\repos\odalo\odalo\tests\services-motion.spec.ts:330:106
+
+    Error Context: test-results\services-motion-services-a-2c31a-ilhouette-corners-as-before\error-context.md
+
+
+  22) tests\services-motion.spec.ts:335:3 › services assembly: the settled mosaic is the one it was › desktop: tiles share edges exactly again after docking; only the outer corners are curved 
+
+    Error: expect(received).toBeGreaterThan(expected)
+
+    Expected: > 80
+    Received:   6
+
+      341 |     expect(Math.abs(web.r - local.l)).toBeLessThan(0.6); expect(Math.abs(video.r - ads.l)).toBeLessThan(0.6);
+      342 |     expect(Math.abs(web.b - video.t)).toBeLessThan(0.6); expect(Math.abs(local.b - ads.t)).toBeLessThan(0.6);
+    > 343 |     expect(web.radii[0]).toBeGreaterThan(80); expect(local.radii[1]).toBe(6); expect(video.radii[3]).toBe(6); expect(ads.radii[2]).toBeGreaterThan(80);
+          |                                                                                                                                    ^
+      344 |     expect([web.radii[1], web.radii[2], web.radii[3], local.radii[0], local.radii[2], local.radii[3], video.radii[0], video.radii[1], video.radii[2], ads.radii[0], ads.radii[1], ads.radii[3]].every((v) => v === 0)).toBe(true);
+      345 |     for (const t of r) expect(t.shadow).toBe('none');
+      346 |   });
+        at C:\Users\basti\source\repos\odalo\odalo\tests\services-motion.spec.ts:343:132
+
+    Error Context: test-results\services-motion-services-a-28f1b-he-outer-corners-are-curved\error-context.md
+
+
+[144/152] tests\services-motion.spec.ts:481:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › a reduced-motion change during the hold leaves no dangling hold
+[145/152] tests\services-motion.spec.ts:490:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › navigating away and back leaves no dangling hold
+[146/152] tests\services-motion.spec.ts:503:5 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › es: labels, pressed state and keyboard focus stay correct through hold, Play, Pause and release
+[147/152] tests\services-motion.spec.ts:503:5 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › en: labels, pressed state and keyboard focus stay correct through hold, Play, Pause and release
+[148/152] tests\services-motion.spec.ts:449:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › automatic-only hold releases and resumes; a visitor pause made before the overlap stays
+[149/152] tests\services-motion.spec.ts:463:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › repeated and overlapping hold requests are idempotent and leave no dangling hold
+[150/152] tests\services-motion.spec.ts:503:5 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › de: labels, pressed state and keyboard focus stay correct through hold, Play, Pause and release
+[151/152] tests\services-motion.spec.ts:535:3 › hero and services motion are coordinated through the hero's own pause control › while a piece is travelling and the hero is on screen the hero pauses itself, then resumes when the pieces have docked
+[152/152] tests\services-motion.spec.ts:549:3 › hero and services motion are coordinated through the hero's own pause control › a visitor's own pause is never undone
+  22 failed
+    tests\portfolio.spec.ts:23:5 › portfolio: content › en: heading, context panel and view-all link are the new copy; cards keep concept badges, services and working links 
+    tests\portfolio.spec.ts:23:5 › portfolio: content › es: heading, context panel and view-all link are the new copy; cards keep concept badges, services and working links 
+    tests\portfolio.spec.ts:23:5 › portfolio: content › de: heading, context panel and view-all link are the new copy; cards keep concept badges, services and working links 
+    tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › en 1440px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › en 1024px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › en 834px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › en 390px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › en 320px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › es 1440px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › es 1024px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › es 834px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › es 390px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › es 320px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › de 1440px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › de 1024px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › de 834px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › de 390px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:46:5 › portfolio: one connected composition › de 320px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:65:3 › portfolio: one connected composition › wide desktop: hotel left, clinic and shop and the context panel right; the hotel has no large empty navy area; right edge joins the hotel 
+    tests\portfolio.spec.ts:106:3 › portfolio: pictures › keyboard focus is visible on every card, including at the outer edges (outline drawn inside the card) 
+    tests\services-motion.spec.ts:320:3 › services assembly: the settled mosaic is the one it was › connected single column on phones: no gap between any two stacked tiles; outer silhouette corners as before 
+    tests\services-motion.spec.ts:335:3 › services assembly: the settled mosaic is the one it was › desktop: tiles share edges exactly again after docking; only the outer corners are curved 
+  130 passed (2.5m)

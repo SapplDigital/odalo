@@ -1,0 +1,472 @@
+
+Running 92 tests using 8 workers
+
+[1/92] tests\portfolio.spec.ts:23:5 › portfolio: content › es: heading, context panel and view-all link are the new copy; cards keep concept badges, services and working links
+[2/92] tests\portfolio.spec.ts:23:5 › portfolio: content › de: heading, context panel and view-all link are the new copy; cards keep concept badges, services and working links
+[3/92] tests\portfolio.spec.ts:23:5 › portfolio: content › en: heading, context panel and view-all link are the new copy; cards keep concept badges, services and working links
+[4/92] tests\portfolio.spec.ts:18:3 › portfolio: content › cards use the short editable names; full titles stay on the records; IDs, badges and services are kept
+[5/92] tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › en 1440px home: no gutters, flat inner edges, curved outer corners only, no holes
+[6/92] tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › en 1440px work/: no gutters, flat inner edges, curved outer corners only, no holes
+[7/92] tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › en 390px home: no gutters, flat inner edges, curved outer corners only, no holes
+[8/92] tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › en 1024px home: no gutters, flat inner edges, curved outer corners only, no holes
+[9/92] tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › en 834px home: no gutters, flat inner edges, curved outer corners only, no holes
+[10/92] tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › en 320px home: no gutters, flat inner edges, curved outer corners only, no holes
+[11/92] tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › es 1440px home: no gutters, flat inner edges, curved outer corners only, no holes
+[12/92] tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › es 1440px work/: no gutters, flat inner edges, curved outer corners only, no holes
+[13/92] tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › es 1024px home: no gutters, flat inner edges, curved outer corners only, no holes
+[14/92] tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › es 834px home: no gutters, flat inner edges, curved outer corners only, no holes
+  1) tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › en 320px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: 320: inner corner 2 of proj proj--coral proj--sup proj--end on-coral is rounded
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 56
+
+      57 |       for (const it of items) {
+      58 |         const corners = [[it.l, it.t], [it.r, it.t], [it.r, it.b], [it.l, it.b]];
+    > 59 |         corners.forEach(([x, y], k) => { const outer = (Math.abs(x! - grid.l) < 1 || Math.abs(x! - grid.r) < 1) && (Math.abs(y! - grid.t) < 1 || Math.abs(y! - grid.b) < 1); if (!outer) expect(it.radii[k], `${vw}: inner corner ${k} of ${it.cls} is rounded`).toBe(0); });
+         |                                                                                                                                                                                                                                                                  ^
+      60 |       }
+      61 |       // outer silhouette: large top left and bottom right
+      62 |       const tl = items.find((i) => Math.abs(i.l - grid.l) < 1 && Math.abs(i.t - grid.t) < 1)!, br = items.find((i) => Math.abs(i.r - grid.r) < 1 && Math.abs(i.b - grid.b) < 1)!;
+        at forEach (C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:59:258)
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:59:17
+
+    Error Context: test-results\portfolio-portfolio-one-co-14954-outer-corners-only-no-holes\error-context.md
+
+
+  2) tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › en 834px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: 834: inner corner 1 of proj proj--ink proj--feat on-dark is rounded
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 6
+
+      57 |       for (const it of items) {
+      58 |         const corners = [[it.l, it.t], [it.r, it.t], [it.r, it.b], [it.l, it.b]];
+    > 59 |         corners.forEach(([x, y], k) => { const outer = (Math.abs(x! - grid.l) < 1 || Math.abs(x! - grid.r) < 1) && (Math.abs(y! - grid.t) < 1 || Math.abs(y! - grid.b) < 1); if (!outer) expect(it.radii[k], `${vw}: inner corner ${k} of ${it.cls} is rounded`).toBe(0); });
+         |                                                                                                                                                                                                                                                                  ^
+      60 |       }
+      61 |       // outer silhouette: large top left and bottom right
+      62 |       const tl = items.find((i) => Math.abs(i.l - grid.l) < 1 && Math.abs(i.t - grid.t) < 1)!, br = items.find((i) => Math.abs(i.r - grid.r) < 1 && Math.abs(i.b - grid.b) < 1)!;
+        at forEach (C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:59:258)
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:59:17
+
+    Error Context: test-results\portfolio-portfolio-one-co-1ab93-outer-corners-only-no-holes\error-context.md
+
+
+  3) tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › en 1024px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: 1024: inner corner 1 of proj proj--ink proj--feat on-dark is rounded
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 6
+
+      57 |       for (const it of items) {
+      58 |         const corners = [[it.l, it.t], [it.r, it.t], [it.r, it.b], [it.l, it.b]];
+    > 59 |         corners.forEach(([x, y], k) => { const outer = (Math.abs(x! - grid.l) < 1 || Math.abs(x! - grid.r) < 1) && (Math.abs(y! - grid.t) < 1 || Math.abs(y! - grid.b) < 1); if (!outer) expect(it.radii[k], `${vw}: inner corner ${k} of ${it.cls} is rounded`).toBe(0); });
+         |                                                                                                                                                                                                                                                                  ^
+      60 |       }
+      61 |       // outer silhouette: large top left and bottom right
+      62 |       const tl = items.find((i) => Math.abs(i.l - grid.l) < 1 && Math.abs(i.t - grid.t) < 1)!, br = items.find((i) => Math.abs(i.r - grid.r) < 1 && Math.abs(i.b - grid.b) < 1)!;
+        at forEach (C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:59:258)
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:59:17
+
+    Error Context: test-results\portfolio-portfolio-one-co-4b891-outer-corners-only-no-holes\error-context.md
+
+
+  4) tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › en 1440px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: 1440: inner corner 3 of proj proj--ink proj--feat on-dark is rounded
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 6
+
+      57 |       for (const it of items) {
+      58 |         const corners = [[it.l, it.t], [it.r, it.t], [it.r, it.b], [it.l, it.b]];
+    > 59 |         corners.forEach(([x, y], k) => { const outer = (Math.abs(x! - grid.l) < 1 || Math.abs(x! - grid.r) < 1) && (Math.abs(y! - grid.t) < 1 || Math.abs(y! - grid.b) < 1); if (!outer) expect(it.radii[k], `${vw}: inner corner ${k} of ${it.cls} is rounded`).toBe(0); });
+         |                                                                                                                                                                                                                                                                  ^
+      60 |       }
+      61 |       // outer silhouette: large top left and bottom right
+      62 |       const tl = items.find((i) => Math.abs(i.l - grid.l) < 1 && Math.abs(i.t - grid.t) < 1)!, br = items.find((i) => Math.abs(i.r - grid.r) < 1 && Math.abs(i.b - grid.b) < 1)!;
+        at forEach (C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:59:258)
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:59:17
+
+    Error Context: test-results\portfolio-portfolio-one-co-c304a-outer-corners-only-no-holes\error-context.md
+
+
+  5) tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › en 390px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: 390: inner corner 2 of proj proj--coral proj--sup proj--end on-coral is rounded
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 56
+
+      57 |       for (const it of items) {
+      58 |         const corners = [[it.l, it.t], [it.r, it.t], [it.r, it.b], [it.l, it.b]];
+    > 59 |         corners.forEach(([x, y], k) => { const outer = (Math.abs(x! - grid.l) < 1 || Math.abs(x! - grid.r) < 1) && (Math.abs(y! - grid.t) < 1 || Math.abs(y! - grid.b) < 1); if (!outer) expect(it.radii[k], `${vw}: inner corner ${k} of ${it.cls} is rounded`).toBe(0); });
+         |                                                                                                                                                                                                                                                                  ^
+      60 |       }
+      61 |       // outer silhouette: large top left and bottom right
+      62 |       const tl = items.find((i) => Math.abs(i.l - grid.l) < 1 && Math.abs(i.t - grid.t) < 1)!, br = items.find((i) => Math.abs(i.r - grid.r) < 1 && Math.abs(i.b - grid.b) < 1)!;
+        at forEach (C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:59:258)
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:59:17
+
+    Error Context: test-results\portfolio-portfolio-one-co-39b5c-outer-corners-only-no-holes\error-context.md
+
+
+  6) tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › es 1024px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: 1024: inner corner 1 of proj proj--ink proj--feat on-dark is rounded
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 6
+
+      57 |       for (const it of items) {
+      58 |         const corners = [[it.l, it.t], [it.r, it.t], [it.r, it.b], [it.l, it.b]];
+    > 59 |         corners.forEach(([x, y], k) => { const outer = (Math.abs(x! - grid.l) < 1 || Math.abs(x! - grid.r) < 1) && (Math.abs(y! - grid.t) < 1 || Math.abs(y! - grid.b) < 1); if (!outer) expect(it.radii[k], `${vw}: inner corner ${k} of ${it.cls} is rounded`).toBe(0); });
+         |                                                                                                                                                                                                                                                                  ^
+      60 |       }
+      61 |       // outer silhouette: large top left and bottom right
+      62 |       const tl = items.find((i) => Math.abs(i.l - grid.l) < 1 && Math.abs(i.t - grid.t) < 1)!, br = items.find((i) => Math.abs(i.r - grid.r) < 1 && Math.abs(i.b - grid.b) < 1)!;
+        at forEach (C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:59:258)
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:59:17
+
+    Error Context: test-results\portfolio-portfolio-one-co-f31c0-outer-corners-only-no-holes\error-context.md
+
+
+  7) tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › es 834px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: 834: inner corner 1 of proj proj--ink proj--feat on-dark is rounded
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 6
+
+      57 |       for (const it of items) {
+      58 |         const corners = [[it.l, it.t], [it.r, it.t], [it.r, it.b], [it.l, it.b]];
+    > 59 |         corners.forEach(([x, y], k) => { const outer = (Math.abs(x! - grid.l) < 1 || Math.abs(x! - grid.r) < 1) && (Math.abs(y! - grid.t) < 1 || Math.abs(y! - grid.b) < 1); if (!outer) expect(it.radii[k], `${vw}: inner corner ${k} of ${it.cls} is rounded`).toBe(0); });
+         |                                                                                                                                                                                                                                                                  ^
+      60 |       }
+      61 |       // outer silhouette: large top left and bottom right
+      62 |       const tl = items.find((i) => Math.abs(i.l - grid.l) < 1 && Math.abs(i.t - grid.t) < 1)!, br = items.find((i) => Math.abs(i.r - grid.r) < 1 && Math.abs(i.b - grid.b) < 1)!;
+        at forEach (C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:59:258)
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:59:17
+
+    Error Context: test-results\portfolio-portfolio-one-co-6a44b-outer-corners-only-no-holes\error-context.md
+
+
+[15/92] tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › es 320px home: no gutters, flat inner edges, curved outer corners only, no holes
+[16/92] tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › de 1440px work/: no gutters, flat inner edges, curved outer corners only, no holes
+[17/92] tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › es 390px home: no gutters, flat inner edges, curved outer corners only, no holes
+[18/92] tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › de 1440px home: no gutters, flat inner edges, curved outer corners only, no holes
+[19/92] tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › de 1024px home: no gutters, flat inner edges, curved outer corners only, no holes
+[20/92] tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › de 390px home: no gutters, flat inner edges, curved outer corners only, no holes
+[21/92] tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › de 834px home: no gutters, flat inner edges, curved outer corners only, no holes
+  8) tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › es 1440px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: 1440: inner corner 3 of proj proj--ink proj--feat on-dark is rounded
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 6
+
+      57 |       for (const it of items) {
+      58 |         const corners = [[it.l, it.t], [it.r, it.t], [it.r, it.b], [it.l, it.b]];
+    > 59 |         corners.forEach(([x, y], k) => { const outer = (Math.abs(x! - grid.l) < 1 || Math.abs(x! - grid.r) < 1) && (Math.abs(y! - grid.t) < 1 || Math.abs(y! - grid.b) < 1); if (!outer) expect(it.radii[k], `${vw}: inner corner ${k} of ${it.cls} is rounded`).toBe(0); });
+         |                                                                                                                                                                                                                                                                  ^
+      60 |       }
+      61 |       // outer silhouette: large top left and bottom right
+      62 |       const tl = items.find((i) => Math.abs(i.l - grid.l) < 1 && Math.abs(i.t - grid.t) < 1)!, br = items.find((i) => Math.abs(i.r - grid.r) < 1 && Math.abs(i.b - grid.b) < 1)!;
+        at forEach (C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:59:258)
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:59:17
+
+    Error Context: test-results\portfolio-portfolio-one-co-bf2fc-outer-corners-only-no-holes\error-context.md
+
+
+[22/92] tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › de 320px home: no gutters, flat inner edges, curved outer corners only, no holes
+[23/92] tests\portfolio.spec.ts:69:3 › portfolio: one connected composition › wide desktop (homepage): hotel left, clinic over shop right, joined; the hotel has no large empty navy area; the work index keeps its four-piece layout
+[24/92] tests\portfolio.spec.ts:86:3 › portfolio: one connected composition › related-work variant keeps two projects side by side on desktop and stacked on phones, joined
+[25/92] tests\portfolio.spec.ts:101:5 › portfolio: pictures › 1440px: the right source per layout, undistorted and fully loaded; reserved space with images blocked
+[26/92] tests\portfolio.spec.ts:101:5 › portfolio: pictures › 1024px: the right source per layout, undistorted and fully loaded; reserved space with images blocked
+  9) tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › de 390px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    TypeError: Cannot read properties of undefined (reading 'radii')
+
+      63 |       expect(br.radii[2]).toBeGreaterThan(40);
+      64 |       // homepage: the field's large top-left curve belongs to the Services board above; the Work grid continues it with a square corner
+    > 65 |       if (home) expect(tl.radii[0]).toBe(0); else expect(tl.radii[0]).toBeGreaterThan(40);
+         |                           ^
+      66 |     });
+      67 |   }
+      68 |
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:65:27
+
+    Error Context: test-results\portfolio-portfolio-one-co-87d16-outer-corners-only-no-holes\error-context.md
+
+
+  10) tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › de 834px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: 834: inner corner 1 of proj proj--ink proj--feat on-dark is rounded
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 6
+
+      57 |       for (const it of items) {
+      58 |         const corners = [[it.l, it.t], [it.r, it.t], [it.r, it.b], [it.l, it.b]];
+    > 59 |         corners.forEach(([x, y], k) => { const outer = (Math.abs(x! - grid.l) < 1 || Math.abs(x! - grid.r) < 1) && (Math.abs(y! - grid.t) < 1 || Math.abs(y! - grid.b) < 1); if (!outer) expect(it.radii[k], `${vw}: inner corner ${k} of ${it.cls} is rounded`).toBe(0); });
+         |                                                                                                                                                                                                                                                                  ^
+      60 |       }
+      61 |       // outer silhouette: large top left and bottom right
+      62 |       const tl = items.find((i) => Math.abs(i.l - grid.l) < 1 && Math.abs(i.t - grid.t) < 1)!, br = items.find((i) => Math.abs(i.r - grid.r) < 1 && Math.abs(i.b - grid.b) < 1)!;
+        at forEach (C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:59:258)
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:59:17
+
+    Error Context: test-results\portfolio-portfolio-one-co-f22b4-outer-corners-only-no-holes\error-context.md
+
+
+  11) tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › es 390px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: 390: inner corner 2 of proj proj--coral proj--sup proj--end on-coral is rounded
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 56
+
+      57 |       for (const it of items) {
+      58 |         const corners = [[it.l, it.t], [it.r, it.t], [it.r, it.b], [it.l, it.b]];
+    > 59 |         corners.forEach(([x, y], k) => { const outer = (Math.abs(x! - grid.l) < 1 || Math.abs(x! - grid.r) < 1) && (Math.abs(y! - grid.t) < 1 || Math.abs(y! - grid.b) < 1); if (!outer) expect(it.radii[k], `${vw}: inner corner ${k} of ${it.cls} is rounded`).toBe(0); });
+         |                                                                                                                                                                                                                                                                  ^
+      60 |       }
+      61 |       // outer silhouette: large top left and bottom right
+      62 |       const tl = items.find((i) => Math.abs(i.l - grid.l) < 1 && Math.abs(i.t - grid.t) < 1)!, br = items.find((i) => Math.abs(i.r - grid.r) < 1 && Math.abs(i.b - grid.b) < 1)!;
+        at forEach (C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:59:258)
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:59:17
+
+    Error Context: test-results\portfolio-portfolio-one-co-35bf5-outer-corners-only-no-holes\error-context.md
+
+
+[27/92] tests\portfolio.spec.ts:101:5 › portfolio: pictures › 834px: the right source per layout, undistorted and fully loaded; reserved space with images blocked
+[28/92] tests\portfolio.spec.ts:101:5 › portfolio: pictures › 390px: the right source per layout, undistorted and fully loaded; reserved space with images blocked
+[29/92] tests\portfolio.spec.ts:116:3 › portfolio: pictures › keyboard focus is visible on every card, including at the outer edges (homepage: a ring around the whole card, drawn inside it)
+[30/92] tests\services-motion.spec.ts:26:5 › services assembly: content first, then travel › 1440px: every name, outcome, concept label, Explore button and link is visible, opaque and inside the viewport width before any travel completes
+  12) tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › de 320px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    TypeError: Cannot read properties of undefined (reading 'radii')
+
+      63 |       expect(br.radii[2]).toBeGreaterThan(40);
+      64 |       // homepage: the field's large top-left curve belongs to the Services board above; the Work grid continues it with a square corner
+    > 65 |       if (home) expect(tl.radii[0]).toBe(0); else expect(tl.radii[0]).toBeGreaterThan(40);
+         |                           ^
+      66 |     });
+      67 |   }
+      68 |
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:65:27
+
+    Error Context: test-results\portfolio-portfolio-one-co-56695-outer-corners-only-no-holes\error-context.md
+
+
+  13) tests\portfolio.spec.ts:69:3 › portfolio: one connected composition › wide desktop (homepage): hotel left, clinic over shop right, joined; the hotel has no large empty navy area; the work index keeps its four-piece layout 
+
+    Error: en
+
+    expect(received).toBeLessThan(expected)
+
+    Expected: < 1
+    Received:   2.36181640625
+
+      74 |       const [hotel, clinic, shop] = items as [typeof items[0], typeof items[0], typeof items[0]];
+      75 |       expect(items).toHaveLength(3);
+    > 76 |       expect(Math.abs(hotel.r - clinic.l), l).toBeLessThan(1); expect(Math.abs(clinic.b - shop.t), l).toBeLessThan(1); expect(Math.abs(clinic.l - shop.l), l).toBeLessThan(1);
+         |                                                                                                       ^
+      77 |       expect(Math.abs(hotel.t - grid.t)).toBeLessThan(1); expect(Math.abs(shop.b - grid.b)).toBeLessThan(1); expect(Math.abs(shop.r - grid.r)).toBeLessThan(1);
+      78 |       const empty = await page.evaluate(() => { const h = document.querySelector('#work .proj--feat')!; const kids = [...h.querySelectorAll<HTMLElement>('.proj__body > *')]; const last = Math.max(...kids.map((k) => k.getBoundingClientRect().bottom)); return h.getBoundingClientRect().bottom - last; });
+      79 |       expect(empty, `${l}: blank space under the hotel text: ${Math.round(empty)}px`).toBeLessThan(90);
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:76:103
+
+    Error Context: test-results\portfolio-portfolio-one-co-5b24d-keeps-its-four-piece-layout\error-context.md
+
+
+[31/92] tests\services-motion.spec.ts:26:5 › services assembly: content first, then travel › 834px: every name, outcome, concept label, Explore button and link is visible, opaque and inside the viewport width before any travel completes
+[32/92] tests\services-motion.spec.ts:26:5 › services assembly: content first, then travel › 390px: every name, outcome, concept label, Explore button and link is visible, opaque and inside the viewport width before any travel completes
+[33/92] tests\services-motion.spec.ts:46:3 › services assembly: content first, then travel › desktop: pieces below the fold start apart, dock as they scroll in, stay docked when scrolling back, and the mosaic then behaves as before
+[34/92] tests\services-motion.spec.ts:69:3 › services assembly: content first, then travel › reverse scrolling before a piece has docked is decorative and exact; it never touches focus
+[35/92] tests\services-motion.spec.ts:91:3 › services assembly: actions never wait for the travel › keyboard focus entering the section settles every piece, with an eased move and no lost focus
+[36/92] tests\services-motion.spec.ts:114:3 › services assembly: actions never wait for the travel › Explore on a tile that is still travelling opens its panel at once, keeps focus on the button, and Escape closes as before
+[37/92] tests\services-motion.spec.ts:130:3 › services assembly: actions never wait for the travel › phone: tapping Explore on a tile that is still arriving opens the panel inline and settles the stack
+[38/92] tests\services-motion.spec.ts:144:3 › services assembly: actions never wait for the travel › a link to the section settles it: /#services, and a hashchange from the page
+[39/92] tests\services-motion.spec.ts:189:3 › services assembly: actions never wait for the travel › after a reload that restores the scroll position (real browser restoration), a tile is docked exactly when it was on screen when the assembly looked, and the lower row can still assemble
+[40/92] tests\services-motion.spec.ts:221:3 › services assembly: actions never wait for the travel › restoration that lands after the script ran and before load: the top row is docked, the lower row stays eligible, scrolling completes it, and docked tiles never scatter again
+[41/92] tests\services-motion.spec.ts:272:3 › services assembly: nothing covers the section on a first visit › with fresh storage no fixed overlay exists, and pieces start from the whole window
+[42/92] tests\services-motion.spec.ts:285:3 › services assembly: fallbacks › reduced motion: the complete composition from first render, no travel at any scroll position
+[43/92] tests\services-motion.spec.ts:253:3 › services assembly: actions never wait for the travel › resizing mid-assembly keeps a coherent state: no sideways scroll, nothing outside the viewport, and docking still completes
+[44/92] tests\services-motion.spec.ts:296:3 › services assembly: fallbacks › no JavaScript: the same complete composition, every link present
+[45/92] tests\services-motion.spec.ts:309:3 › services assembly: fallbacks › a short window (under 480px high) is shown complete, without travel
+[46/92] tests\services-motion.spec.ts:320:3 › services assembly: the settled mosaic is the one it was › connected single column on phones: no gap between any two stacked tiles; outer silhouette corners as before
+[47/92] tests\services-motion.spec.ts:335:3 › services assembly: the settled mosaic is the one it was › desktop: tiles share edges exactly again after docking; only the outer corners are curved
+[48/92] tests\services-motion.spec.ts:349:5 › services assembly: the settled mosaic is the one it was › 1440px: after docking, hovering moves the shared edge and never moves the sections below
+[49/92] tests\services-motion.spec.ts:349:5 › services assembly: the settled mosaic is the one it was › 1024px: after docking, hovering moves the shared edge and never moves the sections below
+[50/92] tests\services-motion.spec.ts:365:3 › services assembly: the settled mosaic is the one it was › hover does not resize a tile that is still travelling, and a stationary pointer under the scrolling content cannot trigger it
+[51/92] tests\services-motion.spec.ts:375:3 › services assembly: the settled mosaic is the one it was › no layout shift from load through the whole scroll, the finish and a reset (EN/DE, desktop and phone)
+[52/92] tests\services-motion.spec.ts:390:3 › services assembly: the settled mosaic is the one it was › image space is reserved: with images blocked the tile picture boxes keep their layout size while pieces travel (1440 and 390)
+[53/92] tests\services-motion.spec.ts:426:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › REGRESSION: Play then Pause during the automatic hold stays paused after the hold is released
+[54/92] tests\services-motion.spec.ts:439:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › manual Play during the hold is not reversed by stale automatic ownership
+[55/92] tests\services-motion.spec.ts:449:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › automatic-only hold releases and resumes; a visitor pause made before the overlap stays
+[56/92] tests\services-motion.spec.ts:463:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › repeated and overlapping hold requests are idempotent and leave no dangling hold
+[57/92] tests\services-motion.spec.ts:481:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › a reduced-motion change during the hold leaves no dangling hold
+[58/92] tests\services-motion.spec.ts:490:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › navigating away and back leaves no dangling hold
+[59/92] tests\services-motion.spec.ts:503:5 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › en: labels, pressed state and keyboard focus stay correct through hold, Play, Pause and release
+[60/92] tests\services-motion.spec.ts:503:5 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › es: labels, pressed state and keyboard focus stay correct through hold, Play, Pause and release
+[61/92] tests\services-motion.spec.ts:503:5 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › de: labels, pressed state and keyboard focus stay correct through hold, Play, Pause and release
+[62/92] tests\services-motion.spec.ts:535:3 › hero and services motion are coordinated through the hero's own pause control › while a piece is travelling and the hero is on screen the hero pauses itself, then resumes when the pieces have docked
+[63/92] tests\services-motion.spec.ts:549:3 › hero and services motion are coordinated through the hero's own pause control › a visitor's own pause is never undone
+[64/92] tests\work-field.spec.ts:19:5 › work field: join with the real Services board › 1440px: at rest the header's peg and note panel start on the Services bottom seam (measured, not assumed)
+[65/92] tests\work-field.spec.ts:19:5 › work field: join with the real Services board › 1024px: at rest the header's peg and note panel start on the Services bottom seam (measured, not assumed)
+[66/92] tests\work-field.spec.ts:32:3 › work field: join with the real Services board › the join is designed for the rest seam: during Services emphasis the real edge moves and the header does not follow (documented behaviour)
+[67/92] tests\work-field.spec.ts:19:5 › work field: join with the real Services board › 834px: at rest the header's peg and note panel start on the Services bottom seam (measured, not assumed)
+[68/92] tests\work-field.spec.ts:52:3 › work field: Services detail open between the sections › desktop: the real panel is the bridge; the decorative peg detaches, Work copy stays in flow and visible; Escape and Close restore the join and focus
+[69/92] tests\work-field.spec.ts:90:3 › work field: Services detail open between the sections › phone: an open service detail sits inside the board; the Work header follows it and keeps every control
+[70/92] tests\work-field.spec.ts:77:3 › work field: Services detail open between the sections › open, then Close button, then resize across the tablet breakpoint: no overlap, state consistent
+[71/92] tests\work-field.spec.ts:101:3 › work field: Services detail open between the sections › a deep link to #work and a deep link to #services both land with a settled, joined field
+[72/92] tests\work-field.spec.ts:122:3 › work field: input and mode changes (wide geometry) › keyboard focus wins over incidental pointer movement: focus a project, sweep the pointer across the others past the intent time, the focused one stays emphasised and focused
+[73/92] tests\work-field.spec.ts:141:3 › work field: input and mode changes (wide geometry) › queued pointer intent is dropped when keyboard focus arrives
+[74/92] tests\work-field.spec.ts:149:3 › work field: input and mode changes (wide geometry) › reduced motion switched on while hovering: timers cancelled, board back to rest at once, no replay when switched off again
+[75/92] tests\work-field.spec.ts:170:3 › work field: input and mode changes (wide geometry) › leaving wide mode by resizing clears emphasis; returning does not replay it
+  14) tests\work-field.spec.ts:32:3 › work field: join with the real Services board › the join is designed for the rest seam: during Services emphasis the real edge moves and the header does not follow (documented behaviour) 
+
+    Error: locator.hover: Error: strict mode violation: locator('#services [data-service="video"]') resolved to 2 elements:
+        1) <article data-tile="" data-service="video" data-astro-cid-2qjm5hqm="" class="tile tile--coral on-coral">…</article> aka getByText('03Fictional pantry campaign · Brindle Pantry, frames from the motion pieceVideo')
+        2) <a class="tile__link" data-service="video" href="/en/services/video/" data-track="service_visit" data-astro-cid-2qjm5hqm="">…</a> aka getByRole('link', { name: 'Full service page : Video and' })
+
+    Call log:
+      - waiting for locator('#services [data-service="video"]')
+
+
+      36 |     await page.waitForTimeout(600);
+      37 |     const before = await rect(page, '#work .wj-note');
+    > 38 |     await page.locator('#services [data-service="video"]').hover();
+         |                                                            ^
+      39 |     await page.waitForTimeout(700);
+      40 |     expect(await page.locator('#services [data-mosaic]').getAttribute('data-active')).toBe('video');
+      41 |     const ads = await rect(page, '#services [data-service="ads"]');
+        at C:\Users\basti\source\repos\odalo\odalo\tests\work-field.spec.ts:38:60
+
+    Error Context: test-results\work-field-work-field-join-9520b-ollow-documented-behaviour-\error-context.md
+
+
+  15) tests\work-field.spec.ts:52:3 › work field: Services detail open between the sections › desktop: the real panel is the bridge; the decorative peg detaches, Work copy stays in flow and visible; Escape and Close restore the join and focus 
+
+    Error: expect(received).toBeLessThan(expected)
+
+    Expected: < 1.5
+    Received:   40
+
+      72 |     const ads = await rect(page, '#services [data-service="ads"]'); const peg = await rect(page, '#work [data-wj-peg]');
+      73 |     const board = await rect(page, '#services [data-mosaic]');
+    > 74 |     expect(Math.abs(ads.l - peg.r)).toBeLessThan(1.5);
+         |                                     ^
+      75 |     expect(Math.abs(peg.t - board.b)).toBeLessThan(2);
+      76 |   });
+      77 |   test('open, then Close button, then resize across the tablet breakpoint: no overlap, state consistent', async ({ page }) => {
+        at C:\Users\basti\source\repos\odalo\odalo\tests\work-field.spec.ts:74:37
+
+    Error Context: test-results\work-field-work-field-Serv-6ca72--restore-the-join-and-focus\error-context.md
+
+
+[76/92] tests\work-field.spec.ts:184:5 › work field: input and mode changes (wide geometry) › hover shop: the Work board, the next section and the page keep their size and position
+[77/92] tests\work-field.spec.ts:194:3 › work field: input and mode changes (wide geometry) › a click navigates once to the case study; the card stays a single native link
+[78/92] tests\work-field.spec.ts:184:5 › work field: input and mode changes (wide geometry) › hover hotel: the Work board, the next section and the page keep their size and position
+[79/92] tests\work-field.spec.ts:184:5 › work field: input and mode changes (wide geometry) › hover clinic: the Work board, the next section and the page keep their size and position
+[80/92] tests\work-field.spec.ts:203:3 › work field: touch, text, other placements, no JS › phone: one tap on a project card navigates once
+  16) tests\work-field.spec.ts:122:3 › work field: input and mode changes (wide geometry) › keyboard focus wins over incidental pointer movement: focus a project, sweep the pointer across the others past the intent time, the focused one stays emphasised and focused 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "sample-shop"
+    Received: ""
+
+      136 |     await page.waitForTimeout(400);
+      137 |     await at(page, 0.8, 0.8); await page.waitForTimeout(500);
+    > 138 |     expect(await active(page)).toBe('sample-shop');
+          |                                ^
+      139 |   });
+      140 |
+      141 |   test('queued pointer intent is dropped when keyboard focus arrives', async ({ page }) => {
+        at C:\Users\basti\source\repos\odalo\odalo\tests\work-field.spec.ts:138:32
+
+    Error Context: test-results\work-field-work-field-inpu-d59d2-tays-emphasised-and-focused\error-context.md
+
+
+[81/92] tests\work-field.spec.ts:215:3 › work field: touch, text, other placements, no JS › a touch scroll gesture across the wide board selects nothing
+[82/92] tests\work-field.spec.ts:226:5 › work field: touch, text, other placements, no JS › en 1440px: supporting paragraphs are at least 16px at the default text size and nothing is clipped
+[83/92] tests\work-field.spec.ts:226:5 › work field: touch, text, other placements, no JS › en 390px: supporting paragraphs are at least 16px at the default text size and nothing is clipped
+[84/92] tests\work-field.spec.ts:226:5 › work field: touch, text, other placements, no JS › es 1440px: supporting paragraphs are at least 16px at the default text size and nothing is clipped
+[85/92] tests\work-field.spec.ts:226:5 › work field: touch, text, other placements, no JS › es 390px: supporting paragraphs are at least 16px at the default text size and nothing is clipped
+[86/92] tests\work-field.spec.ts:226:5 › work field: touch, text, other placements, no JS › de 1440px: supporting paragraphs are at least 16px at the default text size and nothing is clipped
+[87/92] tests\work-field.spec.ts:226:5 › work field: touch, text, other placements, no JS › de 390px: supporting paragraphs are at least 16px at the default text size and nothing is clipped
+[88/92] tests\work-field.spec.ts:237:3 › work field: touch, text, other placements, no JS › enlarged root text: natural flow (no fixed-height board), nothing clipped, no overflow
+[89/92] tests\work-field.spec.ts:245:3 › work field: touch, text, other placements, no JS › the work index and a service page keep their original layout (no connected header, no field grid)
+[90/92] tests\work-field.spec.ts:254:3 › work field: touch, text, other placements, no JS › the context sentence and "See all work" exist exactly once on the homepage, in every language
+[91/92] tests\work-field.spec.ts:261:3 › work field: touch, text, other placements, no JS › the dock asks the hero to hold only when the hero is actually on screen, and releases it
+[92/92] tests\work-field.spec.ts:276:3 › work field: touch, text, other placements, no JS › no JS: every Work link and all text is present and laid out; the connected header is plain content
+  17) tests\work-field.spec.ts:261:3 › work field: touch, text, other placements, no JS › the dock asks the hero to hold only when the hero is actually on screen, and releases it 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 4
+    + Received  + 1
+
+    - Array [
+    -   true,
+    -   false,
+    - ]
+    + Array []
+
+      267 |     await page.waitForTimeout(1500);
+      268 |     const tall = (await page.evaluate(() => (window as unknown as { __holds: { source: string; hold: boolean }[] }).__holds)).filter((h) => h.source === 'work');
+    > 269 |     expect(tall.map((h) => h.hold)).toEqual([true, false]);
+          |                                     ^
+      270 |     // normal window: the hero is off screen when the field docks, so no hold at all
+      271 |     await page.setViewportSize({ width: 1440, height: 900 });
+      272 |     await page.goto('/en/#work');
+        at C:\Users\basti\source\repos\odalo\odalo\tests\work-field.spec.ts:269:37
+
+    Error Context: test-results\work-field-work-field-touc-7528b-y-on-screen-and-releases-it\error-context.md
+
+
+  17 failed
+    tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › en 1440px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › en 1024px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › en 834px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › en 390px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › en 320px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › es 1440px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › es 1024px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › es 834px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › es 390px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › de 834px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › de 390px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:47:5 › portfolio: one connected composition › de 320px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:69:3 › portfolio: one connected composition › wide desktop (homepage): hotel left, clinic over shop right, joined; the hotel has no large empty navy area; the work index keeps its four-piece layout 
+    tests\work-field.spec.ts:32:3 › work field: join with the real Services board › the join is designed for the rest seam: during Services emphasis the real edge moves and the header does not follow (documented behaviour) 
+    tests\work-field.spec.ts:52:3 › work field: Services detail open between the sections › desktop: the real panel is the bridge; the decorative peg detaches, Work copy stays in flow and visible; Escape and Close restore the join and focus 
+    tests\work-field.spec.ts:122:3 › work field: input and mode changes (wide geometry) › keyboard focus wins over incidental pointer movement: focus a project, sweep the pointer across the others past the intent time, the focused one stays emphasised and focused 
+    tests\work-field.spec.ts:261:3 › work field: touch, text, other placements, no JS › the dock asks the hero to hold only when the hero is actually on screen, and releases it 
+  75 passed (1.5m)

@@ -1,0 +1,23 @@
+# Live baseline before D3 (read-only curl, 2026-10-27T17:36:12Z)
+## https://odalo.sappl-digital.de
+HTTP/1.1 200 OK
+Etag: "ab75ee11f69cb9cf88ebc08d3ab1182f-ssl"
+Server: Netlify
+X-Nf-Request-Id: 01M5Z6Y6PYJ9FVG6KR5V72FAGP
+data-netlify-site-id="e5fd1e5f-99b7-4bfa-b6d4-f5e49b425098"
+## https://sappl-odalo.netlify.app
+HTTP/1.1 200 OK
+Etag: "ab75ee11f69cb9cf88ebc08d3ab1182f-ssl"
+Server: Netlify
+X-Nf-Request-Id: 01M5Z6Y878YZVCXRW3TCAFTFGQ
+data-netlify-site-id="e5fd1e5f-99b7-4bfa-b6d4-f5e49b425098"
+## live /en/audit/ (old build)
+<title>Request a free audit — Odalo
+mailto:Sebastian.Appl@sappl-digital.de
+rel="canonical" href="https://odalo.sappl-digital.de/en/audit/"
+robots" content="noindex"
+form registration markup present: 0
+## robots.txt
+User-agent: *
+Disallow: /
+## dashboard probe: https://app.netlify.com/projects/sappl-odalo/forms -> login wall in the built-in browser pane (no signed-in session); Claude in Chrome extension not connected; Netlify CLI not installed; no netlify.toml.

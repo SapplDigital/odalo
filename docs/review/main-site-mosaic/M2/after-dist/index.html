@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Odalo</title><meta http-equiv="refresh" content="0; url=/en/"><link rel="canonical" href="/en/"><meta name="robots" content="noindex"><script>(function(){const base = "";
+const fallback = "/en/";
+
+      (function () {
+        var supported = ['es', 'en', 'de'], lang = null;
+        try { lang = localStorage.getItem('odalo.lang'); } catch (e) {}
+        if (supported.indexOf(lang) < 0) {
+          var nav = (navigator.languages && navigator.languages[0]) || navigator.language || '';
+          var short = nav.slice(0, 2).toLowerCase();
+          lang = supported.indexOf(short) >= 0 ? short : 'en';
+        }
+        location.replace(base + '/' + lang + '/' + location.search + location.hash);
+      })();
+    })();</script></head><body><p><a href="/en/">Odalo — English</a> · <a href="/es/">Español</a> · <a href="/de/">Deutsch</a></p></body></html>

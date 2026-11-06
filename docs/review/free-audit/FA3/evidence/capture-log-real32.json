@@ -1,0 +1,95 @@
+{
+  "browser": "156.0.4314.50",
+  "base": "http://127.0.0.1:4395",
+  "blockedExternal": [],
+  "real32": {
+    "method": "Edge persistent context, temporary profile webkit.webprefs.default_font_size=32 (existing method from docs/review/responsive-reflow/real-text-size.mjs, FA3-only results)",
+    "rows": [
+      {
+        "lang": "en",
+        "w": 320,
+        "root": "32px",
+        "compact": [],
+        "openSelectedWithErrors": []
+      },
+      {
+        "lang": "en",
+        "w": 390,
+        "root": "32px",
+        "compact": [],
+        "openSelectedWithErrors": []
+      },
+      {
+        "lang": "en",
+        "w": 834,
+        "root": "32px",
+        "compact": [],
+        "openSelectedWithErrors": []
+      },
+      {
+        "lang": "en",
+        "w": 1440,
+        "root": "32px",
+        "compact": [],
+        "openSelectedWithErrors": []
+      },
+      {
+        "lang": "es",
+        "w": 320,
+        "root": "32px",
+        "compact": [],
+        "openSelectedWithErrors": []
+      },
+      {
+        "lang": "es",
+        "w": 390,
+        "root": "32px",
+        "compact": [],
+        "openSelectedWithErrors": []
+      },
+      {
+        "lang": "es",
+        "w": 834,
+        "root": "32px",
+        "compact": [],
+        "openSelectedWithErrors": []
+      },
+      {
+        "lang": "es",
+        "w": 1440,
+        "root": "32px",
+        "compact": [],
+        "openSelectedWithErrors": []
+      },
+      {
+        "lang": "de",
+        "w": 320,
+        "root": "32px",
+        "compact": [],
+        "openSelectedWithErrors": []
+      },
+      {
+        "lang": "de",
+        "w": 390,
+        "root": "32px",
+        "compact": [],
+        "openSelectedWithErrors": []
+      },
+      {
+        "lang": "de",
+        "w": 834,
+        "root": "32px",
+        "compact": [],
+        "openSelectedWithErrors": []
+      },
+      {
+        "lang": "de",
+        "w": 1440,
+        "root": "32px",
+        "compact": [],
+        "openSelectedWithErrors": []
+      }
+    ],
+    "problems": 0
+  }
+}

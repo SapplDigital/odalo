@@ -36,10 +36,7 @@ test.describe('about: copy and content', () => {
         await expect(lang).toHaveCount(3);
         for (const other of langs.filter((x) => x !== l)) await expect(page.locator(`#about .langs__list a[hreflang="${other}"]`)).toHaveAttribute('href', `/${other}/${url.endsWith('about/') ? 'about/' : ''}`);
         await expect(page.locator('#about .langs__list [aria-current]')).toHaveCount(1);
-        await expect(page.locator('#about .concept .story__h')).toHaveText(copy[l].ch);
-        await expect(page.locator('#about .concept p')).toHaveText(copy[l].cb);
-        await expect(page.locator('#about .concept a')).toHaveText(copy[l].cl);
-        await expect(page.locator('#about .concept a')).toHaveAttribute('href', `/${l}/work/`);
+        await expect(page.locator('#about .concept')).toHaveCount(0); // the concept-work panel/CTA was removed from About (gallery routes stay reachable directly)
         expect(await page.locator('#about').innerText()).not.toMatch(banned);
         expect(await page.locator('#about img, #about figure').count()).toBe(0);
       }
@@ -115,7 +112,7 @@ test.describe('about: behaviour', () => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto('/en/about/');
     const order = await page.locator('#about a').evaluateAll((els) => els.map((e) => e.getAttribute('href')));
-    expect(order).toEqual(['/en/services/web/', '/en/services/local/', '/en/services/video/', '/en/services/ads/', '/es/about/', '/de/about/', '/en/work/']);
+    expect(order).toEqual(['/en/services/web/', '/en/services/local/', '/en/services/video/', '/en/services/ads/', '/es/about/', '/de/about/']);
     const first = page.locator('#about a').first();
     await first.focus();
     expect(await first.evaluate((e) => getComputedStyle(e).outlineStyle)).not.toBe('none');
@@ -131,7 +128,7 @@ test.describe('about: behaviour', () => {
       await page.goto('/de/');
       await expect(page.locator('#about-h')).toBeVisible();
       await expect(page.locator('#about .story__list a')).toHaveCount(4);
-      await expect(page.locator('#about .concept a')).toBeVisible();
+      await expect(page.locator('#about .concept')).toHaveCount(0);
       expect(await page.locator('#about [style*="transform"], #about [class*="is-assembling"]').count()).toBe(0);
       expect(await page.evaluate(() => [...document.querySelectorAll('#about, #about *')].every((e) => getComputedStyle(e).animationName === 'none' && getComputedStyle(e).transitionDuration.split(',').every((d) => parseFloat(d) === 0 || true)))).toBe(true);
       await ctx.close();

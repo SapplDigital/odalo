@@ -1,5 +1,5 @@
 import { test, expect, type Page } from '@playwright/test';
-import { plans, features } from '../src/content/plans';
+import { plans, features, quoteLabel } from '../src/content/plans';
 import { formatPrice } from '../src/i18n';
 import { tr } from '../src/i18n/ui';
 
@@ -66,7 +66,7 @@ async function pricingBounds(page: Page, lang: Lang) {
     });
     return bad;
   }, {
-    expectedPrices: plans.map((p) => formatPrice(p.price, lang)),
+    expectedPrices: plans.map((p) => (p.monthly === null ? quoteLabel[lang] : formatPrice(p.monthly, lang))),
     labels: features.map((f) => ({ label: f.label[lang], values: plans.map((p) => { const v = f.values[p.id]; return typeof v === 'boolean' ? v : v[lang]; }) })),
     yes: t.common.yes, no: t.common.no,
   });

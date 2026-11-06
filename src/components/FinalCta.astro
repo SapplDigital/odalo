@@ -7,7 +7,7 @@ const { lang } = Astro.props;
 const t = tr(lang);
 const { email, phone } = site.contact;
 // Without a configured delivery endpoint the audit form is a simulation: say so instead of promising an audit or a reply.
-const demo = !site.auditEndpoint;
+const demo = !site.auditLive;
 const body = demo ? t.cta.bodyDemo : t.cta.body;
 const button = demo ? t.cta.buttonDemo : t.cta.button;
 ---

@@ -1,0 +1,135 @@
+
+Running 58 tests using 8 workers
+
+[1/58] tests\portfolio.spec.ts:21:3 › portfolio: content › cards use the short editable names; full titles stay on the records; IDs, badges and services are kept
+[2/58] tests\portfolio.spec.ts:26:5 › portfolio: content › en: heading, context panel and view-all link are the new copy; cards keep concept badges, services and working links
+[3/58] tests\portfolio.spec.ts:26:5 › portfolio: content › es: heading, context panel and view-all link are the new copy; cards keep concept badges, services and working links
+[4/58] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › en 1440px work/: no gutters, flat inner edges, curved outer corners only, no holes
+[5/58] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › en 390px home: no gutters, flat inner edges, curved outer corners only, no holes
+[6/58] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › en 1440px home: no gutters, flat inner edges, curved outer corners only, no holes
+[7/58] tests\portfolio.spec.ts:26:5 › portfolio: content › de: heading, context panel and view-all link are the new copy; cards keep concept badges, services and working links
+[8/58] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › en 834px home: no gutters, flat inner edges, curved outer corners only, no holes
+[9/58] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › en 1024px home: no gutters, flat inner edges, curved outer corners only, no holes
+[10/58] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › en 320px home: no gutters, flat inner edges, curved outer corners only, no holes
+[11/58] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › es 1440px home: no gutters, flat inner edges, curved outer corners only, no holes
+[12/58] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › es 1440px work/: no gutters, flat inner edges, curved outer corners only, no holes
+[13/58] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › es 1024px home: no gutters, flat inner edges, curved outer corners only, no holes
+[14/58] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › es 834px home: no gutters, flat inner edges, curved outer corners only, no holes
+[15/58] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › es 390px home: no gutters, flat inner edges, curved outer corners only, no holes
+[16/58] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › es 320px home: no gutters, flat inner edges, curved outer corners only, no holes
+  1) tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › en 1440px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: expect(received).toBeGreaterThan(expected)
+
+    Expected: > 40
+    Received:   0
+
+      65 |       // outer silhouette: large top left and bottom right
+      66 |       const tl = items.find((i) => Math.abs(i.l - grid.l) < 1 && Math.abs(i.t - grid.t) < 1)!, br = items.find((i) => Math.abs(i.r - grid.r) < 1 && Math.abs(i.b - grid.b) < 1)!;
+    > 67 |       expect(br.radii[2]).toBeGreaterThan(40);
+         |                           ^
+      68 |       // homepage: the field's large top-left curve belongs to the Services board above; the Work grid continues it with a square corner
+      69 |       if (home) expect(tl.radii[0]).toBe(0); else expect(tl.radii[0]).toBeGreaterThan(40);
+      70 |     });
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:67:27
+
+    Error Context: test-results\portfolio-portfolio-one-co-c304a-outer-corners-only-no-holes\error-context.md
+
+
+[17/58] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › de 1440px work/: no gutters, flat inner edges, curved outer corners only, no holes
+[18/58] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › de 834px home: no gutters, flat inner edges, curved outer corners only, no holes
+[19/58] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › de 1024px home: no gutters, flat inner edges, curved outer corners only, no holes
+[20/58] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › de 390px home: no gutters, flat inner edges, curved outer corners only, no holes
+[21/58] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › de 320px home: no gutters, flat inner edges, curved outer corners only, no holes
+[22/58] tests\portfolio.spec.ts:73:3 › portfolio: one connected composition › wide desktop (homepage): hotel left, clinic over shop right, joined; the hotel has no large empty navy area; the work index keeps its four-piece layout
+[23/58] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › de 1440px home: no gutters, flat inner edges, curved outer corners only, no holes
+[24/58] tests\portfolio.spec.ts:91:3 › portfolio: one connected composition › related-work variant keeps two projects side by side on desktop and stacked on phones, joined
+[25/58] tests\portfolio.spec.ts:106:5 › portfolio: pictures › 1440px: the right source per layout, undistorted and fully loaded; reserved space with images blocked
+[26/58] tests\portfolio.spec.ts:106:5 › portfolio: pictures › 1024px: the right source per layout, undistorted and fully loaded; reserved space with images blocked
+[27/58] tests\portfolio.spec.ts:106:5 › portfolio: pictures › 834px: the right source per layout, undistorted and fully loaded; reserved space with images blocked
+[28/58] tests\portfolio.spec.ts:106:5 › portfolio: pictures › 390px: the right source per layout, undistorted and fully loaded; reserved space with images blocked
+[29/58] tests\portfolio.spec.ts:121:3 › portfolio: pictures › keyboard focus is visible on every card, including at the outer edges (homepage: a ring around the whole card, drawn inside it)
+[30/58] tests\work-field.spec.ts:19:5 › work field: join with the real Services board › 1440px: at rest the header's peg and note panel start on the Services bottom seam (measured, not assumed)
+  2) tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › es 1440px home: no gutters, flat inner edges, curved outer corners only, no holes 
+
+    Error: expect(received).toBeGreaterThan(expected)
+
+    Expected: > 40
+    Received:   0
+
+      65 |       // outer silhouette: large top left and bottom right
+      66 |       const tl = items.find((i) => Math.abs(i.l - grid.l) < 1 && Math.abs(i.t - grid.t) < 1)!, br = items.find((i) => Math.abs(i.r - grid.r) < 1 && Math.abs(i.b - grid.b) < 1)!;
+    > 67 |       expect(br.radii[2]).toBeGreaterThan(40);
+         |                           ^
+      68 |       // homepage: the field's large top-left curve belongs to the Services board above; the Work grid continues it with a square corner
+      69 |       if (home) expect(tl.radii[0]).toBe(0); else expect(tl.radii[0]).toBeGreaterThan(40);
+      70 |     });
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:67:27
+
+    Error Context: test-results\portfolio-portfolio-one-co-bf2fc-outer-corners-only-no-holes\error-context.md
+
+
+[31/58] tests\work-field.spec.ts:19:5 › work field: join with the real Services board › 1024px: at rest the header's peg and note panel start on the Services bottom seam (measured, not assumed)
+[32/58] tests\work-field.spec.ts:19:5 › work field: join with the real Services board › 834px: at rest the header's peg and note panel start on the Services bottom seam (measured, not assumed)
+[33/58] tests\work-field.spec.ts:32:3 › work field: join with the real Services board › the join is designed for the rest seam: during Services emphasis the real edge moves and the header does not follow (documented behaviour)
+[34/58] tests\work-field.spec.ts:52:3 › work field: Services detail open between the sections › desktop: the real panel is the bridge; the decorative peg detaches, Work copy stays in flow and visible; Escape and Close restore the join and focus
+[35/58] tests\work-field.spec.ts:77:3 › work field: Services detail open between the sections › open, then Close button, then resize across the tablet breakpoint: no overlap, state consistent
+[36/58] tests\work-field.spec.ts:90:3 › work field: Services detail open between the sections › phone: an open service detail sits inside the board; the Work header follows it and keeps every control
+[37/58] tests\work-field.spec.ts:101:3 › work field: Services detail open between the sections › a deep link to #work and a deep link to #services both land with a settled, joined field
+[38/58] tests\work-field.spec.ts:122:3 › work field: input and mode changes (wide geometry) › keyboard focus wins over incidental pointer movement: focus a project, sweep the pointer across the others past the intent time, the focused one stays emphasised and focused
+[39/58] tests\work-field.spec.ts:142:3 › work field: input and mode changes (wide geometry) › queued pointer intent is dropped when keyboard focus arrives
+[40/58] tests\work-field.spec.ts:150:3 › work field: input and mode changes (wide geometry) › reduced motion switched on while hovering: timers cancelled, board back to rest at once, no replay when switched off again
+[41/58] tests\work-field.spec.ts:171:3 › work field: input and mode changes (wide geometry) › leaving wide mode by resizing clears emphasis; returning does not replay it
+[42/58] tests\work-field.spec.ts:185:5 › work field: input and mode changes (wide geometry) › hover hotel: the Work board, the next section and the page keep their size and position
+[43/58] tests\work-field.spec.ts:185:5 › work field: input and mode changes (wide geometry) › hover clinic: the Work board, the next section and the page keep their size and position
+[44/58] tests\work-field.spec.ts:185:5 › work field: input and mode changes (wide geometry) › hover shop: the Work board, the next section and the page keep their size and position
+[45/58] tests\work-field.spec.ts:195:3 › work field: input and mode changes (wide geometry) › a click navigates once to the case study; the card stays a single native link
+[46/58] tests\work-field.spec.ts:204:3 › work field: touch, text, other placements, no JS › phone: one tap on a project card navigates once
+[47/58] tests\work-field.spec.ts:216:3 › work field: touch, text, other placements, no JS › a touch scroll gesture across the wide board selects nothing
+[48/58] tests\work-field.spec.ts:227:5 › work field: touch, text, other placements, no JS › en 1440px: supporting paragraphs are at least 16px at the default text size and nothing is clipped
+[49/58] tests\work-field.spec.ts:227:5 › work field: touch, text, other placements, no JS › en 390px: supporting paragraphs are at least 16px at the default text size and nothing is clipped
+[50/58] tests\work-field.spec.ts:227:5 › work field: touch, text, other placements, no JS › es 1440px: supporting paragraphs are at least 16px at the default text size and nothing is clipped
+[51/58] tests\work-field.spec.ts:227:5 › work field: touch, text, other placements, no JS › es 390px: supporting paragraphs are at least 16px at the default text size and nothing is clipped
+[52/58] tests\work-field.spec.ts:227:5 › work field: touch, text, other placements, no JS › de 1440px: supporting paragraphs are at least 16px at the default text size and nothing is clipped
+[53/58] tests\work-field.spec.ts:227:5 › work field: touch, text, other placements, no JS › de 390px: supporting paragraphs are at least 16px at the default text size and nothing is clipped
+[54/58] tests\work-field.spec.ts:238:3 › work field: touch, text, other placements, no JS › enlarged root text: natural flow (no fixed-height board), nothing clipped, no overflow
+[55/58] tests\work-field.spec.ts:246:3 › work field: touch, text, other placements, no JS › the work index and a service page keep their original layout (no connected header, no field grid)
+[56/58] tests\work-field.spec.ts:255:3 › work field: touch, text, other placements, no JS › the context sentence and "See all work" exist exactly once on the homepage, in every language
+[57/58] tests\work-field.spec.ts:262:3 › work field: touch, text, other placements, no JS › the dock asks the hero to hold only when the hero is actually on screen, and releases it
+[58/58] tests\work-field.spec.ts:277:3 › work field: touch, text, other placements, no JS › no JS: every Work link and all text is present and laid out; the connected header is plain content
+  3) tests\work-field.spec.ts:262:3 › work field: touch, text, other placements, no JS › the dock asks the hero to hold only when the hero is actually on screen, and releases it 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 10
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "hold": true,
+    +     "source": "work",
+    +   },
+    +   Object {
+    +     "hold": false,
+    +     "source": "work",
+    +   },
+    + ]
+
+      273 |     await page.goto('/en/#work');
+      274 |     await page.waitForTimeout(800);
+    > 275 |     expect((await page.evaluate(() => (window as unknown as { __holds: { source: string }[] }).__holds)).filter((h) => h.source === 'work')).toEqual([]);
+          |                                                                                                                                              ^
+      276 |   });
+      277 |   test('no JS: every Work link and all text is present and laid out; the connected header is plain content', async ({ browser }) => {
+      278 |     const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, javaScriptEnabled: false });
+        at C:\Users\basti\source\repos\odalo\odalo\tests\work-field.spec.ts:275:142
+
+    Error Context: test-results\work-field-work-field-touc-7528b-y-on-screen-and-releases-it\error-context.md
+
+
+  3 failed
+    tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › en 1440px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › es 1440px home: no gutters, flat inner edges, curved outer corners only, no holes 
+    tests\work-field.spec.ts:262:3 › work field: touch, text, other placements, no JS › the dock asks the hero to hold only when the hero is actually on screen, and releases it 
+  55 passed (1.0m)

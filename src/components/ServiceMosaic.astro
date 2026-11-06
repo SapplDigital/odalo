@@ -5,8 +5,9 @@ import { planById } from '../content/plans';
 import { href, type Lang } from '../i18n';
 import { tr } from '../i18n/ui';
 
-interface Props { lang: Lang }
-const { lang } = Astro.props;
+/** joined: the homepage connects this board to the Work field below (no closing gap, square bottom corners). */
+interface Props { lang: Lang; joined?: boolean }
+const { lang, joined = false } = Astro.props;
 const t = tr(lang);
 
 /** Tile styling per position (A,B,C,D). Corner choices alternate the signature curve. */
@@ -18,7 +19,7 @@ const looks = [
 ] as const;
 const rows = [services.slice(0, 2), services.slice(2, 4)];
 ---
-<section id="services" class="svc section" aria-labelledby="svc-h">
+<section id="services" class:list={['svc', 'section', { 'svc--joined': joined }]} aria-labelledby="svc-h" data-detail-state="closed">
   <div class="wrap">
     <header class="svc__head">
       <p class="eyebrow">01 — {t.services.mosaicLabel}</p>
@@ -236,6 +237,11 @@ const rows = [services.slice(0, 2), services.slice(2, 4)];
 
   /* ---- Shared detail region ---- */
   .detail-slot { margin-top: var(--gutter); }
+  /* joined (homepage): the board meets the Work field directly; an open detail is the in-flow bridge between them */
+  .svc--joined { padding-bottom: 0; }
+  .svc--joined .detail-slot:has(.detail[hidden]) { margin-top: 0; }
+  .svc--joined[data-detail-state='open'] .detail-slot { margin-bottom: var(--gutter); }
+  .svc--joined .tile[data-service='ads'] { border-bottom-right-radius: var(--r-small); }
   .detail[hidden], .detail__panel[hidden] { display: none; }
   .detail__panel {
     position: relative; display: grid; gap: var(--s6) var(--s7); padding: var(--pad); padding-right: calc(var(--pad) + 40px);
@@ -279,6 +285,7 @@ const rows = [services.slice(0, 2), services.slice(2, 4)];
   if (root && detail && slot) init(root, detail, slot);
 
   function init(root: HTMLElement, detail: HTMLElement, slot: HTMLElement) {
+    const section = root.closest<HTMLElement>('section')!; // explicit state boundary for neighbours: data-detail-state = open | closed
     const tiles = [...root.querySelectorAll<HTMLElement>('[data-tile]')];
     const panels = [...detail.querySelectorAll<HTMLElement>('[data-detail-for]')];
     const status = detail.querySelector<HTMLElement>('[data-detail-status]')!;
@@ -358,6 +365,7 @@ const rows = [services.slice(0, 2), services.slice(2, 4)];
       });
       panels.forEach((p) => (p.hidden = p.dataset.detailFor !== id));
       detail.hidden = false;
+      section.dataset.detailState = 'open';
       place();
       if (desktopLike()) setActive(id); // explicit selection keeps the tile expanded (touch has no hover)
       status.textContent = trigger.textContent?.split(':')[0] + ' — ' + (panels.find((p) => p.dataset.detailFor === id)?.querySelector('h3')?.textContent ?? '');
@@ -366,6 +374,7 @@ const rows = [services.slice(0, 2), services.slice(2, 4)];
       const id = selected;
       selected = '';
       detail.hidden = true;
+      section.dataset.detailState = 'closed';
       panels.forEach((p) => (p.hidden = true));
       slot.append(detail);
       setActive('');

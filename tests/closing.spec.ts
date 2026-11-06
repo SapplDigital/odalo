@@ -44,7 +44,7 @@ test.describe('closing CTA: honest demo wording', () => {
 
   test('the wording is selected by the delivery configuration, the configured branch keeps its existing strings, and contact fields render only when set', () => {
     const src = fs.readFileSync('src/components/FinalCta.astro', 'utf8');
-    expect(src).toMatch(/const demo = !site\.auditEndpoint/);
+    expect(src).toMatch(/const demo = !site\.auditLive/); // any configured delivery mode (endpoint or Netlify) ends the demo wording
     expect(src).toMatch(/demo \? t\.cta\.bodyDemo : t\.cta\.body/);
     expect(src).toMatch(/demo \? t\.cta\.buttonDemo : t\.cta\.button/);
     expect(src).toMatch(/email \|\| phone \?/);

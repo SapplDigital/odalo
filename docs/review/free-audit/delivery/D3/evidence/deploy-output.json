@@ -1,0 +1,10 @@
+{
+  "site_id": "e5fd1e5f-99b7-4bfa-b6d4-f5e49b425098",
+  "site_name": "sappl-odalo",
+  "deploy_id": "6ae0e49efa58740f36caccdd",
+  "deploy_url": "https://6ae0e49efa58740f36caccdd--sappl-odalo.netlify.app",
+  "logs": "https://app.netlify.com/projects/sappl-odalo/deploys/6ae0e49efa58740f36caccdd",
+  "function_logs": "https://app.netlify.com/projects/sappl-odalo/logs/functions",
+  "edge_function_logs": "https://app.netlify.com/projects/sappl-odalo/logs/edge-functions",
+  "url": "https://odalo.sappl-digital.de"
+}

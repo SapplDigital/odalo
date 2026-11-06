@@ -1,0 +1,82 @@
+{
+  "browser": "156.0.4314.50",
+  "hoverWeb": {
+    "before": {
+      "trigger": {
+        "x": 536,
+        "y": 153,
+        "w": 111,
+        "h": 34
+      },
+      "tile": {
+        "x": 496,
+        "y": 113,
+        "w": 448,
+        "h": 304
+      },
+      "board": {
+        "top": 113,
+        "w": 1344,
+        "h": 608
+      },
+      "form": {
+        "top": 923,
+        "w": 816,
+        "h": 1181
+      },
+      "grow": {
+        "x": 810,
+        "y": 326,
+        "w": 134,
+        "h": 91
+      }
+    },
+    "after": {
+      "trigger": {
+        "x": 536,
+        "y": 153,
+        "w": 111,
+        "h": 34
+      },
+      "tile": {
+        "x": 496,
+        "y": 113,
+        "w": 448,
+        "h": 304
+      },
+      "board": {
+        "top": 113,
+        "w": 1344,
+        "h": 608
+      },
+      "form": {
+        "top": 923,
+        "w": 816,
+        "h": 1181
+      },
+      "grow": {
+        "x": 621,
+        "y": 198,
+        "w": 323,
+        "h": 219
+      }
+    },
+    "unchanged": true
+  },
+  "desktopForm": {
+    "top": 923,
+    "w": 816,
+    "h": 1181
+  },
+  "reducedHoverTransition": "0s",
+  "desktop-1440-hover-open-include-switch-close-decodedFrames": 19,
+  "desktop-1440-hover-open-include-switch-close": {
+    "frames": 172,
+    "seconds": 8.6
+  },
+  "phone-390-tap-open-include-switch-close-decodedFrames": 10,
+  "phone-390-tap-open-include-switch-close": {
+    "frames": 65,
+    "seconds": 4.2
+  }
+}

@@ -1,0 +1,1 @@
+import{t as e}from"./odalo-mosaic.B7-QSyub.js";for(let t of document.querySelectorAll(`[data-odalo-logo]`))try{let n=e(t,{autoplay:t.hasAttribute(`data-animate`)});t.classList.add(`is-mounted`),window.addEventListener(`pagehide`,()=>n.destroy())}catch(e){console.error(`logo animation failed; keeping the plain wordmark`,e)}

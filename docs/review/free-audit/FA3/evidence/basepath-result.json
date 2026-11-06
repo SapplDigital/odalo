@@ -1,0 +1,16 @@
+{
+ "hrefs": [],
+ "privacyHref": "/odalo/en/privacy/",
+ "logoHref": "/odalo/en/",
+ "preselect": {
+  "svc": "ads",
+  "plan": "captacion",
+  "tile": "true",
+  "sum": "Captación"
+ },
+ "afterInclude": "web",
+ "fonts": 2,
+ "langSwitch": "http://127.0.0.1:4396/odalo/de/audit/",
+ "privacyLands": "http://127.0.0.1:4396/odalo/en/privacy/",
+ "bad": []
+}

@@ -1,0 +1,1 @@
+import{t as e}from"./field.D96IlyJO.js";var t=document.querySelector(`[data-hm-root]`);t&&Promise.race([document.fonts?.ready??Promise.resolve(),new Promise(e=>setTimeout(e,2500))]).then(()=>{try{e(t)}catch{}});

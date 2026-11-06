@@ -1,52 +1,59 @@
 ---
-import Wordmark from './Wordmark.astro';
 import LangSwitch from './LangSwitch.astro';
 import { href, type Lang } from '../i18n';
 import { tr } from '../i18n/ui';
 interface Props { lang: Lang; home: boolean; rest: string }
 const { lang, home, rest } = Astro.props;
+const ownerLogo = true;
 const t = tr(lang);
 const homeHref = href(lang);
 const links = [
   { id: 'services', label: t.nav.services, to: home ? '#services' : `${homeHref}#services` },
-  { id: 'plans', label: t.nav.plans, to: home ? '#plans' : href(lang, 'plans/') },
+  { id: 'plans', label: t.nav.plans, to: href(lang, 'plans/') },
   { id: 'process', label: t.nav.process, to: home ? '#process' : `${homeHref}#process` },
-  { id: 'work', label: t.nav.work, to: home ? '#work' : href(lang, 'work/') },
-  { id: 'about', label: t.nav.about, to: home ? '#about' : href(lang, 'about/') },
+  { id: 'about', label: t.nav.about, to: href(lang, 'about/') },
 ];
 const current = rest.split('/')[0];
+const fr = (c: string) => (ownerLogo ? c : undefined); // marks an element as a region of the homepage field (see src/mosaic/home/runtime.js)
+const tone = ['slate', 'coral', 'slate', 'coral', 'slate'];
 ---
-<header class="hdr" data-header>
+<header class:list={['hdr', { 'hdr--field': ownerLogo }]} data-header>
   <div class="wrap hdr__in">
     <div class="hdr__brand">
-      <a class="hdr__logo" href={homeHref} aria-label={t.a11y.home}><Wordmark /></a>
+      <a class="hdr__logo" href={homeHref} aria-label={t.a11y.home} data-fr={fr('sand')}><img class="hdr__img" src="/brand/odalo-owner-logo.png" alt="" width="273" height="123" /></a>
     </div>
-    <button class="hdr__toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-open={t.a11y.openMenu} data-close={t.a11y.closeMenu} aria-label={t.a11y.openMenu}>
+    <button class="hdr__toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-open={t.a11y.openMenu} data-close={t.a11y.closeMenu} aria-label={t.a11y.openMenu} data-fr={fr('coral')}>
       <span class="hdr__bars" aria-hidden="true"></span>
     </button>
-    <div class="hdr__panel" id="site-nav">
-      <nav aria-label={t.a11y.mainNav}>
+    <div class="hdr__panel" id="site-nav" hidden>
+      <nav aria-label={t.a11y.mainNav} class="hdr__nav" data-fr={fr('slate')}>
         <ul class="hdr__links">
-          {links.map((l) => (
+          {links.map((l, n) => (
             <li><a href={l.to} aria-current={!home && current === l.id ? 'page' : undefined}>{l.label}</a></li>
           ))}
         </ul>
       </nav>
-      <div class="hdr__tools">
-        <LangSwitch lang={lang} rest={rest} />
-        <a class="btn btn--ink hdr__cta" href={href(lang, 'audit/')} data-track="audit_cta" data-location="header">{t.nav.audit}</a>
+      <div class="hdr__tools" data-fr={fr('coral')}>
+        <span class="hdr__lang"><LangSwitch lang={lang} rest={rest} /></span>
+        <span class="hdr__ctaw"><a class="btn btn--ink hdr__cta" href={href(lang, 'audit/')} data-track="audit_cta" data-location="header">{t.nav.audit}</a></span>
       </div>
     </div>
   </div>
 </header>
 <style>
   .hdr { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--line); }
+  /* homepage field: no bar of its own, the page-wide mosaic is the ground; scrolls away so the polygons stay continuous with the page */
+  .hdr--field { position: relative; background: none; border-bottom: 0; }
+  .hdr--field .hdr__links a { padding-inline: clamp(8px, 1vw, 14px); }
+  .hdr--field .hdr__nav, .hdr--field .hdr__tools { padding: 0 6px; }
+  .hdr__lang, .hdr__ctaw { display: inline-flex; align-items: center; }
+  .hdr--field :global(a.lang__item) { opacity: 1; }
   .hdr__in { display: flex; align-items: center; justify-content: space-between; min-height: var(--header-h); gap: 16px; position: relative; }
-  .hdr__logo { display: inline-flex; min-height: 44px; align-items: center; }
+  .hdr__logo { display: inline-flex; min-height: 44px; align-items: center; text-decoration: none; }
   .hdr__brand { display: flex; align-items: center; gap: 4px; }
   /* The name is the static word from the supplied artwork; the animation lives in the hero. */
-  .hdr__logo :global(.wordmark) { width: 132px; }
-  @media (min-width: 48em) { .hdr__logo :global(.wordmark) { width: 168px; } }
+  /* Supplied logo, original PNG (sand ground, aspect 273:123), never stretched. */
+  .hdr__img { display: block; height: 62px; width: auto; }
   .hdr__toggle { display: none; width: 48px; height: 48px; border: 2px solid var(--ink); border-radius: 999px; background: transparent; cursor: pointer; align-items: center; justify-content: center; color: var(--ink); }
   .hdr__bars, .hdr__bars::before, .hdr__bars::after { display: block; width: 20px; height: 2.5px; background: currentColor; border-radius: 2px; position: relative; transition: transform 0.2s, opacity 0.2s; }
   .hdr__bars::before, .hdr__bars::after { content: ''; position: absolute; left: 0; }
@@ -64,10 +71,11 @@ const current = rest.split('/')[0];
 
   @media (max-width: 69.99em) {
     :global(.js) .hdr__toggle { display: inline-flex; }
-    :global(.js) .hdr__panel { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 8px; background: var(--paper); padding: 12px var(--margin) 24px; border-bottom: 1px solid var(--line); box-shadow: 0 18px 30px -20px rgb(19 35 56 / 0.35); max-height: calc(100dvh - var(--header-h)); overflow-y: auto; }
+    :global(.js) .hdr__panel { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 8px; background: var(--paper); color: var(--ink); padding: 12px var(--margin) 24px; border-bottom: 1px solid var(--line); box-shadow: 0 18px 30px -20px rgb(19 35 56 / 0.35); max-height: calc(100dvh - var(--header-h)); overflow-y: auto; }
     :global(.js) .hdr__panel[hidden] { display: none; }
     :global(.js) .hdr__links { flex-direction: column; align-items: stretch; }
     :global(.js) .hdr__links a { font-size: 1.25rem; padding-inline: 4px; border-bottom: 1px solid var(--line); border-radius: 0; }
+    :global(.js) .hdr--field .hdr__panel { background: var(--sand); z-index: 60; }
     :global(.js) .hdr__tools { justify-content: space-between; flex-wrap: wrap; padding-top: 8px; }
     :global(.no-js) .hdr__in { flex-wrap: wrap; padding-block: 8px; }
     :global(.no-js) .hdr__panel { flex-wrap: wrap; justify-content: flex-start; }

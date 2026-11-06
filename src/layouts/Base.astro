@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import '../styles/field.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { languages, languageNames, href, type Lang } from '../i18n';
@@ -7,6 +8,7 @@ import { tr } from '../i18n/ui';
 import outfitUrl from '@fontsource-variable/outfit/files/outfit-latin-wght-normal.woff2?url';
 import serifUrl from '@fontsource/instrument-serif/files/instrument-serif-latin-400-italic.woff2?url';
 
+/** plainWordmark: audit routes show the brand as plain typed lowercase "odalo" in the header and footer. Default (all other routes) is unchanged. */
 interface Props { lang: Lang; title: string; description: string; noindex?: boolean; home?: boolean }
 const { lang, title, description, home = false } = Astro.props;
 // PUBLIC_NOINDEX=true (set for the demo deployment) keeps every page out of search engines.
@@ -28,7 +30,7 @@ const ogImage = `${origin}${base}/og.png`;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#f7f9f8" />
+    <meta name="theme-color" content="#f8fafa" />
     {noindex && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={canonical} />
     {!noindex && alternates.map(({ l, url }) => <link rel="alternate" hreflang={l} href={url} />)}
@@ -48,11 +50,19 @@ const ogImage = `${origin}${base}/og.png`;
   </head>
   <body>
     <a class="skip-link" href="#main">{t.a11y.skip}</a>
-    <Header lang={lang} home={home} rest={rest} />
-    <main id="main" tabindex="-1">
-      <slot />
-    </main>
-    <Footer lang={lang} rest={rest} />
+    <div class:list={['pg', { 'pg--home': home }]} data-hm-root>
+      <svg class="pg-field" aria-hidden="true" focusable="false" preserveAspectRatio="none"></svg>
+      <Header lang={lang} home={home} rest={rest} />
+      <main id="main" tabindex="-1">
+        <slot />
+      </main>
+      <Footer lang={lang} rest={rest} compact={home} />
+    </div>
+    {!home && <script>
+      import { mountPageField } from '../mosaic/field.js';
+      const root = document.querySelector<HTMLElement>('[data-hm-root]');
+      if (root) { const go = () => { try { mountPageField(root); } catch { /* flat page */ } }; Promise.race([document.fonts?.ready ?? Promise.resolve(), new Promise((r) => setTimeout(r, 2500))]).then(go); }
+    </script>}
     <script>
       // Remember an explicit language choice (used by the root redirect).
       document.addEventListener('click', (e) => {

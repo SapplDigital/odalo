@@ -1,0 +1,27 @@
+﻿{
+ "new": {
+  "files": 6,
+  "js": [
+   4399,
+   1960
+  ],
+  "css": [
+   28956,
+   7626
+  ],
+  "fonts": 54420
+ },
+ "base": {
+  "files": 8,
+  "js": [
+   14268,
+   5301
+  ],
+  "css": [
+   21734,
+   6039
+  ],
+  "fonts": 54420
+ },
+ "note": "[raw, gzip] bytes; media requests: none added (no img/video on the page)"
+}

@@ -1,0 +1,418 @@
+{
+  "builds": {
+    "default": {
+      "en": {
+        "formTag": "<form class=\"af__form\" name=\"audit\" method=\"post\" data-netlify=\"true\" netlify-honeypot=\"bot-field\" data-netlify-honeypot=\"bot-field\" novalidate data-form>",
+        "transport": "simulated",
+        "netlifyPath": "/",
+        "netlifyName": "audit",
+        "demoNoticePresent": true,
+        "submitDisabledInHtml": true,
+        "fieldNames": [
+          "form-name",
+          "pageLanguage",
+          "bot-field",
+          "business",
+          "need",
+          "website",
+          "service",
+          "plan",
+          "country",
+          "name",
+          "email",
+          "phone",
+          "language",
+          "privacy",
+          "marketing"
+        ],
+        "mailtoLinks": [
+          "info@sappl-digital.de"
+        ],
+        "oldOrPrivateAddressesInHtml": false
+      },
+      "es": {
+        "formTag": "<form class=\"af__form\" name=\"audit\" method=\"post\" data-netlify=\"true\" netlify-honeypot=\"bot-field\" data-netlify-honeypot=\"bot-field\" novalidate data-form>",
+        "transport": "simulated",
+        "netlifyPath": "/",
+        "netlifyName": "audit",
+        "demoNoticePresent": true,
+        "submitDisabledInHtml": true,
+        "fieldNames": [
+          "form-name",
+          "pageLanguage",
+          "bot-field",
+          "business",
+          "need",
+          "website",
+          "service",
+          "plan",
+          "country",
+          "name",
+          "email",
+          "phone",
+          "language",
+          "privacy",
+          "marketing"
+        ],
+        "mailtoLinks": [
+          "info@sappl-digital.de"
+        ],
+        "oldOrPrivateAddressesInHtml": false
+      },
+      "de": {
+        "formTag": "<form class=\"af__form\" name=\"audit\" method=\"post\" data-netlify=\"true\" netlify-honeypot=\"bot-field\" data-netlify-honeypot=\"bot-field\" novalidate data-form>",
+        "transport": "simulated",
+        "netlifyPath": "/",
+        "netlifyName": "audit",
+        "demoNoticePresent": true,
+        "submitDisabledInHtml": true,
+        "fieldNames": [
+          "form-name",
+          "pageLanguage",
+          "bot-field",
+          "business",
+          "need",
+          "website",
+          "service",
+          "plan",
+          "country",
+          "name",
+          "email",
+          "phone",
+          "language",
+          "privacy",
+          "marketing"
+        ],
+        "mailtoLinks": [
+          "info@sappl-digital.de"
+        ],
+        "oldOrPrivateAddressesInHtml": false
+      }
+    },
+    "netlify": {
+      "en": {
+        "formTag": "<form class=\"af__form\" name=\"audit\" method=\"post\" data-netlify=\"true\" netlify-honeypot=\"bot-field\" data-netlify-honeypot=\"bot-field\" novalidate data-form>",
+        "transport": "netlify",
+        "netlifyPath": "/",
+        "netlifyName": "audit",
+        "demoNoticePresent": false,
+        "submitDisabledInHtml": true,
+        "fieldNames": [
+          "form-name",
+          "pageLanguage",
+          "bot-field",
+          "business",
+          "need",
+          "website",
+          "service",
+          "plan",
+          "country",
+          "name",
+          "email",
+          "phone",
+          "language",
+          "privacy",
+          "marketing"
+        ],
+        "mailtoLinks": [
+          "info@sappl-digital.de"
+        ],
+        "oldOrPrivateAddressesInHtml": false
+      },
+      "es": {
+        "formTag": "<form class=\"af__form\" name=\"audit\" method=\"post\" data-netlify=\"true\" netlify-honeypot=\"bot-field\" data-netlify-honeypot=\"bot-field\" novalidate data-form>",
+        "transport": "netlify",
+        "netlifyPath": "/",
+        "netlifyName": "audit",
+        "demoNoticePresent": false,
+        "submitDisabledInHtml": true,
+        "fieldNames": [
+          "form-name",
+          "pageLanguage",
+          "bot-field",
+          "business",
+          "need",
+          "website",
+          "service",
+          "plan",
+          "country",
+          "name",
+          "email",
+          "phone",
+          "language",
+          "privacy",
+          "marketing"
+        ],
+        "mailtoLinks": [
+          "info@sappl-digital.de"
+        ],
+        "oldOrPrivateAddressesInHtml": false
+      },
+      "de": {
+        "formTag": "<form class=\"af__form\" name=\"audit\" method=\"post\" data-netlify=\"true\" netlify-honeypot=\"bot-field\" data-netlify-honeypot=\"bot-field\" novalidate data-form>",
+        "transport": "netlify",
+        "netlifyPath": "/",
+        "netlifyName": "audit",
+        "demoNoticePresent": false,
+        "submitDisabledInHtml": true,
+        "fieldNames": [
+          "form-name",
+          "pageLanguage",
+          "bot-field",
+          "business",
+          "need",
+          "website",
+          "service",
+          "plan",
+          "country",
+          "name",
+          "email",
+          "phone",
+          "language",
+          "privacy",
+          "marketing"
+        ],
+        "mailtoLinks": [
+          "info@sappl-digital.de"
+        ],
+        "oldOrPrivateAddressesInHtml": false
+      }
+    },
+    "netlifySub": {
+      "en": {
+        "formTag": "<form class=\"af__form\" name=\"audit\" method=\"post\" data-netlify=\"true\" netlify-honeypot=\"bot-field\" data-netlify-honeypot=\"bot-field\" novalidate data-form>",
+        "transport": "netlify",
+        "netlifyPath": "/odalo/",
+        "netlifyName": "audit",
+        "demoNoticePresent": false,
+        "submitDisabledInHtml": true,
+        "fieldNames": [
+          "form-name",
+          "pageLanguage",
+          "bot-field",
+          "business",
+          "need",
+          "website",
+          "service",
+          "plan",
+          "country",
+          "name",
+          "email",
+          "phone",
+          "language",
+          "privacy",
+          "marketing"
+        ],
+        "mailtoLinks": [
+          "info@sappl-digital.de"
+        ],
+        "oldOrPrivateAddressesInHtml": false
+      },
+      "es": {
+        "formTag": "<form class=\"af__form\" name=\"audit\" method=\"post\" data-netlify=\"true\" netlify-honeypot=\"bot-field\" data-netlify-honeypot=\"bot-field\" novalidate data-form>",
+        "transport": "netlify",
+        "netlifyPath": "/odalo/",
+        "netlifyName": "audit",
+        "demoNoticePresent": false,
+        "submitDisabledInHtml": true,
+        "fieldNames": [
+          "form-name",
+          "pageLanguage",
+          "bot-field",
+          "business",
+          "need",
+          "website",
+          "service",
+          "plan",
+          "country",
+          "name",
+          "email",
+          "phone",
+          "language",
+          "privacy",
+          "marketing"
+        ],
+        "mailtoLinks": [
+          "info@sappl-digital.de"
+        ],
+        "oldOrPrivateAddressesInHtml": false
+      },
+      "de": {
+        "formTag": "<form class=\"af__form\" name=\"audit\" method=\"post\" data-netlify=\"true\" netlify-honeypot=\"bot-field\" data-netlify-honeypot=\"bot-field\" novalidate data-form>",
+        "transport": "netlify",
+        "netlifyPath": "/odalo/",
+        "netlifyName": "audit",
+        "demoNoticePresent": false,
+        "submitDisabledInHtml": true,
+        "fieldNames": [
+          "form-name",
+          "pageLanguage",
+          "bot-field",
+          "business",
+          "need",
+          "website",
+          "service",
+          "plan",
+          "country",
+          "name",
+          "email",
+          "phone",
+          "language",
+          "privacy",
+          "marketing"
+        ],
+        "mailtoLinks": [
+          "info@sappl-digital.de"
+        ],
+        "oldOrPrivateAddressesInHtml": false
+      }
+    }
+  },
+  "checks": [
+    {
+      "build": "default",
+      "lang": "en",
+      "formRegistered": true,
+      "missingFields": [],
+      "submitDisabledInHtml": true,
+      "onlyNewPublicMailto": true,
+      "noPrivateAddresses": true
+    },
+    {
+      "build": "default",
+      "lang": "es",
+      "formRegistered": true,
+      "missingFields": [],
+      "submitDisabledInHtml": true,
+      "onlyNewPublicMailto": true,
+      "noPrivateAddresses": true
+    },
+    {
+      "build": "default",
+      "lang": "de",
+      "formRegistered": true,
+      "missingFields": [],
+      "submitDisabledInHtml": true,
+      "onlyNewPublicMailto": true,
+      "noPrivateAddresses": true
+    },
+    {
+      "build": "netlify",
+      "lang": "en",
+      "formRegistered": true,
+      "missingFields": [],
+      "submitDisabledInHtml": true,
+      "onlyNewPublicMailto": true,
+      "noPrivateAddresses": true
+    },
+    {
+      "build": "netlify",
+      "lang": "es",
+      "formRegistered": true,
+      "missingFields": [],
+      "submitDisabledInHtml": true,
+      "onlyNewPublicMailto": true,
+      "noPrivateAddresses": true
+    },
+    {
+      "build": "netlify",
+      "lang": "de",
+      "formRegistered": true,
+      "missingFields": [],
+      "submitDisabledInHtml": true,
+      "onlyNewPublicMailto": true,
+      "noPrivateAddresses": true
+    },
+    {
+      "build": "netlifySub",
+      "lang": "en",
+      "formRegistered": true,
+      "missingFields": [],
+      "submitDisabledInHtml": true,
+      "onlyNewPublicMailto": true,
+      "noPrivateAddresses": true
+    },
+    {
+      "build": "netlifySub",
+      "lang": "es",
+      "formRegistered": true,
+      "missingFields": [],
+      "submitDisabledInHtml": true,
+      "onlyNewPublicMailto": true,
+      "noPrivateAddresses": true
+    },
+    {
+      "build": "netlifySub",
+      "lang": "de",
+      "formRegistered": true,
+      "missingFields": [],
+      "submitDisabledInHtml": true,
+      "onlyNewPublicMailto": true,
+      "noPrivateAddresses": true
+    }
+  ],
+  "compiledNetlifyRoot": {
+    "demoNoticeVisible": 0,
+    "submitEnabled": true,
+    "submitLabel": "Request audit",
+    "post": {
+      "count": 1,
+      "url": "http://127.0.0.1:53912/",
+      "type": "application/x-www-form-urlencoded",
+      "fields": {
+        "form-name": "audit",
+        "bot-field": "",
+        "name": "Sample Name",
+        "email": "sample@example.com",
+        "business": "Sample Studio",
+        "need": "Sample need",
+        "website": "",
+        "country": "",
+        "language": "en",
+        "service": "video",
+        "plan": "local",
+        "phone": "",
+        "privacy": "yes",
+        "marketing": "no",
+        "pageLanguage": "en"
+      }
+    },
+    "result": {
+      "kind": "delivered",
+      "text": "Request received\n\nYour request was submitted and accepted for processing. You can also write to the email address on this page.",
+      "retryVisible": false,
+      "business": "",
+      "summary": "No preference"
+    }
+  },
+  "staticHostFailure": {
+    "kind": "failed",
+    "retryVisible": true,
+    "business": "Sample Studio"
+  },
+  "emailLinks": {
+    "en": [
+      "mailto:info@sappl-digital.de @ summary-panel",
+      "mailto:info@sappl-digital.de @ footer"
+    ],
+    "es": [
+      "mailto:info@sappl-digital.de @ summary-panel",
+      "mailto:info@sappl-digital.de @ footer"
+    ],
+    "de": [
+      "mailto:info@sappl-digital.de @ summary-panel",
+      "mailto:info@sappl-digital.de @ footer"
+    ]
+  },
+  "subpathFixture": {
+    "posts": [
+      {
+        "url": "http://127.0.0.1:53913/odalo/",
+        "type": "application/x-www-form-urlencoded",
+        "form": "audit"
+      }
+    ],
+    "internalLinksOutsideBase": [],
+    "mailto": "mailto:info@sappl-digital.de"
+  }
+}

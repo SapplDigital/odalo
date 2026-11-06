@@ -6,25 +6,24 @@
 @font-face { font-family: 'Instrument Serif Fallback'; src: local('Times New Roman'); size-adjust: 92%; ascent-override: 98%; descent-override: 26%; line-gap-override: 0%; }
 
 /*
- * Brand tokens. Hex values are PROVISIONAL estimates from the reference screenshots.
- * Replace the first block with the original brand values; the derived block exists
- * because the provisional pairs failed WCAG AA for small text (ink/coral 3.99:1,
- * rust/paper 4.39:1, coral/ink 3.99:1). See HANDOFF.md.
+ * Brand tokens. The first five are sampled flat pixels of the owner-supplied logo and flyer (OWNER-LOGO-odalo-dot.png,
+ * OWNER-BRAND-FLYER.png): ink #223f63, sand #efe8d5, coral #d5946e, slate #516c8b, paper #f8fafa.
+ * rust and the derived block are contrast-safe text companions (ink/coral is only 4.2:1, so text on coral uses ink-deep 6.3:1).
  */
 :root {
-  --ink: #203b57;
-  --coral: #d98165;
-  --sand: #efe7d3;
-  --paper: #f7f9f8;
-  --slate: #50718b;
+  --ink: #223f63;
+  --coral: #d5946e;
+  --sand: #efe8d5;
+  --paper: #f8fafa;
+  --slate: #516c8b;
   --rust: #b65a40;
 
   /* Derived, contrast-safe companions (all >= 4.5:1 for the pairing noted) */
-  --ink-deep: #132338; /* text on coral: 5.5:1 */
-  --coral-light: #efa58c; /* small coral text on ink: 5.7:1 */
-  --rust-text: #9a4630; /* small accent text on paper/sand: 5.5 / 5.2:1 */
+  --ink-deep: #132338; /* text on coral: 6.3:1 */
+  --coral-light: #efa58c; /* small coral text on ink: 5.3:1 */
+  --rust-text: #9a4630; /* small accent text on paper/sand: 6.1 / 5.2:1 */
   --slate-text: #3f6079; /* slate text on sand: 5.4:1 */
-  --line: rgb(32 59 87 / 0.18);
+  --line: rgb(34 63 99 / 0.18);
 
   --font-sans: 'Outfit Variable', 'Outfit', 'Outfit Fallback', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-serif: 'Instrument Serif', 'Instrument Serif Fallback', 'Iowan Old Style', Georgia, serif;

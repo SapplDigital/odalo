@@ -1,0 +1,20 @@
+---
+/** One-off website build starting price, shown apart from the monthly plans (Plans page and the Website service page). */
+import { buildFromPrice } from '../content/plans';
+import type { Lang } from '../i18n';
+import { tr } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const b = tr(lang).plans.build;
+---
+<div class="bnote">
+  <p class="bnote__h">{b.h} <span class="bnote__price">{b.from} {buildFromPrice(lang)}</span> <span class="bnote__once">{b.oneOff}</span></p>
+  <p class="bnote__t">{b.text}</p>
+</div>
+<style>
+  .bnote { display: grid; gap: 4px; max-width: 62rem; margin-bottom: var(--s5); padding: var(--s4) var(--s5); background: var(--paper); border-left: 4px solid var(--coral); border-radius: 2px var(--r-small) var(--r-small) 2px; color: var(--ink); }
+  .bnote__h { margin: 0; font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px var(--s3); }
+  .bnote__price { font-size: 1.5rem; }
+  .bnote__once { font-weight: 500; font-size: 1rem; }
+  .bnote__t { margin: 0; max-width: 62ch; }
+</style>

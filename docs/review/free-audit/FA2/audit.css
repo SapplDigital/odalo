@@ -1,0 +1,179 @@
+/* FA2 free-audit mosaic prototype. All colours come from the brand tokens in tokens.generated.css (derived from src/styles/global.css).
+   Only the --au-* aliases below name audit roles; no colour literals are used in this file. */
+@import url('./tokens.generated.css');
+
+:root {
+  --au-bg: var(--paper);
+  --au-text: var(--ink);
+  --au-muted: var(--slate-text);
+  --au-field: var(--paper);
+  --au-field-edge: var(--slate);
+  --au-error: var(--rust-text);
+  --au-disabled: var(--sand);
+  --au-board-min: 38rem; /* reserved desktop board height; the board may only GROW past this if enlarged text needs it, never clip */
+  --au-dur: 240ms;
+  --au-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-padding-top: calc(var(--header-h) + 24px); scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--au-bg); color: var(--au-text); font-family: var(--font-sans); font-size: var(--fs-body); line-height: 1.55; overflow-wrap: break-word; }
+h1, h2, h3, p, dl, dd, ul, fieldset, legend { margin: 0; padding: 0; }
+ul { list-style: none; }
+:lang(de) { hyphens: auto; }
+a { color: inherit; text-underline-offset: 0.18em; }
+:focus-visible { outline: 3px solid var(--focus, var(--au-text)); outline-offset: 3px; border-radius: 2px; }
+a, button, input, select, textarea { scroll-margin-block: calc(var(--header-h) + 1rem) 1.75rem; }
+[hidden] { display: none !important; } /* author display rules (.btn, .tile__badge) must never override the hidden attribute */
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.wrap { width: 100%; max-width: 1440px; margin-inline: auto; padding-inline: var(--margin); }
+.skip { position: absolute; left: 12px; top: 12px; z-index: 100; background: var(--ink); color: var(--paper); padding: 12px 20px; border-radius: 999px; font-weight: 600; transform: translateY(calc(-100% - 24px)); }
+.skip:focus { transform: none; --focus: var(--coral-light); }
+
+/* ---- header (prototype's own; the production header is untouched) ---- */
+.bar { position: sticky; top: 0; z-index: 20; min-height: var(--header-h); background: var(--au-bg); border-bottom: 1px solid var(--line); }
+.bar__in { min-height: var(--header-h); padding-block: var(--s2); display: flex; align-items: center; justify-content: space-between; gap: var(--s4); }
+.bar__word { font-size: 2rem; font-weight: 700; letter-spacing: -0.04em; line-height: 1; text-transform: lowercase; }
+.bar__tag { font-size: 0.9375rem; font-weight: 600; color: var(--au-muted); text-align: right; }
+
+/* ---- buttons ---- */
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 10px 22px; border: 2px solid var(--btn-bg, var(--tile-fg)); border-radius: var(--r-small); background: var(--btn-bg, var(--tile-fg)); color: var(--btn-fg, var(--tile-bg)); font: inherit; font-size: 1.0625rem; font-weight: 600; line-height: 1.2; text-align: center; text-decoration: none; cursor: pointer; max-width: 100%; transition: background-color 150ms, color 150ms; }
+.btn--ghost { background: transparent; color: var(--btn-bg, var(--tile-fg)); }
+.btn:hover { background: var(--btn-fg, var(--tile-bg)); color: var(--btn-bg, var(--tile-fg)); }
+.btn--ghost:hover { background: var(--btn-bg, var(--tile-fg)); color: var(--btn-fg, var(--tile-bg)); }
+.btn[disabled] { background: var(--au-disabled); border-color: var(--au-field-edge); color: var(--au-muted); cursor: not-allowed; }
+
+/* ---- board: one connected mosaic. Tiles share edges (no gaps); only the OUTER silhouette is curved ---- */
+.board { display: grid; margin-top: var(--s5); }
+.intro { --tile-bg: var(--ink); --tile-fg: var(--paper); --focus: var(--coral-light); --btn-bg: var(--coral); --btn-fg: var(--ink-deep);
+  background: var(--tile-bg); color: var(--tile-fg); min-width: 0; padding: calc(var(--pad) + var(--s4)) var(--pad) var(--pad); border-top-left-radius: var(--r-big); display: grid; gap: var(--s4); align-content: start; }
+.intro h1 { font-size: clamp(2.5rem, 1rem + 2.6vw, 4.75rem); line-height: 1; font-weight: 700; letter-spacing: -0.035em; hyphens: auto; overflow-wrap: anywhere; }
+.intro h1 em { font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.01em; color: var(--coral-light); }
+.intro__lead { font-size: 1.1875rem; max-width: 34ch; }
+.intro__scope { font-size: 1.0625rem; max-width: 40ch; font-weight: 600; }
+.intro__hint { font-size: 1rem; max-width: 40ch; color: var(--sand); }
+.intro .btn--cta { justify-self: start; --btn-bg: var(--coral); --btn-fg: var(--ink-deep); background: var(--coral); border-color: var(--coral); color: var(--ink-deep); }
+.intro .btn--cta:hover { background: var(--ink); color: var(--coral-light); border-color: var(--coral-light); }
+
+.pieces { display: grid; grid-template-columns: minmax(0, 1fr); }
+.tile { position: relative; display: grid; grid-template-rows: auto auto 1fr; align-content: stretch; gap: var(--s3); padding: var(--pad); background: var(--tile-bg); color: var(--tile-fg); --focus: var(--tile-fg); min-width: 0; }
+.tile--web { --tile-bg: var(--sand); --tile-fg: var(--ink); }
+.tile--local { --tile-bg: var(--coral); --tile-fg: var(--ink-deep); }
+.tile--video { --tile-bg: var(--slate); --tile-fg: var(--paper); }
+.tile--ads { --tile-bg: var(--ink); --tile-fg: var(--paper); --focus: var(--coral-light); border-bottom-right-radius: var(--r-big); }
+.tile__title { font-size: var(--fs-h3); line-height: 1.1; font-weight: 700; letter-spacing: -0.02em; }
+.tile__short, .tile__long { font-size: 1.0625rem; max-width: 46ch; }
+.tile__tip { font-size: 0.9375rem; max-width: 46ch; }
+.tile__panel { display: grid; gap: var(--s3); }
+.tile__badge { font-weight: 700; display: inline-flex; gap: 8px; align-items: center; justify-self: start; border: 2px solid currentColor; border-radius: var(--r-small); padding: 2px 10px; font-size: 0.9375rem; }
+.tile__acts { display: flex; flex-wrap: wrap; gap: var(--s3); margin-top: var(--s2); }
+.tile__acts[hidden] { display: none; }
+.tile__cue { align-self: end; font-weight: 600; font-size: 1rem; padding-top: var(--s3); }
+.tile__cue::after { content: ' +'; }
+
+/* upgraded trigger: a real button inside the heading. Its ::after is a stable full-tile hit area while the tile is closed. */
+.tile__trigger { all: unset; box-sizing: border-box; cursor: pointer; display: inline-block; }
+.tile__trigger:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; border-radius: 2px; }
+.tile__trigger::after { content: ''; position: absolute; inset: 0; }
+.tile__trigger[aria-expanded='true']::after { display: none; }
+.tile__trigger[aria-expanded='true'] { cursor: default; }
+.tile[data-open='true'] .tile__short, .tile[data-open='true'] .tile__cue { display: none; }
+.tile[data-open='false'] .tile__panel { display: none; }
+.tile[data-open='true'] .tile__panel { animation: au-in var(--au-dur) var(--au-ease) both; }
+.tile__acts, .tile__badge { position: relative; z-index: 1; }
+@keyframes au-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* decorative layer: hover growth + selected edge. Clipped to the tile's own outer curve, never carries information alone. */
+.tile { isolation: isolate; }
+.tile--web { --tile-grow: var(--coral-light); }
+.tile--local { --tile-grow: var(--sand); }
+.tile--video { --tile-grow: var(--ink-deep); } /* not --ink: an ink triangle would merge with the Advertising tile beside it and blur the join */
+.tile--ads { --tile-grow: var(--slate); }
+/* decorative layer behind the text (z-index -1 inside the tile's own stacking context), clipped to the tile's outer curve.
+   .tile__grow is a mosaic-style right triangle anchored in the bottom-right corner; hover scales it (transform only), so nothing moves. */
+.tile__deco { position: absolute; inset: 0; z-index: -1; overflow: hidden; border-radius: inherit; pointer-events: none; }
+.tile__grow { position: absolute; inset: 0; background: var(--tile-grow); clip-path: polygon(100% 0, 100% 100%, 0 100%); transform: scale(0.3); transform-origin: 100% 100%; transition: transform var(--au-dur) var(--au-ease); }
+.tile[data-open='true'] .tile__grow { transform: scale(0); }
+/* selected: a short inset accent bar beside the text plus the textual "Included" badge; tile edges and joins untouched */
+.tile__deco::after { content: ''; position: absolute; left: calc(var(--pad) / 2 - 2px); top: var(--pad); bottom: var(--pad); width: 4px; background: var(--tile-fg); opacity: 0; transition: opacity 150ms; }
+.tile[data-selected='true'] .tile__deco::after { opacity: 1; }
+@media (hover: hover) and (pointer: fine) { .tile[data-open='false']:hover .tile__grow { transform: scale(0.72); } }
+
+/* ---- request region ---- */
+.request { display: grid; margin-top: var(--s8); margin-bottom: var(--s8); scroll-margin-top: calc(var(--header-h) + 16px); }
+.request:focus { outline: none; }
+.req-side { --tile-bg: var(--ink); --tile-fg: var(--paper); --focus: var(--coral-light); --btn-bg: var(--coral); --btn-fg: var(--ink-deep); background: var(--ink); color: var(--paper); padding: calc(var(--pad) + var(--s4)) var(--pad) var(--pad); border-top-left-radius: var(--r-big); }
+.req-side__in { display: grid; gap: var(--s4); align-content: start; }
+.req-side h2 { font-size: var(--fs-h3); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+.sum { display: grid; gap: var(--s3); }
+.sum dt { font-size: 0.8125rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--coral-light); }
+.sum dd { font-size: 1.25rem; font-weight: 600; }
+.sum__note { font-size: 0.9375rem; color: var(--sand); max-width: 36ch; }
+.req-side .btn { justify-self: start; }
+.req-side .btn[aria-pressed='true'] { background: var(--paper); border-color: var(--paper); color: var(--ink); }
+.req-form { background: var(--sand); padding: var(--pad); border-bottom-right-radius: var(--r-big); display: grid; gap: var(--s5); align-content: start; }
+.notice { background: var(--au-field); border-left: 6px solid var(--coral); padding: 12px 18px; border-radius: 4px; font-size: 1rem; max-width: 66ch; }
+.form { display: grid; gap: var(--s6); }
+.group { border: 0; display: grid; gap: var(--s4); min-width: 0; }
+.group legend { font-size: 0.8125rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--au-muted); padding-bottom: var(--s3); border-bottom: 2px solid var(--au-text); width: 100%; margin-bottom: var(--s4); }
+.grid { display: grid; gap: var(--s5); grid-template-columns: minmax(0, 1fr); }
+.field { display: grid; gap: 6px; align-content: start; }
+label { font-weight: 600; font-size: 1.0625rem; line-height: 1.3; }
+.req, .opt { font-weight: 400; color: var(--au-muted); font-size: 0.9375rem; }
+input[type='text'], input[type='email'], input[type='url'], input[type='tel'], select, textarea { width: 100%; min-height: 52px; padding: 12px 16px; font: inherit; font-size: 1.0625rem; color: var(--au-text); background: var(--au-field); border: 2px solid var(--au-field-edge); border-radius: var(--r-small); }
+input::placeholder, textarea::placeholder { color: var(--au-muted); opacity: 1; }
+textarea { resize: vertical; min-height: 8.5rem; line-height: 1.5; }
+input:hover, select:hover, textarea:hover { border-color: var(--au-text); }
+input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid var(--au-text); outline-offset: 2px; border-color: var(--au-text); }
+[aria-invalid='true'] { border-color: var(--au-error) !important; box-shadow: inset 6px 0 0 var(--au-error); }
+.hint { font-size: 0.9375rem; color: var(--au-muted); }
+.err { color: var(--au-error); font-weight: 700; font-size: 0.9375rem; display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 8px; overflow-wrap: anywhere; }
+.err::before { content: '!'; width: 20px; height: 20px; border-radius: 50%; background: var(--au-error); color: var(--au-field); display: inline-flex; align-items: center; justify-content: center; font-size: 0.8125rem; line-height: 1; margin-top: 2px; }
+.err[hidden], .summary[hidden], .result[hidden] { display: none; }
+.checks { display: grid; gap: var(--s4); margin-top: var(--s5); }
+.check { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 4px 12px; align-items: start; }
+.check input { width: 26px; height: 26px; margin: 2px 0 0; accent-color: var(--au-text); }
+.check label { font-weight: 400; font-size: 1rem; overflow-wrap: anywhere; }
+.check .err, .check .hint { grid-column: 2; }
+.summary { border: 2px solid var(--au-error); background: var(--au-field); padding: 16px 20px; border-radius: 4px; color: var(--au-error); font-weight: 700; }
+.summary ul { margin-top: 8px; display: grid; gap: 2px; }
+.summary a { color: inherit; display: inline-flex; min-height: 32px; align-items: center; }
+.actions .btn { --tile-bg: var(--sand); --tile-fg: var(--ink); min-width: min(16rem, 100%); }
+.btn--form { --btn-bg: var(--ink); --btn-fg: var(--paper); }
+.result { background: var(--ink); color: var(--paper); padding: var(--pad); border-radius: var(--r-small); border-bottom-right-radius: 64px; display: grid; gap: var(--s3); max-width: 62ch; }
+.result h3 { font-size: var(--fs-h3); line-height: 1.1; font-weight: 700; }
+.foot { padding-block: var(--s6); color: var(--au-muted); font-size: 0.9375rem; }
+
+/* ---- layouts. Three designed modes: (1) phone: stacked tiles, natural growth; (2) tablet / short desktop: 2x2 natural flow; (3) tall desktop: board with reserved height. ---- */
+@media (min-width: 48em) {
+  .pieces { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .wide { grid-column: 1 / -1; }
+}
+@media (min-width: 64em) {
+  .board { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); } /* intro beside the pieces from 64em, also without JS */
+  .request { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); }
+  .req-side__in { position: sticky; top: calc(var(--header-h) + var(--s5)); }
+}
+/* (3) needs a wide AND tall window (DE long copy fits from 75em; below that the natural-flow 2x2 is used) (em: so enlarged text falls back to flow sooner). Rows/columns animate on the board only. */
+@media (min-width: 75em) and (min-height: 46em) {
+  .js .board { min-height: var(--au-board-min); }
+  .js .pieces { --c1: 1fr; --c2: 1fr; --r1: 1fr; --r2: 1fr; grid-template-columns: var(--c1) var(--c2); grid-template-rows: var(--r1) var(--r2); transition: grid-template-columns var(--au-dur) var(--au-ease), grid-template-rows var(--au-dur) var(--au-ease); }
+  .js .pieces[data-open='0'] { --c1: 1.3fr; --c2: 0.7fr; --r1: 1.3fr; --r2: 0.7fr; }
+  .js .pieces[data-open='1'] { --c1: 0.7fr; --c2: 1.3fr; --r1: 1.3fr; --r2: 0.7fr; }
+  .js .pieces[data-open='2'] { --c1: 1.3fr; --c2: 0.7fr; --r1: 0.7fr; --r2: 1.3fr; }
+  .js .pieces[data-open='3'] { --c1: 0.7fr; --c2: 1.3fr; --r1: 0.7fr; --r2: 1.3fr; }
+  /* neighbours of an open piece keep their title + cue and drop the one-line teaser, so their height need can never exceed the reserved row */
+  .js .pieces[data-open] .tile[data-open='false'] .tile__short { display: none; }
+  .js .intro { border-bottom-left-radius: var(--r-small); }
+}
+
+/* ---- one brief entrance assembly (clip reveal: paint only). Content is in the DOM and focusable the whole time. ---- */
+.assemble .intro, .assemble .tile { animation: au-assemble 560ms var(--au-ease) backwards; }
+.assemble .tile[data-i='0'] { animation-delay: 60ms; } .assemble .tile[data-i='1'] { animation-delay: 140ms; }
+.assemble .tile[data-i='2'] { animation-delay: 200ms; } .assemble .tile[data-i='3'] { animation-delay: 260ms; }
+@keyframes au-assemble { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

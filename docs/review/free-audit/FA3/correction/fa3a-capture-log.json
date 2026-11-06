@@ -1,0 +1,127 @@
+{
+  "browser": "156.0.4314.50",
+  "base": "http://127.0.0.1:4395",
+  "blockedExternal": [],
+  "nonGetRequests": [
+    "POST http://127.0.0.1:4395/__fa3a-fake-endpoint",
+    "POST http://127.0.0.1:4395/__fa3a-fake-endpoint",
+    "POST http://127.0.0.1:4395/__fa3a-fake-endpoint",
+    "POST http://127.0.0.1:4395/__fa3a-fake-endpoint"
+  ],
+  "states": {
+    "1440-simulated": {
+      "kind": "simulated",
+      "title": "Simulated submission",
+      "text": "This is a demo and no delivery service is connected, so nothing was sent and nobody has received your request. Your entries remain in the form.",
+      "retryVisible": false,
+      "retryHiddenAttr": true,
+      "retryComputedDisplay": "none"
+    },
+    "1440-failed": {
+      "kind": "failed",
+      "title": "We could not send your request",
+      "text": "Something went wrong and your request was not delivered. Your entries are kept. You can try again.",
+      "retryVisible": true,
+      "retryHiddenAttr": false,
+      "retryComputedDisplay": "flex"
+    },
+    "1440-delivered": {
+      "kind": "delivered",
+      "title": "Request received",
+      "text": "Your request was delivered. We will use your details to contact you about your audit.",
+      "retryVisible": false,
+      "retryHiddenAttr": true,
+      "retryComputedDisplay": "none",
+      "formResetBusiness": ""
+    },
+    "390-simulated": {
+      "kind": "simulated",
+      "title": "Simulated submission",
+      "text": "This is a demo and no delivery service is connected, so nothing was sent and nobody has received your request. Your entries remain in the form.",
+      "retryVisible": false,
+      "retryHiddenAttr": true,
+      "retryComputedDisplay": "none"
+    },
+    "390-failed": {
+      "kind": "failed",
+      "title": "We could not send your request",
+      "text": "Something went wrong and your request was not delivered. Your entries are kept. You can try again.",
+      "retryVisible": true,
+      "retryHiddenAttr": false,
+      "retryComputedDisplay": "flex"
+    },
+    "390-delivered": {
+      "kind": "delivered",
+      "title": "Request received",
+      "text": "Your request was delivered. We will use your details to contact you about your audit.",
+      "retryVisible": false,
+      "retryHiddenAttr": true,
+      "retryComputedDisplay": "none",
+      "formResetBusiness": ""
+    },
+    "390-es-simulated": {
+      "kind": "simulated",
+      "title": "Envío simulado",
+      "text": "Esto es una demo y no hay ningún servicio de envío conectado, así que no se envió nada y nadie ha recibido tu solicitud. Tus datos siguen en el formulario.",
+      "retryVisible": false,
+      "retryHiddenAttr": true,
+      "retryComputedDisplay": "none"
+    },
+    "390-de-simulated": {
+      "kind": "simulated",
+      "title": "Simulierte Übermittlung",
+      "text": "Dies ist eine Demo und es ist kein Versanddienst angeschlossen. Es wurde nichts gesendet und niemand hat deine Anfrage erhalten. Deine Eingaben bleiben im Formular.",
+      "retryVisible": false,
+      "retryHiddenAttr": true,
+      "retryComputedDisplay": "none"
+    }
+  },
+  "labelsDe": {
+    "select": "Inhalte",
+    "summary": "Inhalte",
+    "options": [
+      "Keine Präferenz",
+      "Website",
+      "Lokale Präsenz",
+      "Inhalte",
+      "Werbung"
+    ]
+  },
+  "noJs": {
+    "1440-en": {
+      "submitDisabled": true,
+      "noscriptText": "Submitting this form needs JavaScript, which is switched off in your browser. Without it nothing can be sent from this page. To get in touch, write to Sebastian"
+    },
+    "390-en": {
+      "submitDisabled": true,
+      "noscriptText": "Submitting this form needs JavaScript, which is switched off in your browser. Without it nothing can be sent from this page. To get in touch, write to Sebastian"
+    },
+    "390-es": {
+      "submitDisabled": true,
+      "noscriptText": "Para enviar este formulario hace falta JavaScript, que está desactivado en tu navegador. Sin él no se puede enviar nada desde esta página. Para contactarnos, es"
+    },
+    "390-de": {
+      "submitDisabled": true,
+      "noscriptText": "Für das Absenden dieses Formulars wird JavaScript benötigt, das in deinem Browser ausgeschaltet ist. Ohne JavaScript kann von dieser Seite nichts gesendet werde"
+    }
+  },
+  "negativeControl": {
+    "note": "disabled stripped locally; Enter on a field submits the form natively",
+    "postCount": 1,
+    "firstPostBodyStart": "business=&need=&website=&service=&plan=&country=&name=Sample+Name&email=&phone=&language=en"
+  },
+  "firstVisit": {
+    "390": {
+      "storage": [],
+      "cookie": "",
+      "bannerPresent": false,
+      "submitEnabled": true
+    },
+    "1440": {
+      "storage": [],
+      "cookie": "",
+      "bannerPresent": false,
+      "submitEnabled": true
+    }
+  }
+}

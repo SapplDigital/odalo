@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="1.35 2.25 21.25 6.55" role="img" aria-label="odalo">
+  <title>odalo</title>
+  <g id="ha1" transform="translate(3.65 5.5) rotate(0)"><path d="M-2 1A2 2 0 0 1 2 1L1 1A1 1 0 0 0 -1 1Z" fill="#203b57" stroke="#203b57" stroke-width="0.04" stroke-linejoin="round"/></g>
+  <g id="ha2" transform="translate(3.65 7.5) rotate(180)"><path d="M-2 1A2 2 0 0 1 2 1L1 1A1 1 0 0 0 -1 1Z" fill="#50718b" stroke="#50718b" stroke-width="0.04" stroke-linejoin="round"/></g>
+  <g id="ha3" transform="translate(7.15 6.5) rotate(270)"><path d="M-2 1A2 2 0 0 1 2 1L1 1A1 1 0 0 0 -1 1Z" fill="#d98165" stroke="#d98165" stroke-width="0.04" stroke-linejoin="round"/></g>
+  <g id="ha4" transform="translate(11.65 6.5) rotate(270)"><path d="M-2 1A2 2 0 0 1 2 1L1 1A1 1 0 0 0 -1 1Z" fill="#203b57" stroke="#203b57" stroke-width="0.04" stroke-linejoin="round"/></g>
+  <g id="ha5" transform="translate(18.65 5.5) rotate(0)"><path d="M-2 1A2 2 0 0 1 2 1L1 1A1 1 0 0 0 -1 1Z" fill="#203b57" stroke="#203b57" stroke-width="0.04" stroke-linejoin="round"/></g>
+  <g id="ha6" transform="translate(18.65 7.5) rotate(180)"><path d="M-2 1A2 2 0 0 1 2 1L1 1A1 1 0 0 0 -1 1Z" fill="#d98165" stroke="#d98165" stroke-width="0.04" stroke-linejoin="round"/></g>
+  <g id="sq1" transform="translate(8.65 5) rotate(0)"><path d="M-.5-.5h1v1h-1Z" fill="#50718b" stroke="#50718b" stroke-width="0.04" stroke-linejoin="round"/></g>
+  <g id="sq2" transform="translate(8.65 8) rotate(0)"><path d="M-.5-.5h1v1h-1Z" fill="#203b57" stroke="#203b57" stroke-width="0.04" stroke-linejoin="round"/></g>
+  <g id="sq3" transform="translate(13.15 5) rotate(0)"><path d="M-.5-.5h1v1h-1Z" fill="#d98165" stroke="#d98165" stroke-width="0.04" stroke-linejoin="round"/></g>
+  <g id="sq4" transform="translate(13.15 8) rotate(0)"><path d="M-.5-.5h1v1h-1Z" fill="#203b57" stroke="#203b57" stroke-width="0.04" stroke-linejoin="round"/></g>
+  <g id="bar1" transform="translate(9.65 5.5) rotate(0)"><path d="M-.5-3h1v6h-1Z" fill="#203b57" stroke="#203b57" stroke-width="0.04" stroke-linejoin="round"/></g>
+  <g id="bar2" transform="translate(15.65 5.5) rotate(0)"><path d="M-.5-3h1v6h-1Z" fill="#50718b" stroke="#50718b" stroke-width="0.04" stroke-linejoin="round"/></g>
+  <g id="bar3" transform="translate(14.15 6.5) rotate(0)"><path d="M-.5-2h1v4h-1Z" fill="#203b57" stroke="#203b57" stroke-width="0.04" stroke-linejoin="round"/></g>
+  <g id="dot" transform="translate(21.75 7.9) rotate(0)"><path d="M-.6 0a.6 .6 0 1 0 1.2 0a.6 .6 0 1 0 -1.2 0Z" fill="#d98165" stroke="#d98165" stroke-width="0.04" stroke-linejoin="round"/></g>
+</svg>

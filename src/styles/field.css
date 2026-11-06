@@ -1,0 +1,31 @@
+/* One page-wide field, all routes: .pg (Base) holds header, main and footer; a script draws a single mosaic behind all of it (.pg-field).
+   Home: src/mosaic/home runtime (class hm-live). Dedicated routes: mountPageField in src/mosaic/field.js (class fld-live).
+   Script blocked or failed: the page keeps its normal flat look; header/footer elements are coloured chips. */
+.pg { position: relative; background: var(--paper); }
+.pg--home, .hm-live.pg, .fld-live.pg { background: var(--ink); }
+.pg-field { display: none; }
+.hm-live .pg-field, .fld-live .pg-field { display: block; position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.pg > header { position: relative; z-index: 2; } .pg > main, .pg > footer { position: relative; z-index: 1; }
+.fld-live .fld-tile { background: transparent !important; }
+
+/* header / fold / footer regions: the script lays one mosaic tile round each (data-fr = its colour); without it each is a coloured chip */
+[data-fr] { --fr-bg: var(--sand); --fr-fg: var(--ink); background: var(--fr-bg); color: var(--fr-fg); border-radius: 8px; }
+[data-fr='slate'] { --fr-bg: var(--slate); --fr-fg: var(--paper); } [data-fr='coral'] { --fr-bg: var(--coral); --fr-fg: var(--ink-deep); }
+[data-fr] :is(a, h2, p, li, span, summary, small, strong, em, div, label):not(.btn, .btn *) { color: inherit !important; }
+.hm-live [data-fr], .fld-live [data-fr] { background: none; }
+/* Blocks that GROW when a native disclosure opens keep their own opaque backing: it is plain CSS, painted in the same frame as the text, while the tile behind is recomputed
+   asynchronously (same colour, so the silhouette stays the irregular tile). */
+.hm-live .hm-panel[data-fr], .hm-live .ftr__col[data-fr], .fld-live .ftr__col[data-fr] { background: var(--fr-bg); }
+[data-fr='slate'] :focus-visible, [data-fr='slate']:focus-visible { outline-color: var(--paper); }
+[data-fr='coral'] .is-current { box-shadow: inset 0 -3px 0 var(--ink-deep); } [data-fr='slate'] .is-current { box-shadow: inset 0 -3px 0 var(--paper); }
+@media (max-width: 69.99em) { .hdr__panel [data-fr] { background: none !important; color: var(--ink); } .hdr__panel [data-fr] a:not(.btn) { color: var(--ink) !important; } }
+
+/* cells (shared by the home runtime and the page field).
+   Seam hierarchy: information pieces and header/footer tiles keep a clear 2px navy outline; the decorative field between them is only a fine, softer grout.
+   Decorative cells carry one of three flat tonal steps (hm-t0..2, fixed by their seed), all mixed from the brand tokens; the saturated flats stay on the content pieces. */
+.hm-cell { stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+.hm-cell[class*='hm-f-']:not(.hm-cell--c):not(.hm-cell--r) { stroke: color-mix(in srgb, var(--ink) 58%, var(--sand)); stroke-width: 1.15; }
+.hm-f-sand { fill: var(--sand); } .hm-f-slate { fill: var(--slate); } .hm-f-coral { fill: var(--coral); }
+.hm-f-sand.hm-t0 { fill: color-mix(in srgb, var(--sand) 90%, var(--paper)); } .hm-f-sand.hm-t1 { fill: color-mix(in srgb, var(--sand) 84%, var(--coral)); } .hm-f-sand.hm-t2 { fill: color-mix(in srgb, var(--sand) 86%, var(--slate)); }
+.hm-f-slate.hm-t0 { fill: color-mix(in srgb, var(--slate) 86%, var(--sand)); } .hm-f-slate.hm-t1 { fill: color-mix(in srgb, var(--slate) 90%, var(--ink)); } .hm-f-slate.hm-t2 { fill: color-mix(in srgb, var(--slate) 74%, var(--sand)); }
+.hm-f-coral.hm-t0 { fill: color-mix(in srgb, var(--coral) 86%, var(--sand)); } .hm-f-coral.hm-t1 { fill: color-mix(in srgb, var(--coral) 92%, var(--ink)); } .hm-f-coral.hm-t2 { fill: color-mix(in srgb, var(--coral) 72%, var(--sand)); }

@@ -1,0 +1,149 @@
+PASS  1440x900 en: shared-edge geometry live
+PASS  1440x900 en rest: no text clipped  — 0/0/0
+PASS  1440x900 en hover hotel: active=sample-hotel
+PASS  1440x900 en hover hotel: board, next section and page height unchanged  — board 818→818 next 2723→2723
+PASS  1440x900 en hover hotel: active card grew  — 568k → 596k px²
+PASS  1440x900 en hover hotel: active card's own title stationary on screen  — Δ0.0,0.0
+INFO  1440x900 en hover hotel: title shifts hotel Δ0,0 | clinic Δ0,0 | shop Δ0,0
+PASS  1440x900 en hover hotel: no text clipped in any card  — 0/0/0
+PASS  1440x900 en hover hotel: sample-clinic picture box = image shape (no side crop)  — box 0.800 image 0.799
+PASS  1440x900 en hover hotel: sample-shop picture box = image shape (no side crop)  — box 0.563 image 0.562
+PASS  1440x900 en hover clinic: active=sample-clinic
+PASS  1440x900 en hover clinic: board, next section and page height unchanged  — board 818→818 next 2723→2723
+PASS  1440x900 en hover clinic: active card grew  — 266k → 287k px²
+PASS  1440x900 en hover clinic: active card's own title stationary on screen  — Δ0.0,0.0
+INFO  1440x900 en hover clinic: title shifts hotel Δ0,0 | clinic Δ0,0 | shop Δ0,0
+PASS  1440x900 en hover clinic: no text clipped in any card  — 0/0/0
+PASS  1440x900 en hover clinic: sample-clinic picture box = image shape (no side crop)  — box 0.800 image 0.799
+PASS  1440x900 en hover clinic: sample-shop picture box = image shape (no side crop)  — box 0.562 image 0.562
+PASS  1440x900 en hover shop: active=sample-shop
+PASS  1440x900 en hover shop: board, next section and page height unchanged  — board 818→818 next 2723→2723
+PASS  1440x900 en hover shop: active card grew  — 266k → 287k px²
+PASS  1440x900 en hover shop: active card's own title stationary on screen  — Δ0.0,0.0
+INFO  1440x900 en hover shop: title shifts hotel Δ0,0 | clinic Δ0,0 | shop Δ0,0
+PASS  1440x900 en hover shop: no text clipped in any card  — 0/0/0
+PASS  1440x900 en hover shop: sample-clinic picture box = image shape (no side crop)  — box 0.800 image 0.799
+PASS  1440x900 en hover shop: sample-shop picture box = image shape (no side crop)  — box 0.562 image 0.562
+PASS  1440x900 en: ±14px jitter on the hotel|support edge → at most 2 state changes in 60 moves  — changes=0
+PASS  1440x900 en: ±14px jitter on the clinic|shop edge → at most 2 state changes in 60 moves  — changes=0
+PASS  1440x900 en: with clinic active, ±14px jitter on the clinic|shop edge (clinic active first) → no state change  — changes=0
+PASS  1440x900 en: with hotel active, ±14px jitter on the hotel|support edge (hotel active first) → no state change  — changes=0
+PASS  1440x900 en: slow sweep down the support column changes target at most once after the first  —  > sample-clinic > sample-shop
+PASS  1440x900 en: pointer leaves → board back to rest
+PASS  1280x800 en: shared-edge geometry live
+PASS  1280x800 en rest: no text clipped  — 0/0/0
+PASS  1280x800 en hover hotel: active=sample-hotel
+PASS  1280x800 en hover hotel: board, next section and page height unchanged  — board 766→766 next 2604→2604
+PASS  1280x800 en hover hotel: active card grew  — 469k → 476k px²
+PASS  1280x800 en hover hotel: active card's own title stationary on screen  — Δ0.0,0.0
+INFO  1280x800 en hover hotel: title shifts hotel Δ0,0 | clinic Δ0,0 | shop Δ0,0
+PASS  1280x800 en hover hotel: no text clipped in any card  — 0/0/0
+PASS  1280x800 en hover hotel: sample-clinic picture box = image shape (no side crop)  — box 0.800 image 0.799
+PASS  1280x800 en hover hotel: sample-shop picture box = image shape (no side crop)  — box 0.562 image 0.562
+PASS  1280x800 en hover clinic: active=sample-clinic
+PASS  1280x800 en hover clinic: board, next section and page height unchanged  — board 766→766 next 2604→2604
+PASS  1280x800 en hover clinic: active card grew  — 219k → 237k px²
+PASS  1280x800 en hover clinic: active card's own title stationary on screen  — Δ0.0,0.0
+INFO  1280x800 en hover clinic: title shifts hotel Δ0,0 | clinic Δ0,0 | shop Δ0,0
+PASS  1280x800 en hover clinic: no text clipped in any card  — 0/0/0
+PASS  1280x800 en hover clinic: sample-clinic picture box = image shape (no side crop)  — box 0.782 image 0.799
+PASS  1280x800 en hover clinic: sample-shop picture box = image shape (no side crop)  — box 0.562 image 0.562
+PASS  1280x800 en hover shop: active=sample-shop
+PASS  1280x800 en hover shop: board, next section and page height unchanged  — board 766→766 next 2604→2604
+PASS  1280x800 en hover shop: active card grew  — 219k → 237k px²
+PASS  1280x800 en hover shop: active card's own title stationary on screen  — Δ0.0,0.0
+INFO  1280x800 en hover shop: title shifts hotel Δ0,0 | clinic Δ0,0 | shop Δ0,0
+PASS  1280x800 en hover shop: no text clipped in any card  — 0/0/0
+PASS  1280x800 en hover shop: sample-clinic picture box = image shape (no side crop)  — box 0.800 image 0.799
+PASS  1280x800 en hover shop: sample-shop picture box = image shape (no side crop)  — box 0.562 image 0.562
+PASS  1280x800 en: ±14px jitter on the hotel|support edge → at most 2 state changes in 60 moves  — changes=0
+PASS  1280x800 en: ±14px jitter on the clinic|shop edge → at most 2 state changes in 60 moves  — changes=0
+PASS  1280x800 en: with clinic active, ±14px jitter on the clinic|shop edge (clinic active first) → no state change  — changes=0
+PASS  1280x800 en: with hotel active, ±14px jitter on the hotel|support edge (hotel active first) → no state change  — changes=0
+PASS  1280x800 en: slow sweep down the support column changes target at most once after the first  —  > sample-clinic > sample-shop
+PASS  1280x800 en: pointer leaves → board back to rest
+PASS  1440x900 de: shared-edge geometry live
+PASS  1440x900 de rest: no text clipped  — 0/0/0
+PASS  1440x900 de hover hotel: active=sample-hotel
+PASS  1440x900 de hover hotel: board, next section and page height unchanged  — board 818→818 next 2723→2723
+PASS  1440x900 de hover hotel: active card grew  — 568k → 596k px²
+PASS  1440x900 de hover hotel: active card's own title stationary on screen  — Δ0.0,0.0
+INFO  1440x900 de hover hotel: title shifts hotel Δ0,0 | clinic Δ0,0 | shop Δ0,0
+PASS  1440x900 de hover hotel: no text clipped in any card  — 0/0/0
+PASS  1440x900 de hover hotel: sample-clinic picture box = image shape (no side crop)  — box 0.800 image 0.799
+PASS  1440x900 de hover hotel: sample-shop picture box = image shape (no side crop)  — box 0.563 image 0.562
+PASS  1440x900 de hover clinic: active=sample-clinic
+PASS  1440x900 de hover clinic: board, next section and page height unchanged  — board 818→818 next 2723→2723
+PASS  1440x900 de hover clinic: active card grew  — 266k → 287k px²
+PASS  1440x900 de hover clinic: active card's own title stationary on screen  — Δ0.0,0.0
+INFO  1440x900 de hover clinic: title shifts hotel Δ0,0 | clinic Δ0,0 | shop Δ0,0
+PASS  1440x900 de hover clinic: no text clipped in any card  — 0/0/0
+PASS  1440x900 de hover clinic: sample-clinic picture box = image shape (no side crop)  — box 0.800 image 0.799
+PASS  1440x900 de hover clinic: sample-shop picture box = image shape (no side crop)  — box 0.562 image 0.562
+PASS  1440x900 de hover shop: active=sample-shop
+PASS  1440x900 de hover shop: board, next section and page height unchanged  — board 818→818 next 2723→2723
+PASS  1440x900 de hover shop: active card grew  — 266k → 287k px²
+PASS  1440x900 de hover shop: active card's own title stationary on screen  — Δ0.0,0.0
+INFO  1440x900 de hover shop: title shifts hotel Δ0,0 | clinic Δ0,0 | shop Δ0,0
+PASS  1440x900 de hover shop: no text clipped in any card  — 0/0/0
+PASS  1440x900 de hover shop: sample-clinic picture box = image shape (no side crop)  — box 0.800 image 0.799
+PASS  1440x900 de hover shop: sample-shop picture box = image shape (no side crop)  — box 0.562 image 0.562
+PASS  1440x900 de: ±14px jitter on the hotel|support edge → at most 2 state changes in 60 moves  — changes=0
+PASS  1440x900 de: ±14px jitter on the clinic|shop edge → at most 2 state changes in 60 moves  — changes=0
+PASS  1440x900 de: with clinic active, ±14px jitter on the clinic|shop edge (clinic active first) → no state change  — changes=0
+PASS  1440x900 de: with hotel active, ±14px jitter on the hotel|support edge (hotel active first) → no state change  — changes=0
+PASS  1440x900 de: slow sweep down the support column changes target at most once after the first  —  > sample-clinic > sample-shop
+PASS  1440x900 de: pointer leaves → board back to rest
+PASS  1280x800 de: shared-edge geometry live
+PASS  1280x800 de rest: no text clipped  — 0/0/0
+PASS  1280x800 de hover hotel: active=sample-hotel
+PASS  1280x800 de hover hotel: board, next section and page height unchanged  — board 766→766 next 2660→2660
+PASS  1280x800 de hover hotel: active card grew  — 469k → 476k px²
+PASS  1280x800 de hover hotel: active card's own title stationary on screen  — Δ0.0,0.0
+INFO  1280x800 de hover hotel: title shifts hotel Δ0,0 | clinic Δ0,0 | shop Δ0,0
+PASS  1280x800 de hover hotel: no text clipped in any card  — 0/0/0
+PASS  1280x800 de hover hotel: sample-clinic picture box = image shape (no side crop)  — box 0.800 image 0.799
+PASS  1280x800 de hover hotel: sample-shop picture box = image shape (no side crop)  — box 0.562 image 0.562
+PASS  1280x800 de hover clinic: active=sample-clinic
+PASS  1280x800 de hover clinic: board, next section and page height unchanged  — board 766→766 next 2660→2660
+PASS  1280x800 de hover clinic: active card grew  — 219k → 237k px²
+PASS  1280x800 de hover clinic: active card's own title stationary on screen  — Δ0.0,0.0
+INFO  1280x800 de hover clinic: title shifts hotel Δ0,0 | clinic Δ0,0 | shop Δ0,0
+PASS  1280x800 de hover clinic: no text clipped in any card  — 0/0/0
+PASS  1280x800 de hover clinic: sample-clinic picture box = image shape (no side crop)  — box 0.782 image 0.799
+PASS  1280x800 de hover clinic: sample-shop picture box = image shape (no side crop)  — box 0.562 image 0.562
+PASS  1280x800 de hover shop: active=sample-shop
+PASS  1280x800 de hover shop: board, next section and page height unchanged  — board 766→766 next 2660→2660
+PASS  1280x800 de hover shop: active card grew  — 219k → 237k px²
+PASS  1280x800 de hover shop: active card's own title stationary on screen  — Δ0.0,0.0
+INFO  1280x800 de hover shop: title shifts hotel Δ0,0 | clinic Δ0,0 | shop Δ0,0
+PASS  1280x800 de hover shop: no text clipped in any card  — 0/0/0
+PASS  1280x800 de hover shop: sample-clinic picture box = image shape (no side crop)  — box 0.800 image 0.799
+PASS  1280x800 de hover shop: sample-shop picture box = image shape (no side crop)  — box 0.562 image 0.562
+PASS  1280x800 de: ±14px jitter on the hotel|support edge → at most 2 state changes in 60 moves  — changes=0
+PASS  1280x800 de: ±14px jitter on the clinic|shop edge → at most 2 state changes in 60 moves  — changes=0
+PASS  1280x800 de: with clinic active, ±14px jitter on the clinic|shop edge (clinic active first) → no state change  — changes=0
+PASS  1280x800 de: with hotel active, ±14px jitter on the hotel|support edge (hotel active first) → no state change  — changes=0
+PASS  1280x800 de: slow sweep down the support column changes target at most once after the first  —  > sample-clinic > sample-shop
+PASS  1280x800 de: pointer leaves → board back to rest
+PASS  keyboard: Work links in DOM order = note link, hotel, clinic, shop  — /en/work/ /en/work/sample-hotel/ /en/work/sample-clinic/ /en/work/sample-shop/
+PASS  keyboard: Tab to hotel → hotel emphasised  — sample-hotel
+PASS  keyboard: visible whole-card focus ring  — solid 3px
+PASS  keyboard: Tab → clinic emphasised  — sample-clinic
+PASS  keyboard: Tab → shop emphasised  — sample-shop
+PASS  keyboard: board and next section unchanged
+PASS  keyboard: focus leaves → rest
+PASS  click on the featured card → exactly one native navigation to its case study  — 1 navigation → http://127.0.0.1:4331/en/work/sample-hotel/
+PASS  touch: a scroll gesture across the board selects nothing
+PASS  390px phone: one tap on a project card navigates once  — 1 navigation → http://127.0.0.1:4331/en/work/sample-clinic/
+PASS  320px phone: one tap on a project card navigates once  — 1 navigation → http://127.0.0.1:4331/en/work/sample-clinic/
+PASS  390px DE: no horizontal overflow, no clipped card text  — {"over":0,"clip":false}
+PASS  320px DE: no horizontal overflow, no clipped card text  — {"over":0,"clip":false}
+PASS  834px DE: no horizontal overflow, no clipped card text  — {"over":0,"clip":false}
+PASS  reduced motion: hover changes no geometry
+PASS  reduced motion: peg and cards docked (no pending transform)
+PASS  no JS: all 4 Work links and all text are present and laid out  — /en/work/ /en/work/sample-hotel/ /en/work/sample-clinic/ /en/work/sample-shop/
+PASS  200% text en: natural flow (no fixed-height board), nothing clipped, no overflow  — {"geo":"","clip":false,"over":0}
+PASS  200% text de: natural flow (no fixed-height board), nothing clipped, no overflow  — {"geo":"","clip":false,"over":0}
+
+ALL PASSED

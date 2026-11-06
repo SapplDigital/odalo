@@ -1,0 +1,201 @@
+---
+/**
+ * Compact homepage: one irregular fitted polygon mosaic (src/mosaic/home) holding the value proposition, the four services and the paths to
+ * Plans / About, then Process and FAQ as native disclosures. The full old stack (Hero, ServiceMosaic, WorkMosaic, Process, Plans, About, Faq,
+ * FinalCta) stays in src/components for the dedicated routes; this page no longer renders it.
+ */
+import ConceptImage from './ConceptImage.astro';
+import { services, serviceVisual } from '../content/services';
+import { faqs } from '../content/faqs';
+import { layout } from '../mosaic/home/layout.js';
+import { href, type Lang } from '../i18n';
+import { tr, isDemoEnquiry } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = tr(lang);
+const hero = t.hero;
+const lead = hero.body.split(/(?<=[.!?])\s+/)[0]!; // one concise supporting sentence
+const colors = layout('wide').seeds.map((s: { color: string }) => s.color);
+const th = (i: number) => `hm-th-${colors[i]}`;
+const links = [
+  { id: 'plans', to: href(lang, 'plans/'), name: t.nav.plans, text: t.meta.plans.description },
+  { id: 'about', to: href(lang, 'about/'), name: t.nav.about, text: t.meta.about.description },
+];
+---
+<div id="services" class="hm">
+  <div class="hm-stage">
+    <div class="hm-canvas" data-hm>
+      <article class:list={['hm-box', 'hm-box--hero', th(0)]} data-kind="hero">
+        <p class="hm-eyebrow">{hero.eyebrow}</p>
+        <h1 class="hm-h1">{hero.h1.a} <em>{hero.h1.em}</em></h1>
+        <p class="hm-lead">{lead}</p>
+        <div class="hm-cta"><a class="btn btn--coral" href={href(lang, 'audit/')} data-track="audit_cta" data-location="hero">{hero.primary}</a></div>
+      </article>
+
+      {services.map((s, n) => {
+        const v = serviceVisual(s);
+        return (
+          <article class:list={['hm-box', 'hm-box--c', th(n + 1)]} data-kind="service" id={`pc-${s.id}`}>
+            <div class="hm-txt">
+              <p class="hm-num">{s.number}</p>
+              <h2 class="hm-name">{s.name[lang]}</h2>
+              <p class="hm-out">{s.outcome[lang]}</p>
+              <button class="hm-toggle" type="button" hidden aria-expanded="false" aria-controls={`dt-${s.id}`} data-open={t.common.explore} data-close={t.common.closeDetails}>
+                <span class="hm-tl">{t.common.explore}</span><span class="sr-only">: {s.name[lang]}</span><span class="hm-ico" aria-hidden="true"></span>
+              </button>
+              <div class="hm-detail" id={`dt-${s.id}`}>
+                <figure class="hm-fig">
+                  <ConceptImage image={v.image} lang={lang} sizes="(min-width: 64em) 30vw, 90vw" class="hm-pic" />
+                  <figcaption>{v.label[lang]} · {t.common.sampleNote}</figcaption>
+                </figure>
+                <div class="hm-more">
+                  <p>{s.detail[lang]}</p>
+                  <ul>{s.deliverables[lang].map((d) => <li>{d}</li>)}</ul>
+                  <p class="hm-note">{t.services.exampleScope}</p>
+                  <a class="hm-link" href={href(lang, `services/${s.id}/`)}>{t.common.fullService}<span class="sr-only">: {s.name[lang]}</span></a>
+                  {s.id === 'web' && <a class="hm-link" href={href(lang, 'work/sample-hotel/')}>{t.common.websiteConcept}</a>}
+                </div>
+              </div>
+            </div>
+          </article>
+        );
+      })}
+
+      {links.map((l, n) => (
+        <article class:list={['hm-box', 'hm-box--link', th(n + 5)]} data-kind="link">
+          <div class="hm-txt">
+            <h2 class="hm-name"><a class="hm-link" href={l.to}>{l.name}</a></h2>
+            <p class="hm-out">{l.text}</p>
+            <span class="hm-pill" aria-hidden="true">{t.common.explore}<span class="hm-ico"></span></span>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <div class="hm-below">
+  <nav class="hm-paths" aria-label={`${t.nav.plans} · ${t.nav.about}`}>
+    {links.map((l, n) => <a class="hm-path" href={l.to} data-fr={['coral', 'slate'][n]}>{l.name}{l.id === 'plans' && <small>{t.common.examplePrices}</small>}</a>)}
+  </nav>
+
+  <div class="hm-fold">
+    <details class="hm-disc" id="process">
+      <summary data-fr="coral"><span>{t.nav.process}</span><span class="hm-sico" aria-hidden="true"></span></summary>
+      <div class="hm-panel" data-fr="sand">
+        <p class="hm-note">{t.process.note}</p>
+        <ol class="hm-steps">{t.process.steps.map((s) => <li><h3>{s.t}</h3><p>{s.d}</p></li>)}</ol>
+      </div>
+    </details>
+    <details class="hm-disc" id="faq">
+      <summary data-fr="slate"><span>{t.nav.faq}</span><span class="hm-sico" aria-hidden="true"></span></summary>
+      <div class="hm-panel" data-fr="sand">
+        {faqs.map((f) => (
+          <details class="hm-qa" name="home-faq">
+            <summary><span>{f.q[lang]}</span></summary>
+            <p>{(!isDemoEnquiry && f.aConfigured ? f.aConfigured : f.a)[lang]}</p>
+          </details>
+        ))}
+      </div>
+    </details>
+  </div>
+  </div>
+</div>
+
+<style is:global>
+  .hm { padding: 0; }
+  .hm-stage { max-width: 1200px; margin-inline: auto; --fs: 18.5; }
+  .hm-stage[data-v='narrow'] { max-width: 520px; --fs: 19; }
+  /* Default (server HTML, script blocked or failed, or text that cannot fit the mosaic): a plain readable stack, every detail visible.
+     The positioned mosaic is only switched on by the script once it has initialised (class hm-live on .pg). */
+  .hm-canvas { position: relative; width: 100%; padding: 12px; display: grid; gap: 12px; }
+  .hm-live .hm-canvas { display: block; padding: 0; }
+  .hm-cell--c.is-hot { filter: brightness(1.06); }
+
+  /* text pieces: placed by the runtime inside the inscribed rectangle of their polygon */
+  .hm-box { position: static; padding: 24px; border-radius: 10px; font-size: 1.0625rem; display: flex; flex-direction: column; justify-content: center; min-width: 0; line-height: 1.4; overflow-wrap: break-word; hyphens: manual; text-wrap: pretty; }
+  .hm-live .hm-box { position: absolute; padding: 0; border-radius: 0; font-size: max(17px, calc(var(--k, 1) * var(--fs) * 1px)); }
+  .hm-th-sand { color: var(--ink); background: var(--sand); } .hm-th-slate { color: var(--paper); background: var(--slate); } .hm-th-coral { color: var(--ink-deep); background: var(--coral); }
+  .hm-live .hm-box { background: none; }
+  /* :lang(de) { hyphens: auto } in global.css matches every descendant, so the parent's value is not enough: set it on the pieces and their text */
+  .hm-stage .hm-box, .hm-stage .hm-box * { hyphens: manual; }
+  .hm-box--hero { gap: calc(var(--k, 1) * 12px); }
+  .hm-eyebrow { margin: 0; font-size: .72em; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--rust-text); line-height: 1.35; }
+  .hm-h1 { margin: 0; font-size: 2.2rem; }
+  .hm-live .hm-h1 { font-size: max(34px, calc(var(--k, 1) * var(--fs) * 2.5px)); font-weight: 800; line-height: 1; letter-spacing: -.04em; text-wrap: balance; }
+  .hm-h1 em { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--rust-text); letter-spacing: -.01em; }
+  .hm-lead { margin: 0; font-size: 1.04em; max-width: 34ch; }
+  .hm-cta { display: flex; margin-top: 6px; }
+  .hm-box--hero .btn { min-height: 52px; padding-inline: 28px; font-size: 1.02em; font-weight: 700; }
+  .hm-box .btn { white-space: normal; text-align: center; }
+  .hm-box--c, .hm-box--link { cursor: pointer; }
+  .hm-txt { display: flex; flex-direction: column; align-items: flex-start; gap: calc(var(--k, 1) * 6px); }
+  .hm-num { margin: 0; font-size: .7em; font-weight: 600; letter-spacing: .14em; opacity: .72; }
+  .hm-name { margin: 0; font-size: 1.42em; font-weight: 800; line-height: 1.06; letter-spacing: -.025em; text-wrap: balance; }
+  .hm-out { margin: 0; font-size: .95em; line-height: 1.45; }
+  .hm-toggle { margin-top: calc(var(--k, 1) * 8px); display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border: 1.5px solid currentColor; border-radius: 999px; background: transparent; color: inherit; font: 600 .9em/1 var(--font-sans); cursor: pointer; }
+  .hm-toggle[hidden] { display: none; }
+  /* Plans / About pieces: the whole piece is the link; the pill only echoes the Explore buttons of the services (decorative, not a second control) */
+  .hm-pill { display: none; }
+  .hm-live .hm-box--link .hm-pill { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; margin-top: calc(var(--k, 1) * 8px); border: 1.5px solid currentColor; border-radius: 999px; font: 600 .9em/1 var(--font-sans); }
+  .hm-live .hm-box--link .hm-link { text-decoration: none; }
+  .hm-box--link .hm-name .hm-link { font-weight: 800; }
+  .hm-compact .hm-box--c:not(.is-open) .hm-out { display: none; }
+  .hm-ico::before { content: '+'; font-size: 1.25em; line-height: 1; }
+  .hm-toggle[aria-expanded='true'] .hm-ico::before { content: '\00d7'; }
+  .hm-link { color: inherit; font-weight: 600; text-underline-offset: 3px; }
+  .hm-detail { display: grid; gap: 12px; margin-top: 4px; }
+  .hm-more { display: grid; gap: 8px; align-content: start; } .hm-more p, .hm-more ul { margin: 0; } .hm-more ul { padding-left: 1.2em; } .hm-more li { margin-block: 2px; }
+  .hm-note { font-size: .85em; opacity: .9; margin: 0; }
+  .hm-fig { margin: 0; display: grid; gap: 4px; } .hm-fig figcaption { font-size: .8em; }
+  .hm-pic { width: 100%; height: auto; max-height: 220px; object-fit: cover; border-radius: 8px; display: block; }
+  .hm-live .hm-box .hm-detail { display: none; }
+  .hm-live .hm-box.is-open .hm-detail { display: grid; }
+  .hm-box.is-open { cursor: default; }
+  .hm-box--c, .hm-box--link { cursor: default; } .hm-live .hm-box--c, .hm-live .hm-box--link { cursor: pointer; }
+  .hm-box.is-open .hm-txt { width: 100%; }
+  .hm-live .hm-stage[data-v='wide'] .hm-box.is-open .hm-detail { grid-template-columns: minmax(0, 38%) minmax(0, 1fr); gap: calc(var(--k, 1) * 22px); }
+  @media (hover: hover) and (pointer: fine) { .hm-box.is-hot:not(.is-open) .hm-link { text-decoration: underline; } }
+
+  /* phone: Work / Plans / About as a short row of native links (their long descriptions stay on the desktop pieces and the dedicated pages) */
+  .hm-below { max-width: 1200px; margin-inline: auto; padding: var(--s3) var(--margin) var(--s4); }
+  .hm-paths { display: none; gap: var(--s2); }
+  @media (max-width: 63.99em) { .hm-live .hm-paths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .hm-path { display: flex; flex-direction: column; justify-content: center; min-height: 76px; padding: 10px 20px; border-radius: 22px; font-size: 1.3rem; font-weight: 800; letter-spacing: -.02em; text-decoration: none; line-height: 1.12; }
+  .hm-path small { font-weight: 500; font-size: .8125rem; opacity: .9; }
+
+  /* Process and FAQ: native disclosures */
+  .hm-fold { display: grid; gap: var(--s3); scroll-margin-top: calc(var(--header-h) + 8px); }
+  .hm-paths:not([hidden]) + .hm-fold { margin-top: var(--s3); }
+  .hm-disc, .hm-disc[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
+  .hm-disc > summary { display: inline-flex; align-items: center; gap: var(--s4); min-height: 56px; padding: 8px var(--s5); border-radius: 10px; cursor: pointer; list-style: none; font-weight: 800; font-size: 1.25rem; letter-spacing: -.02em; }
+  .hm-disc > summary::-webkit-details-marker { display: none; }
+  .hm-sico::before { content: '+'; font-size: 1.5rem; font-weight: 600; }
+  .hm-disc[open] > summary .hm-sico::before { content: '\00d7'; }
+  .hm-panel { margin-top: var(--s2); padding: var(--s4) var(--s5); border-radius: 10px; display: grid; gap: var(--s3); max-width: 62rem; }
+  .hm-steps { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--s4); grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); counter-reset: s; }
+  .hm-steps li { counter-increment: s; } .hm-steps li::before { content: counter(s, decimal-leading-zero); font-weight: 800; color: var(--rust-text); }
+  .hm-steps h3 { margin: 0 0 4px; font-size: 1.125rem; } .hm-steps p { margin: 0; }
+  .hm-qa { border-top: 1px solid var(--line); padding-block: var(--s2); }
+  .hm-qa > summary { cursor: pointer; font-weight: 600; min-height: 44px; display: flex; align-items: center; }
+  .hm-qa p { margin: var(--s2) 0 var(--s2); }
+  @media (min-width: 64em) { .hm-fold { grid-template-columns: 1fr 1fr; align-items: start; } }
+  /* the runtime measures a piece right after sizing it: the reduced-motion rule in global.css (transition-duration .01ms on everything) would make that size a transition and read stale values */
+  .hm-box, .hm-box * { transition: none !important; }
+  .hm-morphing .hm-box { overflow: clip; }
+</style>
+
+<script>
+  import { mountMosaic } from '../mosaic/home/runtime.js';
+  const canvas = document.querySelector<HTMLElement>('[data-hm]');
+  // Progressive enhancement: the server HTML is already a readable stack. mountMosaic switches the positioned mosaic on (class hm-live) only once it has
+  // initialised and the text fits; any failure leaves (or restores) the stack. At build time this script is moved into <head> as blocking="render" (astro.config.mjs), so it runs
+  // synchronously before the first paint of the page and the previous page stays visible until the mosaic is ready (no flash of the plain stack on a language switch).
+  // Fonts are preloaded and metric-adjusted fallbacks are used meanwhile: nothing waits for them here; when they have arrived the layout is re-fitted (runtime: __hmFonts).
+  if (canvas) {
+    try { mountMosaic(canvas); } catch { /* stays a readable stack */ }
+    document.fonts?.ready.then(() => (window as any).__hmFonts?.()).catch(() => {});
+  }
+  // #process and #faq are native disclosures: opening them from a link (header, footer, address bar) shows the content
+  const openHash = () => { const d = document.querySelector<HTMLDetailsElement>(location.hash.length > 1 ? `details${location.hash}` : 'x'); if (d) { d.open = true; d.scrollIntoView(); } };
+  openHash(); addEventListener('hashchange', openHash);
+</script>

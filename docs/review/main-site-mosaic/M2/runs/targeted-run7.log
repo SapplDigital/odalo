@@ -1,0 +1,420 @@
+
+Running 297 tests using 3 workers
+
+[1/297] tests\mosaic.spec.ts:31:5 › service mosaic — desktop 1440 › hovering local moves the shared edge per Document 03 and keeps layout stable
+[2/297] tests\mosaic.spec.ts:31:5 › service mosaic — desktop 1440 › hovering web moves the shared edge per Document 03 and keeps layout stable
+[3/297] tests\mosaic.spec.ts:21:3 › service mosaic — desktop 1440 › rest state is unequal 7/5 and 5/7
+[4/297] tests\mosaic.spec.ts:31:5 › service mosaic — desktop 1440 › hovering video moves the shared edge per Document 03 and keeps layout stable
+[5/297] tests\mosaic.spec.ts:31:5 › service mosaic — desktop 1440 › hovering ads moves the shared edge per Document 03 and keeps layout stable
+[6/297] tests\mosaic.spec.ts:53:3 › service mosaic — desktop 1440 › no text clipping in any hover state (en/es/de)
+[7/297] tests\mosaic.spec.ts:70:3 › service mosaic — desktop 1440 › moving along the rest edge does not flicker (tolerance + intent delay)
+[8/297] tests\mosaic.spec.ts:89:3 › service mosaic — desktop 1440 › pointer leaving resets to resting composition
+[9/297] tests\mosaic.spec.ts:100:3 › service mosaic — desktop 1440 › hover alone never opens the detail region
+[10/297] tests\mosaic.spec.ts:114:3 › exploration, keyboard › keyboard: focus emphasises tile, Enter opens, Escape closes and restores focus
+[11/297] tests\mosaic.spec.ts:133:3 › exploration, keyboard › Space activates and only one detail region is open at a time
+[12/297] tests\mosaic.spec.ts:145:3 › exploration, keyboard › focus order is A, B, C, D and full service links work independently
+[13/297] tests\mosaic.spec.ts:156:3 › exploration, keyboard › all four details show heading, deliverables, related plan and full link
+[14/297] tests\mosaic.spec.ts:169:3 › exploration, keyboard › details open below the mosaic on desktop
+[15/297] tests\mosaic.spec.ts:181:3 › touch and mobile 390 › tap Explore reveals details inline after the tile; reading order kept
+[16/297] tests\mosaic.spec.ts:192:3 › touch and mobile 390 › touch never changes geometry; essential content is visible before any tap
+[17/297] tests\mosaic.spec.ts:203:3 › touch and mobile 390 › closing returns the detail to the slot and focus to the control
+[18/297] tests\mosaic.spec.ts:215:3 › reduced motion › transitions are disabled yet every action still works
+[19/297] tests\mosaic.spec.ts:230:1 › essential content is present when JavaScript fails
+[20/297] tests\portfolio.spec.ts:21:3 › portfolio: content › cards use the short editable names; full titles stay on the records; IDs, badges and services are kept
+[21/297] tests\portfolio.spec.ts:26:5 › portfolio: content › en: heading, context panel and view-all link are the new copy; cards keep concept badges, services and working links
+[22/297] tests\portfolio.spec.ts:26:5 › portfolio: content › es: heading, context panel and view-all link are the new copy; cards keep concept badges, services and working links
+[23/297] tests\portfolio.spec.ts:26:5 › portfolio: content › de: heading, context panel and view-all link are the new copy; cards keep concept badges, services and working links
+[24/297] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › en 1440px home: no gutters, flat inner edges, curved outer corners only, no holes
+[25/297] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › en 1440px work/: no gutters, flat inner edges, curved outer corners only, no holes
+[26/297] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › en 1024px home: no gutters, flat inner edges, curved outer corners only, no holes
+[27/297] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › en 834px home: no gutters, flat inner edges, curved outer corners only, no holes
+[28/297] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › en 390px home: no gutters, flat inner edges, curved outer corners only, no holes
+[29/297] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › en 320px home: no gutters, flat inner edges, curved outer corners only, no holes
+[30/297] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › es 1440px home: no gutters, flat inner edges, curved outer corners only, no holes
+[31/297] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › es 1440px work/: no gutters, flat inner edges, curved outer corners only, no holes
+[32/297] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › es 1024px home: no gutters, flat inner edges, curved outer corners only, no holes
+[33/297] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › es 834px home: no gutters, flat inner edges, curved outer corners only, no holes
+[34/297] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › es 390px home: no gutters, flat inner edges, curved outer corners only, no holes
+[35/297] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › es 320px home: no gutters, flat inner edges, curved outer corners only, no holes
+[36/297] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › de 1440px home: no gutters, flat inner edges, curved outer corners only, no holes
+[37/297] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › de 1440px work/: no gutters, flat inner edges, curved outer corners only, no holes
+[38/297] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › de 1024px home: no gutters, flat inner edges, curved outer corners only, no holes
+[39/297] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › de 834px home: no gutters, flat inner edges, curved outer corners only, no holes
+[40/297] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › de 390px home: no gutters, flat inner edges, curved outer corners only, no holes
+[41/297] tests\portfolio.spec.ts:50:5 › portfolio: one connected composition › de 320px home: no gutters, flat inner edges, curved outer corners only, no holes
+[42/297] tests\portfolio.spec.ts:73:3 › portfolio: one connected composition › wide desktop (homepage): hotel left, clinic over shop right, joined; the hotel has no large empty navy area; the work index keeps its four-piece layout
+[43/297] tests\portfolio.spec.ts:91:3 › portfolio: one connected composition › related-work variant keeps two projects side by side on desktop and stacked on phones, joined
+[44/297] tests\portfolio.spec.ts:106:5 › portfolio: pictures › 1440px: the right source per layout, undistorted and fully loaded; reserved space with images blocked
+[45/297] tests\portfolio.spec.ts:106:5 › portfolio: pictures › 1024px: the right source per layout, undistorted and fully loaded; reserved space with images blocked
+[46/297] tests\portfolio.spec.ts:106:5 › portfolio: pictures › 834px: the right source per layout, undistorted and fully loaded; reserved space with images blocked
+[47/297] tests\portfolio.spec.ts:106:5 › portfolio: pictures › 390px: the right source per layout, undistorted and fully loaded; reserved space with images blocked
+  1) tests\portfolio.spec.ts:106:5 › portfolio: pictures › 1440px: the right source per layout, undistorted and fully loaded; reserved space with images blocked 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 4
+    + Received  + 4
+
+    @@ -2,13 +2,13 @@
+        Array [
+          672,
+          434,
+        ],
+        Array [
+    -     308,
+    -     386,
+    +     306,
+    +     383,
+        ],
+        Array [
+    -     217,
+    -     386,
+    +     218,
+    +     388,
+        ],
+      ]
+
+      115 |       for (const i of r) expect(Math.max((i.w / i.h) / (i.nw / i.nh), (i.nw / i.nh) / (i.w / i.h))).toBeLessThan(2);
+      116 |       const sizes = async (block: boolean) => { const ctx = await browser.newContext({ viewport: { width: vw, height: 900 } }); if (block) await ctx.route(/\.webp$/, (x) => x.abort()); const p = await ctx.newPage(); await p.goto('/en/', { waitUntil: block ? 'domcontentloaded' : 'networkidle' }); const s = await p.evaluate(() => [...document.querySelectorAll<HTMLElement>('#work .proj__art')].map((e) => [Math.round(e.getBoundingClientRect().width), Math.round(e.getBoundingClientRect().height)])); await ctx.close(); return s; };
+    > 117 |       expect(await sizes(true)).toEqual(await sizes(false));
+          |                                 ^
+      118 |     });
+      119 |   }
+      120 |
+        at C:\Users\basti\source\repos\odalo\odalo\tests\portfolio.spec.ts:117:33
+
+    Error Context: test-results\portfolio-portfolio-pictur-e1e15-d-space-with-images-blocked\error-context.md
+
+
+[48/297] tests\portfolio.spec.ts:121:3 › portfolio: pictures › keyboard focus is visible on every card, including at the outer edges (homepage: a ring around the whole card, drawn inside it)
+[49/297] tests\qa.spec.ts:38:7 › keyboard focus is clear of the sticky header and the window edge › 1440px /en/audit/: every Tab stop is fully in view with a visible ring
+[50/297] tests\qa.spec.ts:38:7 › keyboard focus is clear of the sticky header and the window edge › 1440px /de/: every Tab stop is fully in view with a visible ring
+[51/297] tests\qa.spec.ts:38:7 › keyboard focus is clear of the sticky header and the window edge › 1440px /en/plans/: every Tab stop is fully in view with a visible ring
+[52/297] tests\qa.spec.ts:38:7 › keyboard focus is clear of the sticky header and the window edge › 390px /en/audit/: every Tab stop is fully in view with a visible ring
+[53/297] tests\qa.spec.ts:38:7 › keyboard focus is clear of the sticky header and the window edge › 390px /de/: every Tab stop is fully in view with a visible ring
+[54/297] tests\qa.spec.ts:38:7 › keyboard focus is clear of the sticky header and the window edge › 390px /en/plans/: every Tab stop is fully in view with a visible ring
+[55/297] tests\qa.spec.ts:73:3 › long German words break at soft hyphens, never bare mid-word › de legal title, About principles heading and comparison labels at 390px (and 320 for the headings)
+[56/297] tests\qa.spec.ts:82:3 › long German words break at soft hyphens, never bare mid-word › the German form labels and error messages that contain "Datenschutzhinweise" break at soft hyphens at 320px
+[57/297] tests\qa.spec.ts:90:3 › long German words break at soft hyphens, never bare mid-word › the words carry soft hyphens in the content, so wrapping does not depend on a browser hyphenation dictionary
+[58/297] tests\qa.spec.ts:101:5 › form error and result states do not overflow at narrow widths with enlarged text › en 320px at 200% root font: the validation summary and every field error stay inside the viewport
+[59/297] tests\qa.spec.ts:101:5 › form error and result states do not overflow at narrow widths with enlarged text › en 390px at 200% root font: the validation summary and every field error stay inside the viewport
+[60/297] tests\qa.spec.ts:101:5 › form error and result states do not overflow at narrow widths with enlarged text › en 320px at 100% root font: the validation summary and every field error stay inside the viewport
+[61/297] tests\qa.spec.ts:101:5 › form error and result states do not overflow at narrow widths with enlarged text › es 320px at 200% root font: the validation summary and every field error stay inside the viewport
+[62/297] tests\qa.spec.ts:101:5 › form error and result states do not overflow at narrow widths with enlarged text › es 390px at 200% root font: the validation summary and every field error stay inside the viewport
+[63/297] tests\qa.spec.ts:101:5 › form error and result states do not overflow at narrow widths with enlarged text › es 320px at 100% root font: the validation summary and every field error stay inside the viewport
+[64/297] tests\qa.spec.ts:101:5 › form error and result states do not overflow at narrow widths with enlarged text › de 320px at 200% root font: the validation summary and every field error stay inside the viewport
+[65/297] tests\qa.spec.ts:101:5 › form error and result states do not overflow at narrow widths with enlarged text › de 390px at 200% root font: the validation summary and every field error stay inside the viewport
+[66/297] tests\qa.spec.ts:101:5 › form error and result states do not overflow at narrow widths with enlarged text › de 320px at 100% root font: the validation summary and every field error stay inside the viewport
+[67/297] tests\reflow.spec.ts:20:5 › homepage and plans page reflow (320/390 px, 100%/200% root font) › /en/ 320px 100%
+[68/297] tests\reflow.spec.ts:20:5 › homepage and plans page reflow (320/390 px, 100%/200% root font) › /en/ 320px 200%
+[69/297] tests\reflow.spec.ts:20:5 › homepage and plans page reflow (320/390 px, 100%/200% root font) › /en/ 390px 100%
+[70/297] tests\reflow.spec.ts:20:5 › homepage and plans page reflow (320/390 px, 100%/200% root font) › /en/ 390px 200%
+[71/297] tests\reflow.spec.ts:20:5 › homepage and plans page reflow (320/390 px, 100%/200% root font) › /en/plans/ 320px 100%
+[72/297] tests\reflow.spec.ts:20:5 › homepage and plans page reflow (320/390 px, 100%/200% root font) › /en/plans/ 320px 200%
+[73/297] tests\reflow.spec.ts:20:5 › homepage and plans page reflow (320/390 px, 100%/200% root font) › /en/plans/ 390px 100%
+[74/297] tests\reflow.spec.ts:20:5 › homepage and plans page reflow (320/390 px, 100%/200% root font) › /en/plans/ 390px 200%
+[75/297] tests\reflow.spec.ts:20:5 › homepage and plans page reflow (320/390 px, 100%/200% root font) › /es/ 320px 100%
+[76/297] tests\reflow.spec.ts:20:5 › homepage and plans page reflow (320/390 px, 100%/200% root font) › /es/ 320px 200%
+[77/297] tests\reflow.spec.ts:20:5 › homepage and plans page reflow (320/390 px, 100%/200% root font) › /es/ 390px 100%
+[78/297] tests\reflow.spec.ts:20:5 › homepage and plans page reflow (320/390 px, 100%/200% root font) › /es/ 390px 200%
+[79/297] tests\reflow.spec.ts:20:5 › homepage and plans page reflow (320/390 px, 100%/200% root font) › /es/plans/ 320px 100%
+[80/297] tests\reflow.spec.ts:20:5 › homepage and plans page reflow (320/390 px, 100%/200% root font) › /es/plans/ 320px 200%
+[81/297] tests\reflow.spec.ts:20:5 › homepage and plans page reflow (320/390 px, 100%/200% root font) › /es/plans/ 390px 100%
+[82/297] tests\reflow.spec.ts:20:5 › homepage and plans page reflow (320/390 px, 100%/200% root font) › /es/plans/ 390px 200%
+[83/297] tests\reflow.spec.ts:20:5 › homepage and plans page reflow (320/390 px, 100%/200% root font) › /de/ 320px 100%
+[84/297] tests\reflow.spec.ts:20:5 › homepage and plans page reflow (320/390 px, 100%/200% root font) › /de/ 320px 200%
+[85/297] tests\reflow.spec.ts:20:5 › homepage and plans page reflow (320/390 px, 100%/200% root font) › /de/ 390px 100%
+[86/297] tests\reflow.spec.ts:20:5 › homepage and plans page reflow (320/390 px, 100%/200% root font) › /de/ 390px 200%
+[87/297] tests\reflow.spec.ts:20:5 › homepage and plans page reflow (320/390 px, 100%/200% root font) › /de/plans/ 320px 100%
+[88/297] tests\reflow.spec.ts:20:5 › homepage and plans page reflow (320/390 px, 100%/200% root font) › /de/plans/ 320px 200%
+[89/297] tests\reflow.spec.ts:20:5 › homepage and plans page reflow (320/390 px, 100%/200% root font) › /de/plans/ 390px 100%
+[90/297] tests\reflow.spec.ts:20:5 › homepage and plans page reflow (320/390 px, 100%/200% root font) › /de/plans/ 390px 200%
+[91/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /en/services/web/ 320px 200%
+[92/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /en/services/web/ 390px 200%
+[93/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /en/services/web/ 320px 100%
+[94/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /en/work/ 320px 200%
+[95/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /en/work/ 390px 200%
+[96/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /en/work/ 320px 100%
+[97/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /en/work/sample-hotel/ 320px 200%
+[98/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /en/work/sample-hotel/ 390px 200%
+[99/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /en/work/sample-hotel/ 320px 100%
+[100/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /en/about/ 320px 200%
+[101/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /en/about/ 390px 200%
+[102/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /en/about/ 320px 100%
+[103/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /en/audit/ 320px 200%
+[104/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /en/audit/ 390px 200%
+[105/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /en/audit/ 320px 100%
+[106/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /en/privacy/ 320px 200%
+[107/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /en/privacy/ 390px 200%
+[108/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /en/privacy/ 320px 100%
+[109/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /es/services/web/ 320px 200%
+[110/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /es/services/web/ 390px 200%
+[111/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /es/services/web/ 320px 100%
+[112/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /es/work/ 320px 200%
+[113/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /es/work/ 390px 200%
+[114/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /es/work/ 320px 100%
+[115/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /es/work/sample-hotel/ 320px 200%
+[116/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /es/work/sample-hotel/ 390px 200%
+[117/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /es/work/sample-hotel/ 320px 100%
+[118/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /es/about/ 320px 200%
+[119/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /es/about/ 390px 200%
+[120/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /es/about/ 320px 100%
+[121/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /es/audit/ 320px 200%
+[122/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /es/audit/ 390px 200%
+[123/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /es/audit/ 320px 100%
+[124/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /es/privacy/ 320px 200%
+[125/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /es/privacy/ 390px 200%
+[126/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /es/privacy/ 320px 100%
+[127/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /de/services/web/ 320px 200%
+[128/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /de/services/web/ 390px 200%
+[129/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /de/services/web/ 320px 100%
+[130/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /de/work/ 320px 200%
+[131/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /de/work/ 390px 200%
+[132/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /de/work/ 320px 100%
+[133/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /de/work/sample-hotel/ 320px 200%
+[134/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /de/work/sample-hotel/ 390px 200%
+[135/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /de/work/sample-hotel/ 320px 100%
+[136/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /de/about/ 320px 200%
+[137/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /de/about/ 390px 200%
+[138/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /de/about/ 320px 100%
+[139/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /de/audit/ 320px 200%
+[140/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /de/audit/ 390px 200%
+[141/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /de/audit/ 320px 100%
+[142/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /de/privacy/ 320px 200%
+[143/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /de/privacy/ 390px 200%
+[144/297] tests\reflow.spec.ts:29:5 › other page types where shared components are used (service, work, case study, about, audit, legal) › /de/privacy/ 320px 100%
+[145/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /en/ 834px
+[146/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /en/ 1440px
+[147/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /en/plans/ 834px
+[148/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /en/plans/ 1440px
+[149/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /en/services/ads/ 834px
+[150/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /en/services/ads/ 1440px
+[151/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /en/work/ 834px
+[152/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /en/work/ 1440px
+[153/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /en/work/sample-shop/ 834px
+[154/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /en/work/sample-shop/ 1440px
+[155/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /en/about/ 834px
+[156/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /en/about/ 1440px
+[157/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /en/audit/ 834px
+[158/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /en/audit/ 1440px
+[159/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /es/ 834px
+[160/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /es/ 1440px
+[161/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /es/plans/ 834px
+[162/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /es/plans/ 1440px
+[163/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /es/services/ads/ 834px
+[164/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /es/services/ads/ 1440px
+[165/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /es/work/ 834px
+[166/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /es/work/ 1440px
+[167/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /es/work/sample-shop/ 834px
+[168/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /es/work/sample-shop/ 1440px
+[169/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /es/about/ 834px
+[170/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /es/about/ 1440px
+[171/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /es/audit/ 834px
+[172/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /es/audit/ 1440px
+[173/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /de/ 834px
+[174/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /de/ 1440px
+[175/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /de/plans/ 834px
+[176/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /de/plans/ 1440px
+[177/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /de/services/ads/ 834px
+[178/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /de/services/ads/ 1440px
+[179/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /de/work/ 834px
+[180/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /de/work/ 1440px
+[181/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /de/work/sample-shop/ 834px
+[182/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /de/work/sample-shop/ 1440px
+[183/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /de/about/ 834px
+[184/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /de/about/ 1440px
+[185/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /de/audit/ 834px
+[186/297] tests\reflow.spec.ts:38:5 › desktop and tablet regressions › /de/audit/ 1440px
+[187/297] tests\reflow.spec.ts:47:5 › mobile navigation, expanded controls and visible focus at 200% (root-font simulation) › /en/ 320px: open menu stays inside the viewport and every link is reachable
+[188/297] tests\reflow.spec.ts:47:5 › mobile navigation, expanded controls and visible focus at 200% (root-font simulation) › /en/ 390px: open menu stays inside the viewport and every link is reachable
+[189/297] tests\reflow.spec.ts:47:5 › mobile navigation, expanded controls and visible focus at 200% (root-font simulation) › /es/ 320px: open menu stays inside the viewport and every link is reachable
+[190/297] tests\reflow.spec.ts:47:5 › mobile navigation, expanded controls and visible focus at 200% (root-font simulation) › /es/ 390px: open menu stays inside the viewport and every link is reachable
+[191/297] tests\reflow.spec.ts:47:5 › mobile navigation, expanded controls and visible focus at 200% (root-font simulation) › /de/ 320px: open menu stays inside the viewport and every link is reachable
+[192/297] tests\reflow.spec.ts:47:5 › mobile navigation, expanded controls and visible focus at 200% (root-font simulation) › /de/ 390px: open menu stays inside the viewport and every link is reachable
+[193/297] tests\reflow.spec.ts:71:3 › mobile navigation, expanded controls and visible focus at 200% (root-font simulation) › /de/ 320px: focus indicators are visible and inside the viewport on key controls
+[194/297] tests\reflow.spec.ts:87:3 › mobile navigation, expanded controls and visible focus at 200% (root-font simulation) › /de/ 320px 200%: FAQ answers expand and stay readable; plan comparisons expand without overflow
+[195/297] tests\reflow.spec.ts:102:5 › mobile navigation, expanded controls and visible focus at 200% (root-font simulation) › skip link: hidden until focused, then fully visible inside the viewport (1440px 100%), and never covers the menu button
+[196/297] tests\reflow.spec.ts:102:5 › mobile navigation, expanded controls and visible focus at 200% (root-font simulation) › skip link: hidden until focused, then fully visible inside the viewport (320px 200%), and never covers the menu button
+[197/297] tests\services-mosaic.spec.ts:21:3 › services mosaic imagery: content › each service maps to an existing concept output, with files on disk and complete localized text
+[198/297] tests\services-mosaic.spec.ts:36:5 › services mosaic imagery: content › en: the intro is the new sentence and the interaction instruction is gone
+[199/297] tests\services-mosaic.spec.ts:36:5 › services mosaic imagery: content › es: the intro is the new sentence and the interaction instruction is gone
+[200/297] tests\services-mosaic.spec.ts:36:5 › services mosaic imagery: content › de: the intro is the new sentence and the interaction instruction is gone
+[201/297] tests\services-mosaic.spec.ts:46:5 › services mosaic imagery: tiles › es: every tile shows its concept picture, a visible concept label and live text; no video is requested
+[202/297] tests\services-mosaic.spec.ts:46:5 › services mosaic imagery: tiles › en: every tile shows its concept picture, a visible concept label and live text; no video is requested
+[203/297] tests\services-mosaic.spec.ts:46:5 › services mosaic imagery: tiles › de: every tile shows its concept picture, a visible concept label and live text; no video is requested
+[204/297] tests\services-mosaic.spec.ts:77:5 › services mosaic imagery: tiles › titles, descriptions and action groups line up across neighbouring tiles at rest, top row, 1440px (en/es/de)
+[205/297] tests\services-mosaic.spec.ts:77:5 › services mosaic imagery: tiles › titles, descriptions and action groups line up across neighbouring tiles at rest, bot row, 1440px (en/es/de)
+[206/297] tests\services-mosaic.spec.ts:77:5 › services mosaic imagery: tiles › titles, descriptions and action groups line up across neighbouring tiles at rest, top row, 1024px (en/es/de)
+[207/297] tests\services-mosaic.spec.ts:77:5 › services mosaic imagery: tiles › titles, descriptions and action groups line up across neighbouring tiles at rest, bot row, 1024px (en/es/de)
+[208/297] tests\services-mosaic.spec.ts:77:5 › services mosaic imagery: tiles › titles, descriptions and action groups line up across neighbouring tiles at rest, top row, 834px (en/es/de)
+[209/297] tests\services-mosaic.spec.ts:77:5 › services mosaic imagery: tiles › titles, descriptions and action groups line up across neighbouring tiles at rest, bot row, 834px (en/es/de)
+[210/297] tests\services-mosaic.spec.ts:89:5 › services mosaic imagery: tiles › 1440px: no content is clipped and the picture stays usable in any active state; hover never moves later sections (en/es/de)
+[211/297] tests\services-mosaic.spec.ts:89:5 › services mosaic imagery: tiles › 1024px: no content is clipped and the picture stays usable in any active state; hover never moves later sections (en/es/de)
+[212/297] tests\services-mosaic.spec.ts:89:5 › services mosaic imagery: tiles › 834px: no content is clipped and the picture stays usable in any active state; hover never moves later sections (en/es/de)
+[213/297] tests\services-mosaic.spec.ts:115:3 › services mosaic imagery: tiles › a stationary pointer near the moving edge does not make the active tile flicker; rapid crossing settles on one tile
+[214/297] tests\services-mosaic.spec.ts:142:3 › services mosaic imagery: tiles › Explore, Escape and focus still work on the picture tiles; full service links stay independent
+[215/297] tests\services-mosaic.spec.ts:161:5 › services mosaic imagery: phones, motion, no-JS, blocked images › 390px: one connected column in reading order, pictures sized to their shape, no sideways scroll, essential text visible
+[216/297] tests\services-mosaic.spec.ts:161:5 › services mosaic imagery: phones, motion, no-JS, blocked images › 320px: one connected column in reading order, pictures sized to their shape, no sideways scroll, essential text visible
+[217/297] tests\services-mosaic.spec.ts:175:3 › services mosaic imagery: phones, motion, no-JS, blocked images › reduced motion: the picture and edge transitions are off, every action still works
+[218/297] tests\services-mosaic.spec.ts:186:3 › services mosaic imagery: phones, motion, no-JS, blocked images › without JavaScript the pictures, labels, text and full-service links are all present
+[219/297] tests\services-mosaic.spec.ts:202:5 › services mosaic imagery: phones, motion, no-JS, blocked images › 1440px: picture boxes are reserved with images blocked (no layout shift when they load)
+[220/297] tests\services-mosaic.spec.ts:202:5 › services mosaic imagery: phones, motion, no-JS, blocked images › 834px: picture boxes are reserved with images blocked (no layout shift when they load)
+[221/297] tests\services-mosaic.spec.ts:202:5 › services mosaic imagery: phones, motion, no-JS, blocked images › 390px: picture boxes are reserved with images blocked (no layout shift when they load)
+[222/297] tests\services-mosaic.spec.ts:221:5 › service pages (all 12): artwork, caption, enquiry preselection › /en/services/web/ shows the web concept picture with its label and keeps the enquiry link
+[223/297] tests\services-mosaic.spec.ts:221:5 › service pages (all 12): artwork, caption, enquiry preselection › /en/services/local/ shows the local concept picture with its label and keeps the enquiry link
+[224/297] tests\services-mosaic.spec.ts:221:5 › service pages (all 12): artwork, caption, enquiry preselection › /en/services/video/ shows the video concept picture with its label and keeps the enquiry link
+[225/297] tests\services-mosaic.spec.ts:221:5 › service pages (all 12): artwork, caption, enquiry preselection › /en/services/ads/ shows the ads concept picture with its label and keeps the enquiry link
+[226/297] tests\services-mosaic.spec.ts:221:5 › service pages (all 12): artwork, caption, enquiry preselection › /es/services/web/ shows the web concept picture with its label and keeps the enquiry link
+[227/297] tests\services-mosaic.spec.ts:221:5 › service pages (all 12): artwork, caption, enquiry preselection › /es/services/local/ shows the local concept picture with its label and keeps the enquiry link
+[228/297] tests\services-mosaic.spec.ts:221:5 › service pages (all 12): artwork, caption, enquiry preselection › /es/services/video/ shows the video concept picture with its label and keeps the enquiry link
+[229/297] tests\services-mosaic.spec.ts:221:5 › service pages (all 12): artwork, caption, enquiry preselection › /es/services/ads/ shows the ads concept picture with its label and keeps the enquiry link
+[230/297] tests\services-mosaic.spec.ts:221:5 › service pages (all 12): artwork, caption, enquiry preselection › /de/services/web/ shows the web concept picture with its label and keeps the enquiry link
+[231/297] tests\services-mosaic.spec.ts:221:5 › service pages (all 12): artwork, caption, enquiry preselection › /de/services/local/ shows the local concept picture with its label and keeps the enquiry link
+[232/297] tests\services-mosaic.spec.ts:221:5 › service pages (all 12): artwork, caption, enquiry preselection › /de/services/video/ shows the video concept picture with its label and keeps the enquiry link
+[233/297] tests\services-mosaic.spec.ts:221:5 › service pages (all 12): artwork, caption, enquiry preselection › /de/services/ads/ shows the ads concept picture with its label and keeps the enquiry link
+[234/297] tests\services-mosaic.spec.ts:246:3 › service pages (all 12): artwork, caption, enquiry preselection › service pages at 390px: picture fits the column, caption visible, no sideways scroll
+[235/297] tests\services-motion.spec.ts:26:5 › services assembly: content first, then travel › 1440px: every name, outcome, concept label, Explore button and link is visible, opaque and inside the viewport width before any travel completes
+[236/297] tests\services-motion.spec.ts:26:5 › services assembly: content first, then travel › 834px: every name, outcome, concept label, Explore button and link is visible, opaque and inside the viewport width before any travel completes
+[237/297] tests\services-motion.spec.ts:26:5 › services assembly: content first, then travel › 390px: every name, outcome, concept label, Explore button and link is visible, opaque and inside the viewport width before any travel completes
+[238/297] tests\services-motion.spec.ts:46:3 › services assembly: content first, then travel › desktop: pieces below the fold start apart, dock as they scroll in, stay docked when scrolling back, and the mosaic then behaves as before
+[239/297] tests\services-motion.spec.ts:69:3 › services assembly: content first, then travel › reverse scrolling before a piece has docked is decorative and exact; it never touches focus
+[240/297] tests\services-motion.spec.ts:91:3 › services assembly: actions never wait for the travel › keyboard focus entering the section settles every piece, with an eased move and no lost focus
+[241/297] tests\services-motion.spec.ts:114:3 › services assembly: actions never wait for the travel › Explore on a tile that is still travelling opens its panel at once, keeps focus on the button, and Escape closes as before
+[242/297] tests\services-motion.spec.ts:130:3 › services assembly: actions never wait for the travel › phone: tapping Explore on a tile that is still arriving opens the panel inline and settles the stack
+[243/297] tests\services-motion.spec.ts:144:3 › services assembly: actions never wait for the travel › a link to the section settles it: /#services, and a hashchange from the page
+[244/297] tests\services-motion.spec.ts:189:3 › services assembly: actions never wait for the travel › after a reload that restores the scroll position (real browser restoration), a tile is docked exactly when it was on screen when the assembly looked, and the lower row can still assemble
+[245/297] tests\services-motion.spec.ts:221:3 › services assembly: actions never wait for the travel › restoration that lands after the script ran and before load: the top row is docked, the lower row stays eligible, scrolling completes it, and docked tiles never scatter again
+[246/297] tests\services-motion.spec.ts:253:3 › services assembly: actions never wait for the travel › resizing mid-assembly keeps a coherent state: no sideways scroll, nothing outside the viewport, and docking still completes
+[247/297] tests\services-motion.spec.ts:272:3 › services assembly: nothing covers the section on a first visit › with fresh storage no fixed overlay exists, and pieces start from the whole window
+[248/297] tests\services-motion.spec.ts:285:3 › services assembly: fallbacks › reduced motion: the complete composition from first render, no travel at any scroll position
+[249/297] tests\services-motion.spec.ts:296:3 › services assembly: fallbacks › no JavaScript: the same complete composition, every link present
+[250/297] tests\services-motion.spec.ts:309:3 › services assembly: fallbacks › a short window (under 480px high) is shown complete, without travel
+[251/297] tests\services-motion.spec.ts:320:3 › services assembly: the settled mosaic is the one it was › connected single column on phones: no gap between any two stacked tiles; outer silhouette corners as before
+[252/297] tests\services-motion.spec.ts:335:3 › services assembly: the settled mosaic is the one it was › desktop: tiles share edges exactly again after docking; only the outer corners are curved
+[253/297] tests\services-motion.spec.ts:349:5 › services assembly: the settled mosaic is the one it was › 1440px: after docking, hovering moves the shared edge and never moves the sections below
+[254/297] tests\services-motion.spec.ts:349:5 › services assembly: the settled mosaic is the one it was › 1024px: after docking, hovering moves the shared edge and never moves the sections below
+[255/297] tests\services-motion.spec.ts:365:3 › services assembly: the settled mosaic is the one it was › hover does not resize a tile that is still travelling, and a stationary pointer under the scrolling content cannot trigger it
+[256/297] tests\services-motion.spec.ts:375:3 › services assembly: the settled mosaic is the one it was › no layout shift from load through the whole scroll, the finish and a reset (EN/DE, desktop and phone)
+[257/297] tests\services-motion.spec.ts:390:3 › services assembly: the settled mosaic is the one it was › image space is reserved: with images blocked the tile picture boxes keep their layout size while pieces travel (1440 and 390)
+[258/297] tests\services-motion.spec.ts:426:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › REGRESSION: Play then Pause during the automatic hold stays paused after the hold is released
+[259/297] tests\services-motion.spec.ts:439:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › manual Play during the hold is not reversed by stale automatic ownership
+[260/297] tests\services-motion.spec.ts:449:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › automatic-only hold releases and resumes; a visitor pause made before the overlap stays
+[261/297] tests\services-motion.spec.ts:463:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › repeated and overlapping hold requests are idempotent and leave no dangling hold
+[262/297] tests\services-motion.spec.ts:481:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › a reduced-motion change during the hold leaves no dangling hold
+[263/297] tests\services-motion.spec.ts:490:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › navigating away and back leaves no dangling hold
+[264/297] tests\services-motion.spec.ts:503:5 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › en: labels, pressed state and keyboard focus stay correct through hold, Play, Pause and release
+[265/297] tests\services-motion.spec.ts:503:5 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › es: labels, pressed state and keyboard focus stay correct through hold, Play, Pause and release
+[266/297] tests\services-motion.spec.ts:503:5 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › de: labels, pressed state and keyboard focus stay correct through hold, Play, Pause and release
+  2) tests\services-motion.spec.ts:481:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › a reduced-motion change during the hold leaves no dangling hold 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('[data-art-pause]:not([hidden])')
+    Expected: "true"
+    Received: "false"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" locator('[data-art-pause]:not([hidden])') with timeout 5000ms
+      - waiting for locator('[data-art-pause]:not([hidden])')
+        13 × locator resolved to <button type="button" data-art-pause="" class="hero__pause" aria-pressed="false" data-play="Play animation" data-astro-cid-ge2uvauf="" data-pause="Pause animation">…</button>
+           - unexpected value "false"
+
+
+      415 |     const top = await mosaicTop(page);
+      416 |     await scrollPage(page, top - 900 * 0.75); // a piece is travelling, the hero is on screen: the automatic hold applies
+    > 417 |     await expect(page.locator(heroBtn)).toHaveAttribute('aria-pressed', 'true');
+          |                                         ^
+      418 |     return top;
+      419 |   };
+      420 |   const finish = async (page: Page, top: number) => {
+        at startOverlap (C:\Users\basti\source\repos\odalo\odalo\tests\services-motion.spec.ts:417:41)
+        at C:\Users\basti\source\repos\odalo\odalo\tests\services-motion.spec.ts:482:5
+
+    Error Context: test-results\services-motion-hero-playb-21228-old-leaves-no-dangling-hold\error-context.md
+
+
+[267/297] tests\services-motion.spec.ts:549:3 › hero and services motion are coordinated through the hero's own pause control › a visitor's own pause is never undone
+[268/297] tests\services-motion.spec.ts:535:3 › hero and services motion are coordinated through the hero's own pause control › while a piece is travelling and the hero is on screen the hero pauses itself, then resumes when the pieces have docked
+[269/297] tests\work-field.spec.ts:19:5 › work field: join with the real Services board › 1440px: at rest the header's peg and note panel start on the Services bottom seam (measured, not assumed)
+[270/297] tests\work-field.spec.ts:19:5 › work field: join with the real Services board › 1024px: at rest the header's peg and note panel start on the Services bottom seam (measured, not assumed)
+[271/297] tests\work-field.spec.ts:19:5 › work field: join with the real Services board › 834px: at rest the header's peg and note panel start on the Services bottom seam (measured, not assumed)
+[272/297] tests\work-field.spec.ts:32:3 › work field: join with the real Services board › the join is designed for the rest seam: during Services emphasis the real edge moves and the header does not follow (documented behaviour)
+[273/297] tests\work-field.spec.ts:52:3 › work field: Services detail open between the sections › desktop: the real panel is the bridge; the decorative peg detaches, Work copy stays in flow and visible; Escape and Close restore the join and focus
+  3) tests\services-motion.spec.ts:535:3 › hero and services motion are coordinated through the hero's own pause control › while a piece is travelling and the hero is on screen the hero pauses itself, then resumes when the pieces have docked 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('[data-art-pause]:not([hidden])')
+    Expected: "true"
+    Received: "false"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" locator('[data-art-pause]:not([hidden])') with timeout 5000ms
+      - waiting for locator('[data-art-pause]:not([hidden])')
+        13 × locator resolved to <button type="button" data-art-pause="" class="hero__pause" aria-pressed="false" data-play="Play animation" data-astro-cid-ge2uvauf="" data-pause="Pause animation">…</button>
+           - unexpected value "false"
+
+
+      541 |     await scrollPage(page, top - 900 * 0.75); // first pieces are moving; the hero art is still in view
+      542 |     expect(await page.evaluate(() => { const r = document.querySelector('[data-hero-art]')!.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; })).toBe(true);
+    > 543 |     await expect(page.locator(heroBtn)).toHaveAttribute('aria-pressed', 'true');
+          |                                         ^
+      544 |     await scrollPage(page, top + 560);
+      545 |     await page.waitForFunction(() => !document.querySelector('[data-mosaic]')!.classList.contains('is-assembling'));
+      546 |     await expect(page.locator(heroBtn)).toHaveAttribute('aria-pressed', 'false');
+        at C:\Users\basti\source\repos\odalo\odalo\tests\services-motion.spec.ts:543:41
+
+    Error Context: test-results\services-motion-hero-and-s-e3b03-when-the-pieces-have-docked\error-context.md
+
+
+[274/297] tests\work-field.spec.ts:90:3 › work field: Services detail open between the sections › phone: an open service detail sits inside the board; the Work header follows it and keeps every control
+[275/297] tests\work-field.spec.ts:77:3 › work field: Services detail open between the sections › open, then Close button, then resize across the tablet breakpoint: no overlap, state consistent
+[276/297] tests\work-field.spec.ts:101:3 › work field: Services detail open between the sections › a deep link to #work and a deep link to #services both land with a settled, joined field
+[277/297] tests\work-field.spec.ts:122:3 › work field: input and mode changes (wide geometry) › keyboard focus wins over incidental pointer movement: focus a project, sweep the pointer across the others past the intent time, the focused one stays emphasised and focused
+[278/297] tests\work-field.spec.ts:142:3 › work field: input and mode changes (wide geometry) › queued pointer intent is dropped when keyboard focus arrives
+[279/297] tests\work-field.spec.ts:150:3 › work field: input and mode changes (wide geometry) › reduced motion switched on while hovering: timers cancelled, board back to rest at once, no replay when switched off again
+[280/297] tests\work-field.spec.ts:171:3 › work field: input and mode changes (wide geometry) › leaving wide mode by resizing clears emphasis; returning does not replay it
+  4) tests\work-field.spec.ts:122:3 › work field: input and mode changes (wide geometry) › keyboard focus wins over incidental pointer movement: focus a project, sweep the pointer across the others past the intent time, the focused one stays emphasised and focused 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "sample-shop"
+    Received: "sample-clinic"
+
+      137 |     await toBoard(page); await page.waitForTimeout(300);
+      138 |     await at(page, 0.8, 0.8); await page.waitForTimeout(500);
+    > 139 |     expect(await active(page)).toBe('sample-shop');
+          |                                ^
+      140 |   });
+      141 |
+      142 |   test('queued pointer intent is dropped when keyboard focus arrives', async ({ page }) => {
+        at C:\Users\basti\source\repos\odalo\odalo\tests\work-field.spec.ts:139:32
+
+    Error Context: test-results\work-field-work-field-inpu-d59d2-tays-emphasised-and-focused\error-context.md
+
+
+[281/297] tests\work-field.spec.ts:185:5 › work field: input and mode changes (wide geometry) › hover hotel: the Work board, the next section and the page keep their size and position
+[282/297] tests\work-field.spec.ts:185:5 › work field: input and mode changes (wide geometry) › hover clinic: the Work board, the next section and the page keep their size and position
+[283/297] tests\work-field.spec.ts:185:5 › work field: input and mode changes (wide geometry) › hover shop: the Work board, the next section and the page keep their size and position
+[284/297] tests\work-field.spec.ts:195:3 › work field: input and mode changes (wide geometry) › a click navigates once to the case study; the card stays a single native link
+[285/297] tests\work-field.spec.ts:204:3 › work field: touch, text, other placements, no JS › phone: one tap on a project card navigates once
+[286/297] tests\work-field.spec.ts:216:3 › work field: touch, text, other placements, no JS › a touch scroll gesture across the wide board selects nothing
+[287/297] tests\work-field.spec.ts:227:5 › work field: touch, text, other placements, no JS › en 1440px: supporting paragraphs are at least 16px at the default text size and nothing is clipped
+[288/297] tests\work-field.spec.ts:227:5 › work field: touch, text, other placements, no JS › en 390px: supporting paragraphs are at least 16px at the default text size and nothing is clipped
+[289/297] tests\work-field.spec.ts:227:5 › work field: touch, text, other placements, no JS › es 1440px: supporting paragraphs are at least 16px at the default text size and nothing is clipped
+[290/297] tests\work-field.spec.ts:227:5 › work field: touch, text, other placements, no JS › es 390px: supporting paragraphs are at least 16px at the default text size and nothing is clipped
+[291/297] tests\work-field.spec.ts:227:5 › work field: touch, text, other placements, no JS › de 1440px: supporting paragraphs are at least 16px at the default text size and nothing is clipped
+[292/297] tests\work-field.spec.ts:227:5 › work field: touch, text, other placements, no JS › de 390px: supporting paragraphs are at least 16px at the default text size and nothing is clipped
+[293/297] tests\work-field.spec.ts:238:3 › work field: touch, text, other placements, no JS › enlarged root text: natural flow (no fixed-height board), nothing clipped, no overflow
+[294/297] tests\work-field.spec.ts:246:3 › work field: touch, text, other placements, no JS › the work index and a service page keep their original layout (no connected header, no field grid)
+[295/297] tests\work-field.spec.ts:255:3 › work field: touch, text, other placements, no JS › the context sentence and "See all work" exist exactly once on the homepage, in every language
+[296/297] tests\work-field.spec.ts:262:3 › work field: touch, text, other placements, no JS › the dock asks the hero to hold only when the hero is actually on screen, and releases it
+[297/297] tests\work-field.spec.ts:277:3 › work field: touch, text, other placements, no JS › no JS: every Work link and all text is present and laid out; the connected header is plain content
+  4 failed
+    tests\portfolio.spec.ts:106:5 › portfolio: pictures › 1440px: the right source per layout, undistorted and fully loaded; reserved space with images blocked 
+    tests\services-motion.spec.ts:481:3 › hero playback: the visitor's latest choice always wins over the automatic hold (task 10A) › a reduced-motion change during the hold leaves no dangling hold 
+    tests\services-motion.spec.ts:535:3 › hero and services motion are coordinated through the hero's own pause control › while a piece is travelling and the hero is on screen the hero pauses itself, then resumes when the pieces have docked 
+    tests\work-field.spec.ts:122:3 › work field: input and mode changes (wide geometry) › keyboard focus wins over incidental pointer movement: focus a project, sweep the pointer across the others past the intent time, the focused one stays emphasised and focused 
+  293 passed (4.1m)

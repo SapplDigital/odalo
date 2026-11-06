@@ -1,16 +1,15 @@
 ---
-import Logo from './Logo.astro';
 import LangSwitch from './LangSwitch.astro';
 import { href, type Lang } from '../i18n';
 import { tr } from '../i18n/ui';
 import { site } from '../config/site';
-interface Props { lang: Lang; rest: string }
-const { lang, rest } = Astro.props;
+interface Props { lang: Lang; rest: string; compact?: boolean }
+const { lang, rest, compact = false } = Astro.props;
+const ownerLogo = true; // every route: the supplied owner logo, on the page-wide field
 const t = tr(lang);
 const nav = [
   { label: t.nav.services, to: `${href(lang)}#services` },
   { label: t.nav.plans, to: href(lang, 'plans/') },
-  { label: t.nav.work, to: href(lang, 'work/') },
   { label: t.nav.about, to: href(lang, 'about/') },
   { label: t.nav.audit, to: href(lang, 'audit/') },
 ];
@@ -19,29 +18,26 @@ const legal = [
   { label: t.footer.cookies, to: href(lang, 'cookies/') },
   { label: t.footer.legalNotice, to: href(lang, 'legal/') },
 ];
-const { email, phone, address } = site.contact;
+const { email, phone } = site.contact; // the service address stays on the legal notice and privacy pages
+const fr = (c: string) => c; // region of the page field (see src/mosaic/field.js)
 ---
-<footer class="ftr on-dark">
+<footer class:list={['ftr', 'on-dark', { 'ftr--compact': true, 'ftr--field': true }]}>
   <div class="wrap ftr__grid">
-    <div class="ftr__brand">
-      <Logo variant="dark" width={170} />
+    <div class="ftr__brand" data-fr={fr('sand')}>
+      <span class="ftr__logo"><img class="ftr__img" src="/brand/odalo-owner-logo.png" alt="" width="273" height="123" /></span>
       <p class="ftr__tag">{t.footer.tagline}</p>
-      <LangSwitch lang={lang} rest={rest} dark />
+      <span class="ftr__lang"><LangSwitch lang={lang} rest={rest} dark /></span>
     </div>
-    <nav aria-label={t.a11y.footerNav} class="ftr__col">
-      <ul>{nav.map((n) => <li><a href={n.to}>{n.label}</a></li>)}</ul>
-    </nav>
-    <div class="ftr__col">
+    <div class="ftr__col" data-fr={fr('coral')}>
       <h2 class="ftr__h">{t.footer.contact}</h2>
-      {email || phone || address ? (
+      {email || phone ? (
         <ul>
           {email && <li><a href={`mailto:${email}`}>{email}</a></li>}
           {phone && <li><a href={`tel:${phone}`}>{phone}</a></li>}
-          {address && <li>{address}</li>}
         </ul>
       ) : <p class="ftr__muted">{t.cta.contactDemo}</p>}
     </div>
-    <nav aria-label={t.a11y.legalNav} class="ftr__col">
+    <nav aria-label={t.a11y.legalNav} class="ftr__col" data-fr={fr('slate')}>
       <h2 class="ftr__h">{t.footer.legal}</h2>
       <ul>
         {legal.map((n) => <li><a href={n.to}>{n.label}</a></li>)}
@@ -53,19 +49,41 @@ const { email, phone, address } = site.contact;
         </li>
       </ul>
     </nav>
+    {!compact && <nav aria-label={t.a11y.footerNav} class="ftr__col ftr__nav" data-fr="coral">
+      <ul>{nav.map((n) => <li><a href={n.to}>{n.label}</a></li>)}</ul>
+    </nav>}
   </div>
   <div class="wrap ftr__base">
-    <p>{t.footer.rights} · {t.footer.demo}</p>
-  </div>
-  <div class="strip" aria-hidden="true">
-    <i class="s1"></i><i class="s2"></i><i class="s3"></i><i class="s4"></i><i class="s5"></i><i class="s6"></i><i class="s7"></i><i class="s8"></i>
+    <p data-fr={fr('sand')}>{t.footer.rights} · {t.footer.demo}</p>
   </div>
 </footer>
 <style>
   .ftr { background: var(--ink); color: var(--paper); padding-top: var(--s8); font-size: 1rem; }
   .ftr__grid { display: grid; gap: var(--s7) var(--s6); grid-template-columns: minmax(0, 1fr); padding-bottom: var(--s7); }
   @media (min-width: 48em) { .ftr__grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
+  /* homepage: the mosaic already carries the page paths, so the footer keeps brand, contact and legal only */
+  .ftr--compact { padding-top: var(--s6); }
+  .ftr--compact .ftr__grid { gap: var(--s3) var(--s6); padding-bottom: var(--s3); }
+  .ftr--compact .ftr__tag { display: none; }
+  .ftr--compact .ftr__brand { gap: var(--s2); }
+  .ftr--compact .ftr__h { margin-bottom: 0; }
+  .ftr--compact .ftr__col ul { display: flex; flex-wrap: wrap; gap: 0 var(--s5); }
+  .ftr--compact .ftr__store { flex-basis: 100%; }
+  .ftr--compact .ftr__base { padding-bottom: var(--s4); }
+  /* homepage field: no slab, the page-wide mosaic is the ground; every block of text/links is a region */
+  .ftr--field { background: none; padding-top: var(--s2); }
+  .ftr--field .ftr__grid { align-items: start; gap: var(--s3) var(--s5); }
+  .ftr--field .ftr__logo, .ftr--field .ftr__lang { display: inline-flex; align-items: center; }
+  .ftr__nav { grid-column: 1 / -1; padding-block: var(--s2) !important; }
+  .ftr--field .ftr__brand { padding: var(--s3) var(--s4); }
+  .ftr--field .ftr__col { padding: var(--s3) var(--s4); }
+  .ftr--field .ftr__base { padding-bottom: var(--s3); display: flex; }
+  .ftr--field .ftr__base p { padding: 8px var(--s4); }
+  .ftr--field .ftr__h { color: inherit; opacity: .8; }
+  @media (min-width: 48em) { .ftr--compact .ftr__grid { grid-template-columns: 1.4fr 1fr 1fr; } }
   .ftr__brand { display: grid; gap: var(--s4); align-content: start; justify-items: start; }
+  .ftr__img { display: block; height: 56px; width: auto; }
+  .ftr__word { font-size: 2.25rem; font-weight: 700; letter-spacing: -0.04em; line-height: 1; color: var(--paper); }
   .ftr__tag { font-family: var(--font-serif); font-style: italic; font-size: 1.5rem; line-height: 1.15; max-width: 22ch; color: var(--sand); }
   .ftr__h { font-size: 0.8125rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--coral-light); margin-bottom: var(--s3); }
   .ftr__col ul { display: grid; gap: 2px; }
@@ -82,10 +100,4 @@ const { email, phone, address } = site.contact;
   .ftr__store p a { text-decoration: underline; text-underline-offset: 4px; }
   .ftr__muted { color: var(--sand); max-width: 28ch; overflow-wrap: anywhere; }
   .ftr__base { padding-bottom: var(--s6); color: var(--sand); font-size: 0.9375rem; }
-  .strip { display: grid; grid-template-columns: repeat(8, 1fr); height: 40px; }
-  .strip i { display: block; }
-  .s1 { background: var(--coral); border-top-right-radius: 40px; } .s2 { background: var(--slate); }
-  .s3 { background: var(--sand); border-top-left-radius: 40px; } .s4 { background: var(--coral); }
-  .s5 { background: var(--slate); border-top-right-radius: 40px; } .s6 { background: var(--paper); }
-  .s7 { background: var(--coral); border-top-left-radius: 40px; } .s8 { background: var(--sand); }
 </style>

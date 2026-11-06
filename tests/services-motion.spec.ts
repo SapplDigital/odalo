@@ -327,7 +327,7 @@ test.describe('services assembly: the settled mosaic is the one it was', () => {
         return t;
       });
       for (let i = 1; i < r.length; i++) { expect(Math.abs(r[i]!.top - r[i - 1]!.bottom), `${lang}: gap between tile ${i} and ${i + 1}`).toBeLessThan(0.6); expect(Math.abs(r[i]!.left - r[0]!.left)).toBeLessThan(0.6); expect(Math.abs(r[i]!.right - r[0]!.right)).toBeLessThan(0.6); }
-      expect(r[0]!.radii[0]).toBeGreaterThan(40); expect(r[0]!.radii[1]).toBe(6); expect(r[3]!.radii[2]).toBeGreaterThan(40); expect(r[3]!.radii[3]).toBe(6);
+      expect(r[0]!.radii[0]).toBeGreaterThan(40); expect(r[0]!.radii[1]).toBe(6); expect(r[3]!.radii[2]).toBe(6); /* homepage: the board joins the Work field, so its bottom corners stay small */ expect(r[3]!.radii[3]).toBe(6);
       expect(r[1]!.radii.every((v) => v === 0)).toBe(true); expect(r[2]!.radii.every((v) => v === 0)).toBe(true);
     }
   });
@@ -340,7 +340,7 @@ test.describe('services assembly: the settled mosaic is the one it was', () => {
     const [web, local, video, ads] = r as [typeof r[0], typeof r[0], typeof r[0], typeof r[0]];
     expect(Math.abs(web.r - local.l)).toBeLessThan(0.6); expect(Math.abs(video.r - ads.l)).toBeLessThan(0.6);
     expect(Math.abs(web.b - video.t)).toBeLessThan(0.6); expect(Math.abs(local.b - ads.t)).toBeLessThan(0.6);
-    expect(web.radii[0]).toBeGreaterThan(80); expect(local.radii[1]).toBe(6); expect(video.radii[3]).toBe(6); expect(ads.radii[2]).toBeGreaterThan(80);
+    expect(web.radii[0]).toBeGreaterThan(80); expect(local.radii[1]).toBe(6); expect(video.radii[3]).toBe(6); expect(ads.radii[2]).toBe(6); /* joined to the Work field below: no closing curve */
     expect([web.radii[1], web.radii[2], web.radii[3], local.radii[0], local.radii[2], local.radii[3], video.radii[0], video.radii[1], video.radii[2], ads.radii[0], ads.radii[1], ads.radii[3]].every((v) => v === 0)).toBe(true);
     for (const t of r) expect(t.shadow).toBe('none');
   });

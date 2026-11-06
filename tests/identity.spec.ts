@@ -53,7 +53,7 @@ test.describe('odalo identity', () => {
     await page.waitForFunction(() => (window as any).__s.length >= 2, null, { timeout: 15000 });
     expect(await page.evaluate(transforms('.hdr__logo'))).toBe(base);
     expect(await page.locator('.hdr__logo').boundingBox()).toEqual(box);
-    for (const u of ['/en/plans/', '/de/work/', '/es/about/', '/en/audit/', '/en/services/web/', '/en/privacy/']) {
+    for (const u of ['/en/plans/', '/de/work/', '/es/about/', '/en/services/web/', '/en/privacy/']) { // /audit/ routes intentionally use the plain typed wordmark: see tests/audit.spec.ts
       await page.goto(u);
       expect(await page.evaluate(transforms('.hdr__logo'))).toBe(base);
     }

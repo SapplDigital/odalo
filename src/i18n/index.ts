@@ -22,6 +22,7 @@ export function href(lang: Lang, path = ''): string {
 }
 
 export function formatPrice(amount: number, lang: Lang): string {
+  if (!Number.isFinite(amount) || amount <= 0) throw new Error(`formatPrice: refusing to render an invalid price (${amount})`); // never NaN / 0 / free
   return new Intl.NumberFormat(languageNames[lang].locale, {
     style: 'currency',
     currency: 'EUR',
@@ -31,6 +32,7 @@ export function formatPrice(amount: number, lang: Lang): string {
 
 /** Same text as formatPrice, split at the number so a very large price may wrap between currency symbol and digits (never inside the digits). */
 export function priceParts(amount: number, lang: Lang): { lead: string; num: string; trail: string } {
+  if (!Number.isFinite(amount) || amount <= 0) throw new Error(`priceParts: refusing to render an invalid price (${amount})`);
   const parts = new Intl.NumberFormat(languageNames[lang].locale, { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).formatToParts(amount);
   const isNum = (t: string) => t === 'integer' || t === 'group' || t === 'decimal' || t === 'fraction';
   const first = parts.findIndex((x) => isNum(x.type));

@@ -1,6 +1,6 @@
 ---
 import { services } from '../content/services';
-import { plans } from '../content/plans';
+import { plans, planPriceText } from '../content/plans';
 import { languages, languageNames, href, type Lang } from '../i18n';
 import { tr } from '../i18n/ui';
 import { site } from '../config/site';
@@ -9,88 +9,108 @@ const { lang } = Astro.props;
 const t = tr(lang);
 const f = t.audit.fields;
 const i18n = JSON.stringify({ ...t.audit.errors, sending: t.audit.sending, submit: t.audit.submit });
-const live = !!site.auditEndpoint;
+const live = site.auditLive;
+// Same localized audit focus names as the mosaic and the summary; ids, order and payload values still come from the services content.
+const focusName = (id: string, fallback: string) => (t.audit.mosaic.pieces as Record<string, { n: string }>)[id]?.n ?? fallback;
+const { email, phone } = site.contact;
 ---
-<div class="af" data-audit data-lang={lang} data-endpoint={site.auditEndpoint ?? ''} data-i18n={i18n}>
+<div class="af" data-audit data-lang={lang} data-transport={site.auditTransport} data-endpoint={site.auditEndpoint ?? ''} data-netlify-name={site.netlifyForm.name} data-netlify-path={site.netlifyForm.path} data-i18n={i18n}>
   {!live && <p class="af__demo" role="note">{t.audit.demoNotice}</p>}
+  <noscript>
+    <p class="af__demo af__noscript" role="note">{t.audit.noscript} {email || phone ? <>{t.audit.noscriptContact} {email ? <a href={`mailto:${email}`}>{email}</a> : <a href={`tel:${phone}`}>{phone}</a>}.</> : null}</p>
+  </noscript>
 
-  <form class="af__form" method="post" novalidate data-form>
+  <!-- Netlify Forms registration (detected from the built HTML; one shared name for EN/ES/DE). Fields below carry exactly these names. Without JavaScript the submit button stays disabled, so this markup is never posted natively. -->
+  <form class="af__form" name={site.netlifyForm.name} method="post" data-netlify="true" netlify-honeypot="bot-field" data-netlify-honeypot="bot-field" novalidate data-form>
+    <input type="hidden" name="form-name" value={site.netlifyForm.name} />
+    <input type="hidden" name="pageLanguage" value={lang} />
+    <p class="af__hp sr-only" aria-hidden="true"><label>Leave this field empty <input name="bot-field" type="text" tabindex="-1" autocomplete="off" /></label></p>
     <div class="af__summary" role="alert" tabindex="-1" hidden data-summary>
       <p data-summary-title>{t.audit.errors.summary}</p>
       <ul data-summary-list></ul>
     </div>
 
-    <div class="af__grid">
-      <div class="field">
-        <label for="f-name">{f.name} <span class="req">({t.common.required})</span></label>
-        <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name" />
-        <p class="err" id="e-name" hidden></p>
+    <fieldset class="af__group">
+      <legend>{t.audit.mosaic.g1}</legend>
+      <div class="af__grid">
+        <div class="field af__wide">
+          <label for="f-business">{f.business} <span class="req">({t.common.required})</span></label>
+          <input id="f-business" name="business" type="text" autocomplete="organization" required aria-describedby="e-business" />
+          <p class="err" id="e-business" hidden></p>
+        </div>
+        <div class="field af__wide">
+          <label for="f-need">{f.need} <span class="req">({t.common.required})</span></label>
+          <textarea id="f-need" name="need" rows="5" required aria-describedby="e-need"></textarea>
+          <p class="err" id="e-need" hidden></p>
+        </div>
+        <div class="field af__wide">
+          <label for="f-website">{f.website} <span class="opt">({t.common.optional})</span></label>
+          <input id="f-website" name="website" type="url" inputmode="url" autocomplete="url" placeholder="https://" aria-describedby="h-website e-website" />
+          <p class="hint" id="h-website">{f.websiteHint}</p>
+          <p class="err" id="e-website" hidden></p>
+        </div>
+        <div class="field">
+          <label for="f-service">{f.service} <span class="opt">({t.common.optional})</span></label>
+          <select id="f-service" name="service">
+            <option value="">{f.noPref}</option>
+            {services.map((s) => <option value={s.id}>{focusName(s.id, s.name[lang])}</option>)}
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-plan">{f.plan} <span class="opt">({t.common.optional})</span></label>
+          <select id="f-plan" name="plan">
+            <option value="">{f.noPref}</option>
+            {plans.map((p) => <option value={p.id} data-name={p.name}>{p.name} · {planPriceText(p, lang, t.common.perMonth)}</option>)}
+          </select>
+        </div>
+        <div class="field af__wide">
+          <label for="f-country">{f.country} <span class="opt">({t.common.optional})</span></label>
+          <input id="f-country" name="country" type="text" autocomplete="country-name" />
+        </div>
       </div>
-      <div class="field">
-        <label for="f-email">{f.email} <span class="req">({t.common.required})</span></label>
-        <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="e-email" />
-        <p class="err" id="e-email" hidden></p>
+    </fieldset>
+
+    <fieldset class="af__group">
+      <legend>{t.audit.mosaic.g2}</legend>
+      <div class="af__grid">
+        <div class="field">
+          <label for="f-name">{f.name} <span class="req">({t.common.required})</span></label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name" />
+          <p class="err" id="e-name" hidden></p>
+        </div>
+        <div class="field">
+          <label for="f-email">{f.email} <span class="req">({t.common.required})</span></label>
+          <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="e-email" />
+          <p class="err" id="e-email" hidden></p>
+        </div>
+        <div class="field">
+          <label for="f-phone">{f.phone} <span class="opt">({t.common.optional})</span></label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" />
+        </div>
+        <div class="field">
+          <label for="f-language">{f.language} <span class="opt">({t.common.optional})</span></label>
+          <select id="f-language" name="language">
+            {languages.map((l) => <option value={l} selected={l === lang}>{languageNames[l].native}</option>)}
+          </select>
+        </div>
       </div>
-      <div class="field af__wide">
-        <label for="f-business">{f.business} <span class="req">({t.common.required})</span></label>
-        <input id="f-business" name="business" type="text" autocomplete="organization" required aria-describedby="e-business" />
-        <p class="err" id="e-business" hidden></p>
-      </div>
-      <div class="field af__wide">
-        <label for="f-need">{f.need} <span class="req">({t.common.required})</span></label>
-        <textarea id="f-need" name="need" rows="5" required aria-describedby="e-need"></textarea>
-        <p class="err" id="e-need" hidden></p>
-      </div>
-      <div class="field af__wide">
-        <label for="f-website">{f.website} <span class="opt">({t.common.optional})</span></label>
-        <input id="f-website" name="website" type="url" inputmode="url" autocomplete="url" placeholder="https://" aria-describedby="h-website e-website" />
-        <p class="hint" id="h-website">{f.websiteHint}</p>
-        <p class="err" id="e-website" hidden></p>
-      </div>
-      <div class="field">
-        <label for="f-service">{f.service} <span class="opt">({t.common.optional})</span></label>
-        <select id="f-service" name="service">
-          <option value="">{f.noPref}</option>
-          {services.map((s) => <option value={s.id}>{s.name[lang]}</option>)}
-        </select>
-      </div>
-      <div class="field">
-        <label for="f-plan">{f.plan} <span class="opt">({t.common.optional})</span></label>
-        <select id="f-plan" name="plan">
-          <option value="">{f.noPref}</option>
-          {plans.map((p) => <option value={p.id}>{p.name} · {t.common.examplePrices.toLowerCase()}</option>)}
-        </select>
-      </div>
-      <div class="field">
-        <label for="f-country">{f.country} <span class="opt">({t.common.optional})</span></label>
-        <input id="f-country" name="country" type="text" autocomplete="country-name" />
-      </div>
-      <div class="field">
-        <label for="f-language">{f.language} <span class="opt">({t.common.optional})</span></label>
-        <select id="f-language" name="language">
-          {languages.map((l) => <option value={l} selected={l === lang}>{languageNames[l].native}</option>)}
-        </select>
-      </div>
-      <div class="field">
-        <label for="f-phone">{f.phone} <span class="opt">({t.common.optional})</span></label>
-        <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" />
-      </div>
-    </div>
+    </fieldset>
 
     <div class="af__checks">
       <div class="check">
-        <input id="f-privacy" name="privacy" type="checkbox" required aria-describedby="e-privacy" />
+        <input id="f-privacy" name="privacy" value="yes" type="checkbox" required aria-describedby="e-privacy" />
         <label for="f-privacy">{f.privacy} <a href={href(lang, 'privacy/')}>{t.audit.privacyLink}</a> <span class="req">({t.common.required})</span></label>
         <p class="err" id="e-privacy" hidden></p>
       </div>
       <div class="check">
-        <input id="f-marketing" name="marketing" type="checkbox" />
+        <input id="f-marketing" name="marketing" value="yes" type="checkbox" />
         <label for="f-marketing">{f.marketing}</label>
       </div>
     </div>
 
     <div class="af__actions">
-      <button class="btn btn--coral" type="submit" data-submit>{t.audit.submit}</button>
+      <!-- disabled in the HTML: without JavaScript there is no handler, and an enabled button (or Enter) would make the browser POST the named fields to this URL. The script enables it once the submit handler is installed. -->
+      <button class="btn btn--coral" type="submit" data-submit disabled>{t.audit.submit}</button>
     </div>
   </form>
 
@@ -106,10 +126,15 @@ const live = !!site.auditEndpoint;
 
 <style>
   .af { display: grid; gap: var(--s5); }
-  .af__demo { background: var(--sand); border-left: 6px solid var(--coral); padding: 14px 18px; border-radius: 4px; font-size: 1rem; max-width: 60ch; }
+  .af__noscript a { overflow-wrap: anywhere; }
+  /* honeypot: visually hidden with the global .sr-only clip (in place, not display:none which simple bots skip), out of the tab order and hidden from assistive technology */
+  .af__demo { background: var(--paper); border-left: 6px solid var(--coral); padding: 14px 18px; border-radius: 4px; font-size: 1rem; max-width: 60ch; }
   .af__form { display: grid; gap: var(--s6); }
   .af__grid { display: grid; gap: var(--s5) var(--s5); grid-template-columns: minmax(0, 1fr); }
   @media (min-width: 48em) { .af__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } .af__wide { grid-column: 1 / -1; } }
+  .af__group { border: 0; margin: 0; padding: 0; min-width: 0; display: grid; gap: var(--s4); }
+  .af__group legend { padding: 0 0 var(--s3); margin-bottom: var(--s4); width: 100%; border-bottom: 2px solid var(--ink); font-size: 1.25rem; font-weight: 700; letter-spacing: -0.01em; }
+  input::placeholder, textarea::placeholder { color: var(--slate-text); opacity: 1; } /* default UA placeholder grey is 4.4:1 on the field background */
   .field { display: grid; gap: 6px; align-content: start; }
   label { font-weight: 600; font-size: 1.0625rem; line-height: 1.3; }
   .req, .opt { font-weight: 400; color: var(--slate-text); font-size: 0.9375rem; }
@@ -138,8 +163,8 @@ const live = !!site.auditEndpoint;
   .af__summary ul { margin-top: 8px; display: grid; gap: 2px; }
   .af__summary a { color: inherit; display: inline-flex; min-height: 32px; align-items: center; }
   .af__actions .btn { min-width: min(14rem, 100%); max-width: 100%; }
-  .af__result { padding: var(--pad); border-radius: var(--r-small); border-bottom-right-radius: 64px; background: var(--sand); display: grid; gap: var(--s3); max-width: 62ch; }
-  .af__result[hidden] { display: none; }
+  .af__result { padding: var(--pad); border-radius: var(--r-small); border-bottom-right-radius: 64px; background: var(--paper); display: grid; gap: var(--s3); max-width: 62ch; }
+  .af__result[hidden], .af__result .btn[hidden] { display: none; } /* .btn sets display, which used to override [hidden]: the retry button showed on simulated results */
   .af__result[data-kind='failed'] { background: #fff7f5; border: 2px solid #a3281c; }
   .af__result[data-kind='delivered'] { background: var(--ink); color: var(--paper); }
   .af__rh { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; }
@@ -147,7 +172,7 @@ const live = !!site.auditEndpoint;
 </style>
 
 <script>
-  import { submitAudit, type AuditPayload } from '../lib/submit';
+  import { submitAudit, submitNetlify, type AuditPayload } from '../lib/submit';
   import { track } from '../lib/analytics';
 
   const root = document.querySelector<HTMLElement>('[data-audit]');
@@ -254,7 +279,11 @@ const live = !!site.auditEndpoint;
         marketingOptIn: (form.elements.namedItem('marketing') as HTMLInputElement).checked,
         pageLanguage: lang,
       };
-      const r = await submitAudit(payload, root.dataset.endpoint || null);
+      // One transport decision, made by build configuration (data-transport) and nothing else: Netlify Forms, else the generic JSON endpoint, else simulation.
+      const hp = (form.elements.namedItem('bot-field') as HTMLInputElement | null)?.value ?? '';
+      const r = root.dataset.transport === 'netlify'
+        ? await submitNetlify(payload, { name: root.dataset.netlifyName || 'audit', path: root.dataset.netlifyPath || '/' }, hp)
+        : await submitAudit(payload, root.dataset.endpoint || null);
       busy = false;
       btn.removeAttribute('aria-busy'); btn.removeAttribute('aria-disabled'); btn.textContent = lab;
       const m = msgs(r.status);
@@ -269,5 +298,6 @@ const live = !!site.auditEndpoint;
       // 'simulated' is deliberately not tracked as a confirmed submission.
     });
     retry.addEventListener('click', () => { result.hidden = true; form.requestSubmit(); });
+    btn.disabled = false; // the real submission handler is installed: only now can the form be submitted
   }
 </script>

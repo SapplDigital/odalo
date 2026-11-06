@@ -3,6 +3,23 @@
 Status: **runnable demo**, built from `docs/design/00–07`. Not production-ready; see [Before production launch](#before-production-launch).
 All commercial content (services, prices, inclusions, projects) is **demo content**, labelled as such in the UI.
 
+## Current production status (27 Oct 2026)
+- Audit is live: the redesigned site, including the EN/ES/DE free-audit page with the Netlify Forms integration, is published at https://odalo.sappl-digital.de (still `noindex`). Public contact is `info@sappl-digital.de`.
+- Notifications: only **`info@sappl-digital.de`** and **`bastiappl12@gmail.com`** receive audit submissions (two Netlify email notifications scoped to form `audit`). `sebastian.appl@sappl-digital.de` no longer exists and its notification was removed.
+- Receipt confirmed by the owner for both inboxes (test submission 17:56:46Z, stored in Netlify as submission 6ae0e5de6a0daec1afbbc7cc and kept). **Reply-To remains unconfirmed.**
+- **Production deploy is locked** (27 Oct 2026, owner-approved): published deploy `6ae0e49efa58740f36caccdd` on project `sappl-odalo` (e5fd1e5f-99b7-4bfa-b6d4-f5e49b425098) was verified as the published deploy and locked with the Netlify API (`lockDeploy`); read back: `locked: true`, state `ready`, context production, published 2026-10-27T17:51:38Z. Git pushes to `releases/2026.1.0` may still build, but they are NOT published while the lock is on.
+- The existing Netlify CLI authorization (netlify-cli@27.15.0 via npx) is unchanged and still active on this machine.
+- Open: Reply-To check, Netlify submission storage/retention and privacy-notice review, native ES/DE review, Forms plan/limits (not visible to the coder).
+
+**Deliberate unlocking (only after the reviewed source and build configuration are ready):**
+1. Commit the reviewed source (owner-approved scope) to the production branch `releases/2026.1.0`, or choose another reviewed deploy.
+2. In Netlify > Project configuration > Build & deploy > Environment variables add `PUBLIC_AUDIT_TRANSPORT` = `netlify` (scope Builds). The existing build command already sets `SITE_URL=https://odalo.sappl-digital.de SITE_BASE=/ PUBLIC_NOINDEX=true`; do not set `PUBLIC_AUDIT_ENDPOINT`. Without the variable a Git build publishes the simulated form.
+3. Let the Git build finish and check its deploy preview URL (audit page shows `data-transport="netlify"`, form `audit` listed, `info@sappl-digital.de` only, noindex).
+4. Netlify > Deploys > the chosen deploy > **Publish deploy**, or on the locked deploy use **Unlock to start auto publishing** (dashboard) / API `unlockDeploy`; then re-check live pages, the Forms list, the two notifications and one controlled submission.
+Do not unlock before steps 1-3, or the next Git build will replace the working audit with a build that has no Netlify transport.
+
+The delivery/recipient notes further down are dated history: the earlier "Enquiry delivery recipients" section lists a removed address and a not-yet-implemented state, and the GitHub Pages notes describe the earlier demo hosting. Details: `docs/review/free-audit/delivery/D3/README.md` (private; do not publish `docs/`).
+
 ## 1. Architecture
 
 | Concern | Where | Notes |

@@ -94,7 +94,7 @@ test.describe('audit form', () => {
     await page.locator('[data-submit]').click();
     await expect(page.locator('[data-summary]')).toBeVisible();
     for (const f of ['name', 'email', 'business', 'need', 'privacy']) await expect(page.locator(`#e-${f}`)).toBeVisible();
-    await expect(page.locator('#f-name')).toBeFocused();
+    await expect(page.locator('#f-business')).toBeFocused();
     await expect(page.locator('#f-name')).toHaveAttribute('aria-invalid', 'true');
     await expect(page.locator('#e-name')).toHaveText('Please enter your name.');
   });

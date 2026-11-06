@@ -1,6 +1,6 @@
 ---
-import { plans, features } from '../content/plans';
-import { formatPrice, type Lang } from '../i18n';
+import { plans, features, planPriceText } from '../content/plans';
+import type { Lang } from '../i18n';
 import { tr } from '../i18n/ui';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
@@ -40,7 +40,7 @@ const t = tr(lang);
     <details class:list={['cmpd__item', { 'is-feat': p.featured }]} id={`compare-${p.id}`}>
       <summary>
         <span class="cmpd__name">{p.name}{p.featured && <span class="cmpd__badge">{t.common.featured}</span>}</span>
-        <span class="cmpd__price"><span class="cmpd__amt">{formatPrice(p.price, lang)}</span><span class="cmpd__per">{t.common.perMonth}</span></span>
+        <span class="cmpd__price">{p.monthly === null ? <span class="cmpd__amt">{planPriceText(p, lang, '')}</span> : <><span class="cmpd__amt">{planPriceText(p, lang, '')}</span><span class="cmpd__per">{t.common.perMonth}</span></>}</span>
       </summary>
       <dl class="cmpd__list">
         {features.map((f) => {

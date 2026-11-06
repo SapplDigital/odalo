@@ -24,14 +24,14 @@ const Sub = page ? 'h2' : 'h3'; // panel headings sit one level under the sectio
       </div>
       <div class="art" aria-hidden="true">
         <svg viewBox="0 0 240 240" preserveAspectRatio="xMidYMid slice" focusable="false">
-          <rect width="240" height="240" fill="#efe7d3" />
-          <path d="M0 0H120V120A120 120 0 0 1 0 0Z" fill="#203b57" transform="translate(0 0) scale(1)" />
-          <path d="M120 0H240V120H120Z" fill="#d98165" />
-          <path d="M0 120H120V240H0Z" fill="#50718b" />
-          <path d="M120 120H240V240A120 120 0 0 1 120 120Z" fill="#efe7d3" stroke="#203b57" stroke-width="3" />
-          <circle cx="120" cy="120" r="30" fill="#f7f9f8" />
-          <path d="M120 90A30 30 0 0 1 150 120H120Z" fill="#d98165" />
-          <path d="M120 150A30 30 0 0 1 90 120H120Z" fill="#203b57" />
+          <rect width="240" height="240" fill="#efe8d5" />
+          <path d="M0 0H120V120A120 120 0 0 1 0 0Z" fill="#223f63" transform="translate(0 0) scale(1)" />
+          <path d="M120 0H240V120H120Z" fill="#d5946e" />
+          <path d="M0 120H120V240H0Z" fill="#516c8b" />
+          <path d="M120 120H240V240A120 120 0 0 1 120 120Z" fill="#efe8d5" stroke="#223f63" stroke-width="3" />
+          <circle cx="120" cy="120" r="30" fill="#f8fafa" />
+          <path d="M120 90A30 30 0 0 1 150 120H120Z" fill="#d5946e" />
+          <path d="M120 150A30 30 0 0 1 90 120H120Z" fill="#223f63" />
         </svg>
       </div>
       <div class="langs">
@@ -44,11 +44,6 @@ const Sub = page ? 'h2' : 'h3'; // panel headings sit one level under the sectio
               : <a lang={l} hreflang={l} href={href(l, here)} data-set-lang={l}>{languageNames[l].native}</a>}</li>
           ))}
         </ul>
-      </div>
-      <div class="concept on-dark">
-        <Sub class="story__h">{t.about.conceptH}</Sub>
-        <p>{t.about.conceptBody}</p>
-        <a class="link-arrow" href={href(lang, 'work/')}>{t.about.conceptLink}</a>
       </div>
     </div>
   </div>
@@ -71,26 +66,21 @@ const Sub = page ? 'h2' : 'h3'; // panel headings sit one level under the sectio
   /* the picture never sets the height: it fills whatever the text panels leave (min-height keeps it a real composition) */
   .art { position: relative; background: var(--sand); min-height: 12rem; overflow: hidden; }
   .art svg { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
-  .langs { background: var(--coral); color: var(--ink-deep); padding: var(--pad); display: grid; gap: var(--s3); align-content: start; }
+  .langs { background: var(--coral); color: var(--ink-deep); padding: var(--pad); display: grid; gap: var(--s3); align-content: start; border-bottom-right-radius: var(--r-big); }
   .langs .story__h { color: var(--ink-deep); font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem); letter-spacing: 0; text-transform: none; font-weight: 700; margin: 0; }
   .langs__list { display: flex; flex-wrap: wrap; gap: 8px; }
   .langs__list a, .langs__list span { display: inline-flex; align-items: center; min-height: 44px; padding: 4px 16px; border: 2px solid var(--ink-deep); border-radius: 999px; font-weight: 700; text-decoration: none; }
   .langs__list a:hover { background: var(--ink-deep); color: var(--coral); }
   .langs__list [aria-current] { background: var(--ink-deep); color: var(--coral); }
-  .concept { background: var(--slate); color: var(--paper); padding: var(--pad); display: grid; gap: var(--s3); align-content: start; border-bottom-right-radius: var(--r-big); }
-  .concept .story__h { color: var(--paper); font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem); letter-spacing: 0; text-transform: none; font-weight: 700; margin: 0; }
-  .concept .link-arrow { color: var(--paper); white-space: normal; max-width: 100%; }
   @media (min-width: 48em) {
     .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .story { grid-column: 1 / -1; border-top-right-radius: var(--r-small); }
     .art { min-height: 14rem; }
-    .concept { grid-column: 1 / -1; }
   }
   @media (min-width: 64em) {
     .mosaic { grid-template-columns: repeat(12, minmax(0, 1fr)); }
-    .story { grid-column: 1 / span 7; grid-row: 1 / span 3; border-top-right-radius: 0; padding: var(--s8) var(--s7) var(--s7); }
+    .story { grid-column: 1 / span 7; grid-row: 1 / span 2; border-top-right-radius: 0; padding: var(--s8) var(--s7) var(--s7); }
     .art { grid-column: 8 / -1; grid-row: 1; border-top-right-radius: var(--r-small); min-height: 16rem; }
     .langs { grid-column: 8 / -1; grid-row: 2; }
-    .concept { grid-column: 8 / -1; grid-row: 3; }
   }
 </style>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" role="img" aria-label="Odalo" style="--odalo-navy:#0d1a2b">
+  <!-- Connected mosaic: 3x3 grid of 20-unit cells. Each cell has a full base square (extended 0.5 under
+       its right/bottom neighbours, painted in reading order) so no seam can ever show through; curved pieces
+       sit on top and share their straight edges with the cell border. Colours are CSS variables with the brand hex as fallback. -->
+  <g id="bases">
+    <rect x="0"  y="0"  width="20.5" height="20.5" fill="var(--odalo-sand, #efe7d3)"/>
+    <rect x="20" y="0"  width="40.5" height="20.5" fill="var(--odalo-coral, #d98165)"/>
+    <rect x="0"  y="20" width="20.5" height="40"   fill="var(--odalo-sand, #efe7d3)"/>
+    <rect x="20" y="20" width="20.5" height="20.5" fill="var(--odalo-navy, #203b57)"/>
+    <rect x="40" y="20" width="20"   height="20.5" fill="var(--odalo-sand, #efe7d3)"/>
+    <rect x="20" y="40" width="40"   height="20"   fill="var(--odalo-slate, #50718b)"/>
+  </g>
+  <g id="curves">
+    <path d="M0 0H20A20 20 0 0 1 0 20Z"      fill="var(--odalo-navy, #203b57)"/>
+    <path d="M20 20A20 20 0 0 1 60 20Z"      fill="var(--odalo-slate, #50718b)"/>
+    <path d="M0 20A20 20 0 0 1 0 60Z"        fill="var(--odalo-coral, #d98165)"/>
+    <path d="M60 40H40A20 20 0 0 1 60 20Z"   fill="var(--odalo-navy, #203b57)"/>
+    <path d="M20 40A20 20 0 0 0 60 40Z"      fill="var(--odalo-coral, #d98165)"/>
+  </g>
+</svg>

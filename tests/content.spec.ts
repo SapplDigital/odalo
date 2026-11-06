@@ -29,12 +29,10 @@ test.describe('enquiry journey: approved free-audit labels, honest simulation', 
       await expect(page.locator('.fin a.btn')).toHaveText(t[l].closing);
       await expect(page.locator('.fin a.btn')).toHaveAttribute('data-location', 'final');
       await page.goto(`/${l}/audit/`);
-      await expect(page.locator('h1')).toContainText(l === 'de' ? 'kostenlose Analyse' : t[l].h1.replace('.', ''), { ignoreCase: true });
-      await expect(page.locator('.ph__lead')).toHaveText(tr(l).audit.lead);
-      expect(tr(l).audit.lead).toMatch(/Odalo/);
+      await expect(page.locator('h1')).toHaveText(`${tr(l).audit.h1.a} ${tr(l).audit.h1.em}`);
+      await expect(page.locator('.am-intro__lead')).toHaveText(tr(l).audit.lead);
+      await expect(page.locator('.am-intro__scope')).toHaveText(tr(l).audit.scope);
       await expect(page.locator('[data-submit]')).toHaveText(t[l].submit);
-      await expect(page.locator('.au__next h2')).toHaveText(t[l].expectH);
-      await expect(page.locator('.au__next li')).toHaveCount(4);
       expect(await page.locator('main').innerText()).not.toMatch(recipients);
       expect(await page.content()).not.toMatch(recipients);
       expect(await page.title()).toBe(tr(l).meta.audit.title);
@@ -51,7 +49,7 @@ test.describe('enquiry journey: approved free-audit labels, honest simulation', 
       await page.locator('[data-submit]').click();
       await expect(page.locator('[data-summary]')).toBeVisible();
       await expect(page.locator('#e-name')).toHaveText(tr(l).audit.errors.name);
-      await expect(page.locator('#f-name')).toBeFocused();
+      await expect(page.locator('#f-business')).toBeFocused(); // first invalid field in DOM order: the business group now comes first
       await fill(page);
       const btn = page.locator('[data-submit]');
       await btn.click();
@@ -87,7 +85,7 @@ test.describe('enquiry journey: approved free-audit labels, honest simulation', 
     expect(ui).toMatch(/\(deliveryConfigured \? ui : demoUi\)\[lang\]/);
     expect(ui).toMatch(/submit: 'Request audit',\s+sending: 'Sending…',/); // original strings untouched
     expect(fs.readFileSync('src/config/site.ts', 'utf8')).toMatch(/auditEndpoint: \(import\.meta\.env\.PUBLIC_AUDIT_ENDPOINT/);
-    expect(fs.readFileSync('src/components/FinalCta.astro', 'utf8')).toMatch(/const demo = !site\.auditEndpoint/);
+    expect(fs.readFileSync('src/components/FinalCta.astro', 'utf8')).toMatch(/const demo = !site\.auditLive/);
     expect(fs.readFileSync('src/components/Faq.astro', 'utf8')).toMatch(/!isDemoEnquiry && f\.aConfigured/);
   });
 });

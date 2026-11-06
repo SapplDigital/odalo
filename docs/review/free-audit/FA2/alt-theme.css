@@ -1,0 +1,16 @@
+/* PROTOTYPE-ONLY alternate palette, active only with ?theme=alt (audit.js sets data-theme="alt").
+   It re-declares the BRAND tokens locally, which is exactly what a real re-theme would do, to prove that every audit colour flows
+   from those tokens. It is the one place colour literals are allowed. Not a proposal, not loaded for the approved look,
+   and it never touches the canonical wordmark artwork or the production stylesheet. */
+:root[data-theme='alt'] {
+  --ink: #1d3b2f;
+  --ink-deep: #0d2118;
+  --coral: #e3b23c;
+  --coral-light: #f2cf7a;
+  --sand: #e4eee7;
+  --paper: #fbfaf4;
+  --slate: #3f6a58;
+  --slate-text: #2f5646;
+  --rust-text: #8a2a16;
+  --line: rgb(29 59 47 / 0.2);
+}

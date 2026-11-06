@@ -65,6 +65,7 @@ Playwright uses the browser at `/opt/pw-browsers/chromium` when present (cloud s
 | `SITE_BASE` | `/` | Sub-path hosting (e.g. `/odalo/` on GitHub Pages). |
 | `PUBLIC_NOINDEX` | unset | `true` adds `noindex` to every page and disallows all crawling in `robots.txt` (used for the demo deployment). |
 | `PUBLIC_AUDIT_ENDPOINT` | unset | Audit-form delivery URL. Unset = **simulated** submission (nothing is sent, and the UI says so). |
+| `PUBLIC_AUDIT_TRANSPORT` | unset | `netlify` = submit the audit form to **Netlify Forms** (URL-encoded POST to the site root; form `audit` is registered in the built HTML). Any other value is ignored. With it unset the mode is JSON endpoint (if `PUBLIC_AUDIT_ENDPOINT` is set) or simulation. If both are set, `netlify` wins. See `docs/review/free-audit/delivery/D2/README.md`. |
 
 ## Project map
 

@@ -39,6 +39,7 @@ export interface Service {
   outcome: L;
   detail: L;
   deliverables: LList;
+  /** The lowest plan that includes this service (its entry plan). Higher plans inherit it through `builtOn`; see `plansFrom` in plans.ts. */
   relatedPlan: 'base' | 'local' | 'captacion' | '360';
   /** The concept picture shown on the service's tile and page. See `ServiceVisual`. */
   visual: ServiceVisual;
@@ -126,14 +127,14 @@ export const services: Service[] = [
       de: 'Wir zeigen, was du tust, mit Inhalten, die erklären, verbinden und Gründe liefern, dich zu wählen.',
     },
     detail: {
-      es: 'Desde reels mensuales hasta sesiones de grabación, el contenido se planifica junto a tu web y tus anuncios.',
-      en: 'From monthly reels to recording sessions, content is planned together with your website and ads.',
-      de: 'Von monatlichen Reels bis zu Aufnahme­sessions: Inhalte werden gemeinsam mit Website und Anzeigen geplant.',
+      es: 'Dos reels al mes con tu material grabado; el rodaje y los desplazamientos son un extra. El contenido se planifica junto a tu web y tus anuncios.',
+      en: 'Two reels a month from your footage; filming and travel are extra. Content is planned together with your website and ads.',
+      de: 'Zwei Reels pro Monat aus deinem Material; Dreh und Anreise kosten extra. Inhalte werden gemeinsam mit Website und Anzeigen geplant.',
     },
     deliverables: {
-      es: ['Dos reels al mes (plan Captación)', 'Una sesión de grabación al mes (plan 360)', 'Doce publicaciones al mes (plan 360)'],
-      en: ['Two reels per month (Captación plan)', 'One recording session per month (360 plan)', 'Twelve posts per month (360 plan)'],
-      de: ['Zwei Reels pro Monat (Paket Captación)', 'Eine Aufnahme­session pro Monat (Paket 360)', 'Zwölf Beiträge pro Monat (Paket 360)'],
+      es: ['Dos reels al mes con tu material grabado (plan Captación)', 'Grabación y desplazamientos, como extra', 'Más producción de contenido, con presupuesto a medida (plan 360)'],
+      en: ['Two reels per month from your footage (Captación plan)', 'Filming and travel, as an extra', 'More content production, quoted for your business (360 plan)'],
+      de: ['Zwei Reels pro Monat aus deinem Material (Paket Captación)', 'Dreh und Anreise als Extra', 'Mehr Content-Produktion, individuell angeboten (Paket 360)'],
     },
     relatedPlan: 'captacion',
     visual: {
@@ -176,9 +177,9 @@ export const services: Service[] = [
       de: 'Kampagnen führen auf passende Seiten und werden in einem klaren Ergebnis-Dashboard gemessen.',
     },
     deliverables: {
-      es: ['Un canal de anuncios, Google o Meta (plan Captación)', 'Dos canales de anuncios (plan 360)', 'Panel de resultados', 'La inversión en anuncios se paga directamente a Google o Meta'],
-      en: ['One ad channel, Google or Meta (Captación plan)', 'Two ad channels (360 plan)', 'Results dashboard', 'Ad spend is paid directly to Google or Meta'],
-      de: ['Ein Werbekanal, Google oder Meta (Paket Captación)', 'Zwei Werbekanäle (Paket 360)', 'Ergebnis-Dashboard', 'Das Werbebudget zahlst du direkt an Google oder Meta'],
+      es: ['Un canal de anuncios, Google o Meta (plan Captación)', 'Más canales de anuncios, con presupuesto a medida (plan 360)', 'Panel de resultados', 'La inversión en anuncios se paga directamente a Google o Meta'],
+      en: ['One ad channel, Google or Meta (Captación plan)', 'More ad channels, quoted for your business (360 plan)', 'Results dashboard', 'Ad spend is paid directly to Google or Meta'],
+      de: ['Ein Werbekanal, Google oder Meta (Paket Captación)', 'Weitere Werbekanäle, individuell angeboten (Paket 360)', 'Ergebnis-Dashboard', 'Das Werbebudget zahlst du direkt an Google oder Meta'],
     },
     relatedPlan: 'captacion',
     visual: { projectId: 'sample-clinic', imageId: 'clinic-ad-square', position: '50% 50%', fit: 'contain', ratioMobile: '5 / 4', label: { es: 'Tidewell, creatividad cuadrada', en: 'Tidewell, square ad concept', de: 'Tidewell, quadratischer Anzeigenentwurf' } },

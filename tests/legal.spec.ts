@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const EMAIL = 'Sebastian.Appl@sappl-digital.de';
+const EMAIL = 'info@sappl-digital-services.com';
 
 for (const lang of ['en', 'de', 'es']) {
   for (const slug of ['legal', 'privacy', 'cookies']) {
@@ -8,7 +8,7 @@ for (const lang of ['en', 'de', 'es']) {
       await page.goto(`/${lang}/${slug}/`);
       const main = page.locator('main');
       await expect(main).toContainText('Sebastian Tim Appl');
-      await expect(main).toContainText('Sappl Digital Studios');
+      await expect(main).toContainText('Sappl Digital Services');
       await expect(main).toContainText('Bachweg 5');
       await expect(main.locator(`a[href="mailto:${EMAIL}"]`)).toBeVisible();
       await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);

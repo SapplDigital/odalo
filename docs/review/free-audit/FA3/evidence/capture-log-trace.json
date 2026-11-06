@@ -1,0 +1,29 @@
+{
+  "browser": "156.0.4314.50",
+  "base": "http://127.0.0.1:4395",
+  "blockedExternal": [],
+  "trace": {
+    "conditions": "Edge (Playwright, headless), 1440x900, unthrottled, 5 opens + 1 include over ~2.5 s",
+    "Layout": {
+      "count": 94,
+      "totalMs": 46.8,
+      "maxMs": 11.65
+    },
+    "UpdateLayoutTree": {
+      "count": 134,
+      "totalMs": 21.7,
+      "maxMs": 0.86
+    },
+    "Paint": {
+      "count": 357,
+      "totalMs": 53.3,
+      "maxMs": 0.98
+    },
+    "FunctionCall": {
+      "count": 61,
+      "totalMs": 3.6,
+      "maxMs": 0.37
+    },
+    "longTasksOver50ms": 0
+  }
+}

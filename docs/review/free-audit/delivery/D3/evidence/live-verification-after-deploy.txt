@@ -1,0 +1,23 @@
+== /en/audit/
+data-netlify-path="/" data-transport="netlify" robots" content="noindex" 
+<form class='af__form'  data-form method='post' name='audit' novalidate>
+<input type="hidden" name="form-name" value="audit" data-astro-cid-2qu5qozh>
+mailto: mailto:info@sappl-digital.de 
+private: 0
+== /es/audit/
+data-netlify-path="/" data-transport="netlify" robots" content="noindex" 
+<form class='af__form'  data-form method='post' name='audit' novalidate>
+<input type="hidden" name="form-name" value="audit" data-astro-cid-2qu5qozh>
+mailto: mailto:info@sappl-digital.de 
+private: 0
+== /de/audit/
+data-netlify-path="/" data-transport="netlify" robots" content="noindex" 
+<form class='af__form'  data-form method='post' name='audit' novalidate>
+<input type="hidden" name="form-name" value="audit" data-astro-cid-2qu5qozh>
+mailto: mailto:info@sappl-digital.de 
+private: 0
+== alt domain
+data-transport="netlify"
+== robots
+User-agent: *
+Disallow: /

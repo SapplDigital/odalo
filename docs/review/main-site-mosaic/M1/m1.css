@@ -1,0 +1,160 @@
+/* M1 prototype styles. Tokens, fonts, buttons, type and the corner vocabulary come from generated/base-from-source.css (= src/styles/global.css).
+   Only layout for the settled Services FIXTURE (sf-*) and the Work FIELD (wf-*) is defined here; no colour literal is introduced
+   (the only rgb() values are the same translucent chips the production Work cards already use). */
+
+:root {
+  /* where the Services bottom row's shared edge rests (video | ads), as a share of the board width; the Work band and grid reuse it */
+  --seam-x: 45%;
+}
+@media (min-width: 48em) { :root { --seam-x: 45.833%; } }  /* tablet board: 5.5fr / 6.5fr */
+@media (min-width: 64em) { :root { --seam-x: 41.667%; } }  /* desktop board: 5fr / 7fr   */
+
+.m1-bar { display: flex; flex-wrap: wrap; gap: 4px 16px; align-items: baseline; padding: 8px var(--margin); font-size: 0.8125rem; background: var(--ink-deep); color: var(--paper); }
+.m1-bar a { color: var(--coral-light); }
+.m1-context { padding-block: var(--s6); }
+.m1-context--next { padding-block: var(--s9) var(--section); }
+
+/* ============ Services: settled fixture (rest geometry of the production mosaic, no controller) ============ */
+.svc { padding-top: var(--section); }
+.svc__head { display: grid; gap: var(--s4); margin-bottom: var(--s7); max-width: 62rem; }
+.svc__intro { color: var(--slate-text); }
+.sf-board { display: grid; gap: 0; }
+.sf-row { display: grid; grid-template-columns: minmax(0, 1fr); }
+.sf-tile { position: relative; display: flex; flex-direction: column; gap: var(--s3); padding: var(--pad); min-width: 0; overflow: hidden; isolation: isolate; border-radius: 0; }
+.sf-tile--ink { background: var(--ink); color: var(--paper); }
+.sf-tile--sand { background: var(--sand); color: var(--ink); }
+.sf-tile--coral { background: var(--coral); color: var(--ink-deep); }
+.sf-tile--slate { background: var(--slate); color: var(--paper); }
+.sf-tile[data-service='web'] { border-top-left-radius: var(--r-big); }
+.sf-tile[data-service='local'] { border-top-right-radius: var(--r-small); }
+/* The board no longer closes itself: its bottom corners stay square because the field continues into Work. */
+.sf-fig { display: flex; flex-direction: column; gap: var(--s3); flex: 1 1 auto; min-height: 0; margin: 0; }
+.sf-img { position: relative; flex: none; aspect-ratio: var(--ar, 16 / 10); overflow: hidden; border-radius: var(--r-small); background: color-mix(in srgb, currentColor 12%, transparent); }
+.sf-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 50% 50%); }
+.sf-img[data-fit='contain'] img { object-fit: contain; }
+.sf-cap { display: flex; align-items: baseline; gap: var(--s3); font-size: 0.875rem; line-height: 1.35; }
+.sf-num { font-weight: 800; font-size: 1.0625rem; letter-spacing: 0.08em; flex: none; }
+.sf-tile--ink .sf-num { color: var(--coral-light); }
+.sf-concept { min-width: 0; overflow-wrap: anywhere; hyphens: auto; }
+.sf-text { font-size: 1.0625rem; line-height: 1.5; max-width: 38ch; text-wrap: pretty; }
+.sf-link { display: inline-flex; align-items: center; min-height: 44px; width: fit-content; font-weight: 600; text-underline-offset: 5px; text-decoration-thickness: 2px; }
+@media (min-width: 48em) {
+  .sf-board { --sf-row-h: 36rem; --ta: 6.5fr; --tb: 5.5fr; --ba: 5.5fr; --bb: 6.5fr; height: calc(var(--sf-row-h) * 2); grid-template-rows: 1fr 1fr; }
+  .sf-row--top { grid-template-columns: minmax(0, var(--ta)) minmax(0, var(--tb)); }
+  .sf-row--bot { grid-template-columns: minmax(0, var(--ba)) minmax(0, var(--bb)); }
+  .sf-img { flex: 1 1 auto; aspect-ratio: auto; min-height: 9rem; }
+  .sf-img img { object-position: var(--pos-tablet, var(--pos, 50% 50%)); }
+}
+@media (min-width: 64em) {
+  .sf-board { --ta: 7fr; --tb: 5fr; --ba: 5fr; --bb: 7fr; }
+  .sf-img img { object-position: var(--pos, 50% 50%); }
+  .sf-fig, .sf-tile h3, .sf-text { min-width: 12.5rem; }
+}
+@media (min-width: 80em) { .sf-board { --sf-row-h: 34rem; } }
+
+/* ============ Work: the connected field ============ */
+.wf { padding-bottom: var(--section); }
+.wf .wrap { container-type: inline-size; }
+
+/* Heading band. A coral peg continues the video tile on the Services seam; the slate note panel continues the advertising tile downward
+   (same seam, same colour, a hairline marks the join). The heading itself keeps a calm paper cell. The explainer that used to sit in a
+   slate card at the foot of the grid moves into this panel unchanged. */
+.wf-head { display: grid; grid-template-columns: minmax(0, 1fr); }
+.wf-peg { display: block; height: var(--s5); background: var(--coral); border-bottom-left-radius: var(--r-small); }
+.wf-head__title { display: grid; gap: var(--s3); align-content: end; padding-block: var(--s7) var(--s6); }
+.wf-head__note { display: grid; gap: var(--s3); align-content: end; justify-items: start; background: var(--slate); color: var(--paper); padding: var(--pad); border-top: 1px solid color-mix(in srgb, var(--paper) 30%, transparent); }
+.wf-head__note p { max-width: 46ch; text-wrap: pretty; font-size: 1.0625rem; }
+.wf-head__note .link-arrow { color: var(--paper); }
+@media (min-width: 48em) {
+  .wf-head { grid-template-columns: var(--seam-x) minmax(0, 1fr); }
+  .wf-peg { grid-column: 1; grid-row: 1; }
+  .wf-head__title { grid-column: 1; grid-row: 2; padding-right: var(--s6); }
+  .wf-head__note { grid-column: 2; grid-row: 1 / span 2; align-content: end; padding: var(--pad) var(--s6); border-bottom-right-radius: 0; }
+}
+
+.wf-board { --rest-x: 0.51667; --rest-y: 0.5; display: grid; gap: 0; grid-template-columns: minmax(0, 1fr); }
+.wf-card { position: relative; display: flex; flex-direction: column; min-width: 0; overflow: hidden; border-radius: 0; }
+.wf-card--ink { background: var(--ink); color: var(--paper); }
+.wf-card--sand { background: var(--sand); color: var(--ink); }
+.wf-card--coral { background: var(--coral); color: var(--ink-deep); }
+.wf-card:last-child { border-bottom-right-radius: var(--r-big); }
+.wf-art { position: relative; flex: none; aspect-ratio: 16 / 10; overflow: hidden; }
+@media (max-width: 47.99em) { .wf-art { aspect-ratio: var(--ar-narrow, 16 / 10); } }
+.wf-pic { display: contents; }
+.wf-pic--tall { display: none; } /* the portrait creative is only used where the shared-edge board gives it a portrait slot (chosen by layout, not by viewport width) */
+.wf-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transform-origin: 50% 0; transition: transform 0.38s cubic-bezier(0.22, 0.8, 0.3, 1); }
+.wf-card--sup[data-p='sample-clinic'] .wf-art img { object-position: 50% 0; }
+.wf-card--sup[data-p='sample-shop'] .wf-art img { object-position: 50% 100%; }
+.wf-body { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s3); padding: var(--pad); align-content: start; }
+.wf-meta { display: flex; flex-wrap: wrap; gap: 6px 12px; font-size: 0.875rem; font-weight: 500; align-items: center; }
+.wf-badge { border: 1.5px solid currentColor; border-radius: 999px; padding: 1px 10px; font-weight: 600; font-size: 0.8125rem; }
+.wf-title a { text-decoration: none; }
+.wf-title a::after { content: ''; position: absolute; inset: 0; } /* the one native link per card; the whole card is its hit area */
+.wf-title a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
+.wf-title a:focus-visible { outline: none; }
+.wf-card:has(a:focus-visible) { outline: 3px solid var(--focus); outline-offset: -6px; } /* whole-card ring: never clipped by the field edge */
+.wf-text { max-width: 46ch; text-wrap: pretty; }
+.wf-card--sup .wf-text { font-size: 0.9375rem; line-height: 1.45; }
+.wf-svc { display: flex; flex-wrap: wrap; gap: 6px; }
+.wf-svc li { font-size: 0.875rem; font-weight: 600; padding: 3px 12px; border-radius: 999px; background: rgb(255 255 255 / 0.16); }
+.wf-card--sand .wf-svc li { background: rgb(32 59 87 / 0.1); }
+.wf-card--coral .wf-svc li { background: rgb(255 255 255 / 0.32); }
+.wf-more { font-weight: 700; }
+.wf-card--feat.is-active .wf-art img { transform: scale(1.03); }
+@media (hover: hover) and (pointer: fine) { .wf-card--feat:hover .wf-art img { transform: scale(1.03); } }
+
+/* Tablet and narrow desktop (48-80em): natural flow, featured card full width, two supporting cards on the Services seam */
+@media (min-width: 48em) {
+  .wf-board { grid-template-columns: var(--seam-x) minmax(0, 1fr); }
+  .wf-card--feat { grid-column: 1 / -1; }
+  .wf-card--sup:last-child { border-bottom-right-radius: var(--r-big); }
+  .wf-card--sup[data-p='sample-clinic'] { border-bottom-left-radius: var(--r-small); }
+}
+
+/* Wide desktop (80em+, 34em+ tall, motion allowed): featured left, two supporting cards right, in a board with a FIXED height.
+   Emphasis trades shared edges inside the reserved board: text boxes keep fixed measures and never scale or move; only picture area grows. */
+@media (min-width: 80em) and (min-height: 34em) { @container (min-width: 72rem) {
+  /* The container test uses rem: when the reader enlarges text (root font size up), the field is narrower than 72rem and keeps the natural flow. */
+  .wf-board {
+    --geo: 1;
+    --c1: 6.2fr; --c2: 5.8fr; --r1: 1fr; --r2: 1fr;
+    /* featured picture keeps 16:10 at rest (7/12 of the field), plus a body allowance in rem; fixed regardless of emphasis */
+    height: calc(51.667cqw * 0.625 + 24rem);
+    grid-template-columns: minmax(0, var(--c1)) minmax(0, var(--c2));
+    grid-template-rows: minmax(0, var(--r1)) minmax(0, var(--r2));
+  }
+  .wf-board[data-active='sample-hotel']  { --c1: 6.3fr; --c2: 5.7fr; }
+  .wf-board[data-active='sample-clinic'] { --r1: 1.08fr; --r2: 0.92fr; }
+  .wf-board[data-active='sample-shop']   { --r1: 0.92fr; --r2: 1.08fr; }
+  .wf-board[data-active='sample-hotel'] { --wide-hotel: 1; }
+  .wf-pic--wide:not(.wf-card--feat *) { display: none; }
+  .wf-pic--tall { display: contents; }
+  .wf-card--feat { grid-column: 1; grid-row: 1 / span 2; }
+  .wf-card--sup { grid-column: 2; flex-direction: row; }
+  .wf-card--sup[data-p='sample-clinic'] { grid-row: 1; }
+  .wf-card--sup[data-p='sample-shop'] { grid-row: 2; }
+  .wf-card--feat .wf-art { flex: 1 1 auto; aspect-ratio: auto; min-height: 0; }
+  /* the supporting picture keeps its own shape (no side-cropping of the ad copy): its width follows the row height */
+  .wf-card--sup .wf-art { flex: 0 1 auto; height: 100%; aspect-ratio: var(--art-ar, 4 / 5); min-width: 0; }
+  .wf-card--sup .wf-body { flex: 0 0 clamp(15.5rem, 21cqw, 17rem); margin-left: auto; padding: var(--s5); gap: var(--s2); align-content: start; }
+  /* text stays put on screen while edges trade: the top card's text hangs from the board's top, the bottom card's from the board's bottom, and both stay on the board's right edge */
+  .wf-card--sup[data-p='sample-shop'] .wf-body { align-content: end; }
+  .wf-card--sup:last-child { border-bottom-left-radius: 0; }
+} }
+@container (min-width: 80rem) { .wf-board[data-active='sample-hotel'] { --c1: 6.5fr; --c2: 5.5fr; } }
+@media (min-width: 80em) and (min-height: 34em) and (prefers-reduced-motion: no-preference) { @container (min-width: 72rem) {
+  .wf-board { transition: grid-template-columns 0.38s cubic-bezier(0.22, 0.8, 0.3, 1), grid-template-rows 0.38s cubic-bezier(0.22, 0.8, 0.3, 1); }
+} }
+
+/* One short docking event when the field arrives (JS adds data-ledge/data-cards = pending, then done). Transform only; content is never hidden. */
+@media (prefers-reduced-motion: no-preference) {
+  .wf-peg { transition: transform 0.45s cubic-bezier(0.22, 0.8, 0.3, 1); }
+  .wf-card { transition: transform 0.45s cubic-bezier(0.22, 0.8, 0.3, 1); }
+  .wf[data-ledge='pending'] .wf-peg { transform: translateX(-2.5rem); }
+  .wf[data-cards='pending'] .wf-card { transform: translateY(1.25rem); }
+  .wf-card:nth-child(2) { transition-delay: 70ms; }
+  .wf-card:nth-child(3) { transition-delay: 140ms; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wf-card.is-active .wf-art img, .wf-card:hover .wf-art img { transform: none; }
+}

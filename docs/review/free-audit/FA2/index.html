@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<meta name="robots" content="noindex,nofollow">
+<title>Free audit — Odalo (FA2 prototype)</title>
+<link rel="stylesheet" href="audit.css">
+<link rel="stylesheet" href="alt-theme.css">
+</head>
+<body>
+<a class="skip" href="#request">Go to the request form</a>
+<header class="bar">
+  <div class="wrap bar__in">
+    <span class="bar__word">odalo</span>
+    <p class="bar__tag">Prototype: nothing is sent</p>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <section class="board" aria-labelledby="h1" data-board>
+      <div class="intro">
+        <h1 id="h1">Free <em>audit</em></h1>
+        <p class="intro__lead">A personal review of your website and relevant online presence, with a short prioritised list of improvements.</p>
+        <p class="intro__scope">We’ll agree the exact scope with you.</p>
+        <a class="btn btn--cta" href="#request">Go to the request form</a>
+        <p class="intro__hint">Open a piece to read more. Nothing is chosen until you press “Include this focus”.</p>
+      </div>
+      <div class="pieces" data-pieces role="group" aria-label="Review focus areas">
+      <article class="tile tile--web" data-piece="web" data-i="0">
+        <h3 class="tile__title" id="t-web">Website</h3>
+        <p class="tile__short">Can visitors grasp your offer and find a next step?</p>
+        <div class="tile__panel" id="p-web" role="group" aria-labelledby="t-web">
+          <p class="tile__badge" data-badge hidden><span aria-hidden="true">✓</span> Included in your request</p>
+          <p class="tile__long">Explore whether visitors can understand your offer and find a clear next step.</p>
+          <p class="tile__tip"><strong>Helpful to tell us:</strong> Which page or action matters most to you.</p>
+          <div class="tile__acts" data-js-only hidden>
+            <button type="button" class="btn" data-include>Include this focus</button>
+            <button type="button" class="btn btn--ghost" data-close>Close</button>
+          </div>
+        </div>
+        <span class="tile__deco" aria-hidden="true"><span class="tile__grow"></span></span>
+      </article>
+      <article class="tile tile--local" data-piece="local" data-i="1">
+        <h3 class="tile__title" id="t-local">Local presence</h3>
+        <p class="tile__short">How your business details and local presence fit together.</p>
+        <div class="tile__panel" id="p-local" role="group" aria-labelledby="t-local">
+          <p class="tile__badge" data-badge hidden><span aria-hidden="true">✓</span> Included in your request</p>
+          <p class="tile__long">Explore how your business information and relevant local presence fit together.</p>
+          <p class="tile__tip"><strong>Helpful to tell us:</strong> Where your customers are, and where they find you today.</p>
+          <div class="tile__acts" data-js-only hidden>
+            <button type="button" class="btn" data-include>Include this focus</button>
+            <button type="button" class="btn btn--ghost" data-close>Close</button>
+          </div>
+        </div>
+        <span class="tile__deco" aria-hidden="true"><span class="tile__grow"></span></span>
+      </article>
+      <article class="tile tile--video" data-piece="video" data-i="2">
+        <h3 class="tile__title" id="t-video">Content</h3>
+        <p class="tile__short">Do your messages say what you offer and for whom?</p>
+        <div class="tile__panel" id="p-video" role="group" aria-labelledby="t-video">
+          <p class="tile__badge" data-badge hidden><span aria-hidden="true">✓</span> Included in your request</p>
+          <p class="tile__long">Explore whether your messages explain what you offer and who it is for.</p>
+          <p class="tile__tip"><strong>Helpful to tell us:</strong> What you publish today and who you want to reach.</p>
+          <div class="tile__acts" data-js-only hidden>
+            <button type="button" class="btn" data-include>Include this focus</button>
+            <button type="button" class="btn btn--ghost" data-close>Close</button>
+          </div>
+        </div>
+        <span class="tile__deco" aria-hidden="true"><span class="tile__grow"></span></span>
+      </article>
+      <article class="tile tile--ads" data-piece="ads" data-i="3">
+        <h3 class="tile__title" id="t-ads">Advertising</h3>
+        <p class="tile__short">How campaign messages connect to their pages.</p>
+        <div class="tile__panel" id="p-ads" role="group" aria-labelledby="t-ads">
+          <p class="tile__badge" data-badge hidden><span aria-hidden="true">✓</span> Included in your request</p>
+          <p class="tile__long">Explore how campaign messages and their destination pages connect, where relevant.</p>
+          <p class="tile__tip"><strong>Helpful to tell us:</strong> Where you advertise, if you do.</p>
+          <div class="tile__acts" data-js-only hidden>
+            <button type="button" class="btn" data-include>Include this focus</button>
+            <button type="button" class="btn btn--ghost" data-close>Close</button>
+          </div>
+        </div>
+        <span class="tile__deco" aria-hidden="true"><span class="tile__grow"></span></span>
+      </article>
+      </div>
+    </section>
+
+    <section class="request" id="request" aria-labelledby="req-h" tabindex="-1">
+      <div class="req-side">
+       <div class="req-side__in">
+        <h2 id="req-h">Your request</h2>
+        <dl class="sum">
+          <div><dt>Review focus</dt><dd data-sum-focus>No preference</dd></div>
+          <div><dt>Plan context</dt><dd data-sum-plan>None</dd></div>
+        </dl>
+        <p class="sum__note">Optional: choose one focus, or none.</p>
+        <button type="button" class="btn btn--ghost" data-clear aria-pressed="true" data-js-only hidden>No preference</button>
+        <p class="sr-only" role="status" aria-live="polite" data-live></p>
+       </div>
+      </div>
+      <div class="req-form">
+        <p class="notice" role="note">Prototype only: this form cannot send requests. Pressing the button shows a simulated result and nothing leaves this page or is stored.</p>
+        <noscript><p class="notice notice--ns">JavaScript is off, so the button is unavailable. Nothing can be sent either way.</p></noscript>
+        <form class="form" method="post" action="#request" novalidate data-form aria-label="Request form">
+          <div class="summary" role="alert" tabindex="-1" hidden data-summary><p>Please fix the highlighted fields.</p><ul data-summary-list></ul></div>
+          <fieldset class="group">
+            <legend>About your business</legend>
+            <div class="grid">
+          <div class="field wide">
+            <label for="f-business">Business name <span class="req">(required)</span></label>
+            <input id="f-business" name="business" type="text" autocomplete="organization" required aria-describedby="e-business">
+            <p class="err" id="e-business" hidden></p>
+          </div>
+          <div class="field wide">
+            <label for="f-need">What do you need? A short description <span class="req">(required)</span></label>
+            <textarea id="f-need" name="need" rows="5" required aria-describedby="e-need"></textarea>
+            <p class="err" id="e-need" hidden></p>
+          </div>
+          <div class="field wide">
+            <label for="f-website">Existing website <span class="opt">(optional)</span></label>
+            <input id="f-website" name="website" type="url" inputmode="url" autocomplete="url" placeholder="https://" aria-describedby="h-website e-website">
+            <p class="hint" id="h-website">Optional. Leave empty if you do not have one yet.</p>
+            <p class="err" id="e-website" hidden></p>
+          </div>
+          <div class="field">
+            <label for="f-service">Review focus <span class="opt">(optional)</span></label>
+            <select id="f-service" name="service"><option value="">No preference</option><option value="web">Website</option><option value="local">Local presence</option><option value="video">Content</option><option value="ads">Advertising</option></select>
+            <p class="err" id="e-service" hidden></p>
+          </div>
+          <div class="field">
+            <label for="f-plan">Plan of interest <span class="opt">(optional)</span></label>
+            <select id="f-plan" name="plan"><option value="">No preference</option><option value="base">Base · example prices</option><option value="local">Local · example prices</option><option value="captacion">Captación · example prices</option><option value="360">360 · example prices</option></select>
+            <p class="err" id="e-plan" hidden></p>
+          </div>
+          <div class="field">
+            <label for="f-language">Preferred language <span class="opt">(optional)</span></label>
+            <select id="f-language" name="language"><option value="es">Español</option><option value="en" selected>English</option><option value="de">Deutsch</option></select>
+            <p class="err" id="e-language" hidden></p>
+          </div>
+          <div class="field">
+            <label for="f-country">Country or time zone <span class="opt">(optional)</span></label>
+            <input id="f-country" name="country" type="text" autocomplete="country-name">
+            <p class="err" id="e-country" hidden></p>
+          </div>
+            </div>
+          </fieldset>
+          <fieldset class="group">
+            <legend>Contact details</legend>
+            <div class="grid">
+          <div class="field">
+            <label for="f-name">Name <span class="req">(required)</span></label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name">
+            <p class="err" id="e-name" hidden></p>
+          </div>
+          <div class="field">
+            <label for="f-email">Email <span class="req">(required)</span></label>
+            <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="e-email">
+            <p class="err" id="e-email" hidden></p>
+          </div>
+          <div class="field wide">
+            <label for="f-phone">Phone number <span class="opt">(optional)</span></label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
+            <p class="err" id="e-phone" hidden></p>
+          </div>
+            </div>
+            <div class="checks">
+              <div class="check">
+                <input id="f-privacy" name="privacy" type="checkbox" required aria-describedby="e-privacy">
+                <label for="f-privacy">I have read the privacy notice (draft). <a href="#proto-privacy">Privacy notice</a> <span class="req">(required)</span></label>
+                <p class="err" id="e-privacy" hidden></p>
+                <p class="hint" id="proto-privacy">On the real site this link opens the privacy notice. In this prototype it is inert.</p>
+              </div>
+              <div class="check">
+                <input id="f-marketing" name="marketing" type="checkbox">
+                <label for="f-marketing">I would also like to receive occasional news from Odalo (optional).</label>
+              </div>
+            </div>
+          </fieldset>
+          <div class="actions"><button class="btn btn--form" type="submit" data-submit disabled>Request audit (simulated)</button></div>
+        </form>
+        <div class="result" role="status" tabindex="-1" hidden data-result><h3 data-result-title></h3><p data-result-text></p></div>
+      </div>
+    </section>
+  </div>
+</main>
+<footer class="foot"><div class="wrap"><p>FA2 prototype of the free-audit mosaic. Not part of the production site. Sample data only.</p></div></footer>
+<script type="application/json" id="i18n">{"errors":{"name":"Please enter your name.","email":"Please enter your email address.","emailInvalid":"Please enter a valid email address, for example name@example.com.","business":"Please enter your business name.","need":"Please describe briefly what you need.","websiteInvalid":"Please enter a full web address, for example https://example.com.","privacy":"Please confirm you have read the privacy notice.","summary":"Please fix the highlighted fields."},"none":"No preference","planNone":"None","include":"Include this focus","remove":"Remove this focus","explore":"Explore","announceIn":"Focus included: ","announceOut":"Focus removed. No preference.","announceOpen":"Opened: ","simH":"Simulated submission","simT":"This is a prototype and nothing was sent, so nobody has received your request. Your entries are still shown above.","names":{"web":"Website","local":"Local presence","video":"Content","ads":"Advertising"},"plans":{"360":"360","base":"Base","local":"Local","captacion":"Captación"}}</script>
+<script src="audit.js"></script>
+</body>
+</html>

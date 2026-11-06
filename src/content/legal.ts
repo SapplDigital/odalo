@@ -22,7 +22,7 @@ const en: LegalCopy = {
     brand: 'Business designation',
     address: 'Address',
     email: 'Email',
-    brandLine: 'Odalo is a brand of Sebastian Tim Appl, trading as Sappl Digital Studios.',
+    brandLine: 'Odalo is a brand of Sebastian Tim Appl, trading as Sappl Digital Services.',
   },
   pages: {
     legal: {
@@ -30,14 +30,14 @@ const en: LegalCopy = {
       lead: 'Information under § 5 of the German Digital Services Act (DDG).',
       sections: [
         { h: 'Provider', p: [
-          'Odalo is a brand of Sebastian Tim Appl, trading as Sappl Digital Studios. The operator is a sole proprietor under German law.',
+          'Odalo is a brand of Sebastian Tim Appl, trading as Sappl Digital Services. The operator is a sole proprietor under German law.',
           'Address and email are shown above.',
         ] },
         { h: 'Registration and tax details', p: [
           'The business is not entered in a commercial register. Business registration and tax matters are still being clarified with the competent authorities. No VAT identification number is shown because none is available at this time; this notice will be updated if one is issued.',
         ] },
         { h: 'This is a demo website', p: [
-          'This website is a demonstration. Prices, plans, sample projects and service descriptions are illustrative. They are not an offer and not a binding quotation. The sample projects (Casa Almina, Tidewell, Brindle Pantry) are labelled concepts for fictional businesses, not client work.',
+          'This website is a preview. The prices and plans shown are starting prices and a general description of the services; they are not a binding quotation. Scope and price of a specific project are set in an individual written quotation before work starts, and the 360 plan is quoted individually. The sample projects (Casa Almina, Tidewell, Brindle Pantry) are labelled concepts for fictional businesses, not client work.',
           'The audit form on this website does not send anything.',
         ] },
         { h: 'Contact', p: ['The best way to reach us is by email, using the address shown above.'] },
@@ -49,7 +49,7 @@ const en: LegalCopy = {
       lead: 'How personal data is handled on this demo website (GDPR Art. 13).',
       sections: [
         { h: 'Who is responsible', p: [
-          'The controller under the GDPR is Sebastian Tim Appl, trading as Sappl Digital Studios, at the address and email shown above.',
+          'The controller under the GDPR is Sebastian Tim Appl, trading as Sappl Digital Services, at the address and email shown above.',
           'No data protection officer has been appointed.',
         ] },
         { h: 'Hosting and server logs', p: [
@@ -100,7 +100,7 @@ const de: LegalCopy = {
     brand: 'Geschäftsbezeichnung',
     address: 'Anschrift',
     email: 'E-Mail',
-    brandLine: 'Odalo ist eine Marke von Sebastian Tim Appl, handelnd unter „Sappl Digital Studios“.',
+    brandLine: 'Odalo ist eine Marke von Sebastian Tim Appl, handelnd unter „Sappl Digital Services“.',
   },
   pages: {
     legal: {
@@ -108,14 +108,14 @@ const de: LegalCopy = {
       lead: 'Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG).',
       sections: [
         { h: 'Anbieter', p: [
-          'Odalo ist eine Marke von Sebastian Tim Appl, handelnd unter „Sappl Digital Studios“. Der Betreiber ist Einzelunternehmer nach deutschem Recht.',
+          'Odalo ist eine Marke von Sebastian Tim Appl, handelnd unter „Sappl Digital Services“. Der Betreiber ist Einzelunternehmer nach deutschem Recht.',
           'Anschrift und E-Mail stehen oben.',
         ] },
         { h: 'Register- und Steuerangaben', p: [
           'Das Unternehmen ist nicht im Handelsregister eingetragen. Gewerbe- und steuerrechtliche Fragen werden derzeit noch mit den zuständigen Behörden geklärt. Eine Umsatzsteuer-Identifikationsnummer wird nicht angegeben, da derzeit keine vorliegt; dieses Impressum wird ergänzt, falls eine erteilt wird.',
         ] },
         { h: 'Dies ist eine Demo-Website', p: [
-          'Diese Website ist eine Demonstration. Preise, Pakete, Beispielprojekte und Leistungsbeschreibungen sind beispielhaft. Sie sind weder ein Angebot noch ein verbindlicher Kostenvoranschlag. Die Beispielprojekte (Casa Almina, Tidewell, Brindle Pantry) sind als Konzepte für fiktive Unternehmen gekennzeichnet, keine Kundenarbeiten.',
+          'Diese Website ist eine Vorschau. Die gezeigten Preise und Pakete sind Startpreise und eine allgemeine Leistungsbeschreibung; sie sind kein verbindlicher Kostenvoranschlag. Umfang und Preis eines konkreten Projekts werden vor Beginn der Arbeit in einem individuellen schriftlichen Angebot festgelegt, das Paket 360 wird individuell angeboten. Die Beispielprojekte (Casa Almina, Tidewell, Brindle Pantry) sind als Konzepte für fiktive Unternehmen gekennzeichnet, keine Kundenarbeiten.',
           'Das Analyse-Formular auf dieser Website versendet nichts.',
         ] },
         { h: 'Kontakt', p: ['Am besten erreichst du uns per E-Mail unter der oben genannten Adresse.'] },
@@ -127,7 +127,7 @@ const de: LegalCopy = {
       lead: 'Wie auf dieser Demo-Website mit personenbezogenen Daten umgegangen wird (Art. 13 DSGVO).',
       sections: [
         { h: 'Verantwortlicher', p: [
-          'Verantwortlicher im Sinne der DSGVO ist Sebastian Tim Appl, handelnd unter „Sappl Digital Studios“, unter der oben genannten Anschrift und E-Mail-Adresse.',
+          'Verantwortlicher im Sinne der DSGVO ist Sebastian Tim Appl, handelnd unter „Sappl Digital Services“, unter der oben genannten Anschrift und E-Mail-Adresse.',
           'Ein Datenschutzbeauftragter ist nicht benannt.',
         ] },
         { h: 'Hosting und Server-Logfiles', p: [
@@ -178,7 +178,7 @@ const es: LegalCopy = {
     brand: 'Denominación comercial',
     address: 'Dirección',
     email: 'Correo electrónico',
-    brandLine: 'Odalo es una marca de Sebastian Tim Appl, que opera como «Sappl Digital Studios».',
+    brandLine: 'Odalo es una marca de Sebastian Tim Appl, que opera como «Sappl Digital Services».',
   },
   pages: {
     legal: {
@@ -186,14 +186,14 @@ const es: LegalCopy = {
       lead: 'Información conforme al § 5 de la ley alemana de servicios digitales (DDG).',
       sections: [
         { h: 'Proveedor', p: [
-          'Odalo es una marca de Sebastian Tim Appl, que opera como «Sappl Digital Studios». El titular es un empresario individual según el derecho alemán.',
+          'Odalo es una marca de Sebastian Tim Appl, que opera como «Sappl Digital Services». El titular es un empresario individual según el derecho alemán.',
           'La dirección y el correo electrónico figuran arriba.',
         ] },
         { h: 'Datos de registro y fiscales', p: [
           'La actividad no está inscrita en el registro mercantil. El alta de la actividad y las cuestiones fiscales se están aclarando todavía con las autoridades competentes. No se indica número de identificación fiscal de IVA porque actualmente no existe; este aviso se actualizará si se asigna uno.',
         ] },
         { h: 'Este es un sitio de demostración', p: [
-          'Este sitio web es una demostración. Los precios, planes, proyectos de ejemplo y descripciones de servicios son ilustrativos. No constituyen una oferta ni un presupuesto vinculante. Los proyectos de ejemplo (Casa Almina, Tidewell, Brindle Pantry) están señalados como conceptos para negocios ficticios, no trabajos para clientes.',
+          'Este sitio web es una vista previa. Los precios y planes mostrados son precios de partida y una descripción general de los servicios; no constituyen un presupuesto vinculante. El alcance y el precio de un proyecto concreto se fijan en un presupuesto individual por escrito antes de empezar, y el plan 360 se presupuesta de forma individual. Los proyectos de ejemplo (Casa Almina, Tidewell, Brindle Pantry) están señalados como conceptos para negocios ficticios, no trabajos para clientes.',
           'El formulario de auditoría de este sitio no envía nada.',
         ] },
         { h: 'Contacto', p: ['La mejor forma de contactarnos es por correo electrónico, en la dirección indicada arriba.'] },
@@ -205,7 +205,7 @@ const es: LegalCopy = {
       lead: 'Cómo se tratan los datos personales en este sitio de demostración (art. 13 RGPD).',
       sections: [
         { h: 'Responsable', p: [
-          'El responsable según el RGPD es Sebastian Tim Appl, que opera como «Sappl Digital Studios», en la dirección y el correo electrónico indicados arriba.',
+          'El responsable según el RGPD es Sebastian Tim Appl, que opera como «Sappl Digital Services», en la dirección y el correo electrónico indicados arriba.',
           'No se ha designado un delegado de protección de datos.',
         ] },
         { h: 'Alojamiento y registros del servidor', p: [

@@ -1,5 +1,5 @@
 import { test, expect, type Page } from '@playwright/test';
-import { plans, features } from '../src/content/plans';
+import { plans, features, quoteLabel } from '../src/content/plans';
 
 const ids = plans.map((p) => p.id);
 // page coordinates (hover/focus may scroll the viewport)
@@ -59,7 +59,7 @@ test.describe('pricing: one connected mosaic', () => {
     await page.goto('/en/plans/');
     for (const p of plans) {
       const a = page.locator(`#plan-${p.id}`);
-      await expect(a.locator('.plan__per')).toHaveText('/month');
+      if (p.monthly === null) await expect(a.locator('.plan__amount')).toHaveText(quoteLabel.en); else await expect(a.locator('.plan__per')).toHaveText('/month');
       for (const i of p.own.en) await expect(a).toContainText(i);
       for (const i of p.notIncluded.en) await expect(a).toContainText(i);
       await expect(a.locator('.plan__cta')).toHaveAttribute('data-track', 'plan_select');
@@ -68,7 +68,7 @@ test.describe('pricing: one connected mosaic', () => {
     }
   });
 
-  for (const [lang, word] of [['en', 'Example prices'], ['es', 'Precios de ejemplo'], ['de', 'Beispielpreise']] as const) {
+  for (const [lang, word] of [['en', 'Starting prices'], ['es', 'Precios desde'], ['de', 'Ab-Preise']] as const) {
     test(`${lang}: the example-price disclosure sits above the group and every plan points to it`, async ({ page }) => {
       await page.goto(`/${lang}/plans/`);
       await expect(page.locator('#plans .plans-sec__ex')).toHaveText(word);
@@ -102,8 +102,8 @@ test.describe('plan comparison: table wide, native disclosures narrow', () => {
     for (const p of plans) {
       const s = page.locator(`#compare-${p.id} summary`);
       await expect(s).toContainText(p.name);
-      await expect(s).toContainText(String(p.price).replace(/(\d)(?=(\d{3})$)/, '$1,'));
-      await expect(s).toContainText('/month');
+      if (p.monthly === null) await expect(s).toContainText(quoteLabel.en);
+      else { await expect(s).toContainText(String(p.monthly).replace(/(\d)(?=(\d{3})$)/, '$1,')); await expect(s).toContainText('/month'); }
       expect((await s.boundingBox())!.height).toBeGreaterThanOrEqual(44);
     }
     for (const p of plans) await page.locator(`#compare-${p.id} summary`).click();

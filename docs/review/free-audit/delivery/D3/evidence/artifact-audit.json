@@ -1,0 +1,58 @@
+{
+  "env": {
+    "SITE_URL": "https://odalo.sappl-digital.de",
+    "SITE_BASE": "(unset = /)",
+    "PUBLIC_NOINDEX": "true",
+    "PUBLIC_AUDIT_TRANSPORT": "netlify",
+    "PUBLIC_AUDIT_ENDPOINT": "(unset)"
+  },
+  "files": 130,
+  "artifactId": "da4339d3f71cd6364259b3cbcb14c9c5e00c460d5b28261ab9e452d10cdb9636",
+  "pages": {
+    "en": {
+      "formTag": "<form class=\"af__form\" name=\"audit\" method=\"post\" data-netlify=\"true\" netlify-honeypot=\"bot-field\" data-netlify-honeypot=\"bot-field\" novalidate data-form>",
+      "formNameInput": true,
+      "transport": "netlify",
+      "netlifyPath": "/",
+      "missingFields": [],
+      "submitDisabledInHtml": true,
+      "mailto": [
+        "info@sappl-digital.de"
+      ],
+      "robots": "noindex",
+      "canonical": "https://odalo.sappl-digital.de/en/audit/",
+      "demoNoticeInForm": false
+    },
+    "es": {
+      "formTag": "<form class=\"af__form\" name=\"audit\" method=\"post\" data-netlify=\"true\" netlify-honeypot=\"bot-field\" data-netlify-honeypot=\"bot-field\" novalidate data-form>",
+      "formNameInput": true,
+      "transport": "netlify",
+      "netlifyPath": "/",
+      "missingFields": [],
+      "submitDisabledInHtml": true,
+      "mailto": [
+        "info@sappl-digital.de"
+      ],
+      "robots": "noindex",
+      "canonical": "https://odalo.sappl-digital.de/es/audit/",
+      "demoNoticeInForm": false
+    },
+    "de": {
+      "formTag": "<form class=\"af__form\" name=\"audit\" method=\"post\" data-netlify=\"true\" netlify-honeypot=\"bot-field\" data-netlify-honeypot=\"bot-field\" novalidate data-form>",
+      "formNameInput": true,
+      "transport": "netlify",
+      "netlifyPath": "/",
+      "missingFields": [],
+      "submitDisabledInHtml": true,
+      "mailto": [
+        "info@sappl-digital.de"
+      ],
+      "robots": "noindex",
+      "canonical": "https://odalo.sappl-digital.de/de/audit/",
+      "demoNoticeInForm": false
+    }
+  },
+  "privateAddressHits": [],
+  "docsOrEvidenceInArtifact": [],
+  "robotsTxt": "User-agent: *\nDisallow: /"
+}

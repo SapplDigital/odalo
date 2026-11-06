@@ -19,7 +19,7 @@ async function tabProblems(page: Page, maxStops = 90) {
       const e = document.activeElement as HTMLElement | null;
       if (!e || e === document.body) return null;
       const r = e.getBoundingClientRect(), hb = document.querySelector('header')!.getBoundingClientRect().bottom;
-      return { id: `${e.tagName.toLowerCase()}:${(e.getAttribute('aria-label') || e.textContent || e.getAttribute('id') || '').trim().replace(/\s+/g, ' ').slice(0, 30)}`, inHeader: !!e.closest('header') || e.classList.contains('skip-link'), top: r.top, bottom: r.bottom, hb, vh: innerHeight, ring: getComputedStyle(e).outlineStyle !== 'none' && parseFloat(getComputedStyle(e).outlineWidth) >= 2 };
+      return { id: `${e.tagName.toLowerCase()}:${(e.getAttribute('aria-label') || e.textContent || e.getAttribute('id') || '').trim().replace(/\s+/g, ' ').slice(0, 30)}`, inHeader: !!e.closest('header') || e.classList.contains('skip-link'), top: r.top, bottom: r.bottom, hb, vh: innerHeight, ring: ((el: Element) => getComputedStyle(el).outlineStyle !== 'none' && parseFloat(getComputedStyle(el).outlineWidth) >= 2)(e) || (!!e.closest('.grid--field .proj') && ((el: Element) => getComputedStyle(el).outlineStyle !== 'none' && parseFloat(getComputedStyle(el).outlineWidth) >= 2)(e.closest('.grid--field .proj')!)) /* homepage Work cards show the ring around the whole card (the card is the hit area) */ };
     });
     if (!s) break;
     if (!first) first = s.id; else if (s.id === first) break;

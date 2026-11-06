@@ -1,6 +1,7 @@
 ---
 import PlansMosaic from './PlansMosaic.astro';
 import PlanTable from './PlanTable.astro';
+import BuildNote from './BuildNote.astro';
 import type { Lang } from '../i18n';
 import { tr } from '../i18n/ui';
 interface Props { num?: string; lang: Lang; asPage?: boolean }
@@ -17,11 +18,12 @@ const t = tr(lang);
       {asPage && <p class="lead">{t.plans.pageLead}</p>}
       <p class="plans-sec__note" id="plans-note">{t.plans.note}</p>
     </header>
+    <BuildNote lang={lang} />
     <PlansMosaic lang={lang} detailed={asPage} />
-    <div class="plans-sec__cmp">
-      <h3 class="h-tile">{t.plans.compare}</h3>
-      <PlanTable lang={lang} />
-    </div>
+    <details class="plans-sec__cmp" id="compare-plans" data-open-on-hash>
+      <summary class="plans-sec__sum"><span>{t.plans.compare}</span><span class="plans-sec__ico" aria-hidden="true"></span></summary>
+      <div class="plans-sec__tbl"><PlanTable lang={lang} /></div>
+    </details>
   </div>
 </section>
 <style>
@@ -29,5 +31,26 @@ const t = tr(lang);
   .plans-sec__head { display: grid; gap: var(--s4); margin-bottom: var(--s7); max-width: 62rem; }
   .plans-sec__ex { vertical-align: middle; font-size: 0.875rem; margin-left: 8px; font-family: var(--font-sans); font-weight: 600; letter-spacing: 0.02em; }
   .plans-sec__note { max-width: 62ch; color: var(--ink); }
-  .plans-sec__cmp { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s5); margin-top: var(--s8); }
+  /* the full comparison stays on the page, closed until asked for (native disclosure) */
+  .plans-sec__cmp { margin-top: var(--s7); }
+  .plans-sec__sum { display: inline-flex; align-items: center; gap: var(--s4); min-height: 56px; padding: 8px var(--s5); border-radius: 10px; background: var(--ink); color: var(--paper); cursor: pointer; list-style: none; font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; }
+  .plans-sec__sum::-webkit-details-marker { display: none; }
+  .plans-sec__sum:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+  .plans-sec__ico::before { content: '+'; font-size: 1.5rem; font-weight: 600; }
+  .plans-sec__cmp[open] > .plans-sec__sum .plans-sec__ico::before { content: '\00d7'; }
+  .plans-sec__tbl { margin-top: var(--s4); }
 </style>
+<script>
+  // a link or address-bar hash that points inside the closed comparison (#compare-plans, #compare-<plan>) opens it first
+  const openCompare = () => {
+    const el = location.hash.length > 1 ? document.getElementById(decodeURIComponent(location.hash.slice(1))) : null;
+    const d = el?.closest<HTMLDetailsElement>('details[data-open-on-hash]');
+    if (el && d) {
+      d.open = true; if (el instanceof HTMLDetailsElement) el.open = true;
+      // on wide screens the per-plan accordion is display:none (the table is shown instead): scroll to the visible comparison, not the hidden target
+      const shown = el.getClientRects().length ? el : (d.querySelector<HTMLElement>('.cmp')?.getClientRects().length ? d.querySelector<HTMLElement>('.cmp')! : d);
+      shown.scrollIntoView();
+    }
+  };
+  openCompare(); addEventListener('hashchange', openCompare);
+</script>

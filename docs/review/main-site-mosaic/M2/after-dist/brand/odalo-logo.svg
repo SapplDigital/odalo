@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 228 60" role="img" aria-label="odalo">
+  <!-- For light backgrounds. Wordmark is live text (Outfit 700); install the font or convert text to outlines for print. -->
+  <g style="--odalo-navy:#203b57">
+  <g id="bases">
+    <rect x="0"  y="0"  width="20.5" height="20.5" fill="var(--odalo-sand, #efe7d3)"/>
+    <rect x="20" y="0"  width="40.5" height="20.5" fill="var(--odalo-coral, #d98165)"/>
+    <rect x="0"  y="20" width="20.5" height="40"   fill="var(--odalo-sand, #efe7d3)"/>
+    <rect x="20" y="20" width="20.5" height="20.5" fill="var(--odalo-navy, #203b57)"/>
+    <rect x="40" y="20" width="20"   height="20.5" fill="var(--odalo-sand, #efe7d3)"/>
+    <rect x="20" y="40" width="40"   height="20"   fill="var(--odalo-slate, #50718b)"/>
+  </g>
+  <g id="curves">
+    <path d="M0 0H20A20 20 0 0 1 0 20Z"      fill="var(--odalo-navy, #203b57)"/>
+    <path d="M20 20A20 20 0 0 1 60 20Z"      fill="var(--odalo-slate, #50718b)"/>
+    <path d="M0 20A20 20 0 0 1 0 60Z"        fill="var(--odalo-coral, #d98165)"/>
+    <path d="M60 40H40A20 20 0 0 1 60 20Z"   fill="var(--odalo-navy, #203b57)"/>
+    <path d="M20 40A20 20 0 0 0 60 40Z"      fill="var(--odalo-coral, #d98165)"/>
+  </g>
+  </g>
+  <text x="76" y="47" font-family="Outfit, 'Outfit Variable', Arial, sans-serif" font-weight="700" font-size="56" letter-spacing="-2.5" fill="#203b57">odalo<tspan fill="#d98165">.</tspan></text>
+</svg>

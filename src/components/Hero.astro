@@ -1,5 +1,4 @@
 ---
-import Wordmark from './Wordmark.astro';
 import { href, type Lang } from '../i18n';
 import { tr } from '../i18n/ui';
 interface Props { lang: Lang }
@@ -18,124 +17,18 @@ const t = tr(lang);
       </div>
     </div>
 
-    <div class="hero__art c-tl" data-hero-art>
-      <div class="hero__stage" data-art-stage aria-hidden="true">
-        <div class="hero__fallback" data-art-fallback><Wordmark fit="stage" /></div>
-      </div>
-      <button class="hero__pause" type="button" aria-pressed="false" data-pause={t.a11y.pauseArt} data-play={t.a11y.playArt} data-art-pause hidden>
-        <span class="hero__pause-ico" aria-hidden="true"></span>
-        <span data-art-pause-label>{t.a11y.pauseArt}</span>
-      </button>
-    </div>
   </div>
 </section>
 <style>
   .hero { padding-block: var(--s6) var(--s8); }
-  .hero__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s7); align-items: stretch; }
+  .hero__grid { display: grid; grid-template-columns: minmax(0, 1fr); }
   .hero__text { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s5); align-content: center; padding-block: var(--s4); }
   .hero__body { font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.375rem); color: var(--ink); }
   .hero__cta { display: flex; flex-wrap: wrap; gap: var(--s3) var(--s4); margin-top: var(--s2); }
 
-  /* The supplied transforming artwork: its frame is reserved at 1000:606 so nothing shifts when the module initialises. */
-  .hero__art { --odalo-gap: var(--sand); background: var(--sand); padding: var(--s4); display: grid; gap: var(--s3); align-content: center; max-width: 44rem; }
-  .hero__stage { position: relative; aspect-ratio: 1000 / 606; width: 100%; }
-  .hero__fallback { position: absolute; inset: 0; }
-  .hero__fallback[hidden] { display: none; }
-  .hero__stage :global(.odalo-mosaic-svg) { position: absolute; inset: 0; height: 100%; }
-  .hero__pause { justify-self: start; display: inline-flex; align-items: center; gap: 10px; min-height: 44px; min-width: 44px; padding: 0 18px 0 14px; border: 2px solid var(--ink); border-radius: 999px; background: transparent; color: var(--ink); font: inherit; font-weight: 600; font-size: 0.9375rem; cursor: pointer; }
-  .hero__pause[hidden] { display: none; }
-  /* With scripting and motion allowed the control will appear: keep its row reserved so showing it moves nothing. */
-  @media (prefers-reduced-motion: no-preference) { :global(.js) .hero__pause[hidden] { display: inline-flex; visibility: hidden; } }
-  .hero__pause:hover { background: var(--paper); }
-  .hero__pause-ico { width: 12px; height: 14px; border-left: 4px solid currentColor; border-right: 4px solid currentColor; box-sizing: border-box; }
-  .hero__pause[aria-pressed='true'] .hero__pause-ico { width: 0; height: 0; border: 0; border-top: 7px solid transparent; border-bottom: 7px solid transparent; border-left: 12px solid currentColor; }
-
-  @media (min-width: 48em) {
-    .hero__art { padding: var(--s5); }
-  }
+  /* Calm text-only hero; the old word-art block is gone (Wordmark.astro and its assets stay for recovery). The M3 mosaic lands here next. */
   @media (min-width: 64em) {
     .hero { padding-top: var(--s7); }
-    .hero__grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: var(--s8); }
-    .hero__art { align-self: center; max-width: none; }
+    .hero__text { max-width: 52rem; }
   }
 </style>
-<script>
-  import { mount } from '../mosaic/odalo/odalo-mosaic.mjs';
-
-  // Mounts the supplied animation module, unmodified, into the hero frame. The static word stays visible until it works
-  // (no JS, or if mount throws). The control is only shown while the animation can actually run (WCAG 2.2.2).
-  //
-  // Playback has two inputs that must never be confused:
-  //   - the visitor's own choice (the Pause/Play control): `userPaused`, always the last word;
-  //   - automatic holds requested by other parts of the page through the `odalo:hero-hold` event ({ source, hold }):
-  //     `holders`, idempotent per source. A visitor's press during a hold overrides that hold until it is released.
-  // The animation is paused when the visitor paused it, or when a hold is active and not overridden. Nothing presses the button.
-  const art = document.querySelector<HTMLElement>('[data-hero-art]');
-  const stage = art?.querySelector<HTMLElement>('[data-art-stage]');
-  const fallback = art?.querySelector<HTMLElement>('[data-art-fallback]');
-  const btn = art?.querySelector<HTMLButtonElement>('[data-art-pause]');
-  const btnLabel = art?.querySelector<HTMLElement>('[data-art-pause-label]');
-  if (art && stage && fallback && btn && btnLabel) {
-    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-    let inst: ReturnType<typeof mount> | null = null;
-    let paused = false;            // what the animation and the control currently show
-    let userPaused = false;        // the visitor's latest choice
-    let overridden = false;        // the visitor pressed the control while a hold was active
-    const holders = new Set<string>();
-    let finishThenPause: (() => void) | null = null;
-
-    const cancelPending = () => { if (finishThenPause) { stage.removeEventListener('odalo:statechange', finishThenPause); finishThenPause = null; } };
-    const showButton = () => { btn.hidden = !inst || reduced.matches; };
-    const showPaused = (value: boolean) => {
-      paused = value;
-      btn.setAttribute('aria-pressed', String(value));
-      btnLabel.textContent = value ? btn.dataset.play! : btn.dataset.pause!;
-    };
-    const wantPaused = () => userPaused || (holders.size > 0 && !overridden);
-    /** Bring the animation and the control in line with the two inputs. Safe to call any number of times. */
-    const sync = () => {
-      const want = wantPaused();
-      if (want === paused) return;
-      showPaused(want);
-      if (!inst) return;
-      if (!want) { cancelPending(); inst.play(); return; }
-      // Never freeze between arrangements: let a move in progress land, then stop on that completed arrangement.
-      if (inst.getState().transitioning) {
-        cancelPending();
-        finishThenPause = () => { cancelPending(); if (paused) inst?.pause(); };
-        stage.addEventListener('odalo:statechange', finishThenPause);
-      } else inst.pause();
-    };
-    const start = () => {
-      if (inst) return;
-      try {
-        inst = mount(stage, { autoplay: true });
-        fallback.hidden = true;
-      } catch (err) {
-        inst = null; fallback.hidden = false;
-        console.error('hero animation unavailable; keeping the static word', err);
-      }
-      showPaused(false); showButton();
-      sync(); // a hold requested before the animation existed, or kept across a back/forward restore
-      document.dispatchEvent(new CustomEvent('odalo:hero-ready'));
-    };
-    const stop = () => { cancelPending(); inst?.destroy(); inst = null; fallback.hidden = false; showButton(); };
-
-    btn.addEventListener('click', () => {
-      if (!inst) return;
-      if (wantPaused()) { userPaused = false; if (holders.size > 0) overridden = true; } // the visitor presses Play
-      else userPaused = true;                                                              // the visitor presses Pause
-      sync();
-    });
-    document.addEventListener('odalo:hero-hold', (e) => {
-      const { source, hold } = (e as CustomEvent<{ source: string; hold: boolean }>).detail;
-      if (hold) holders.add(source); else holders.delete(source);
-      if (holders.size === 0) overridden = false; // an override only lasts as long as the hold it answered
-      sync();
-    });
-    reduced.addEventListener('change', showButton);
-    window.addEventListener('pagehide', stop);
-    window.addEventListener('pageshow', (e) => { if (e.persisted) start(); }); // back/forward cache restores a page whose instance was released
-    start();
-  }
-</script>
