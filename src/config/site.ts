@@ -13,6 +13,10 @@ export const site = {
     city: 'Uhldingen-Mühlhofen',
     country: { en: 'Germany', de: 'Deutschland', es: 'Alemania' },
   },
+  /** USt-IdNr. Unset: none has been issued. The legal pages hide the line while this is null. */
+  vatId: null as string | null,
+  /** Kleinunternehmer under § 19 UStG: the Impressum shows the note only while this is true. */
+  smallBusiness: true,
   url: 'https://odalo.sappl-digital.de',
   /** Verified contact details. Phone is unset: none has been supplied. */
   contact: {

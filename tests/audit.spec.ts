@@ -3,6 +3,8 @@ import { tr } from '../src/i18n/ui';
 import { services } from '../src/content/services';
 import { plans } from '../src/content/plans';
 import { auditInPage } from './helpers/reflow';
+import { legalFor } from '../src/content/legal';
+import { NETLIFY_FIELDS } from '../src/lib/submit';
 
 // FA3: the integrated free-audit mosaic. The single authoritative value is the form's #f-service; the mosaic mirrors it.
 // Every test blocks all non-local requests; the build under test has no PUBLIC_AUDIT_ENDPOINT, so submissions are simulated.
@@ -326,6 +328,96 @@ test.describe('FA3A: no-JS submission lockout', () => {
     await expect(page.locator('#f-business')).toHaveValue('Sample Studio'); // no navigation happened
     expect(requests.filter((r) => !/^GET \S+\/favicon\.svg$/.test(r))).toEqual([]); // nothing, in particular no POST or navigation, after the attempts (the browser's own favicon GET is not a submission)
   });
+});
+
+// T8 follow-up: per-language Netlify form contract, privacy link-through, localized error summary and labels.
+const norm = (s: string) => s.replace(/­/g, '').replace(/\s+/g, ' ').trim();
+const FORM_NAME = 'audit'; // = site.netlifyForm.name (site.ts uses import.meta.env and cannot be imported by Playwright)
+const AUDIT_HEADING: Record<(typeof langs)[number], string> = { en: 'Audit form', de: 'Analyse-Formular', es: 'Formulario de auditoría' };
+
+test.describe('T8: Netlify-ready audit form contract, privacy and localized validation', () => {
+  for (const l of langs) {
+    test(`${l}: exactly one Netlify-registered form with the complete field contract`, async ({ page }) => {
+      await page.goto(`/${l}/audit/`);
+      await expect(page.locator('form[data-netlify="true"]')).toHaveCount(1);
+      const form = page.locator('form[data-netlify="true"]');
+      await expect(form).toHaveAttribute('name', FORM_NAME);
+      await expect(page.locator('[data-audit]')).toHaveAttribute('data-netlify-name', FORM_NAME);
+      await expect(form).toHaveAttribute('netlify-honeypot', 'bot-field');
+      await expect(form.locator('input[type="hidden"][name="form-name"]')).toHaveCount(1);
+      await expect(form.locator('input[name="form-name"]')).toHaveValue(FORM_NAME);
+      await expect(form.locator('input[name="bot-field"]')).toHaveCount(1);
+      const names = await form.evaluate((f) => [...f.querySelectorAll('[name]')].map((e) => e.getAttribute('name')!));
+      for (const n of NETLIFY_FIELDS) expect(names.filter((x) => x === n), `${n} exactly once`).toHaveLength(1);
+      const allowed = new Set<string>([...NETLIFY_FIELDS, 'form-name', 'bot-field']);
+      expect(names.filter((n) => !allowed.has(n))).toEqual([]);
+      expect(names.length).toBe(allowed.size);
+      const action = await form.getAttribute('action');
+      if (action !== null) expect(new URL(action, page.url()).origin).toBe(new URL(page.url()).origin);
+      await expect(form.locator('input[name="pageLanguage"]')).toHaveValue(l);
+    });
+
+    test(`${l}: privacy link goes to /${l}/privacy/ (HTTP 200) and that page shows the simulated audit-form wording only`, async ({ page }) => {
+      await page.goto(`/${l}/audit/`);
+      const a = page.locator('label[for="f-privacy"] a');
+      await expect(a).toHaveAttribute('href', `/${l}/privacy/`);
+      await expect(a).toHaveText(tr(l).audit.privacyLink);
+      const res = await page.goto((await a.getAttribute('href'))!);
+      expect(res!.status()).toBe(200);
+      await expect(page).toHaveURL(new RegExp(`/${l}/privacy/$`));
+      const sec = page.locator('li', { has: page.getByRole('heading', { name: AUDIT_HEADING[l] }) });
+      await expect(sec).toHaveCount(1);
+      const text = norm(await sec.innerText());
+      const section = (t: 'simulated' | 'json' | 'netlify') => legalFor(l, t).pages.privacy.sections.find((s) => s.h === AUDIT_HEADING[l])!.p.map(norm);
+      const sim = section('simulated');
+      for (const p of sim) expect(text).toContain(p);
+      for (const other of ['netlify', 'json'] as const) for (const p of section(other)) if (!sim.includes(p)) expect(text).not.toContain(p);
+    });
+
+    test(`${l}: empty submit shows a localized error summary whose links focus their fields`, async ({ page }) => {
+      await page.goto(`/${l}/audit/`);
+      await page.click('[data-submit]');
+      const e = tr(l).audit.errors;
+      await expect(page.locator('[data-summary]')).toBeVisible();
+      await expect(page.locator('[data-summary-title]')).toHaveText(e.summary);
+      const expected: [string, string][] = [['f-business', e.business], ['f-need', e.need], ['f-name', e.name], ['f-email', e.email], ['f-privacy', e.privacy]];
+      const links = page.locator('[data-summary-list] a');
+      await expect(links).toHaveCount(expected.length);
+      const summaryText = await page.locator('[data-summary]').innerText();
+      expect(summaryText).not.toMatch(/undefined|\[object|audit\.errors|errors\./i);
+      if (l !== 'en') for (const msg of [tr('en').audit.errors.summary, tr('en').audit.errors.name, tr('en').audit.errors.email, tr('en').audit.errors.business, tr('en').audit.errors.need, tr('en').audit.errors.privacy]) expect(norm(summaryText)).not.toContain(norm(msg));
+      for (let i = 0; i < expected.length; i++) {
+        const [id, msg] = expected[i]!;
+        await expect(links.nth(i)).toHaveText(msg);
+        await expect(links.nth(i)).toHaveAttribute('href', `#${id}`);
+        await links.nth(i).click();
+        await expect(page.locator(`#${id}`)).toBeFocused();
+      }
+    });
+
+    test(`${l}: required fields have visible localized labels; privacy is required, website optional`, async ({ page }) => {
+      await page.goto(`/${l}/audit/`);
+      const t = tr(l);
+      const f = t.audit.fields;
+      const req = `(${t.common.required})`;
+      const checks: [string, string][] = [['f-business', f.business], ['f-need', f.need], ['f-name', f.name], ['f-email', f.email]];
+      for (const [id, text] of checks) {
+        const label = page.locator(`label[for="${id}"]`);
+        await expect(label).toBeVisible();
+        await expect(label).toContainText(text);
+        await expect(label).toContainText(req);
+        await expect(page.locator(`#${id}`)).toHaveAttribute('required', '');
+      }
+      await expect(page.locator('label[for="f-privacy"]')).toBeVisible();
+      await expect(page.locator('label[for="f-privacy"]')).toContainText(f.privacy);
+      await expect(page.locator('label[for="f-privacy"]')).toContainText(req);
+      await expect(page.locator('#f-privacy')).toHaveAttribute('required', '');
+      await expect(page.locator('#f-website')).not.toHaveAttribute('required', '');
+      await expect(page.locator('label[for="f-website"]')).toContainText(f.website);
+      await expect(page.locator('label[for="f-website"]')).toContainText(`(${t.common.optional})`);
+      if (l !== 'en') for (const k of ['business', 'need', 'privacy'] as const) expect(norm(f[k])).not.toBe(norm(tr('en').audit.fields[k]));
+    });
+  }
 });
 
 test.describe('FA3A: initialisation, labels, wording (JS on)', () => {

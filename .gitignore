@@ -19,3 +19,7 @@ coverage/
 *.log
 .DS_Store
 Thumbs.db
+
+inbox/odalo-web-design/
+.orchestrator/
+.orchestrator-*/

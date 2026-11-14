@@ -2,14 +2,14 @@
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
 import { languages, type Lang } from '../../i18n';
-import { legalCopy } from '../../content/legal';
+import { legalFor } from '../../content/legal';
 import { site } from '../../config/site';
 export function getStaticPaths() {
   return languages.flatMap((lang) => (['privacy', 'cookies', 'legal'] as const).map((legal) => ({ params: { lang, legal } })));
 }
 const lang = Astro.params.lang as Lang;
 const slug = Astro.params.legal as 'privacy' | 'cookies' | 'legal';
-const copy = legalCopy[lang];
+const copy = legalFor(lang, site.auditTransport);
 const page = copy.pages[slug];
 const { operator } = site;
 ---
@@ -26,10 +26,25 @@ const { operator } = site;
           <div><dt>{copy.card.brand}</dt><dd>{operator.tradeName}</dd></div>
           <div><dt>{copy.card.address}</dt><dd>{operator.street}, {operator.postalCode} {operator.city}, {operator.country[lang]}</dd></div>
           <div><dt>{copy.card.email}</dt><dd><a href={`mailto:${site.contact.email}`}>{site.contact.email}</a></dd></div>
+          {site.contact.phone && <div><dt>{copy.card.phone}</dt><dd>{site.contact.phone}</dd></div>}
+          {site.vatId && <div><dt>{copy.card.vatId}</dt><dd>{site.vatId}</dd></div>}
         </dl>
       </section>
       <ol class="lg__list">
-        {page.sections.map((s) => <li><h2 class="h-tile">{s.h}</h2>{s.p.map((para) => <p>{para}</p>)}</li>)}
+        {page.sections.map((s) => (
+          <li>
+            <h2 class="h-tile">{s.h}</h2>
+            {s.p.map((para) => <p>{para}</p>)}
+            {slug === 'legal' && s === page.sections[1] && site.smallBusiness && <p data-kleinunternehmer>{copy.smallBusiness}</p>}
+          </li>
+        ))}
+        {slug === 'legal' && (
+          <li data-responsible>
+            <h2 class="h-tile">{copy.responsible.h}</h2>
+            <p>{copy.responsible.p}</p>
+            <p>{operator.name}, {operator.street}, {operator.postalCode} {operator.city}, {operator.country[lang]}</p>
+          </li>
+        )}
       </ol>
     </div>
   </section>

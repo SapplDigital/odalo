@@ -10,18 +10,24 @@ export interface Section { h: string; p: string[] }
 export interface LegalPage { title: string; lead: string; sections: Section[] }
 export interface LegalCopy {
   banner: string;
-  card: { h: string; operator: string; brand: string; address: string; email: string; brandLine: string };
+  card: { h: string; operator: string; brand: string; address: string; email: string; phone: string; vatId: string; brandLine: string };
+  smallBusiness: string;
+  responsible: { h: string; p: string };
   pages: { privacy: LegalPage; cookies: LegalPage; legal: LegalPage };
 }
 
 const en: LegalCopy = {
-  banner: 'Draft for review. This text has not been certified as legally compliant. Some business and tax details are still being clarified with the authorities and will be added here once confirmed.',
+  banner: 'Draft for review. This text has not been certified as legally compliant.',
+  smallBusiness: 'Under § 19 UStG (German VAT Act) no value-added tax is charged or shown (small business scheme, Kleinunternehmerregelung).',
+  responsible: { h: 'Responsible for content under § 18 (2) MStV (Media State Treaty)', p: 'Responsible for the content of this website:' },
   card: {
     h: 'Provider and controller',
     operator: 'Operator',
     brand: 'Business designation',
     address: 'Address',
     email: 'Email',
+    phone: 'Phone',
+    vatId: 'VAT ID',
     brandLine: 'Odalo is a brand of Sebastian Tim Appl, trading as Sappl Digital Services.',
   },
   pages: {
@@ -34,7 +40,7 @@ const en: LegalCopy = {
           'Address and email are shown above.',
         ] },
         { h: 'Registration and tax details', p: [
-          'The business is not entered in a commercial register. Business registration and tax matters are still being clarified with the competent authorities. No VAT identification number is shown because none is available at this time; this notice will be updated if one is issued.',
+          'The business is not entered in a commercial register.',
         ] },
         { h: 'This is a demo website', p: [
           'This website is a preview. The prices and plans shown are starting prices and a general description of the services; they are not a binding quotation. Scope and price of a specific project are set in an individual written quotation before work starts, and the 360 plan is quoted individually. The sample projects (Casa Almina, Tidewell, Brindle Pantry) are labelled concepts for fictional businesses, not client work.',
@@ -93,13 +99,17 @@ const en: LegalCopy = {
 };
 
 const de: LegalCopy = {
-  banner: 'Entwurf zur Prüfung. Dieser Text ist nicht als rechtskonform zertifiziert. Einzelne gewerbe- und steuerrechtliche Angaben werden noch mit den Behörden geklärt und hier ergänzt, sobald sie feststehen.',
+  banner: 'Entwurf zur Prüfung. Dieser Text ist nicht als rechtskonform zertifiziert.',
+  smallBusiness: 'Gemäß § 19 UStG wird keine Umsatzsteuer berechnet bzw. ausgewiesen (Kleinunternehmerregelung).',
+  responsible: { h: 'Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV', p: 'Verantwortlich für den Inhalt dieser Website:' },
   card: {
     h: 'Anbieter und Verantwortlicher',
     operator: 'Betreiber',
     brand: 'Geschäftsbezeichnung',
     address: 'Anschrift',
     email: 'E-Mail',
+    phone: 'Telefon',
+    vatId: 'USt-IdNr.',
     brandLine: 'Odalo ist eine Marke von Sebastian Tim Appl, handelnd unter „Sappl Digital Services“.',
   },
   pages: {
@@ -112,7 +122,7 @@ const de: LegalCopy = {
           'Anschrift und E-Mail stehen oben.',
         ] },
         { h: 'Register- und Steuerangaben', p: [
-          'Das Unternehmen ist nicht im Handelsregister eingetragen. Gewerbe- und steuerrechtliche Fragen werden derzeit noch mit den zuständigen Behörden geklärt. Eine Umsatzsteuer-Identifikationsnummer wird nicht angegeben, da derzeit keine vorliegt; dieses Impressum wird ergänzt, falls eine erteilt wird.',
+          'Das Unternehmen ist nicht im Handelsregister eingetragen.',
         ] },
         { h: 'Dies ist eine Demo-Website', p: [
           'Diese Website ist eine Vorschau. Die gezeigten Preise und Pakete sind Startpreise und eine allgemeine Leistungsbeschreibung; sie sind kein verbindlicher Kostenvoranschlag. Umfang und Preis eines konkreten Projekts werden vor Beginn der Arbeit in einem individuellen schriftlichen Angebot festgelegt, das Paket 360 wird individuell angeboten. Die Beispielprojekte (Casa Almina, Tidewell, Brindle Pantry) sind als Konzepte für fiktive Unternehmen gekennzeichnet, keine Kundenarbeiten.',
@@ -171,13 +181,17 @@ const de: LegalCopy = {
 };
 
 const es: LegalCopy = {
-  banner: 'Borrador para revisión. Este texto no está certificado como conforme a la ley. Algunos datos mercantiles y fiscales aún se están aclarando con las autoridades y se añadirán aquí cuando estén confirmados.',
+  banner: 'Borrador para revisión. Este texto no está certificado como conforme a la ley.',
+  smallBusiness: 'Conforme al § 19 UStG (ley alemana del IVA) no se cobra ni se muestra impuesto sobre el valor añadido (régimen de pequeña empresa, Kleinunternehmerregelung).',
+  responsible: { h: 'Responsable del contenido según el § 18 apdo. 2 MStV', p: 'Responsable del contenido de este sitio web:' },
   card: {
     h: 'Proveedor y responsable',
     operator: 'Titular',
     brand: 'Denominación comercial',
     address: 'Dirección',
     email: 'Correo electrónico',
+    phone: 'Teléfono',
+    vatId: 'NIF-IVA',
     brandLine: 'Odalo es una marca de Sebastian Tim Appl, que opera como «Sappl Digital Services».',
   },
   pages: {
@@ -190,7 +204,7 @@ const es: LegalCopy = {
           'La dirección y el correo electrónico figuran arriba.',
         ] },
         { h: 'Datos de registro y fiscales', p: [
-          'La actividad no está inscrita en el registro mercantil. El alta de la actividad y las cuestiones fiscales se están aclarando todavía con las autoridades competentes. No se indica número de identificación fiscal de IVA porque actualmente no existe; este aviso se actualizará si se asigna uno.',
+          'La actividad no está inscrita en el registro mercantil.',
         ] },
         { h: 'Este es un sitio de demostración', p: [
           'Este sitio web es una vista previa. Los precios y planes mostrados son precios de partida y una descripción general de los servicios; no constituyen un presupuesto vinculante. El alcance y el precio de un proyecto concreto se fijan en un presupuesto individual por escrito antes de empezar, y el plan 360 se presupuesta de forma individual. Los proyectos de ejemplo (Casa Almina, Tidewell, Brindle Pantry) están señalados como conceptos para negocios ficticios, no trabajos para clientes.',
@@ -248,4 +262,94 @@ const es: LegalCopy = {
   },
 };
 
-export const legalCopy: Record<Lang, LegalCopy> = { en, de, es };
+/** Delivery mode of the audit form; same values as site.auditTransport. */
+export type AuditTransport = 'simulated' | 'json' | 'netlify';
+
+interface FormVariant { privacy: string[]; impressum: string }
+
+/** Wording for live delivery. 'simulated' keeps the demo wording in the base copy above. */
+const variants: Record<Lang, Record<'netlify' | 'json', FormVariant>> = {
+  en: {
+    netlify: {
+      privacy: [
+        'When you submit the audit form we process the following data: name, email, business and need; optionally website, country, preferred language, service, plan and phone; your confirmation of this privacy notice and, if you tick it, the marketing opt-in; and the language of the page you used. Purpose: answering your audit request. Legal basis: Art. 6(1)(b) GDPR for handling your request; Art. 6(1)(a) GDPR for the optional marketing opt-in, which you can withdraw at any time with effect for the future by writing to the email address above.',
+        'Submissions are received and stored by Netlify, Inc. (Netlify Forms) as our processor and host. For the transfer to the USA see the section “Hosting and server logs”. The form contains a hidden honeypot field that is used only to filter spam.',
+        'We keep your submission as long as needed to handle your request and for any legal retention duties. We have not defined fixed deletion periods yet.',
+      ],
+      impressum: 'The audit form on this website sends your entries to the operator. Details on the data processed are in the privacy notice.',
+    },
+    json: {
+      privacy: [
+        'When you submit the audit form we process the following data: name, email, business and need; optionally website, country, preferred language, service, plan and phone; your confirmation of this privacy notice and, if you tick it, the marketing opt-in; and the language of the page you used. Purpose: answering your audit request. Legal basis: Art. 6(1)(b) GDPR for handling your request; Art. 6(1)(a) GDPR for the optional marketing opt-in, which you can withdraw at any time.',
+        'Submissions are passed on to a delivery service configured by the operator, which receives them on our behalf. The form contains a hidden honeypot field that is used only to filter spam.',
+        'We keep your submission as long as needed to handle your request and for any legal retention duties. We have not defined fixed deletion periods yet.',
+      ],
+      impressum: 'The audit form on this website sends your entries to a delivery service configured by the operator. Details on the data processed are in the privacy notice.',
+    },
+  },
+  de: {
+    netlify: {
+      privacy: [
+        'Wenn du das Analyse-Formular absendest, verarbeiten wir diese Daten: Name, E-Mail, Unternehmen und Bedarf; optional Website, Land, bevorzugte Sprache, Leistung, Paket und Telefon; deine Bestätigung dieses Datenschutzhinweises und, wenn du sie ankreuzt, die Marketing-Einwilligung; außerdem die Sprache der genutzten Seite. Zweck: die Beantwortung deiner Analyse-Anfrage. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO für die Bearbeitung deiner Anfrage; Art. 6 Abs. 1 lit. a DSGVO für die optionale Marketing-Einwilligung, die du jederzeit mit Wirkung für die Zukunft per E-Mail an die oben genannte Adresse widerrufen kannst.',
+        'Die Einsendungen werden von Netlify, Inc. (Netlify Forms) als unserem Auftragsverarbeiter und Hoster empfangen und gespeichert. Zur Übermittlung in die USA siehe den Abschnitt „Hosting und Server-Logfiles“. Das Formular enthält ein verstecktes Honeypot-Feld, das nur zum Filtern von Spam dient.',
+        'Wir speichern deine Einsendung, solange es zur Bearbeitung deiner Anfrage nötig ist und gesetzliche Aufbewahrungspflichten bestehen. Feste Löschfristen haben wir noch nicht festgelegt.',
+      ],
+      impressum: 'Das Analyse-Formular auf dieser Website sendet deine Eingaben an den Betreiber. Einzelheiten zu den verarbeiteten Daten stehen in den Datenschutzhinweisen.',
+    },
+    json: {
+      privacy: [
+        'Wenn du das Analyse-Formular absendest, verarbeiten wir diese Daten: Name, E-Mail, Unternehmen und Bedarf; optional Website, Land, bevorzugte Sprache, Leistung, Paket und Telefon; deine Bestätigung dieses Datenschutzhinweises und, wenn du sie ankreuzt, die Marketing-Einwilligung; außerdem die Sprache der genutzten Seite. Zweck: die Beantwortung deiner Analyse-Anfrage. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO für die Bearbeitung deiner Anfrage; Art. 6 Abs. 1 lit. a DSGVO für die optionale Marketing-Einwilligung, die du jederzeit widerrufen kannst.',
+        'Die Einsendungen werden an einen vom Betreiber eingerichteten Versanddienst weitergegeben, der sie in unserem Auftrag empfängt. Das Formular enthält ein verstecktes Honeypot-Feld, das nur zum Filtern von Spam dient.',
+        'Wir speichern deine Einsendung, solange es zur Bearbeitung deiner Anfrage nötig ist und gesetzliche Aufbewahrungspflichten bestehen. Feste Löschfristen haben wir noch nicht festgelegt.',
+      ],
+      impressum: 'Das Analyse-Formular auf dieser Website sendet deine Eingaben an einen vom Betreiber eingerichteten Versanddienst. Einzelheiten zu den verarbeiteten Daten stehen in den Datenschutzhinweisen.',
+    },
+  },
+  es: {
+    netlify: {
+      privacy: [
+        'Al enviar el formulario de auditoría tratamos estos datos: nombre, correo electrónico, negocio y necesidad; opcionalmente sitio web, país, idioma preferido, servicio, plan y teléfono; tu confirmación de este aviso de privacidad y, si la marcas, la aceptación de marketing; y el idioma de la página utilizada. Finalidad: responder a tu solicitud de auditoría. Base jurídica: art. 6.1.b RGPD para atender tu solicitud; art. 6.1.a RGPD para la aceptación opcional de marketing, que puedes retirar en cualquier momento con efecto futuro escribiendo al correo electrónico indicado arriba.',
+        'Los envíos son recibidos y almacenados por Netlify, Inc. (Netlify Forms) como nuestro encargado del tratamiento y proveedor de alojamiento. Sobre la transferencia a EE. UU. consulta la sección «Alojamiento y registros del servidor». El formulario contiene un campo trampa (honeypot) oculto que solo sirve para filtrar spam.',
+        'Conservamos tu envío mientras sea necesario para atender tu solicitud y por las obligaciones legales de conservación. Todavía no hemos fijado plazos de eliminación.',
+      ],
+      impressum: 'El formulario de auditoría de este sitio envía tus datos al titular. Los detalles sobre los datos tratados figuran en el aviso de privacidad.',
+    },
+    json: {
+      privacy: [
+        'Al enviar el formulario de auditoría tratamos estos datos: nombre, correo electrónico, negocio y necesidad; opcionalmente sitio web, país, idioma preferido, servicio, plan y teléfono; tu confirmación de este aviso de privacidad y, si la marcas, la aceptación de marketing; y el idioma de la página utilizada. Finalidad: responder a tu solicitud de auditoría. Base jurídica: art. 6.1.b RGPD para atender tu solicitud; art. 6.1.a RGPD para la aceptación opcional de marketing, que puedes retirar en cualquier momento.',
+        'Los envíos se transmiten a un servicio de envío configurado por el titular, que los recibe por cuenta nuestra. El formulario contiene un campo trampa (honeypot) oculto que solo sirve para filtrar spam.',
+        'Conservamos tu envío mientras sea necesario para atender tu solicitud y por las obligaciones legales de conservación. Todavía no hemos fijado plazos de eliminación.',
+      ],
+      impressum: 'El formulario de auditoría de este sitio envía tus datos a un servicio de envío configurado por el titular. Los detalles sobre los datos tratados figuran en el aviso de privacidad.',
+    },
+  },
+};
+
+const AUDIT_HEADING: Record<Lang, string> = { en: 'Audit form', de: 'Analyse-Formular', es: 'Formulario de auditoría' };
+
+// Same rule as site.auditTransport / ui.ts deliveryConfigured; `?.` keeps this importable from Node (tests).
+const env = (import.meta as unknown as { env?: Record<string, string | undefined> }).env;
+const defaultTransport: AuditTransport = env?.PUBLIC_AUDIT_TRANSPORT === 'netlify' ? 'netlify' : env?.PUBLIC_AUDIT_ENDPOINT ? 'json' : 'simulated';
+
+/** Legal copy for one language, with the audit-form wording chosen by delivery mode. */
+export function legalFor(lang: Lang, transport: AuditTransport = defaultTransport): LegalCopy {
+  const base = { en, de, es }[lang];
+  if (transport === 'simulated') return base;
+  const v = variants[lang][transport];
+  return {
+    ...base,
+    pages: {
+      ...base.pages,
+      privacy: {
+        ...base.pages.privacy,
+        sections: base.pages.privacy.sections.map((s) => (s.h === AUDIT_HEADING[lang] ? { ...s, p: v.privacy } : s)),
+      },
+      legal: {
+        ...base.pages.legal,
+        sections: base.pages.legal.sections.map((s, i) => (i === 2 ? { ...s, p: [s.p[0], v.impressum] } : s)),
+      },
+    },
+  };
+}
+
+export const legalCopy: Record<Lang, LegalCopy> = { en: legalFor('en'), de: legalFor('de'), es: legalFor('es') };

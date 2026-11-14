@@ -43,6 +43,8 @@ Note: the site is public on the internet even though it is unindexed. To build t
 (PowerShell: `$env:SITE_URL='https://sappldigital.github.io'; $env:SITE_BASE='/odalo/'; $env:PUBLIC_NOINDEX='true'; npm run build`).
 Run `preview` with the same variables to serve it under `/odalo/`.
 
+Netlify: `netlify.toml` is the source of the Netlify build settings (command, publish dir, public build env) and of the `noindex` and security headers.
+
 ## Checks
 
 ```bash
