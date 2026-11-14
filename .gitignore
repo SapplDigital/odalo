@@ -1,7 +1,21 @@
+# deps / build
 node_modules/
 dist/
 .astro/
+.netlify/
+
+# test output
 test-results/
 playwright-report/
 shots/
-test-results/
+coverage/
+
+# env (keep the example)
+.env
+.env.*
+!.env.example
+
+# logs / OS junk
+*.log
+.DS_Store
+Thumbs.db
