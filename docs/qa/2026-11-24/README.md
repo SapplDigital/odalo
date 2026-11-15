@@ -143,3 +143,69 @@ Screenshots are written by `tests/qa-shots.spec.ts` (runs inside `npm.cmd run ve
 - Reference screenshots of Ale's Next.js site could not be rendered: that needs his dependencies installed, which would touch odalo-web or add packages here, both forbidden. Ale's `public/lab` images are not used as references.
 - Verify counts: the final runner verify exited 0 with 654 passed, 120 skipped, 0 failed (562 earlier + 92 qa-shots cases = 3 langs x 15 pages x 2 widths, with 404 included at each width; runner verify 2026-11-15T21:01Z).
 - Axe: green on all routes (see "Axe (M11)"), no rules disabled, no exclusions.
+
+## M1 verify run (2026-11-15)
+
+- `npm.cmd run verify` (astro check + build + Playwright): 562 passed, 212 skipped (incl. the QA_SHOTS-only cases), 0 failed. No product bugs fixed and no further specs retired in this milestone.
+
+## Design compare vs Ale (odalo-web @ f137d06)
+
+Source: read-only copy in `inbox/odalo-web-design/src/app/[lang]/`. No assets copied, no new dependencies.
+
+### Home
+
+- Section order (hero, services, plans, kit, projects, studio, contact) matches Ale's `page.tsx`; no sub-block is missing (T2 compare, owner decision 2026-11-15: no gaps found).
+- Not ported, with reasons:
+  - Hero: Ale's is a canvas stone-path map with an "origen" caption; ours is a static SVG dot grid (canvas/animation not ported, no new dependencies).
+  - Services: Ale's accordion with animated demos needs the `motion` dependency; ours is static.
+  - Projects: Ale's scroll-driven collage with service chips on each card is not ported; ours is a plain card grid with our own project pictures.
+  - Contact: the stone-path decoration is not ported.
+  - Studio and contact: Ale's shared Tag, Heading and Emphasis components are not used, so spacing may differ slightly.
+  - Kit: ours is a static QR illustration (SVG/CSS).
+  - Footer: the OpenStreetMap credit belongs to the layout/footer, not the home page.
+
+### Plans
+
+Compared with `planes/page.tsx` (imports `Precio`/`TarjetaPlan`, `SeccionKit`, `Tag`, `Heading`, `GridFrame`, `TextoPuntos`, `Button`). Same order and structure: header (one h1), step 1 web one-off card (5/7 bordered grid, `?plan=web` link), step 2 monthly 3-column grid with a single featured card and the 360 card full width, Kit, dark closing with audit CTA and mailto. No missing section, no wrong order. Differences:
+- The dotted "Planes" word art (`TextoPuntos`, canvas) is not ported (no new dependencies).
+- Ale's shared Tag/Heading/GridFrame/Button components are not used; spacing may differ slightly.
+- Ours adds, between the Kit and the closing, a pending-conditions list and a plans FAQ (our own content, kept).
+- Plan data, copy and ES/EN/DE strings are ours (`src/content/plans.ts`, `ui.ts`); the audit link is `/{lang}/audit/`.
+- No concrete gap found; no src/ change.
+
+### Services
+
+Compared with `servicios/[servicio]/page.tsx`, which only renders `PaginaVideo` (`components/servicio/paginas/Video.tsx`); in Ale's app only `video-y-contenido` has a service page, any other slug is a 404. Ours is one template for web, local, video and ads. Section order is the same where both have the section: hero (one h1, audit CTA), what we do / deliverables, process with progress line, plan, closing (audit CTA). Differences:
+- Ale's "Formatos" section (frame cycling through 9:16, 1:1, 16:9; `Formatos`) has no counterpart in ours; it is video-specific and animated (needs `motion`).
+- Ale's hero phone with looping reel (`MovilReel`), reel fan, rotating product video, photo grid and "month in a plan" calendar (`MesPlan`) are not ported (animation, no new dependencies); ours uses a static `ConceptImage` labelled as an example and a bordered deliverables grid.
+- Ours adds a FAQ section (`ServiceFaq`) before the closing; our own content, kept.
+- Closing wraps our home `SeccionContacto`; plan rows come from `src/content/plans.ts`.
+- Ale's `Aparecer` entrance animations, and shared Tag/Heading/GridFrame/Button, are not used.
+- Service copy, slugs (`/{lang}/services/{web,local,video,ads}/`) and ES/EN/DE strings are ours.
+- No concrete gap found; no src/ change.
+
+### Audit
+
+Compared with `auditoria/page.tsx` (`audit/page.tsx` only re-exports it, so the QR route `/es/audit/` serves the same page; ours is `src/pages/[lang]/audit/index.astro`). Same structure: paper section with line grid, 5-col intro (tag with arrow marker, only h1, lead, numbered review list, email alternative), 7-col rounded bordered form card with soft shadow; one column at 390. Differences:
+- Ale's stone-path decoration (`CaminoPiedras`, two diagonal canvas/SVG paths behind the form) is not ported (optional, no new dependencies).
+- Ale's `GridFrame`, `Tag`, `Heading`, `Container` are not used; spacing may differ slightly.
+- The form is our `AuditForm.astro` (Netlify attributes, field names, validation and states kept), not Ale's `FormularioAuditoria` (no animated success screen with ordering dots).
+- Review points come from our `audit.mosaic.pieces` copy; the email is our config; ES/EN/DE strings are ours.
+- No concrete gap found; no src/ change.
+
+### Legal
+
+Compared with `[legal]/page.tsx` (ours: `src/pages/[lang]/[legal].astro`). Same structure: tag with arrow marker, only h1, lead, draft banner (`role="note"`), operator card with a definition list, bordered sections. Differences:
+- Slugs: Ale uses `aviso-legal`/`privacidad`/`cookies`; ours are `/{lang}/legal/`, `/privacy/` and `/cookies/` (our URL scheme).
+- Legal text and operator data are ours (Kleinunternehmer Impressum, small-business note, "responsible for content" block, audit transport disclosure, `src/content/legal.ts`, `src/config/site.ts`); Ale's `textosLegales`/`siteConfig.legal` are not used.
+- Ours is `noindex` and omits Ale's company-register and tax-ID rows unless configured.
+- Ale's shared Tag/Heading/Container are not used; spacing may differ slightly.
+- No concrete gap found; no src/ change.
+
+### Pages without a counterpart in Ale's design
+
+Our own pages: about (studio idiom of the home page only), work index, project pages (`work/[project]`) and 404. See "M7 about page" and "M10" above; they follow Ale's visual language (tag, dotted hero, bordered grids) but have no matching file.
+
+### Fonts
+
+Fonts are unchanged, pending the owner's decision.
