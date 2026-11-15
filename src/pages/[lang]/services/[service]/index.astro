@@ -2,6 +2,7 @@
 import Base from '../../../../layouts/Base.astro';
 import ServiceHero from '../../../../components/services/ServiceHero.astro';
 import ServiceDeliver from '../../../../components/services/ServiceDeliver.astro';
+import ServiceVisuals from '../../../../components/services/ServiceVisuals.astro';
 import ServiceProcess from '../../../../components/services/ServiceProcess.astro';
 import ServicePlan from '../../../../components/services/ServicePlan.astro';
 import ServiceFaq from '../../../../components/services/ServiceFaq.astro';
@@ -17,6 +18,7 @@ const s = serviceById(Astro.params.service!)!;
 ---
 <Base lang={lang} title={`${s.name[lang]} — Odalo`} description={s.outcome[lang]}>
   <ServiceHero lang={lang} s={s} />
+  {s.id === 'video' && <ServiceVisuals lang={lang} s={s} />}
   <ServiceDeliver lang={lang} s={s} />
   <ServiceProcess lang={lang} />
   <ServicePlan lang={lang} s={s} />

@@ -1,0 +1,11 @@
+---
+import { dotCells } from '../mosaic/dotGlyphs';
+interface Props { text: string; class?: string }
+const { text, class: cls } = Astro.props;
+const { cols, rows, cells } = dotCells(text.trim());
+const d = cells.map(([x, y]) => `M${x} ${y}h1v1h-1z`).join('');
+---
+<svg class={`dot-text${cls ? ` ${cls}` : ''}`} viewBox={`0 0 ${cols} ${rows}`} style={`--ar:${cols / rows}`} aria-hidden="true" focusable="false" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><path d={d} fill="currentColor" /></svg>
+<style>
+  .dot-text { display: block; height: auto; width: calc(var(--dot-h, 1.75rem) * var(--ar)); max-width: 100%; aspect-ratio: var(--ar); }
+</style>

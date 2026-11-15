@@ -79,8 +79,7 @@ test.describe('long German words break at soft hyphens, never bare mid-word', ()
     }
   });
 
-  // skipped: depends on the old audit form layout, replaced by Ale's design
-  test.skip('the German form labels and error messages that contain "Datenschutzhinweise" break at soft hyphens at 320px', async ({ page }) => {
+  test('the German form labels and error messages that contain "Datenschutzhinweise" break at soft hyphens at 320px', async ({ page }) => {
     await page.setViewportSize({ width: 320, height: 800 });
     await page.goto('/de/audit/');
     await page.locator('[data-submit]').click();
@@ -99,8 +98,7 @@ test.describe('long German words break at soft hyphens, never bare mid-word', ()
 test.describe('form error and result states do not overflow at narrow widths with enlarged text', () => {
   // found by the real 32 px browser-setting check: the German checkbox error ("...Datenschutzhinweise gelesen hast.") widened /de/audit/ to 376 px at 320 px
   for (const l of ['en', 'es', 'de'] as const) for (const [vw, pct] of [[320, 200], [390, 200], [320, 100]] as const) {
-    // skipped: depends on the old audit form layout, replaced by Ale's design
-    test.skip(`${l} ${vw}px at ${pct}% root font: the validation summary and every field error stay inside the viewport`, async ({ page }) => {
+    test(`${l} ${vw}px at ${pct}% root font: the validation summary and every field error stay inside the viewport`, async ({ page }) => {
       await page.setViewportSize({ width: vw, height: 800 });
       await page.goto(`/${l}/audit/`);
       if (pct !== 100) await page.addStyleTag({ content: `html{font-size:${pct}%!important}` });

@@ -2,6 +2,7 @@
 import { href, type Lang } from '../../i18n';
 import { tr } from '../../i18n/ui';
 import { buildFromPrice } from '../../content/plans';
+import DotText from '../DotText.astro';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const t = tr(lang);
@@ -14,7 +15,7 @@ const p = t.plans.page;
     <article class="sw__card" id="plan-web">
       <div class="sw__cell sw__cell--a">
         <h2 id="sw-h" class="h-tile">{b.h}</h2>
-        <p class="sw__price" data-plan-price="build"><span class="plan__amount">{b.from} {buildFromPrice(lang)}</span> <small>{b.oneOff}</small></p>
+        <p class="sw__price" data-plan-price="build"><span class="sw__sr sr-only">{b.from} {buildFromPrice(lang)}</span><span class="sw__from" aria-hidden="true">{b.from}</span><DotText class="sw__dots" text={buildFromPrice(lang)} /> <small>{b.oneOff}</small></p>
       </div>
       <div class="sw__cell sw__cell--b">
         <ul class="sw__list">
@@ -34,6 +35,10 @@ const p = t.plans.page;
   .sw__cell { display: grid; gap: var(--s5); align-content: start; min-width: 0; padding: var(--s5); border-right: 1px solid var(--ink-200); border-bottom: 1px solid var(--ink-200); }
   .sw__cell h2, .sw__cell p, .sw__list { margin: 0; }
   .sw__price { font-weight: 600; font-size: 1.5rem; overflow-wrap: anywhere; }
+  .sw__price { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s2); position: relative; }
+  .sw__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .sw__from { font-size: 0.9375rem; font-weight: 400; color: var(--ink-600); }
+  .sw__price :global(.sw__dots) { --dot-h: 1.5rem; }
   .sw__price small { font-size: 0.9375rem; font-weight: 400; color: var(--ink-600); }
   .sw__list { list-style: none; padding: 0; display: grid; gap: var(--s3); }
   .sw__list li { display: flex; gap: var(--s3); min-width: 0; overflow-wrap: anywhere; }

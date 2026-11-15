@@ -2,6 +2,7 @@
 import { href, type Lang } from '../../i18n';
 import { tr } from '../../i18n/ui';
 import { plans, planPriceText, buildFromPrice } from '../../content/plans';
+import DotText from '../DotText.astro';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const t = tr(lang);
@@ -17,7 +18,7 @@ const plansHref = href(lang, 'plans/');
       <li class="pl__cell" data-plan-cell="build">
         <a class="pl__link" href={plansHref}>
           <span class="pl__name h-tile">{t.plans.build.h}</span>
-          <span class="pl__price" data-plan-price="build">{t.plans.build.from} {buildFromPrice(lang)} <small>{t.plans.build.oneOff}</small></span>
+          <span class="pl__price" data-plan-price="build"><span class="pl__sr sr-only">{t.plans.build.from} {buildFromPrice(lang)} {t.plans.build.oneOff}</span><small aria-hidden="true">{t.plans.build.from}</small><DotText class="pl__dots" text={buildFromPrice(lang)} /><small aria-hidden="true">{t.plans.build.oneOff}</small></span>
         </a>
       </li>
       {plans.map((p) => (
@@ -25,7 +26,11 @@ const plansHref = href(lang, 'plans/');
           <a class="pl__link" href={plansHref}>
             {p.featured && <span class="pl__tag">{t.common.featured}</span>}
             <span class="pl__name h-tile">{p.name}</span>
-            <span class="pl__price" data-plan-price={p.id}>{planPriceText(p, lang, t.common.perMonth)}</span>
+            <span class="pl__price" data-plan-price={p.id}>
+              {p.monthly === null
+                ? planPriceText(p, lang, t.common.perMonth)
+                : <><span class="pl__sr sr-only">{planPriceText(p, lang, t.common.perMonth)}</span><DotText class="pl__dots" text={planPriceText(p, lang, '').replace(t.common.perMonth, '')} /><small aria-hidden="true">{t.common.perMonth}</small></>}
+            </span>
             <span class="pl__sum">{t.plans.summaries[p.id]}</span>
           </a>
         </li>
@@ -42,9 +47,17 @@ const plansHref = href(lang, 'plans/');
   .pl__cell:last-child { border-bottom: 0; }
   .pl__link { display: grid; gap: var(--s2); align-content: start; height: 100%; padding: var(--s5); color: var(--ink); text-decoration: none; }
   .pl__link:hover .pl__name { text-decoration: underline; text-underline-offset: 0.3em; }
-  .pl__tag { justify-self: start; border: 1px solid var(--ink-300); border-radius: 999px; padding: 0.125rem 0.625rem; font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-700); }
-  .pl__price { font-weight: 600; overflow-wrap: anywhere; }
-  .pl__price small { font-weight: 400; color: var(--ink-500); }
+  .pl__cell[data-featured='true'] { background: var(--ink-deep); color: var(--paper); --focus: var(--paper); }
+  .pl__cell[data-featured='true'] .pl__link { color: var(--paper); }
+  .pl__cell[data-featured='true'] .pl__link:focus-visible { outline: 2px solid var(--paper); outline-offset: -4px; }
+  .pl__cell[data-featured='true'] .pl__price small,
+  .pl__cell[data-featured='true'] .pl__sum { color: var(--paper); opacity: 0.8; }
+  .pl__tag { justify-self: start; display: inline-flex; align-items: center; gap: 0.375rem; border: 0; background: var(--coral); color: var(--ink-deep); border-radius: 999px; padding: 0.1875rem 0.75rem; font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .pl__tag::before { content: ''; width: 0.375rem; height: 0.375rem; border-radius: 50%; background: currentColor; flex: none; }
+  .pl__price { position: relative; display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s2); font-weight: 600; overflow-wrap: anywhere; }
+  .pl__price small { font-weight: 400; font-size: 0.875rem; color: var(--ink-500); }
+  .pl__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .pl__price :global(.pl__dots) { --dot-h: 1.25rem; }
   .pl__sum { color: var(--ink-700); }
   .pl__cta { margin: var(--s6) 0 0; }
   .pl__btn { display: inline-block; padding: 0.75rem 1.5rem; border: 1px solid var(--ink-300); border-radius: 999px; color: var(--ink); text-decoration: none; font-weight: 600; }

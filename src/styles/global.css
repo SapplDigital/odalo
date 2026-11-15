@@ -1,16 +1,17 @@
-@import '@fontsource-variable/outfit/wght.css';
+@import '@fontsource-variable/inter-tight/wght.css';
 @import '@fontsource/instrument-serif/400-italic.css'; /* latin + latin-ext WITH unicode-range: latin-ext loads only when a glyph needs it */
 
 /* Metric-adjusted fallbacks: keep layout stable if a web font arrives late. Tune with the final fonts. */
-@font-face { font-family: 'Outfit Fallback'; src: local('Arial'); size-adjust: 104%; ascent-override: 100%; descent-override: 26%; line-gap-override: 0%; }
+@font-face { font-family: 'Inter Tight Fallback'; src: local('Arial'); size-adjust: 92%; ascent-override: 106%; descent-override: 26%; line-gap-override: 0%; }
 @font-face { font-family: 'Instrument Serif Fallback'; src: local('Times New Roman'); size-adjust: 92%; ascent-override: 98%; descent-override: 26%; line-gap-override: 0%; }
 
 /*
  * Brand tokens, ported from Ale's design (odalo-web, src/app/globals.css @theme): paper #f8f9fa, sand #f3e5d1,
  * ink #004066, slate #416c8d, coral/accent #e78f65. Existing token names are kept so components inherit the palette.
  * ink-deep and rust-text are the AA-safe text companions (text on coral, small accent text on paper/sand).
- * Font swap (owner decision Mon 16 Nov): change the @import lines at the top, the --font-* variables below
- * and the two preload lines in src/layouts/Base.astro. No other file hard-codes a font-family.
+ * Fonts (Ale's: Inter Tight + Instrument Serif italic, self-hosted via @fontsource). One-line revert path (owner may veto Mon 16 Nov):
+ * change the @import lines at the top, the --font-* variables below and the two preload lines in src/layouts/Base.astro.
+ * No other file hard-codes a font-family.
  */
 :root {
   --font-mono: ui-monospace, 'Geist Mono', SFMono-Regular, Menlo, Consolas, monospace;
@@ -70,7 +71,7 @@
   --measure-prose: 62ch;
   --measure-narrow: 60ch;
 
-  --font-sans: 'Outfit Variable', 'Outfit', 'Outfit Fallback', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-sans: 'Inter Tight Variable', 'Inter Tight', 'Inter Tight Fallback', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-serif: 'Instrument Serif', 'Instrument Serif Fallback', 'Iowan Old Style', Georgia, serif;
 
   /* spacing scale: 4 8 12 16 24 32 48 64 96 128 */
@@ -85,7 +86,7 @@
   --r-small: 6px;
   --focus: var(--ink);
 
-  --fs-hero: clamp(2.75rem, 1.55rem + 4.4vw, 6.25rem);
+  --fs-hero: clamp(2.5rem, 1.2rem + 5.6vw, 6.5rem);
   --fs-h2: var(--text-h2);
   --fs-h3: var(--text-h3);
   --fs-body: clamp(1.0625rem, 1.02rem + 0.18vw, 1.25rem);
@@ -128,9 +129,9 @@ a, button, summary, input, select, textarea { scroll-margin-block: calc(var(--he
 /* Type */
 .eyebrow { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rust-text); line-height: 1.4; }
 .on-dark .eyebrow, .eyebrow.on-dark { color: var(--coral-light); }
-.h-hero { font-size: var(--fs-hero); font-weight: 800; line-height: 0.98; letter-spacing: -0.035em; text-wrap: balance; }
-.h-section { font-size: var(--fs-h2); font-weight: 800; line-height: 1.04; letter-spacing: -0.03em; text-wrap: balance; }
-.h-tile { font-size: var(--fs-h3); font-weight: 700; line-height: 1.12; letter-spacing: -0.02em; }
+.h-hero { font-size: var(--fs-hero); font-weight: 300; line-height: 0.98; letter-spacing: -0.04em; text-wrap: balance; }
+.h-section { font-size: var(--fs-h2); font-weight: 300; line-height: 1.04; letter-spacing: -0.04em; text-wrap: balance; }
+.h-tile { font-size: var(--fs-h3); font-weight: 400; line-height: 1.12; letter-spacing: -0.02em; }
 .h-hero em, .h-section em, .h-tile em {
   font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em;
   font-size: 1.1em; line-height: 0.9; color: var(--rust-text);

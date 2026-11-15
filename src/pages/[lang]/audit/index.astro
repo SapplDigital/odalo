@@ -1,6 +1,7 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import AuditForm from '../../../components/AuditForm.astro';
+import Stones from '../../../components/Stones.astro';
 import { languages, type Lang } from '../../../i18n';
 import { tr } from '../../../i18n/ui';
 import { site } from '../../../config/site';
@@ -13,7 +14,7 @@ const { email, phone } = site.contact;
 ---
 <Base lang={lang} title={t.meta.audit.title} description={t.meta.audit.description}>
   <section class="ad" data-audit-page aria-labelledby="audit-h">
-    <div class="ad__grid" data-audit-decor aria-hidden="true"></div>
+    <div class="ad__grid" data-audit-decor aria-hidden="true"><div class="ad__stones"><Stones from={0.1} to={0.6} /></div></div>
     <div class="wrap ad__layout">
       <div class="ad__intro" data-audit-intro>
         <p class="ad__tag"><span aria-hidden="true">→</span> {t.audit.eyebrow}</p>
@@ -41,10 +42,12 @@ const { email, phone } = site.contact;
 <style>
   .ad { position: relative; overflow: clip; background: var(--paper); padding-block: calc(var(--header-h) + var(--s7)) var(--s9); }
   .ad__grid {
-    position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: 0.35;
-    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size: 64px 64px;
+    position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    background-image: radial-gradient(rgb(0 64 102 / 0.1) 1px, transparent 1px);
+    background-size: 8px 8px;
   }
+  .ad__stones { display: none; position: absolute; top: var(--header-h); right: 0; width: 34%; max-width: 520px; height: 18rem; overflow: hidden; pointer-events: none; }
+  @media (min-width: 64em) { .ad__stones { display: block; } }
   .ad__layout { position: relative; z-index: 1; display: grid; gap: var(--s8); grid-template-columns: minmax(0, 1fr); align-items: start; }
   .ad__intro { display: grid; gap: var(--s5); min-width: 0; justify-items: start; }
   .ad__intro > * { margin: 0; min-width: 0; }

@@ -24,7 +24,7 @@ const { email, phone } = site.contact;
   <form class="af__form" name={site.netlifyForm.name} method="post" data-netlify="true" netlify-honeypot="bot-field" data-netlify-honeypot="bot-field" novalidate data-form>
     <input type="hidden" name="form-name" value={site.netlifyForm.name} />
     <input type="hidden" name="pageLanguage" value={lang} />
-    <p class="af__hp sr-only" aria-hidden="true"><label>Leave this field empty <input name="bot-field" type="text" tabindex="-1" autocomplete="off" /></label></p>
+    <p class="af__hp sr-only" aria-hidden="true"><label>{f.honeypot} <input name="bot-field" type="text" tabindex="-1" autocomplete="off" /></label></p>
     <div class="af__summary" role="alert" tabindex="-1" hidden data-summary>
       <p data-summary-title>{t.audit.errors.summary}</p>
       <ul data-summary-list></ul>
@@ -150,13 +150,14 @@ const { email, phone } = site.contact;
   input:disabled, select:disabled, textarea:disabled { background: #eceff0; border-color: #b9c3ca; color: #5a6b78; cursor: not-allowed; }
   .hint { font-size: 0.9375rem; color: var(--slate-text); }
   /* grid (not flex): the message text is a shrinkable column, so a long word (e.g. German "Datenschutzhinweise") wraps instead of pushing the page wider */
-  .err { color: #a3281c; font-weight: 600; font-size: 0.9375rem; display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 8px; overflow-wrap: anywhere; hyphens: auto; }
+  .err { color: #a3281c; font-weight: 600; font-size: 0.9375rem; display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 8px; overflow-wrap: anywhere; hyphens: manual; }
+  .err *, .check label * { hyphens: manual; }
   .err::before { content: '!'; flex: none; width: 20px; height: 20px; border-radius: 50%; background: #a3281c; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8125rem; line-height: 1; margin-top: 2px; }
   .err[hidden] { display: none; }
   .af__checks { display: grid; gap: var(--s4); }
   .check { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 4px 12px; align-items: start; }
   .check input { width: 26px; height: 26px; margin: 2px 0 0; accent-color: var(--ink); }
-  .check label { font-weight: 400; font-size: 1rem; overflow-wrap: anywhere; }
+  .check label { font-weight: 400; font-size: 1rem; overflow-wrap: anywhere; hyphens: manual; }
   .check .err { grid-column: 2; }
   .af__summary { border: 2px solid #a3281c; background: #fff7f5; padding: 16px 20px; border-radius: 4px; color: #7c1d14; font-weight: 600; }
   .af__summary[hidden] { display: none; }

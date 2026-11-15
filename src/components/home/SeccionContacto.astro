@@ -2,6 +2,7 @@
 import { href, type Lang } from '../../i18n';
 import { tr } from '../../i18n/ui';
 import { site } from '../../config/site';
+import Stones from '../Stones.astro';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const t = tr(lang);
@@ -10,9 +11,7 @@ const city = site.operator.city;
 const country = site.operator.country[lang];
 ---
 <section class="ctc" id="contacto" data-home-contact aria-labelledby="contacto-h">
-  <svg class="ctc__path" viewBox="0 0 640 200" aria-hidden="true" focusable="false" preserveAspectRatio="xMaxYMin slice">
-    {[[60, 40], [200, 90], [340, 60], [470, 120], [590, 80]].map(([x, y], i) => <circle cx={x} cy={y} r={14 + i * 3} fill="none" stroke="currentColor" stroke-width="1.5" />)}
-  </svg>
+  <div class="ctc__path" aria-hidden="true"><Stones from={0.1} to={0.45} /></div>
   <div class="wrap ctc__inner">
     <p class="ctc__eyebrow">{t.contact.eyebrow}</p>
     <h2 id="contacto-h" class="ctc__h">{t.contact.h2.a} <em>{t.contact.h2.em}</em></h2>
@@ -38,7 +37,8 @@ const country = site.operator.country[lang];
 </section>
 <style>
   .ctc { position: relative; overflow: hidden; padding-block: var(--section); background: var(--ink); color: rgb(255 255 255 / 0.75); }
-  .ctc__path { position: absolute; top: 0; right: 0; width: 100%; max-width: 640px; height: auto; color: rgb(255 255 255 / 0.12); pointer-events: none; }
+  .ctc__path { position: absolute; top: 0; right: 0; width: 100%; max-width: 640px; height: 12rem; overflow: hidden; pointer-events: none; }
+  @media (min-width: 768px) { .ctc__path { height: 16rem; width: 60%; } }
   .ctc__inner { position: relative; display: grid; gap: var(--s5); }
   .ctc__eyebrow { margin: 0; font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgb(255 255 255 / 0.75); }
   .ctc__h { margin: 0; color: #fff; font-weight: 300; font-size: clamp(2.25rem, 6vw, 4.5rem); line-height: 1.05; text-wrap: balance; overflow-wrap: anywhere; }

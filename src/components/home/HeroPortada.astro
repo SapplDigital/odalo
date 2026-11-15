@@ -4,15 +4,7 @@ import { tr } from '../../i18n/ui';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const t = tr(lang);
-// Dot grid after Ale's HeroSenal composition (static SVG; the dots drift only when motion is allowed).
-const dots: { x: number; y: number; r: number; hot: boolean }[] = [];
-for (let row = 0; row < 9; row++) {
-  for (let col = 0; col < 13; col++) {
-    const cx = col * 30 + 20, cy = row * 30 + 20;
-    const d = Math.hypot(cx - 250, cy - 150);
-    if (d < 175) dots.push({ x: cx, y: cy, r: d < 70 ? 4.5 : 3, hot: d < 70 && (row + col) % 3 === 0 });
-  }
-}
+import Stones from '../Stones.astro';
 ---
 <section class="hp" data-home-hero aria-labelledby="hp-h">
   <div class="wrap hp__grid">
@@ -26,27 +18,20 @@ for (let row = 0; row < 9; row++) {
       </div>
     </div>
     <div class="hp__art" aria-hidden="true">
-      <svg viewBox="0 0 500 300" focusable="false" class="hp__svg">
-        {dots.map((d) => <circle cx={d.x} cy={d.y} r={d.r} class={d.hot ? 'f-coral hp__dot' : 'f-ink hp__dot hp__dot--ink'} />)}
-      </svg>
+      <Stones from={0.1} to={0.6} />
     </div>
   </div>
 </section>
 <style>
-  .hp { padding-block: var(--s6) var(--s8); }
+  .hp { padding-block: var(--s6) var(--s8); background-image: radial-gradient(rgb(0 64 102 / 0.1) 1px, transparent 1px); background-size: 8px 8px; }
   .hp__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s6); align-items: center; }
-  .hp__text { display: grid; gap: var(--s5); align-content: center; }
+  .hp__text { position: relative; z-index: 1; display: grid; gap: var(--s5); align-content: center; }
   .hp__eyebrow { font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); }
   .hp__body { font-size: 1.1875rem; line-height: 1.5; color: var(--ink); max-width: 36rem; text-wrap: balance; }
   .hp__cta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s3) var(--s5); }
   .hp__link { color: var(--ink); text-decoration: underline; text-underline-offset: 0.3em; text-decoration-color: var(--ink-300); font-weight: 500; }
   .hp__link:hover { text-decoration-color: var(--ink); }
-  .hp__art { display: block; max-width: 100%; }
-  .hp__svg { display: block; width: 100%; height: auto; }
-  .hp__dot--ink { opacity: 0.35; }
-  .hp__dot { transform-box: fill-box; transform-origin: center; animation: hp-pulse 5s ease-in-out infinite; }
-  @keyframes hp-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.25); } }
-  @media (prefers-reduced-motion: reduce) { .hp__dot { animation: none; } }
+  .hp__art { position: relative; overflow: hidden; display: block; max-width: 100%; aspect-ratio: 5 / 3; pointer-events: none; }
   @media (min-width: 1024px) {
     .hp__grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s8); }
   }

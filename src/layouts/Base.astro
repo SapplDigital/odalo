@@ -5,7 +5,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { languages, languageNames, href, type Lang } from '../i18n';
 import { tr } from '../i18n/ui';
-import outfitUrl from '@fontsource-variable/outfit/files/outfit-latin-wght-normal.woff2?url';
+import interTightUrl from '@fontsource-variable/inter-tight/files/inter-tight-latin-wght-normal.woff2?url';
 import serifUrl from '@fontsource/instrument-serif/files/instrument-serif-latin-400-italic.woff2?url';
 
 /** plainWordmark: audit routes show the brand as plain typed lowercase "odalo" in the header and footer. Default (all other routes) is unchanged. */
@@ -44,7 +44,7 @@ const ogImage = `${origin}${base}/og.png`;
     <meta property="og:locale" content={languageNames[lang].locale.replace('-', '_')} />
     <meta property="og:image" content={ogImage} />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="preload" href={outfitUrl} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={interTightUrl} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={serifUrl} as="font" type="font/woff2" crossorigin />
     <script is:inline>document.documentElement.className = 'js';</script>
   </head>

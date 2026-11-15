@@ -18,10 +18,11 @@ const plans = links[1];
 const current = rest.split('/')[0];
 const isCurrent = (id: string) => !home && current === id;
 const auditHref = href(lang, 'audit/');
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 <header class="hdr" data-header>
   <div class="hdr__pill glass-nav">
-    <a class="hdr__logo" href={homeHref} aria-label={t.a11y.home}><img class="hdr__img" src="/brand/odalo-owner-logo.png" alt="" width="273" height="123" /></a>
+    <a class="hdr__logo" href={homeHref} aria-label={t.a11y.home}><img class="hdr__img" src={`${base}/brand/odalo-owner-logo.png`} alt="" width="273" height="123" /></a>
     <nav aria-label={t.a11y.mainNav} class="hdr__nav">
       <ul class="hdr__links">
         {links.map((l) => (
@@ -35,7 +36,7 @@ const auditHref = href(lang, 'audit/');
     </div>
   </div>
 </header>
-<nav class="dock" aria-label={t.a11y.mainNav} data-dock>
+<nav class="dock" aria-label={t.a11y.mobileNav} data-dock>
   <div class="hdr__panel dock__sheet" id="site-nav" hidden>
     <ul>
       {links.map((l) => (

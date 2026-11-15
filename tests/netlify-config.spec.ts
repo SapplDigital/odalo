@@ -26,8 +26,10 @@ test.describe('netlify.toml', () => {
     for (const f of ['camera', 'microphone', 'geolocation']) expect(pp).toContain(`${f}=()`);
   });
 
-  test('no CSP and no secret-looking keys', () => {
-    expect(toml).not.toMatch(/Content-Security-Policy/i);
+  test('CSP and no secret-looking keys', () => {
+    expect(toml).toContain(
+      "Content-Security-Policy = \"default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self'; form-action 'self'; frame-ancestors 'none'\"",
+    );
     expect(toml).not.toMatch(/^\s*[A-Za-z_]*(TOKEN|SECRET|KEY|PASSWORD|AUTH(?!_))[A-Za-z_]*\s*=/im);
   });
 

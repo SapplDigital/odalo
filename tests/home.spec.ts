@@ -117,7 +117,8 @@ for (const lang of langs) {
       await page.emulateMedia({ reducedMotion: 'reduce' });
       await page.goto(`/${lang}/`);
       await expect(page.locator('[data-home-hero]')).toBeVisible();
-      const anim = await page.locator('[data-home-hero] circle').first().evaluate((el) => getComputedStyle(el).animationName);
+      await expect(page.locator('[data-home-hero] svg.stones')).toHaveCount(1);
+      const anim = await page.locator('[data-home-hero] svg.stones path').first().evaluate((el) => getComputedStyle(el).animationName);
       expect(anim).toBe('none');
     });
   });

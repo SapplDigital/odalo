@@ -4,23 +4,38 @@ import { tr } from '../../i18n/ui';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const t = tr(lang);
-const N = 9;
-// Deterministic pseudo-QR modules (static illustration, not a scannable code).
-const cells = (seed: number) => {
-  const out: Array<[number, number]> = [];
+const m = t.kit.m;
+// Deterministic pseudo-QR (static illustration, not scannable): 21x21, three 7x7 finders.
+const N = 21;
+const qrPath = (seed: number) => {
   let s = seed;
+  let d = '';
+  const inFinder = (x: number, y: number) => (x < 8 && y < 8) || (x > N - 9 && y < 8) || (x < 8 && y > N - 9);
   for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {
-    const finder = (x < 3 && y < 3) || (x > N - 4 && y < 3) || (x < 3 && y > N - 4);
     s = (s * 1103515245 + 12345) & 0x7fffffff;
-    if (!finder && s % 5 < 2) out.push([x, y]);
+    if (!inFinder(x, y) && (s >> 8) % 5 < 2) d += `M${x} ${y}h1v1h-1z`;
   }
-  return out;
+  return d;
 };
-const finders: Array<[number, number]> = [[0, 0], [N - 3, 0], [0, N - 3]];
+const finders: Array<[number, number]> = [[0, 0], [N - 7, 0], [0, N - 7]];
+const star = (cx: number, cy: number, r: number) => {
+  const pts: string[] = [];
+  for (let k = 0; k < 10; k++) {
+    const a = -Math.PI / 2 + (k * Math.PI) / 5;
+    const rr = k % 2 === 0 ? r : r * 0.42;
+    pts.push(`${(cx + rr * Math.cos(a)).toFixed(2)},${(cy + rr * Math.sin(a)).toFixed(2)}`);
+  }
+  return pts.join(' ');
+};
+const qrs = [
+  { seed: 7, x: 44.5, y: 134, sc: 5 },
+  { seed: 21, x: 233.5, y: 190, sc: 3 },
+  { seed: 42, x: 378, y: 276, sc: 2.4 },
+];
 const uses = [
-  { id: 'resenas', label: t.kit.usos.resenas, seed: 7 },
-  { id: 'carta', label: t.kit.usos.carta, seed: 21 },
-  { id: 'wifi', label: t.kit.usos.wifi, seed: 42 },
+  { id: 'resenas', label: t.kit.usos.resenas },
+  { id: 'carta', label: t.kit.usos.carta },
+  { id: 'wifi', label: t.kit.usos.wifi },
 ];
 ---
 <section class="kit" id="kit" data-home-kit aria-labelledby="kit-h">
@@ -32,48 +47,103 @@ const uses = [
       <p class="kit__price" data-kit-price>{t.kit.consultar}</p>
       <p><a class="kit__btn" href={href(lang, 'audit/')}>{t.kit.pedir}</a></p>
     </div>
-    <figure class="kit__fig" role="img" aria-label={t.kit.aria}>
-      <ul class="kit__objs" aria-hidden="true">
-        {uses.map((u) => (
-          <li class="kit__obj" data-kit-use={u.id}>
-            <svg viewBox={`-1 -1 ${N + 2} ${N + 2}`} class="kit__qr" focusable="false">
-              <rect x="-1" y="-1" width={N + 2} height={N + 2} fill="var(--ink-100, #fff)" />
-              {cells(u.seed).map(([x, y]) => <rect x={x} y={y} width="1" height="1" fill="currentColor" />)}
-              {finders.map(([x, y]) => (
-                <>
-                  <rect x={x} y={y} width="3" height="3" fill="currentColor" />
-                  <rect x={x + 0.5} y={y + 0.5} width="2" height="2" fill="var(--ink-100, #fff)" />
-                  <rect x={x + 1} y={y + 1} width="1" height="1" fill="currentColor" />
-                </>
-              ))}
-            </svg>
-            <span class="kit__use">{u.label}</span>
-          </li>
+    <div class="kit__right">
+      <figure class="kit__fig" role="img" aria-label={t.kit.aria}>
+        <span class="kit__pill">{t.kit.ejemplo}</span>
+        <div class="kit__scene" aria-hidden="true">
+          <svg class="kit__phone" viewBox="0 0 160 320" focusable="false">
+            <defs>
+              <filter id="kit-sh-p" x="-20%" y="-10%" width="140%" height="130%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#0b1b2e" flood-opacity="0.25" /></filter>
+            </defs>
+            <rect x="4" y="4" width="152" height="312" rx="26" fill="var(--ink-deep, #0f1d36)" filter="url(#kit-sh-p)" />
+            <rect x="12" y="12" width="136" height="296" rx="18" fill="#fff" />
+            <rect x="58" y="18" width="44" height="8" rx="4" fill="var(--ink-deep, #0f1d36)" />
+            <text x="80" y="66" text-anchor="middle" font-size="11" font-weight="600" fill="var(--ink-deep, #0f1d36)">{m.name}</text>
+            <text x="80" y="84" text-anchor="middle" font-size="9" fill="var(--ink-500, #64748b)">{m.phoneTitle}</text>
+            {[0, 1, 2, 3, 4].map((k) => <polygon points={star(32 + k * 24, 112, 10)} fill="var(--coral, #f26b3a)" />)}
+            <rect x="28" y="146" width="104" height="6" rx="3" fill="var(--ink-200, #e2e8f0)" />
+            <rect x="28" y="162" width="84" height="6" rx="3" fill="var(--ink-200, #e2e8f0)" />
+            <rect x="28" y="178" width="94" height="6" rx="3" fill="var(--ink-200, #e2e8f0)" />
+            <rect x="26" y="252" width="108" height="34" rx="17" fill="var(--coral, #f26b3a)" />
+            <text x="80" y="273" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">{m.publish}</text>
+          </svg>
+          <svg class="kit__objs" viewBox="0 0 480 400" focusable="false">
+            <defs>
+              <filter id="kit-sh" x="-20%" y="-10%" width="140%" height="130%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#0b1b2e" flood-opacity="0.18" /></filter>
+            </defs>
+            <rect x="0" y="345" width="480" height="55" fill="var(--ink-200, #e2e8f0)" />
+            <rect x="0" y="345" width="480" height="3" fill="var(--ink-300, #cbd5e1)" />
+            <rect x="20" y="60" width="150" height="250" rx="10" fill="#fff" filter="url(#kit-sh)" />
+            <rect x="10" y="300" width="170" height="58" rx="8" fill="var(--ink-deep, #0f1d36)" filter="url(#kit-sh)" />
+            <path d="M85 78 L95 96 L75 96 Z" fill="var(--coral, #f26b3a)" />
+            <text x="95" y="116" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink-deep, #0f1d36)">{m.name}</text>
+            <text x="95" y="280" text-anchor="middle" font-size="8.5" fill="var(--ink-500, #64748b)">{m.review}</text>
+            {[0, 1, 2, 3, 4].map((k) => <polygon points={star(55 + k * 20, 322, 8)} fill="var(--coral, #f26b3a)" />)}
+            <rect x="250" y="338" width="30" height="14" rx="3" fill="var(--ink-300, #cbd5e1)" opacity="0.7" />
+            <rect x="200" y="150" width="130" height="192" rx="8" fill="#fff" filter="url(#kit-sh)" />
+            <text x="265" y="176" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="1.5" fill="var(--ink-deep, #0f1d36)">{m.menu.toUpperCase()}</text>
+            <rect x="225" y="272" width="80" height="5" rx="2.5" fill="var(--ink-200, #e2e8f0)" />
+            <rect x="225" y="286" width="60" height="5" rx="2.5" fill="var(--ink-200, #e2e8f0)" />
+            <rect x="225" y="300" width="72" height="5" rx="2.5" fill="var(--ink-200, #e2e8f0)" />
+            <rect x="225" y="314" width="50" height="5" rx="2.5" fill="var(--ink-200, #e2e8f0)" />
+            <rect x="350" y="250" width="110" height="94" rx="8" fill="#fff" filter="url(#kit-sh)" />
+            <g fill="none" stroke="var(--coral, #f26b3a)" stroke-width="2" stroke-linecap="round">
+              <path d="M366 268 a14 14 0 0 1 20 0" />
+              <path d="M370 273 a8 8 0 0 1 12 0" />
+            </g>
+            <circle cx="376" cy="278" r="1.8" fill="var(--coral, #f26b3a)" />
+            <text x="396" y="277" font-size="11" font-weight="700" fill="var(--ink-deep, #0f1d36)">{m.wifi}</text>
+            {qrs.map((q) => (
+              <g transform={`translate(${q.x} ${q.y}) scale(${q.sc})`} fill="var(--ink-deep, #0f1d36)">
+                <path d={qrPath(q.seed)} />
+                {finders.map(([x, y]) => (
+                  <>
+                    <rect x={x} y={y} width="7" height="7" />
+                    <rect x={x + 1} y={y + 1} width="5" height="5" fill="#fff" />
+                    <rect x={x + 2} y={y + 2} width="3" height="3" />
+                  </>
+                ))}
+              </g>
+            ))}
+          </svg>
+        </div>
+      </figure>
+      <ol class="kit__uses">
+        {uses.map((u, i) => (
+          <li class="kit__use" data-kit-use={u.id}><span class="kit__n">0{i + 1}</span> {u.label}</li>
         ))}
-      </ul>
-      <figcaption class="kit__cap">{t.kit.ejemplo}</figcaption>
-    </figure>
+      </ol>
+    </div>
   </div>
 </section>
 <style>
-  .kit { padding-block: var(--section); }
+  .kit { padding-block: var(--section); overflow: clip; }
   .kit__grid { display: grid; gap: var(--s6); grid-template-columns: minmax(0, 1fr); align-items: center; }
   .kit__text { display: grid; gap: var(--s4); justify-items: start; min-width: 0; }
   .kit__text > * { margin: 0; }
   .kit__price { font-family: var(--font-mono); font-size: 1.5rem; font-weight: 600; color: var(--ink); }
   .kit__btn { display: inline-block; padding: 0.75rem 1.5rem; border: 1px solid var(--ink-300); border-radius: 999px; color: var(--ink); text-decoration: none; font-weight: 600; }
   .kit__btn:hover { border-color: var(--ink); }
-  .kit__fig { margin: 0; display: grid; gap: var(--s3); min-width: 0; }
-  .kit__objs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s3); }
-  .kit__obj { display: grid; gap: var(--s2); align-content: start; justify-items: center; text-align: center; padding: var(--s3); border: 1px solid var(--ink-200); min-width: 0; color: var(--ink); }
-  .kit__qr { width: 100%; max-width: 9rem; height: auto; }
-  .kit__use { font-size: 0.8125rem; line-height: 1.3; color: var(--ink-700); overflow-wrap: anywhere; }
-  .kit__cap { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-500); }
+  .kit__right { display: grid; gap: var(--s3); min-width: 0; }
+  .kit__fig { position: relative; margin: 0; min-width: 0; border-radius: 1.5rem; overflow: hidden; padding: 3rem 1rem 0; background-color: var(--ink-50, #f8fafc); background-image: radial-gradient(var(--ink-300, #cbd5e1) 1px, transparent 1.2px); background-size: 16px 16px; color: var(--ink); }
+  .kit__pill { position: absolute; top: 0.75rem; left: 0.75rem; z-index: 1; max-width: calc(100% - 1.5rem); padding: 0.25rem 0.75rem; border-radius: 999px; background: #fff; border: 1px solid var(--ink-200); font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-500); }
+  .kit__scene { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+  .kit__phone { width: 9rem; max-width: 100%; height: auto; display: block; }
+  .kit__objs { width: 100%; height: auto; display: block; }
+  .kit__uses { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s2); grid-template-columns: minmax(0, 1fr); }
+  .kit__use { font-size: 0.9375rem; line-height: 1.3; color: var(--ink-700); overflow-wrap: anywhere; }
+  .kit__n { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-500); margin-right: 0.5rem; }
+  @media (min-width: 640px) {
+    .kit__uses { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  @media (min-width: 768px) {
+    .kit__scene { flex-direction: row-reverse; align-items: flex-end; }
+    .kit__phone { width: 28%; flex: none; margin-bottom: 1rem; }
+    .kit__objs { flex: 1 1 auto; min-width: 0; }
+  }
   @media (min-width: 1024px) {
     .kit__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--s6); }
     .kit__text { grid-column: span 5; }
-    .kit__fig { grid-column: span 7; }
-    .kit__obj { padding: var(--s5); }
-    .kit__use { font-size: 0.9375rem; }
+    .kit__right { grid-column: span 7; }
   }
 </style>
