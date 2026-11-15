@@ -1,6 +1,5 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import AuditMosaic from '../../../components/AuditMosaic.astro';
 import AuditForm from '../../../components/AuditForm.astro';
 import { languages, type Lang } from '../../../i18n';
 import { tr } from '../../../i18n/ui';
@@ -8,72 +7,65 @@ import { site } from '../../../config/site';
 export function getStaticPaths() { return languages.map((lang) => ({ params: { lang } })); }
 const lang = Astro.params.lang as Lang;
 const t = tr(lang);
-const m = t.audit.mosaic;
+const pieces = t.audit.mosaic.pieces;
+const review = [pieces.web, pieces.local, pieces.video, pieces.ads];
 const { email, phone } = site.contact;
 ---
 <Base lang={lang} title={t.meta.audit.title} description={t.meta.audit.description}>
-  <div class="wrap">
-    <AuditMosaic lang={lang} />
-    <section class="am-req" id="request" aria-labelledby="am-req-h" tabindex="-1">
-      <div class="am-req__side">
-        <div class="am-req__in">
-          <h2 id="am-req-h">{m.reqH}</h2>
-          <!-- summary mirrors the form; hidden until the script has read the form so first paint / no-JS never shows a contradicting state -->
-          <dl class="am-sum" data-am-summary hidden>
-            <div><dt>{m.focusLabel}</dt><dd data-am-focus>{m.none}</dd></div>
-            <div><dt>{m.planLabel}</dt><dd data-am-plan>{m.planNone}</dd></div>
-          </dl>
-          <p class="am-sum__note" data-js-only-note>{m.focusNote}</p>
-          <button type="button" class="am-btn am-btn--ghost" data-am-clear aria-pressed="true" hidden>{m.clearFocus}</button>
-          <p class="sr-only" role="status" aria-live="polite" data-am-live></p>
-          <div class="am-alt">
-            <h3>{t.audit.altH}</h3>
-            {email || phone ? (
-              <ul>{email && <li><a href={`mailto:${email}`}>{email}</a></li>}{phone && <li><a href={`tel:${phone}`}>{phone}</a></li>}</ul>
-            ) : <p>{t.audit.altPending}</p>}
-          </div>
+  <section class="ad" data-audit-page aria-labelledby="audit-h">
+    <div class="ad__grid" data-audit-decor aria-hidden="true"></div>
+    <div class="wrap ad__layout">
+      <div class="ad__intro" data-audit-intro>
+        <p class="ad__tag"><span aria-hidden="true">→</span> {t.audit.eyebrow}</p>
+        <h1 id="audit-h" class="h-hero ad__h">{t.audit.h1.a} <em>{t.audit.h1.em}</em></h1>
+        <p class="lead ad__lead">{t.audit.lead}</p>
+        <div class="ad__review" data-audit-review>
+          <p class="ad__label">{t.audit.reviewLabel}</p>
+          <ol class="ad__list">
+            {review.map((p, i) => (
+              <li><span class="ad__n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span><span><strong>{p.n}</strong> {p.s}</span></li>
+            ))}
+          </ol>
+        </div>
+        <div class="ad__alt" data-audit-alt>
+          <p class="ad__altH">{t.audit.altH}</p>
+          {email || phone ? (
+            <ul>{email && <li><a href={`mailto:${email}`}>{email}</a></li>}{phone && <li><a href={`tel:${phone}`}>{phone}</a></li>}</ul>
+          ) : <p>{t.audit.altPending}</p>}
         </div>
       </div>
-      <div class="am-req__form"><AuditForm lang={lang} /></div>
-    </section>
-  </div>
+      <div class="ad__card" data-audit-form-card id="request"><AuditForm lang={lang} /></div>
+    </div>
+  </section>
 </Base>
 <style>
-  .am-req { display: grid; margin-block: var(--s8); --tile-bg: var(--ink); --tile-fg: var(--paper); align-items: start; }
-  .am-req:focus { outline: none; }
-  .am-req__side { --focus: var(--coral-light); --btn-bg: var(--coral); --btn-fg: var(--ink-deep); background: var(--ink); color: var(--paper); padding: calc(var(--pad) + var(--s4)) var(--pad) var(--pad); border-top-left-radius: var(--r-big); }
-  .am-req__in { display: grid; gap: var(--s4); align-content: start; }
-  .am-req h2 { font-size: var(--fs-h3); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
-  .am-sum { display: grid; gap: var(--s3); }
-  .am-sum[hidden] { display: none; }
-  .am-sum dt { font-size: 0.9375rem; font-weight: 600; color: var(--coral-light); }
-  .am-sum dd { font-size: 1.25rem; font-weight: 600; margin: 0; }
-  .am-sum__note { font-size: 0.9375rem; color: var(--sand); max-width: 36ch; }
-  .am-req__side :global(.am-btn) { justify-self: start; }
-  .am-req__side :global(.am-btn[aria-pressed='true']) { background: var(--paper); border-color: var(--paper); color: var(--ink); }
-  .am-alt { display: grid; gap: var(--s2); margin-top: var(--s4); padding-top: var(--s4); border-top: 1px solid var(--coral-light); }
-  .am-alt h3 { font-size: 1.0625rem; font-weight: 700; }
-  .am-alt a { text-underline-offset: 0.2em; overflow-wrap: anywhere; }
-  .am-req__form { background: var(--sand); padding: var(--pad); border-bottom-right-radius: var(--r-big); min-width: 0; }
-  /* desktop: the summary is a compact horizontal strip ABOVE the form (heading | focus + plan | note + clear | email), the form below it at a readable width; one coherent centred block */
-  @media (min-width: 64em) {
-    .am-req { max-width: 58rem; margin-inline: auto; }
-    .am-req__side { padding: var(--s5) var(--pad); }
-    .am-req__in { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s3) var(--s7); }
-    .am-sum { display: flex; gap: var(--s6); }
-    .am-sum__note { max-width: 30ch; }
-    .am-alt { margin: 0 0 0 auto; padding: 0 0 0 var(--s5); border-top: 0; border-left: 1px solid var(--coral-light); }
+  .ad { position: relative; overflow: clip; background: var(--paper); padding-block: calc(var(--header-h) + var(--s7)) var(--s9); }
+  .ad__grid {
+    position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: 0.35;
+    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 64px 64px;
   }
-  /* phone: a compact strip above the form: heading, the two summary values side by side, note and clear button, email on one line */
-  @media (max-width: 63.99em) {
-    .am-req { margin-block: var(--s6); }
-    .am-req__side { padding: var(--s5) var(--s4); border-top-left-radius: 0; }
-    .am-req__in { gap: var(--s2); }
-    .am-sum { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s2) var(--s4); }
-    .am-sum dd { font-size: 1.0625rem; }
-    .am-alt { margin-top: var(--s2); padding-top: var(--s2); gap: 0; }
-    .am-alt ul { display: flex; flex-wrap: wrap; gap: 0 var(--s4); }
-    .am-alt a { display: inline-flex; align-items: center; min-height: 44px; }
-    .am-req__form { padding: var(--s5) var(--s4); border-bottom-right-radius: 0; }
+  .ad__layout { position: relative; z-index: 1; display: grid; gap: var(--s8); grid-template-columns: minmax(0, 1fr); align-items: start; }
+  .ad__intro { display: grid; gap: var(--s5); min-width: 0; justify-items: start; }
+  .ad__intro > * { margin: 0; min-width: 0; }
+  .ad__tag { display: inline-flex; gap: 0.5rem; padding: 0.25rem 0.75rem; border: 1px solid var(--ink-200); border-radius: 999px; background: var(--surface); font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-700); }
+  .ad__h { font-size: var(--text-h2); overflow-wrap: anywhere; hyphens: auto; }
+  .ad__review { width: 100%; border-top: 1px solid var(--line); padding-top: var(--s5); margin-top: var(--s4); }
+  .ad__label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-500); }
+  .ad__list { list-style: none; padding: 0; margin: var(--s4) 0 0; display: grid; gap: var(--s3); }
+  .ad__list li { display: flex; gap: var(--s4); font-size: 1rem; color: var(--ink); overflow-wrap: anywhere; }
+  .ad__n { padding-top: 2px; font-family: var(--font-mono); font-size: var(--text-micro); color: var(--ink-500); }
+  .ad__alt { display: grid; gap: var(--s2); font-size: 0.9375rem; color: var(--ink-600); margin-top: var(--s4); }
+  .ad__altH { font-weight: 600; color: var(--ink); }
+  .ad__alt ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0 var(--s4); }
+  .ad__alt a { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink); font-weight: 500; text-decoration: underline; text-underline-offset: 4px; overflow-wrap: anywhere; }
+  .ad__card { min-width: 0; padding: var(--s5); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-panel); box-shadow: var(--shadow-soft); scroll-margin-top: calc(var(--header-h) + var(--s4)); }
+  .ad__card:focus { outline: none; }
+  @media (min-width: 48em) { .ad__card { padding: var(--s7); } }
+  @media (min-width: 64em) {
+    .ad { padding-block: calc(var(--header-h) + var(--s8)) var(--s10); }
+    .ad__layout { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--s7); }
+    .ad__intro { grid-column: span 5; }
+    .ad__card { grid-column: 6 / span 7; }
   }
 </style>

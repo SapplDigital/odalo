@@ -13,7 +13,8 @@ const IDS = ['web', 'local', 'video', 'ads'] as const;
 const trig = (id: string) => `#am-b-${id}`;
 const tile = (id: string) => `[data-piece="${id}"]`;
 const openCount = (page: Page) => page.locator('[data-piece][data-open="true"]').count();
-const box = async (page: Page, sel: string) => { const b = (await page.locator(sel).boundingBox())!; return [b.x, b.y, b.width, b.height].map(Math.round); };
+// document-relative (scroll-independent): hover may scroll the page a little
+const box = async (page: Page, sel: string) => { const b = (await page.locator(sel).boundingBox())!; const sy = await page.evaluate(() => window.scrollY); return [b.x, b.y + sy, b.width, b.height].map(Math.round); };
 const top = (page: Page, sel: string) => page.evaluate((s) => Math.round(document.querySelector(s)!.getBoundingClientRect().top + scrollY), sel);
 
 test.beforeEach(async ({ page }) => {
@@ -21,7 +22,8 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('integrated audit page: composition and identity', () => {
-  for (const l of langs) test(`${l}: typed lowercase wordmark in header and footer, real site navigation kept, old hero/sidebar gone`, async ({ page }) => {
+  // retired: asserts the old header (typed wordmark, 5 hdr links); the shell is covered by tests/shell.spec.ts
+  for (const l of langs) test.skip(`${l}: typed lowercase wordmark in header and footer, real site navigation kept, old hero/sidebar gone`, async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto(`/${l}/audit/`);
     await expect(page.locator('.hdr__word')).toHaveText('odalo');
@@ -40,7 +42,8 @@ test.describe('integrated audit page: composition and identity', () => {
     expect(await page.locator('.hdr .wordmark').count()).toBe(1);
   });
 
-  test('one scope line, no unapproved promises, in every language', async ({ page }) => {
+  // skipped: asserts AuditMosaic (opens every piece, scope line); the mosaic is no longer rendered on /audit/
+  test.skip('one scope line, no unapproved promises, in every language', async ({ page }) => {
     for (const l of langs) {
       await page.goto(`/${l}/audit/`);
       for (const id of IDS) await page.click(trig(id));
@@ -62,7 +65,8 @@ test.describe('integrated audit page: composition and identity', () => {
   });
 });
 
-test.describe('state contract (desktop)', () => {
+// skipped: every case asserts AuditMosaic or the am-req summary, which Ale's /auditoria layout replaces
+test.describe.skip('state contract (desktop)', () => {
   test.use({ viewport: { width: 1440, height: 900 } });
   test.beforeEach(async ({ page }) => { await page.goto('/en/audit/'); await page.evaluate(() => document.fonts.ready); });
 
@@ -148,7 +152,8 @@ test.describe('state contract (desktop)', () => {
     }
   });
 
-  test('rapid switching and resizes leave one open piece and no overflow or clipped text', async ({ page }) => {
+  // skipped: old mosaic tile layout is replaced by Ale's design
+  test.skip('rapid switching and resizes leave one open piece and no overflow or clipped text', async ({ page }) => {
     for (let n = 0; n < 3; n++) for (const id of IDS) await page.click(trig(id), { noWaitAfter: true });
     expect(await openCount(page)).toBe(1);
     for (const [w, h] of [[1100, 800], [834, 1112], [390, 844], [320, 700], [1440, 900]]) {
@@ -171,37 +176,27 @@ test.describe('state contract (desktop)', () => {
 });
 
 test.describe('query initialisation, plan context, restore', () => {
-  test('valid ?service=&plan= initialise the form, mosaic and summary together; opening pieces keeps the plan', async ({ page }) => {
+  test('valid ?service=&plan= initialise the form selects', async ({ page }) => {
     const s = services[2]!.id, p = plans[3]!.id;
     await page.goto(`/en/audit/?service=${s}&plan=${p}`);
     await expect(page.locator('#f-service')).toHaveValue(s);
     await expect(page.locator('#f-plan')).toHaveValue(p);
-    await expect(page.locator(tile(s))).toHaveAttribute('data-selected', 'true');
-    await expect(page.locator('[data-am-plan]')).toHaveText('360');
-    expect(await openCount(page)).toBe(0);
-    await page.click(trig('web')); await page.click(trig('ads'));
-    await expect(page.locator('#f-plan')).toHaveValue(p);
-    await expect(page.locator('#f-service')).toHaveValue(s);
   });
 
-  test('invalid values are ignored (no selection, no summary contradiction)', async ({ page }) => {
+  test('invalid values are ignored (no selection)', async ({ page }) => {
     await page.goto('/en/audit/?service=%3Cb%3Ex%3C%2Fb%3E&plan=gold');
     await expect(page.locator('#f-service')).toHaveValue('');
     await expect(page.locator('#f-plan')).toHaveValue('');
-    await expect(page.locator('[data-am-focus]')).toHaveText('No preference');
-    expect(await page.locator('[data-selected="true"]').count()).toBe(0);
   });
 
-  test('back navigation: restored form values are kept and the mosaic/summary match them', async ({ page }) => {
+  test('back navigation: restored form values are kept', async ({ page }) => {
     await page.goto('/en/audit/');
     await page.fill('#f-business', 'Sample Bakery'); await page.selectOption('#f-service', 'ads'); await page.selectOption('#f-plan', 'local');
     await page.goto('/en/privacy/');
     await page.goBack();
     await expect(page.locator('#f-business')).toHaveValue('Sample Bakery');
     await expect(page.locator('#f-service')).toHaveValue('ads');
-    await expect(page.locator(tile('ads'))).toHaveAttribute('data-selected', 'true');
-    await expect(page.locator('[data-am-focus]')).toHaveText('Advertising');
-    await expect(page.locator('[data-am-plan]')).toHaveText('Local');
+    await expect(page.locator('#f-plan')).toHaveValue('local');
   });
 
   test('language switch goes to the same page in the other language (no draft carried across)', async ({ page }) => {
@@ -227,11 +222,11 @@ test.describe('real form: validation, submission boundary, results (simulated, n
     await expect(page.locator('#f-website')).not.toHaveAttribute('required', '');
   });
 
-  test('selecting a focus then submitting: payload service is the chosen production id; simulated result; no request leaves; entries and selection kept', async ({ page }) => {
+  test('selecting a service then submitting: simulated result; no request leaves; entries and selection kept', async ({ page }) => {
     const sent: string[] = [];
     page.on('request', (r) => { if (r.method() !== 'GET' && r.method() !== 'HEAD') sent.push(`${r.method()} ${r.url()}`); });
     await page.goto('/en/audit/');
-    await page.click(trig('local')); await page.click(`${tile('local')} [data-include]`);
+    await page.selectOption('#f-service', 'local');
     await fill(page);
     await page.click('[data-submit]');
     await expect(page.locator('[data-submit]')).toHaveAttribute('aria-busy', 'true');
@@ -239,7 +234,6 @@ test.describe('real form: validation, submission boundary, results (simulated, n
     await expect(page.locator('[data-retry]')).toBeHidden(); // retry belongs to failed results only (regression: .btn display overrode hidden)
     await expect(page.locator('#f-business')).toHaveValue('Sample Studio');
     await expect(page.locator('#f-service')).toHaveValue('local');
-    await expect(page.locator(tile('local'))).toHaveAttribute('data-selected', 'true');
     expect(sent).toEqual([]);
     expect(await page.evaluate(() => ({ l: Object.keys(localStorage).filter((k) => k !== 'odalo.lang'), s: sessionStorage.length }))).toEqual({ l: [], s: 0 });
   });
@@ -265,14 +259,14 @@ test.describe('real form: validation, submission boundary, results (simulated, n
     status = 200; await page.click('[data-retry]');
     await expect(page.locator('[data-result]')).toHaveAttribute('data-kind', 'delivered');
     await expect(page.locator('#f-business')).toHaveValue(''); // reset on delivery
-    await expect(page.locator('[data-am-focus]')).toHaveText('No preference'); // mosaic/summary follow the reset
     expect(n).toBe(2);
   });
 });
 
 test.describe('layouts and no-JS', () => {
   for (const [w, h] of [[1440, 900], [1280, 800], [834, 1112], [390, 844], [320, 700]]) for (const l of langs) {
-    test(`${l} ${w}px: compact + one open + selected has no overflow, clipped text or text outside its tile`, async ({ page }) => {
+    // skipped: old mosaic tile layout is replaced by Ale's design
+    test.skip(`${l} ${w}px: compact + one open + selected has no overflow, clipped text or text outside its tile`, async ({ page }) => {
       await page.setViewportSize({ width: w!, height: h! });
       await page.goto(`/${l}/audit/`); await page.evaluate(() => document.fonts.ready);
       expect(await page.evaluate(auditInPage)).toEqual([]);
@@ -285,7 +279,8 @@ test.describe('layouts and no-JS', () => {
 
   test.describe('no JavaScript', () => {
     test.use({ javaScriptEnabled: false, viewport: { width: 1440, height: 900 } });
-    test('all explanations readable in flow; JS-only controls and summary stay hidden; form fields and anchor work', async ({ page }) => {
+    // skipped: asserts AuditMosaic no-JS flow; no-JS visibility of the new layout is covered by tests/audit-page.spec.ts
+    test.skip('all explanations readable in flow; JS-only controls and summary stay hidden; form fields and anchor work', async ({ page }) => {
       await page.goto('/en/audit/');
       for (const id of IDS) await expect(page.getByText(tr('en').audit.mosaic.pieces[id].l)).toBeVisible();
       await expect(page.locator('a[href="#request"]').first()).toBeVisible();
@@ -296,7 +291,8 @@ test.describe('layouts and no-JS', () => {
     });
   });
 
-  test('reduced motion: no hover or open transitions, no entrance', async ({ browser }) => {
+  // skipped: asserts AuditMosaic tile transitions; reduced-motion visibility is covered by tests/audit-page.spec.ts
+  test.skip('reduced motion: no hover or open transitions, no entrance', async ({ browser }) => {
     const ctx = await browser.newContext({ reducedMotion: 'reduce', viewport: { width: 1440, height: 900 } });
     const p = await ctx.newPage(); await p.route(/^(?!http:\/\/localhost)/, (r) => r.abort());
     await p.goto('/en/audit/');
@@ -427,13 +423,12 @@ test.describe('FA3A: initialisation, labels, wording (JS on)', () => {
     await expect(page.locator('.af__noscript')).toBeHidden(); // <noscript> content is not rendered with JS
   });
 
-  for (const l of langs) test(`${l}: the service select shows the same localized focus names as the mosaic and summary; ids, order and No preference are unchanged`, async ({ page }) => {
+  for (const l of langs) test(`${l}: the service select shows the localized focus names; ids, order and No preference are unchanged`, async ({ page }) => {
     await page.goto(`/${l}/audit/`);
     const opts = await page.locator('#f-service option').evaluateAll((o) => o.map((x) => [(x as HTMLOptionElement).value, x.textContent]));
     expect(opts).toEqual([['', tr(l).audit.fields.noPref], ...services.map((s) => [s.id, tr(l).audit.mosaic.pieces[s.id as (typeof IDS)[number]].n])]);
     await page.selectOption('#f-service', 'video');
-    await expect(page.locator('[data-am-focus]')).toHaveText(tr(l).audit.mosaic.pieces.video.n);
-    await expect(page.locator(`${tile('video')} .am-tile__title`)).toHaveText(tr(l).audit.mosaic.pieces.video.n);
+    await expect(page.locator('#f-service')).toHaveValue('video');
   });
 
   test('result wording is location-independent in every language', async () => {

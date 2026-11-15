@@ -1,0 +1,53 @@
+---
+import { href, type Lang } from '../../i18n';
+import { tr } from '../../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = tr(lang);
+// Dot grid after Ale's HeroSenal composition (static SVG; the dots drift only when motion is allowed).
+const dots: { x: number; y: number; r: number; hot: boolean }[] = [];
+for (let row = 0; row < 9; row++) {
+  for (let col = 0; col < 13; col++) {
+    const cx = col * 30 + 20, cy = row * 30 + 20;
+    const d = Math.hypot(cx - 250, cy - 150);
+    if (d < 175) dots.push({ x: cx, y: cy, r: d < 70 ? 4.5 : 3, hot: d < 70 && (row + col) % 3 === 0 });
+  }
+}
+---
+<section class="hp" data-home-hero aria-labelledby="hp-h">
+  <div class="wrap hp__grid">
+    <div class="hp__text">
+      <p class="hp__eyebrow">{t.hero.eyebrow}</p>
+      <h1 id="hp-h" class="h-hero">{t.hero.h1.a} <em>{t.hero.h1.em}</em></h1>
+      <p class="hp__body">{t.hero.body}</p>
+      <div class="hp__cta">
+        <a class="btn btn--coral" href={href(lang, 'audit/')} data-track="audit_cta" data-location="hero">{t.hero.primary}</a>
+        <a class="hp__link" href="#services">{t.hero.secondary}</a>
+      </div>
+    </div>
+    <div class="hp__art" aria-hidden="true">
+      <svg viewBox="0 0 500 300" focusable="false" class="hp__svg">
+        {dots.map((d) => <circle cx={d.x} cy={d.y} r={d.r} class={d.hot ? 'f-coral hp__dot' : 'f-ink hp__dot hp__dot--ink'} />)}
+      </svg>
+    </div>
+  </div>
+</section>
+<style>
+  .hp { padding-block: var(--s6) var(--s8); }
+  .hp__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s6); align-items: center; }
+  .hp__text { display: grid; gap: var(--s5); align-content: center; }
+  .hp__eyebrow { font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); }
+  .hp__body { font-size: 1.1875rem; line-height: 1.5; color: var(--ink); max-width: 36rem; text-wrap: balance; }
+  .hp__cta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s3) var(--s5); }
+  .hp__link { color: var(--ink); text-decoration: underline; text-underline-offset: 0.3em; text-decoration-color: var(--ink-300); font-weight: 500; }
+  .hp__link:hover { text-decoration-color: var(--ink); }
+  .hp__art { display: block; max-width: 100%; }
+  .hp__svg { display: block; width: 100%; height: auto; }
+  .hp__dot--ink { opacity: 0.35; }
+  .hp__dot { transform-box: fill-box; transform-origin: center; animation: hp-pulse 5s ease-in-out infinite; }
+  @keyframes hp-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.25); } }
+  @media (prefers-reduced-motion: reduce) { .hp__dot { animation: none; } }
+  @media (min-width: 1024px) {
+    .hp__grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s8); }
+  }
+</style>

@@ -1,8 +1,11 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import Plans from '../../../components/Plans.astro';
+import PlansHeader from '../../../components/plans/PlansHeader.astro';
+import PlanStepWeb from '../../../components/plans/PlanStepWeb.astro';
+import PlanStepMonthly from '../../../components/plans/PlanStepMonthly.astro';
+import PlansClosing from '../../../components/plans/PlansClosing.astro';
+import SeccionKit from '../../../components/home/SeccionKit.astro';
 import Faq from '../../../components/Faq.astro';
-import FinalCta from '../../../components/FinalCta.astro';
 import { languages, type Lang } from '../../../i18n';
 import { tr } from '../../../i18n/ui';
 import { pendingConditions } from '../../../content/plans';
@@ -11,8 +14,11 @@ const lang = Astro.params.lang as Lang;
 const t = tr(lang);
 ---
 <Base lang={lang} title={t.meta.plans.title} description={t.meta.plans.description}>
-  <Plans lang={lang} asPage />
-  <section class="section cond" aria-labelledby="cond-h">
+  <PlansHeader lang={lang} />
+  <PlanStepWeb lang={lang} />
+  <PlanStepMonthly lang={lang} />
+  <SeccionKit lang={lang} />
+  <section class="section cond" data-plans-conditions aria-labelledby="cond-h">
     <div class="wrap cond__in">
       <div>
         <h2 id="cond-h" class="h-section">{t.plans.conditionsH}</h2>
@@ -24,11 +30,11 @@ const t = tr(lang);
     </div>
   </section>
   <Faq lang={lang} ids={['plan-includes', 'ad-spend', 'change-plan', 'one-service']} heading={t.plans.faqH ? { a: t.plans.faqH, em: '' } : undefined} id="plans-faq" />
-  <FinalCta lang={lang} />
+  <PlansClosing lang={lang} />
 </Base>
 <style>
   .cond__in { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s7); }
-  .cond__list { border-top: 2px solid var(--ink); }
-  .cond__list li { overflow-wrap: anywhere; display: flex; justify-content: space-between; gap: var(--s4); align-items: center; flex-wrap: wrap; padding: 14px 4px; border-bottom: 1px solid var(--line); font-weight: 500; }
+  .cond__list { border-top: 1px solid var(--ink-200); }
+  .cond__list li { overflow-wrap: anywhere; display: flex; justify-content: space-between; gap: var(--s4); align-items: center; flex-wrap: wrap; padding: 14px 4px; border-bottom: 1px solid var(--ink-200); font-weight: 500; }
   @media (min-width: 64em) { .cond__in { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--s8); } }
 </style>

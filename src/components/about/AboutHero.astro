@@ -1,0 +1,47 @@
+---
+import { href, type Lang } from '../../i18n';
+import { tr } from '../../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = tr(lang);
+---
+<section class="ah" id="about" data-about-hero aria-labelledby="about-h">
+  <div class="ah__dots" aria-hidden="true"></div>
+  <div class="wrap ah__grid">
+    <div class="ah__main">
+      <p class="ah__tag">{t.nav.about}</p>
+      <h1 id="about-h" class="h-hero ah__h">{t.about.h2.a} <em>{t.about.h2.em}</em></h1>
+      <p class="lead ah__lead">{t.about.lead}</p>
+      <p class="ah__cta"><a class="btn btn--coral ah__btn" href={href(lang, 'audit/')} data-track="audit_cta" data-location="about">{t.common.requestAudit}</a></p>
+    </div>
+    <div class="ah__art art" data-illustrative aria-hidden="true">
+      <svg viewBox="0 0 240 240" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <rect width="240" height="240" fill="#efe8d5" />
+        <path d="M0 0H120V120A120 120 0 0 1 0 0Z" fill="#223f63" />
+        <path d="M120 0H240V120H120Z" fill="#d5946e" />
+        <path d="M0 120H120V240H0Z" fill="#516c8b" />
+        <path d="M120 120H240V240A120 120 0 0 1 120 120Z" fill="#efe8d5" stroke="#223f63" stroke-width="3" />
+        <circle cx="120" cy="120" r="30" fill="#f8fafa" />
+        <path d="M120 90A30 30 0 0 1 150 120H120Z" fill="#d5946e" />
+        <path d="M120 150A30 30 0 0 1 90 120H120Z" fill="#223f63" />
+      </svg>
+    </div>
+  </div>
+</section>
+<style>
+  .ah { position: relative; overflow: hidden; padding-block: calc(var(--header-h) + var(--s7)) var(--s8); background: var(--paper); border-bottom: 1px solid var(--ink-200); }
+  .ah__dots { position: absolute; inset: 0; pointer-events: none; color: var(--ink); opacity: 0.12; background-image: radial-gradient(currentColor 1px, transparent 1.5px); background-size: 24px 24px; }
+  .ah__grid { position: relative; display: grid; gap: var(--s6); grid-template-columns: minmax(0, 1fr); align-items: center; }
+  .ah__main { display: grid; gap: var(--s5); min-width: 0; justify-items: start; }
+  .ah__main > * { margin: 0; }
+  .ah__tag { display: inline-block; padding: 0.25rem 0.75rem; border: 1px solid var(--ink-200); border-radius: 999px; font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-700); }
+  .ah__h { overflow-wrap: anywhere; hyphens: auto; }
+  .ah__btn { padding-inline: 2rem; min-height: 56px; font-size: 1.0625rem; }
+  .ah__art { position: relative; min-height: 14rem; overflow: hidden; border-radius: var(--r-small); background: var(--sand); }
+  .ah__art svg { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+  @media (min-width: 64em) {
+    .ah__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+    .ah__main { grid-column: span 7; }
+    .ah__art { grid-column: 8 / span 5; min-height: 22rem; }
+  }
+</style>

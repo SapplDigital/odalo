@@ -9,9 +9,11 @@
  * Brand tokens, ported from Ale's design (odalo-web, src/app/globals.css @theme): paper #f8f9fa, sand #f3e5d1,
  * ink #004066, slate #416c8d, coral/accent #e78f65. Existing token names are kept so components inherit the palette.
  * ink-deep and rust-text are the AA-safe text companions (text on coral, small accent text on paper/sand).
- * Follow-up (needs no code here, no new dependency yet): swap Outfit/Instrument Serif for Ale's Inter Tight / Geist Mono.
+ * Font swap (owner decision Mon 16 Nov): change the @import lines at the top, the --font-* variables below
+ * and the two preload lines in src/layouts/Base.astro. No other file hard-codes a font-family.
  */
 :root {
+  --font-mono: ui-monospace, 'Geist Mono', SFMono-Regular, Menlo, Consolas, monospace;
   --ink: #004066;
   --coral: #e78f65;
   --accent: var(--coral);
@@ -174,6 +176,11 @@ a, button, summary, input, select, textarea { scroll-margin-block: calc(var(--he
 /* SVG fills */
 .f-ink { fill: var(--ink); } .f-coral { fill: var(--coral); } .f-sand { fill: var(--sand); } .f-paper { fill: var(--paper); } .f-slate { fill: var(--slate); }
 .s-ink { stroke: var(--ink); } .s-coral { stroke: var(--coral); } .s-paper { stroke: var(--paper); } .s-slate { stroke: var(--slate); }
+
+/* Ported pages sit on paper; the old ink backdrop of the retired home mosaic (field.css .pg--home) is not used any more */
+.pg.pg--home { background: var(--paper); }
+/* Footer language links: full opacity so they keep AA contrast on ink */
+.on-dark a.lang__item.lang__item { opacity: 1; }
 
 /* Progressive enhancement: essential content is visible without JS or motion */
 .js [data-reveal] { opacity: 0; transform: translateY(14px); transition: opacity 0.4s var(--ease-glass), transform 0.4s var(--ease-glass); }

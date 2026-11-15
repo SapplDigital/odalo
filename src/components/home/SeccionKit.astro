@@ -1,0 +1,79 @@
+---
+import { href, type Lang } from '../../i18n';
+import { tr } from '../../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = tr(lang);
+const N = 9;
+// Deterministic pseudo-QR modules (static illustration, not a scannable code).
+const cells = (seed: number) => {
+  const out: Array<[number, number]> = [];
+  let s = seed;
+  for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {
+    const finder = (x < 3 && y < 3) || (x > N - 4 && y < 3) || (x < 3 && y > N - 4);
+    s = (s * 1103515245 + 12345) & 0x7fffffff;
+    if (!finder && s % 5 < 2) out.push([x, y]);
+  }
+  return out;
+};
+const finders: Array<[number, number]> = [[0, 0], [N - 3, 0], [0, N - 3]];
+const uses = [
+  { id: 'resenas', label: t.kit.usos.resenas, seed: 7 },
+  { id: 'carta', label: t.kit.usos.carta, seed: 21 },
+  { id: 'wifi', label: t.kit.usos.wifi, seed: 42 },
+];
+---
+<section class="kit" id="kit" data-home-kit aria-labelledby="kit-h">
+  <div class="wrap kit__grid">
+    <div class="kit__text">
+      <p class="eyebrow">{t.kit.eyebrow}</p>
+      <h2 id="kit-h" class="h-section">{t.kit.h2.a} <em>{t.kit.h2.em}</em></h2>
+      <p class="lead">{t.kit.texto}</p>
+      <p class="kit__price" data-kit-price>{t.kit.consultar}</p>
+      <p><a class="kit__btn" href={href(lang, 'audit/')}>{t.kit.pedir}</a></p>
+    </div>
+    <figure class="kit__fig" role="img" aria-label={t.kit.aria}>
+      <ul class="kit__objs" aria-hidden="true">
+        {uses.map((u) => (
+          <li class="kit__obj" data-kit-use={u.id}>
+            <svg viewBox={`-1 -1 ${N + 2} ${N + 2}`} class="kit__qr" focusable="false">
+              <rect x="-1" y="-1" width={N + 2} height={N + 2} fill="var(--ink-100, #fff)" />
+              {cells(u.seed).map(([x, y]) => <rect x={x} y={y} width="1" height="1" fill="currentColor" />)}
+              {finders.map(([x, y]) => (
+                <>
+                  <rect x={x} y={y} width="3" height="3" fill="currentColor" />
+                  <rect x={x + 0.5} y={y + 0.5} width="2" height="2" fill="var(--ink-100, #fff)" />
+                  <rect x={x + 1} y={y + 1} width="1" height="1" fill="currentColor" />
+                </>
+              ))}
+            </svg>
+            <span class="kit__use">{u.label}</span>
+          </li>
+        ))}
+      </ul>
+      <figcaption class="kit__cap">{t.kit.ejemplo}</figcaption>
+    </figure>
+  </div>
+</section>
+<style>
+  .kit { padding-block: var(--section); }
+  .kit__grid { display: grid; gap: var(--s6); grid-template-columns: minmax(0, 1fr); align-items: center; }
+  .kit__text { display: grid; gap: var(--s4); justify-items: start; min-width: 0; }
+  .kit__text > * { margin: 0; }
+  .kit__price { font-family: var(--font-mono); font-size: 1.5rem; font-weight: 600; color: var(--ink); }
+  .kit__btn { display: inline-block; padding: 0.75rem 1.5rem; border: 1px solid var(--ink-300); border-radius: 999px; color: var(--ink); text-decoration: none; font-weight: 600; }
+  .kit__btn:hover { border-color: var(--ink); }
+  .kit__fig { margin: 0; display: grid; gap: var(--s3); min-width: 0; }
+  .kit__objs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s3); }
+  .kit__obj { display: grid; gap: var(--s2); align-content: start; justify-items: center; text-align: center; padding: var(--s3); border: 1px solid var(--ink-200); min-width: 0; color: var(--ink); }
+  .kit__qr { width: 100%; max-width: 9rem; height: auto; }
+  .kit__use { font-size: 0.8125rem; line-height: 1.3; color: var(--ink-700); overflow-wrap: anywhere; }
+  .kit__cap { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-500); }
+  @media (min-width: 1024px) {
+    .kit__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--s6); }
+    .kit__text { grid-column: span 5; }
+    .kit__fig { grid-column: span 7; }
+    .kit__obj { padding: var(--s5); }
+    .kit__use { font-size: 0.9375rem; }
+  }
+</style>

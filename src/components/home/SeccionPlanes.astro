@@ -1,0 +1,64 @@
+---
+import { href, type Lang } from '../../i18n';
+import { tr } from '../../i18n/ui';
+import { plans, planPriceText, buildFromPrice } from '../../content/plans';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = tr(lang);
+const plansHref = href(lang, 'plans/');
+---
+<section class="pl" id="planes" data-home-plans aria-labelledby="pl-h">
+  <div class="wrap">
+    <div class="pl__head">
+      <h2 id="pl-h" class="h-section">{t.plans.teaser.h2.a} <em>{t.plans.teaser.h2.em}</em></h2>
+      <p class="lead">{t.plans.teaser.intro}</p>
+    </div>
+    <ul class="pl__grid">
+      <li class="pl__cell" data-plan-cell="build">
+        <a class="pl__link" href={plansHref}>
+          <span class="pl__name h-tile">{t.plans.build.h}</span>
+          <span class="pl__price" data-plan-price="build">{t.plans.build.from} {buildFromPrice(lang)} <small>{t.plans.build.oneOff}</small></span>
+        </a>
+      </li>
+      {plans.map((p) => (
+        <li class="pl__cell" data-plan-cell={p.id} data-featured={p.featured ? 'true' : undefined}>
+          <a class="pl__link" href={plansHref}>
+            {p.featured && <span class="pl__tag">{t.common.featured}</span>}
+            <span class="pl__name h-tile">{p.name}</span>
+            <span class="pl__price" data-plan-price={p.id}>{planPriceText(p, lang, t.common.perMonth)}</span>
+            <span class="pl__sum">{t.plans.summaries[p.id]}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <p class="pl__cta"><a class="pl__btn" href={plansHref} data-plans-cta>{t.plans.teaser.seeAll}</a></p>
+  </div>
+</section>
+<style>
+  .pl { padding-block: var(--section); }
+  .pl__head { display: grid; gap: var(--s4); margin-bottom: var(--s6); }
+  .pl__grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); border: 1px solid var(--ink-200); }
+  .pl__cell { border-bottom: 1px solid var(--ink-200); min-width: 0; }
+  .pl__cell:last-child { border-bottom: 0; }
+  .pl__link { display: grid; gap: var(--s2); align-content: start; height: 100%; padding: var(--s5); color: var(--ink); text-decoration: none; }
+  .pl__link:hover .pl__name { text-decoration: underline; text-underline-offset: 0.3em; }
+  .pl__tag { justify-self: start; border: 1px solid var(--ink-300); border-radius: 999px; padding: 0.125rem 0.625rem; font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-700); }
+  .pl__price { font-weight: 600; overflow-wrap: anywhere; }
+  .pl__price small { font-weight: 400; color: var(--ink-500); }
+  .pl__sum { color: var(--ink-700); }
+  .pl__cta { margin: var(--s6) 0 0; }
+  .pl__btn { display: inline-block; padding: 0.75rem 1.5rem; border: 1px solid var(--ink-300); border-radius: 999px; color: var(--ink); text-decoration: none; font-weight: 600; }
+  .pl__btn:hover { border-color: var(--ink); }
+  @media (min-width: 640px) {
+    .pl__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pl__cell { border-right: 1px solid var(--ink-200); }
+    .pl__cell:nth-child(2n) { border-right: 0; }
+    .pl__cell:last-child { border-bottom: 1px solid var(--ink-200); }
+  }
+  @media (min-width: 1024px) {
+    .pl__grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .pl__cell, .pl__cell:last-child { border-bottom: 0; border-right: 1px solid var(--ink-200); }
+    .pl__cell:nth-child(2n) { border-right: 1px solid var(--ink-200); }
+    .pl__cell:last-child { border-right: 0; }
+  }
+</style>

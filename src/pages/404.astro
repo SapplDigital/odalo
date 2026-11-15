@@ -5,22 +5,31 @@ import { href, languages, languageNames } from '../i18n';
 import { ui } from '../i18n/ui';
 ---
 <Base lang="en" title={ui.en.meta.notFound.title} description={ui.en.errors.body} noindex>
-  <section class="nf">
-    <div class="wrap nf__in">
-      <p class="eyebrow">404</p>
+  <div class="nf">
+    <div class="wrap nf__in" data-nf-intro>
+      <p class="nf__tag">404</p>
       <h1 class="h-hero nf__h">{ui.en.errors.h1}</h1>
-      <p class="lead">{ui.en.errors.body}</p>
+      <p class="lead nf__lead">{ui.en.errors.body}</p>
       <ul class="nf__links">
         {languages.map((l) => (
-          <li><a class="btn btn--ghost" href={href(l)} lang={l} hreflang={l}>{ui[l].errors.home} · {languageNames[l].native}</a></li>
+          <li><a class="nf__link" href={href(l)} lang={l} hreflang={l}>{ui[l].errors.home} · {languageNames[l].native}</a></li>
         ))}
       </ul>
     </div>
-  </section>
+  </div>
 </Base>
 <style>
-  .nf { padding-block: var(--s8); }
-  .nf__in { display: grid; justify-items: start; gap: var(--s5); }
-  .nf__h { font-size: clamp(2.5rem, 1.5rem + 4vw, 5rem); max-width: 14ch; }
-  .nf__links { display: flex; flex-wrap: wrap; gap: var(--s3); }
+  .nf { background: var(--paper); padding-top: 8rem; padding-bottom: 5rem; }
+  .nf__in { display: grid; justify-items: start; gap: var(--s5); max-width: 60rem; min-width: 0; }
+  .nf__in > * { margin: 0; min-width: 0; }
+  .nf__tag { display: inline-flex; padding: 0.25rem 0.75rem; border: 1px solid var(--ink-200); border-radius: 999px; background: var(--surface); font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-700); }
+  .nf__h { font-size: var(--text-h2); overflow-wrap: anywhere; hyphens: auto; }
+  .nf__lead { max-width: var(--measure-prose); }
+  .nf__links { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: var(--s3); }
+  .nf__link { display: inline-block; padding: 0.625rem 1.25rem; border: 1px solid var(--line-strong); border-radius: 999px; background: var(--surface); color: var(--ink); text-decoration: none; }
+  .nf__link:hover { border-color: var(--ink); }
+  .nf__link:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+  @media (min-width: 768px) {
+    .nf { padding-top: 10rem; padding-bottom: 7rem; }
+  }
 </style>

@@ -1,16 +1,79 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import PageHero from '../../../components/PageHero.astro';
-import WorkMosaic from '../../../components/WorkMosaic.astro';
-import FinalCta from '../../../components/FinalCta.astro';
-import { languages, type Lang } from '../../../i18n';
+import ConceptImage from '../../../components/ConceptImage.astro';
+import SeccionContacto from '../../../components/home/SeccionContacto.astro';
+import { languages, href, type Lang } from '../../../i18n';
 import { tr } from '../../../i18n/ui';
+import { projects } from '../../../content/projects';
 export function getStaticPaths() { return languages.map((lang) => ({ params: { lang } })); }
 const lang = Astro.params.lang as Lang;
 const t = tr(lang);
+const cards = projects.map((p) => ({
+  id: p.id,
+  title: (p.cardTitle ?? p.title)[lang],
+  full: p.title[lang],
+  kind: p.kind[lang],
+  badge: p.badge?.[lang] ?? t.common.sample,
+  image: p.images?.find((i) => i.role === 'card'),
+}));
 ---
 <Base lang={lang} title={t.meta.work.title} description={t.meta.work.description}>
-  <PageHero lang={lang} eyebrow={t.nav.work} title={t.work.h2} lead={t.work.indexLead} crumbs={[{ label: t.nav.work }]} />
-  <WorkMosaic lang={lang} heading={false} id="projects" />
-  <FinalCta lang={lang} />
+  <div class="wk">
+    <div class="wrap wk__in">
+      <div class="wk__intro" data-work-intro>
+        <p class="wk__tag"><span aria-hidden="true">→</span> {t.nav.work}</p>
+        <h1 class="h-hero wk__h">{t.work.h2.a}{t.work.h2.a ? ' ' : ''}<em>{t.work.h2.em}</em></h1>
+        <p class="lead wk__lead">{t.work.indexLead}</p>
+      </div>
+      <ul class="wk__grid" data-work-list>
+        {cards.map((c) => (
+          <li class="wk__card" data-project-card={c.id}>
+            <div class="wk__media">
+              {c.image && <ConceptImage image={c.image} lang={lang} sizes="(min-width: 64em) 30vw, 100vw" class="wk__img" />}
+            </div>
+            <div class="wk__meta">
+              <h2 class="wk__title"><a class="wk__link" href={href(lang, `work/${c.id}/`)}>{c.title}<span class="sr-only">: {c.full}</span></a></h2>
+              <p class="wk__kind">{c.kind}</p>
+              <p class="wk__badge">{c.badge}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+  <div data-work-closing>
+    <SeccionContacto lang={lang} />
+  </div>
 </Base>
+<style>
+  .wk { background: var(--paper); padding-top: 8rem; padding-bottom: 5rem; }
+  .wk__in { display: grid; gap: var(--s7, 4rem); min-width: 0; }
+  .wk__in > * { min-width: 0; margin: 0; }
+  .wk__intro { display: grid; gap: var(--s5); justify-items: start; max-width: 60rem; }
+  .wk__intro > * { margin: 0; min-width: 0; }
+  .wk__tag { display: inline-flex; gap: 0.5rem; padding: 0.25rem 0.75rem; border: 1px solid var(--ink-200); border-radius: 999px; background: var(--surface); font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-700); }
+  .wk__h { font-size: var(--text-h2); overflow-wrap: anywhere; hyphens: auto; }
+  .wk__lead { max-width: var(--measure-prose); }
+  .wk__grid { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s6); grid-template-columns: minmax(0, 1fr); }
+  .wk__card { position: relative; display: grid; gap: var(--s3); align-content: start; min-width: 0; }
+  .wk__media { aspect-ratio: 16 / 11; overflow: hidden; border: 1px solid var(--ink-200); border-radius: var(--radius-tile); background: var(--surface); }
+  .wk__media :global(.wk__img) { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s; }
+  .wk__card:hover .wk__media :global(.wk__img) { transform: scale(1.03); }
+  .wk__meta { display: grid; gap: 0.25rem; }
+  .wk__meta > * { margin: 0; }
+  .wk__title { font-size: 1.375rem; font-weight: 500; line-height: 1.2; }
+  .wk__link { color: var(--ink); text-decoration: none; }
+  .wk__link::after { content: ''; position: absolute; inset: 0; }
+  .wk__link:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+  .wk__kind { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-500); }
+  .wk__badge { font-size: 0.8125rem; color: var(--ink-700); }
+  @media (min-width: 640px) {
+    .wk__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (min-width: 768px) {
+    .wk { padding-top: 10rem; padding-bottom: 7rem; }
+  }
+  @media (min-width: 1024px) {
+    .wk__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s5); }
+  }
+</style>

@@ -30,14 +30,14 @@ for (const l of langs) {
 
   test(`${l}: Website page lists all four plans with the build note; 360 shows the quote label`, async ({ page }) => {
     await page.goto(`/${l}/services/web/`);
-    await expect(page.locator('.relplan__row')).toHaveCount(4);
+    await expect(page.locator('[data-svc-plan-row]')).toHaveCount(4);
     await expect(page.locator('.bnote')).toContainText(formatPrice(websiteBuildFrom, l).replace(/\s/g, ' '), { useInnerText: true });
     for (const [i, p] of plans.entries()) {
-      await expect(page.locator('.relplan__row').nth(i).locator('.relplan__name')).toContainText(p.monthly === null ? quoteLabel[l] : String(p.monthly));
-      await expect(page.locator('.relplan__row').nth(i).locator('.relplan__cta')).toHaveAttribute('href', new RegExp(`\\?plan=${p.id}&service=web$`));
+      await expect(page.locator('[data-svc-plan-row]').nth(i).locator('[data-svc-plan-price]')).toContainText(p.monthly === null ? quoteLabel[l] : String(p.monthly));
+      await expect(page.locator('[data-svc-plan-row]').nth(i).locator('a[data-plan]')).toHaveAttribute('href', new RegExp(`\\?plan=${p.id}&service=web$`));
     }
     await page.goto(`/${l}/services/ads/`);
-    await expect(page.locator('.relplan__row')).toHaveCount(2);
+    await expect(page.locator('[data-svc-plan-row]')).toHaveCount(2);
     await expect(page.locator('.bnote')).toHaveCount(0);
   });
 

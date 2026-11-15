@@ -1,0 +1,11 @@
+---
+import Faq from '../Faq.astro';
+import type { Lang } from '../../i18n';
+import { tr } from '../../i18n/ui';
+interface Props { lang: Lang; ids: string[] }
+const { lang, ids } = Astro.props;
+const t = tr(lang);
+---
+<div data-svc-faq>
+  <Faq lang={lang} ids={ids} heading={{ a: t.services.pageH2Faq, em: '' }} id="svc-faq" />
+</div>

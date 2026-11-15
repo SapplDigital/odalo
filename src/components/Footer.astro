@@ -3,102 +3,62 @@ import LangSwitch from './LangSwitch.astro';
 import { href, type Lang } from '../i18n';
 import { tr } from '../i18n/ui';
 import { site } from '../config/site';
-interface Props { lang: Lang; rest: string; compact?: boolean }
-const { lang, rest, compact = false } = Astro.props;
-const ownerLogo = true; // every route: the supplied owner logo, on the page-wide field
+interface Props { lang: Lang; rest: string }
+const { lang, rest } = Astro.props;
 const t = tr(lang);
-const nav = [
-  { label: t.nav.services, to: `${href(lang)}#services` },
-  { label: t.nav.plans, to: href(lang, 'plans/') },
-  { label: t.nav.about, to: href(lang, 'about/') },
-  { label: t.nav.audit, to: href(lang, 'audit/') },
-];
 const legal = [
   { label: t.footer.privacy, to: href(lang, 'privacy/') },
   { label: t.footer.cookies, to: href(lang, 'cookies/') },
   { label: t.footer.legalNotice, to: href(lang, 'legal/') },
 ];
-const { email, phone } = site.contact; // the service address stays on the legal notice and privacy pages
-const fr = (c: string) => c; // region of the page field (see src/mosaic/field.js)
+const { email, phone } = site.contact;
 ---
-<footer class:list={['ftr', 'on-dark', { 'ftr--compact': true, 'ftr--field': true }]}>
-  <div class="wrap ftr__grid">
-    <div class="ftr__brand" data-fr={fr('sand')}>
-      <span class="ftr__logo"><img class="ftr__img" src="/brand/odalo-owner-logo.png" alt="" width="273" height="123" /></span>
-      <p class="ftr__tag">{t.footer.tagline}</p>
-      <span class="ftr__lang"><LangSwitch lang={lang} rest={rest} dark /></span>
-    </div>
-    <div class="ftr__col" data-fr={fr('coral')}>
-      <h2 class="ftr__h">{t.footer.contact}</h2>
+<footer data-pie class="pie on-dark">
+  <div class="wrap pie__grid">
+    <span class="pie__logo"><img class="pie__img" src="/brand/odalo-owner-logo.png" alt="" width="273" height="123" /></span>
+    <p class="pie__copy">{t.footer.rights} · {t.footer.demo}</p>
+    <div class="pie__contact">
       {email || phone ? (
-        <ul>
+        <ul aria-label={t.footer.contact}>
           {email && <li><a href={`mailto:${email}`}>{email}</a></li>}
           {phone && <li><a href={`tel:${phone}`}>{phone}</a></li>}
         </ul>
-      ) : <p class="ftr__muted">{t.cta.contactDemo}</p>}
+      ) : <p>{t.cta.contactDemo}</p>}
     </div>
-    <nav aria-label={t.a11y.legalNav} class="ftr__col" data-fr={fr('slate')}>
-      <h2 class="ftr__h">{t.footer.legal}</h2>
-      <ul>
-        {legal.map((n) => <li><a href={n.to}>{n.label}</a></li>)}
-        <li class="ftr__store">
-          <details>
-            <summary>{t.storage.h}</summary>
-            <p>{t.storage.body} <a href={href(lang, 'cookies/')}>{t.footer.cookies}</a></p>
-          </details>
-        </li>
-      </ul>
+    <nav aria-label={t.a11y.legalNav} class="pie__legal">
+      {legal.map((n) => <a href={n.to}>{n.label}</a>)}
     </nav>
-    {!compact && <nav aria-label={t.a11y.footerNav} class="ftr__col ftr__nav" data-fr="coral">
-      <ul>{nav.map((n) => <li><a href={n.to}>{n.label}</a></li>)}</ul>
-    </nav>}
-  </div>
-  <div class="wrap ftr__base">
-    <p data-fr={fr('sand')}>{t.footer.rights} · {t.footer.demo}</p>
+    <div class="pie__extra">
+      <details class="pie__store">
+        <summary>{t.storage.h}</summary>
+        <p>{t.storage.body} <a href={href(lang, 'cookies/')}>{t.footer.cookies}</a></p>
+      </details>
+      <span class="pie__lang"><LangSwitch lang={lang} rest={rest} dark /></span>
+    </div>
   </div>
 </footer>
 <style>
-  .ftr { background: var(--ink); color: var(--paper); padding-top: var(--s8); font-size: 1rem; }
-  .ftr__grid { display: grid; gap: var(--s7) var(--s6); grid-template-columns: minmax(0, 1fr); padding-bottom: var(--s7); }
-  @media (min-width: 48em) { .ftr__grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
-  /* homepage: the mosaic already carries the page paths, so the footer keeps brand, contact and legal only */
-  .ftr--compact { padding-top: var(--s6); }
-  .ftr--compact .ftr__grid { gap: var(--s3) var(--s6); padding-bottom: var(--s3); }
-  .ftr--compact .ftr__tag { display: none; }
-  .ftr--compact .ftr__brand { gap: var(--s2); }
-  .ftr--compact .ftr__h { margin-bottom: 0; }
-  .ftr--compact .ftr__col ul { display: flex; flex-wrap: wrap; gap: 0 var(--s5); }
-  .ftr--compact .ftr__store { flex-basis: 100%; }
-  .ftr--compact .ftr__base { padding-bottom: var(--s4); }
-  /* homepage field: no slab, the page-wide mosaic is the ground; every block of text/links is a region */
-  .ftr--field { background: none; padding-top: var(--s2); }
-  .ftr--field .ftr__grid { align-items: start; gap: var(--s3) var(--s5); }
-  .ftr--field .ftr__logo, .ftr--field .ftr__lang { display: inline-flex; align-items: center; }
-  .ftr__nav { grid-column: 1 / -1; padding-block: var(--s2) !important; }
-  .ftr--field .ftr__brand { padding: var(--s3) var(--s4); }
-  .ftr--field .ftr__col { padding: var(--s3) var(--s4); }
-  .ftr--field .ftr__base { padding-bottom: var(--s3); display: flex; }
-  .ftr--field .ftr__base p { padding: 8px var(--s4); }
-  .ftr--field .ftr__h { color: inherit; opacity: .8; }
-  @media (min-width: 48em) { .ftr--compact .ftr__grid { grid-template-columns: 1.4fr 1fr 1fr; } }
-  .ftr__brand { display: grid; gap: var(--s4); align-content: start; justify-items: start; }
-  .ftr__img { display: block; height: 56px; width: auto; }
-  .ftr__word { font-size: 2.25rem; font-weight: 700; letter-spacing: -0.04em; line-height: 1; color: var(--paper); }
-  .ftr__tag { font-family: var(--font-serif); font-style: italic; font-size: 1.5rem; line-height: 1.15; max-width: 22ch; color: var(--sand); }
-  .ftr__h { font-size: 0.8125rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--coral-light); margin-bottom: var(--s3); }
-  .ftr__col ul { display: grid; gap: 2px; }
-  .ftr a, .ftr__store summary { display: inline-flex; align-items: center; min-height: 44px; color: color-mix(in srgb, var(--paper) 85%, transparent); text-decoration: none; transition: color 180ms var(--ease-glass); }
-  .ftr__col a { overflow-wrap: anywhere; }
-  .ftr a:hover, .ftr a:focus-visible, .ftr__store summary:hover, .ftr__store summary:focus-visible { color: var(--paper); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--coral); }
-  .ftr--field { border-top: 1px solid color-mix(in srgb, var(--paper) 14%, transparent); }
-  @media (prefers-reduced-motion: reduce) { .ftr a, .ftr__store summary { transition: none; } }
-  /* browser-storage information: native disclosure, in the flow of the footer (never fixed, never over content) */
-  .ftr__store summary { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; cursor: pointer; list-style: none; }
-  .ftr__store summary::-webkit-details-marker { display: none; }
-  .ftr__store summary::after { content: '+'; font-weight: 700; }
-  .ftr__store details[open] summary::after { content: '\2212'; }
-  .ftr__store p { max-width: 34ch; padding-block: 4px 8px; font-size: 0.9375rem; line-height: 1.5; }
-  .ftr__store p a { text-decoration: underline; text-underline-offset: 4px; }
-  .ftr__muted { color: color-mix(in srgb, var(--paper) 85%, transparent); font-size: 0.875rem; max-width: 28ch; overflow-wrap: anywhere; }
-  .ftr__base { padding-bottom: var(--s6); color: color-mix(in srgb, var(--paper) 85%, transparent); font-size: 0.8125rem; }
+  .pie { background: var(--ink); color: color-mix(in srgb, #fff 70%, transparent); border-top: 1px solid color-mix(in srgb, #fff 10%, transparent); padding-top: 2.5rem; padding-bottom: 1.5rem; font-size: 13px; }
+  .pie__grid { display: grid; gap: 1.5rem; grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 48em) {
+    .pie__grid { grid-template-columns: auto 1fr auto; align-items: center; }
+    .pie__copy { text-align: center; }
+    .pie__legal, .pie__extra { grid-column: 1 / -1; }
+  }
+  .pie__img { display: block; height: 56px; width: auto; }
+  .pie__copy, .pie__contact p { margin: 0; line-height: 1.5; }
+  .pie__contact ul { list-style: none; margin: 0; padding: 0; }
+  .pie__legal { display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
+  .pie__extra { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 1.25rem; }
+  .pie a, .pie__store summary { display: inline-flex; align-items: center; min-height: 44px; color: inherit; text-underline-offset: 4px; transition: color 180ms; overflow-wrap: anywhere; }
+  .pie a { text-decoration: none; }
+  .pie a:hover, .pie a:focus-visible, .pie__store summary:hover { color: #fff; text-decoration: underline; }
+  .pie a:focus-visible, .pie__store summary:focus-visible { outline: 2px solid #fff; outline-offset: 2px; border-radius: 4px; color: #fff; }
+  .pie__store summary { gap: 8px; cursor: pointer; list-style: none; }
+  .pie__store summary::-webkit-details-marker { display: none; }
+  .pie__store summary::after { content: '+'; font-weight: 700; }
+  .pie__store[open] summary::after { content: '\2212'; }
+  .pie__store p { max-width: 42ch; margin: 0; padding-block: 4px 8px; line-height: 1.5; }
+  .pie__store p a { text-decoration: underline; }
+  @media (prefers-reduced-motion: reduce) { .pie a { transition: none; } }
 </style>

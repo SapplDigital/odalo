@@ -1,0 +1,42 @@
+---
+import { href, type Lang } from '../../i18n';
+import { tr } from '../../i18n/ui';
+import { services } from '../../content/services';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = tr(lang);
+---
+<section class="sv" id="services" data-home-services aria-labelledby="sv-h">
+  <div class="wrap">
+    <div class="sv__head">
+      <h2 id="sv-h" class="h-section">{t.services.h2.a} <em>{t.services.h2.em}</em></h2>
+      <p class="lead">{t.services.intro}</p>
+    </div>
+    <ol class="sv__list">
+      {services.map((s) => (
+        <li class="sv__item">
+          <a class="sv__link" href={href(lang, `services/${s.id}/`)} data-service-link={s.id}>
+            <span class="sv__num" aria-hidden="true">{s.number}</span>
+            <span class="sv__name h-tile">{s.name[lang]}</span>
+            <span class="sv__out">{s.outcome[lang]}</span>
+            <span class="sv__more">{t.common.fullService}</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+<style>
+  .sv { padding-block: var(--section); }
+  .sv__head { display: grid; gap: var(--s4); margin-bottom: var(--s6); }
+  .sv__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); border-top: 1px solid var(--ink-200); }
+  .sv__item { border-bottom: 1px solid var(--ink-200); }
+  .sv__link { display: grid; gap: var(--s2); padding-block: var(--s5); color: var(--ink); text-decoration: none; }
+  .sv__num { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; color: var(--ink-500); }
+  .sv__out { color: var(--ink-700); max-width: 52ch; }
+  .sv__more { font-weight: 600; text-decoration: underline; text-underline-offset: 0.3em; text-decoration-color: var(--ink-300); }
+  .sv__link:hover .sv__more { text-decoration-color: var(--ink); }
+  @media (min-width: 1024px) {
+    .sv__link { grid-template-columns: 4rem minmax(0, 5fr) minmax(0, 6fr) auto; align-items: baseline; gap: var(--s5); }
+  }
+</style>

@@ -23,3 +23,6 @@ Thumbs.db
 inbox/odalo-web-design/
 .orchestrator/
 .orchestrator-*/
+
+# QA screenshots: regenerate with QA_SHOTS=1 npx playwright test tests/qa-shots.spec.ts (PAOLO 2026-11-15)
+docs/qa/*/screens/

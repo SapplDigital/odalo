@@ -43,10 +43,10 @@ test.describe('service pages (all 12): artwork, caption, enquiry preselection', 
       // natural shape: the displayed box keeps the picture's own proportions (nothing cropped or stretched)
       const box = (await img.boundingBox())!;
       expect(Math.abs(box.width / box.height - v.image.width / v.image.height)).toBeLessThan(0.05);
-      expect(await page.locator('.ph svg.art, .ph .art').count()).toBe(0);
+      expect(await page.locator('[data-svc-hero] svg.art, [data-svc-hero] .art').count()).toBe(0);
       expect(media).toEqual([]);
       await expect(page.locator('main h1')).toHaveCount(1);
-      await page.locator('.ph a[data-track="audit_cta"]').click();
+      await page.locator('[data-svc-hero] a[data-track="audit_cta"]').click();
       await expect(page).toHaveURL(new RegExp(`/${l}/audit/\\?service=${s.id}$`));
       await expect(page.locator('#f-service')).toHaveValue(s.id);
     });

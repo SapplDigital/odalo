@@ -1,0 +1,66 @@
+---
+import { href, type Lang } from '../../i18n';
+import { tr } from '../../i18n/ui';
+import { plans, planById, planPriceText } from '../../content/plans';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = tr(lang);
+const p = t.plans.page;
+const audit = href(lang, 'audit/');
+---
+<section class="sm" id="plan-monthly-step" data-plans-step-monthly aria-labelledby="sm-h">
+  <div class="wrap">
+    <h2 id="sm-h" class="eyebrow">{p.step2}</h2>
+    <div class="sm__grid">
+      {plans.map((pl) => {
+        const base = pl.builtOn ? planById(pl.builtOn) : undefined;
+        const custom = pl.monthly === null;
+        return (
+          <article class={`sm__card${pl.featured ? ' sm__card--featured' : ''}${custom ? ' sm__card--wide' : ''}`} id={`plan-${pl.id}`} data-plan-card={pl.id} data-featured={pl.featured ? 'true' : undefined}>
+            {pl.featured && <span class="sm__tag">{t.common.featured}</span>}
+            <h3 class="h-tile sm__name">{pl.name}</h3>
+            <p class="sm__sum">{t.plans.summaries[pl.id]}</p>
+            <p class="sm__price" data-plan-price={pl.id}>
+              {custom
+                ? <span class="plan__amount">{planPriceText(pl, lang, '')}</span>
+                : <><span class="plan__amount">{planPriceText(pl, lang, '').replace(t.common.perMonth, '')}</span><span class="plan__per">{t.common.perMonth}</span></>}
+            </p>
+            <div class="sm__inc">
+              <p class="sm__label">{base ? t.plans.builtOn.replace('{plan}', base.name) : p.includes}</p>
+              <ul class="sm__list">
+                {pl.own[lang].map((x) => <li><span aria-hidden="true">+</span> {x}</li>)}
+              </ul>
+            </div>
+            <a class={`btn plan__cta ${pl.featured ? 'btn--coral' : 'btn--ghost'}`} href={`${audit}?plan=${pl.id}`} data-plans-audit-link>{custom ? p.quote : t.plans.ctaPlan.replace('{plan}', pl.name)}</a>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</section>
+<style>
+  .sm { padding-block: 0 var(--section); }
+  .sm h2 { margin: 0; }
+  .sm__grid { margin-top: var(--s5); display: grid; grid-template-columns: minmax(0, 1fr); border-top: 1px solid var(--ink-200); border-left: 1px solid var(--ink-200); }
+  .sm__card { position: relative; display: grid; gap: var(--s4); align-content: start; min-width: 0; padding: var(--s5); border-right: 1px solid var(--ink-200); border-bottom: 1px solid var(--ink-200); background: var(--paper); color: var(--ink); }
+  .sm__card > * { margin: 0; min-width: 0; }
+  .sm__card--featured { background: var(--coral); color: var(--ink-deep); border-color: var(--coral); --focus: var(--ink-deep); }
+  .sm__tag { justify-self: start; border: 1px solid currentColor; border-radius: 999px; padding: 0.125rem 0.625rem; font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .sm__sum { max-width: 38ch; }
+  .sm__price { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s2); font-weight: 600; font-size: 1.75rem; overflow-wrap: anywhere; }
+  .plan__per { font-size: 0.9375rem; font-weight: 400; }
+  .sm__label { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--s3); }
+  .sm__list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s2); }
+  .sm__list li { display: flex; gap: var(--s3); min-width: 0; overflow-wrap: anywhere; }
+  .sm__list span { font-family: var(--font-mono); }
+  .sm__card .btn { justify-self: start; align-self: end; text-align: center; max-width: 100%; }
+  .sm__card--featured .btn--coral { background: var(--ink-deep); color: var(--paper); }
+  @media (min-width: 48em) {
+    .sm__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .sm__card--wide { grid-column: 1 / -1; }
+    .sm__card { padding: var(--s6); }
+  }
+  @media (min-width: 64em) {
+    .sm__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+</style>

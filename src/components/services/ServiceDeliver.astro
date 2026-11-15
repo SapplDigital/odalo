@@ -1,0 +1,37 @@
+---
+import type { Lang } from '../../i18n';
+import { tr } from '../../i18n/ui';
+import type { Service } from '../../content/services';
+interface Props { lang: Lang; s: Service }
+const { lang, s } = Astro.props;
+const t = tr(lang);
+---
+<section class="sd section" data-svc-deliver aria-labelledby="svc-del-h">
+  <div class="wrap sd__in">
+    <header class="sd__head">
+      <p class="sd__tag">1 — {t.common.deliverables}</p>
+      <h2 id="svc-del-h" class="h-section">{t.common.deliverables}</h2>
+      <p class="sd__detail">{s.detail[lang]}</p>
+      <p class="sd__note">{t.services.exampleScope}</p>
+    </header>
+    <ul class="sd__grid" data-svc-deliverables>
+      {s.deliverables[lang].map((d, i) => (
+        <li class="sd__cell"><span class="sd__n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span><span class="sd__t">{d}</span></li>
+      ))}
+    </ul>
+  </div>
+</section>
+<style>
+  .sd { background: var(--paper); }
+  .sd__in { display: grid; gap: var(--s7); }
+  .sd__head { display: grid; gap: var(--s4); max-width: 60rem; }
+  .sd__head > * { margin: 0; }
+  .sd__tag { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-700); }
+  .sd__detail { max-width: 62ch; font-size: 1.125rem; }
+  .sd__note { max-width: 62ch; font-size: 0.9375rem; color: var(--ink-700); }
+  .sd__grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); border-top: 1px solid rgb(32 59 87 / 0.15); border-left: 1px solid rgb(32 59 87 / 0.15); }
+  .sd__cell { display: grid; gap: var(--s3); align-content: space-between; min-width: 0; min-height: 9rem; padding: var(--pad); border-right: 1px solid rgb(32 59 87 / 0.15); border-bottom: 1px solid rgb(32 59 87 / 0.15); }
+  .sd__n { font-family: var(--font-mono); font-size: 0.8125rem; letter-spacing: 0.08em; color: var(--rust-text); }
+  .sd__t { font-weight: 600; font-size: 1.1875rem; line-height: 1.3; overflow-wrap: anywhere; hyphens: auto; }
+  @media (min-width: 64em) { .sd__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+</style>

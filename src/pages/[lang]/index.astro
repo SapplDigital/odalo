@@ -1,6 +1,12 @@
 ---
 import Base from '../../layouts/Base.astro';
-import HomeMosaic from '../../components/HomeMosaic.astro';
+import HeroPortada from '../../components/home/HeroPortada.astro';
+import SeccionServicios from '../../components/home/SeccionServicios.astro';
+import SeccionPlanes from '../../components/home/SeccionPlanes.astro';
+import SeccionKit from '../../components/home/SeccionKit.astro';
+import SeccionProyectos from '../../components/home/SeccionProyectos.astro';
+import SeccionEstudio from '../../components/home/SeccionEstudio.astro';
+import SeccionContacto from '../../components/home/SeccionContacto.astro';
 import { languages, type Lang } from '../../i18n';
 import { tr } from '../../i18n/ui';
 
@@ -9,9 +15,15 @@ export function getStaticPaths() {
 }
 const lang = Astro.params.lang as Lang;
 const t = tr(lang);
-// The homepage is one compact overview (HomeMosaic). The earlier long stack (Hero, ServiceMosaic, WorkMosaic, Process, Plans, About, Faq, FinalCta)
-// remains in src/components and on its dedicated routes.
+// Home follows Ale's portada order. All seven sections are in: hero, services, plans teaser, Kit QR, projects, studio and contact.
+// HomeMosaic and src/mosaic stay in the tree for pages that still import them.
 ---
 <Base lang={lang} title={t.meta.home.title} description={t.meta.home.description} home>
-  <HomeMosaic lang={lang} />
+  <HeroPortada lang={lang} />
+  <SeccionServicios lang={lang} />
+  <SeccionPlanes lang={lang} />
+  <SeccionKit lang={lang} />
+  <SeccionProyectos lang={lang} />
+  <SeccionEstudio lang={lang} />
+  <SeccionContacto lang={lang} />
 </Base>

@@ -1,0 +1,50 @@
+---
+import { href, type Lang } from '../../i18n';
+import { tr } from '../../i18n/ui';
+import { buildFromPrice } from '../../content/plans';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = tr(lang);
+const b = t.plans.build;
+const p = t.plans.page;
+---
+<section class="sw" id="plan-web-step" data-plans-step-web aria-labelledby="sw-h">
+  <div class="wrap">
+    <p class="eyebrow">{p.step1}</p>
+    <article class="sw__card" id="plan-web">
+      <div class="sw__cell sw__cell--a">
+        <h2 id="sw-h" class="h-tile">{b.h}</h2>
+        <p class="sw__price" data-plan-price="build"><span class="plan__amount">{b.from} {buildFromPrice(lang)}</span> <small>{b.oneOff}</small></p>
+      </div>
+      <div class="sw__cell sw__cell--b">
+        <ul class="sw__list">
+          {p.webIncludes.map((x) => <li><span aria-hidden="true">+</span> {x}</li>)}
+        </ul>
+        <div class="sw__foot">
+          <p class="sw__note">{b.text}</p>
+          <a class="btn btn--ghost" href={href(lang, 'audit/') + '?plan=web'} data-plans-audit-link>{p.quote}</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+<style>
+  .sw { padding-block: var(--section) var(--s8); }
+  .sw__card { margin-top: var(--s5); display: grid; grid-template-columns: minmax(0, 1fr); border-top: 1px solid var(--ink-200); border-left: 1px solid var(--ink-200); }
+  .sw__cell { display: grid; gap: var(--s5); align-content: start; min-width: 0; padding: var(--s5); border-right: 1px solid var(--ink-200); border-bottom: 1px solid var(--ink-200); }
+  .sw__cell h2, .sw__cell p, .sw__list { margin: 0; }
+  .sw__price { font-weight: 600; font-size: 1.5rem; overflow-wrap: anywhere; }
+  .sw__price small { font-size: 0.9375rem; font-weight: 400; color: var(--ink-600); }
+  .sw__list { list-style: none; padding: 0; display: grid; gap: var(--s3); }
+  .sw__list li { display: flex; gap: var(--s3); min-width: 0; overflow-wrap: anywhere; }
+  .sw__list span { font-family: var(--font-mono); color: var(--ink-500); }
+  .sw__cell--b { align-content: space-between; gap: var(--s6); }
+  .sw__foot { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--s5); }
+  .sw__note { max-width: 44ch; font-family: var(--font-mono); font-size: 0.75rem; line-height: 1.6; text-transform: uppercase; color: var(--ink-600); }
+  @media (min-width: 48em) {
+    .sw__card { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+    .sw__cell { padding: var(--s6); }
+    .sw__cell--a { grid-column: span 5; }
+    .sw__cell--b { grid-column: span 7; }
+  }
+</style>

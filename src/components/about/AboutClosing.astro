@@ -1,0 +1,9 @@
+---
+import SeccionContacto from '../home/SeccionContacto.astro';
+import type { Lang } from '../../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+---
+<div data-about-closing>
+  <SeccionContacto lang={lang} />
+</div>

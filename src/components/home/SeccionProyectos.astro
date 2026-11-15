@@ -1,0 +1,66 @@
+---
+import ConceptImage from '../ConceptImage.astro';
+import { href, type Lang } from '../../i18n';
+import { tr } from '../../i18n/ui';
+import { projects } from '../../content/projects';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = tr(lang);
+// Only our real project entries; each card links to its case study.
+const cards = projects.map((p) => ({
+  id: p.id,
+  title: (p.cardTitle ?? p.title)[lang],
+  full: p.title[lang],
+  kind: p.kind[lang],
+  badge: p.badge?.[lang] ?? t.common.sample,
+  image: p.images?.find((i) => i.role === 'card'),
+}));
+---
+<section class="proj" id="proyectos" data-home-projects aria-labelledby="proj-h">
+  <div class="wrap">
+    <header class="proj__head">
+      <p class="eyebrow">{t.projects.eyebrow}</p>
+      <h2 id="proj-h" class="h-section">{t.projects.h2.a} <em>{t.projects.h2.em}</em></h2>
+      <p class="lead">{t.projects.intro}</p>
+    </header>
+    <ul class="proj__grid">
+      {cards.map((c) => (
+        <li class="proj__card" data-project-card={c.id}>
+          <div class="proj__media">
+            {c.image && <ConceptImage image={c.image} lang={lang} sizes="(min-width: 64em) 30vw, 100vw" class="proj__img" />}
+          </div>
+          <div class="proj__meta">
+            <h3 class="proj__title"><a class="proj__link" href={href(lang, `work/${c.id}/`)}>{c.title}<span class="sr-only">: {c.full}</span></a></h3>
+            <p class="proj__kind">{c.kind}</p>
+            <p class="proj__badge">{c.badge}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+    <p class="proj__all"><a class="link-arrow" href={href(lang, 'work/')}>{t.projects.seeAll}</a></p>
+  </div>
+</section>
+<style>
+  .proj { padding-block: var(--section); background: var(--ink-50, transparent); }
+  .proj__head { display: grid; gap: var(--s4); justify-items: start; margin-bottom: var(--s6); max-width: 48rem; }
+  .proj__head > * { margin: 0; }
+  .proj__grid { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s6); grid-template-columns: minmax(0, 1fr); }
+  .proj__card { position: relative; display: grid; gap: var(--s3); align-content: start; min-width: 0; }
+  .proj__media { aspect-ratio: 16 / 11; overflow: hidden; border: 1px solid var(--ink-200); background: var(--ink-100, transparent); }
+  .proj__media :global(.proj__img) { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s; }
+  .proj__card:hover .proj__media :global(.proj__img) { transform: scale(1.03); }
+  .proj__meta { display: grid; gap: var(--s1, 0.25rem); }
+  .proj__meta > * { margin: 0; }
+  .proj__title { font-size: 1.375rem; font-weight: 500; line-height: 1.2; }
+  .proj__link { color: var(--ink); text-decoration: none; }
+  .proj__link::after { content: ''; position: absolute; inset: 0; }
+  .proj__link:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+  .proj__kind { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-500); }
+  .proj__badge { font-size: 0.8125rem; color: var(--ink-700); }
+  .proj__all { margin: var(--s6) 0 0; }
+  @media (min-width: 1024px) {
+    .proj__head { margin-bottom: var(--s7, 4rem); }
+    .proj__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s5); }
+    .proj__title { font-size: 1.625rem; }
+  }
+</style>

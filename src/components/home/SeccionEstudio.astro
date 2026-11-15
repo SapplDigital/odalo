@@ -1,0 +1,48 @@
+---
+import { type Lang } from '../../i18n';
+import { tr } from '../../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = tr(lang);
+---
+<section class="est" id="estudio" data-home-studio aria-labelledby="estudio-h">
+  <div class="wrap">
+    <div class="est__head">
+      <div class="est__title">
+        <p class="eyebrow">{t.studio.eyebrow}</p>
+        <h2 id="estudio-h" class="h-section">{t.studio.h2.a} <em>{t.studio.h2.em}</em></h2>
+      </div>
+      <p class="lead est__intro">{t.studio.intro}</p>
+    </div>
+    <div class="est__sectors">
+      <p class="est__label">{t.studio.sectorsTitle}</p>
+      <ul class="est__grid">
+        {t.studio.sectors.map((s, i) => (
+          <li class="est__item" data-studio-sector>
+            <span class="est__n">{String(i + 1).padStart(2, '0')}</span>
+            <span class="est__name">{s}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+<style>
+  .est { padding-block: var(--section); }
+  .est__head { display: grid; gap: var(--s5); grid-template-columns: minmax(0, 1fr); }
+  .est__title { display: grid; gap: var(--s4); min-width: 0; }
+  .est__title > *, .est__intro { margin: 0; }
+  .est__sectors { margin-top: var(--s7, 3.5rem); }
+  .est__label { margin: 0; font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-500); }
+  .est__grid { list-style: none; margin: var(--s4) 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--ink-200); border-left: 1px solid var(--ink-200); }
+  .est__item { display: flex; flex-direction: column; justify-content: space-between; gap: var(--s3); min-height: 7rem; padding: var(--s3); border-right: 1px solid var(--ink-200); border-bottom: 1px solid var(--ink-200); min-width: 0; }
+  .est__n { font-family: var(--font-mono); font-size: 0.6875rem; color: var(--ink-500); }
+  .est__name { font-size: 1.0625rem; line-height: 1.2; font-weight: 500; color: var(--ink); overflow-wrap: anywhere; }
+  @media (min-width: 768px) { .est__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (min-width: 1024px) {
+    .est__head { grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: end; }
+    .est__title { grid-column: span 6; }
+    .est__intro { grid-column: 8 / span 5; }
+    .est__grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  }
+</style>

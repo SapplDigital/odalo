@@ -1,110 +1,25 @@
 ---
 import Base from '../../../../layouts/Base.astro';
-import PageHero from '../../../../components/PageHero.astro';
-import ConceptImage from '../../../../components/ConceptImage.astro';
-import Process from '../../../../components/Process.astro';
-import WorkMosaic from '../../../../components/WorkMosaic.astro';
-import Faq from '../../../../components/Faq.astro';
-import FinalCta from '../../../../components/FinalCta.astro';
-import { languages, href, type Lang } from '../../../../i18n';
-import { tr } from '../../../../i18n/ui';
-import { services, serviceById, serviceVisual } from '../../../../content/services';
-import { planById, plansFrom, planPriceText } from '../../../../content/plans';
-import BuildNote from '../../../../components/BuildNote.astro';
+import ServiceHero from '../../../../components/services/ServiceHero.astro';
+import ServiceDeliver from '../../../../components/services/ServiceDeliver.astro';
+import ServiceProcess from '../../../../components/services/ServiceProcess.astro';
+import ServicePlan from '../../../../components/services/ServicePlan.astro';
+import ServiceFaq from '../../../../components/services/ServiceFaq.astro';
+import ServiceClosing from '../../../../components/services/ServiceClosing.astro';
+import { languages, type Lang } from '../../../../i18n';
+import { services, serviceById } from '../../../../content/services';
 
 export function getStaticPaths() {
   return languages.flatMap((lang) => services.map((s) => ({ params: { lang, service: s.id } })));
 }
 const lang = Astro.params.lang as Lang;
 const s = serviceById(Astro.params.service!)!;
-const t = tr(lang);
-const plan = planById(s.relatedPlan)!; // entry plan: target of the hero's "see plans" link
-const including = plansFrom(s.relatedPlan);
-const summaries = t.plans.summaries as Record<string, string>;
-const tone = ({ web: 'ink', local: 'sand', video: 'coral', ads: 'slate' } as const)[s.id];
-const vis = serviceVisual(s);
 ---
 <Base lang={lang} title={`${s.name[lang]} — Odalo`} description={s.outcome[lang]}>
-  <PageHero lang={lang} eyebrow={`${s.number} — ${t.common.services}`} title={{ a: s.name[lang] }} lead={s.outcome[lang]}
-    crumbs={[{ label: t.nav.services, to: `${href(lang)}#services` }, { label: s.name[lang] }]}>
-    <Fragment slot="actions">
-      <a class="btn btn--coral" href={`${href(lang, 'audit/')}?service=${s.id}`} data-track="audit_cta" data-location="service">{t.common.requestAudit}</a>
-      <a class="btn btn--ghost" href={`${href(lang, 'plans/')}#plan-${plan.id}`}>{t.common.seePlans}</a>
-    </Fragment>
-    <figure slot="aside" class="svc-fig">
-      <div class="svc-fig__img c-tl"><ConceptImage image={vis.image} lang={lang} eager sizes="(min-width: 64em) 40vw, 100vw" /></div>
-      <figcaption><b>{vis.badge[lang]}</b> · {vis.label[lang]}</figcaption>
-    </figure>
-  </PageHero>
-
-  <section class="section deliver" aria-labelledby="del-h">
-    <div class="wrap deliver__grid">
-      <div class={`deliver__lead deliver__lead--${tone} c-br ${tone === 'ink' || tone === 'slate' ? 'on-dark' : ''}`}>
-        <h2 id="del-h" class="h-tile">{t.common.deliverables}</h2>
-        <p>{s.detail[lang]}</p>
-        <p class="deliver__note">{t.services.exampleScope}</p>
-      </div>
-      <ul class="deliver__list">
-        {s.deliverables[lang].map((d, i) => <li class={`piece piece--${i % 4}`}><span class="piece__n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>{d}</li>)}
-      </ul>
-    </div>
-  </section>
-
-  <Process lang={lang} />
-  <WorkMosaic lang={lang} ids={s.relatedProjects} explainer={false} id="related-work" heading={false} />
-
-  <section class="section relplan" aria-labelledby="rp-h">
-    <div class="wrap relplan__in">
-      <h2 id="rp-h" class="h-section">{t.services.pageH2Plans}</h2>
-      <p class="eyebrow">{t.common.examplePrices}</p>
-      {s.id === 'web' && <BuildNote lang={lang} />}
-      <ul class="relplan__list c-tr">
-        {including.map((p) => (
-          <li class="relplan__row">
-            <h3 class="relplan__name"><a href={`${href(lang, 'plans/')}#plan-${p.id}`}>{p.name}</a> <span class="relplan__price">{planPriceText(p, lang, '')}{p.monthly !== null && <span class="relplan__per">{t.common.perMonth}</span>}</span></h3>
-            <p class="relplan__sum">{summaries[p.id]}</p>
-            <a class="btn btn--ink relplan__cta" href={`${href(lang, 'audit/')}?plan=${p.id}&service=${s.id}`} data-track="plan_select" data-plan={p.id}>{t.plans.ctaPlan.replace('{plan}', p.name)}</a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
-
-  <Faq lang={lang} ids={s.faqIds} heading={{ a: t.services.pageH2Faq, em: '' }} id="svc-faq" />
-  <FinalCta lang={lang} />
+  <ServiceHero lang={lang} s={s} />
+  <ServiceDeliver lang={lang} s={s} />
+  <ServiceProcess lang={lang} />
+  <ServicePlan lang={lang} s={s} />
+  <ServiceFaq lang={lang} ids={s.faqIds} />
+  <ServiceClosing lang={lang} />
 </Base>
-<style>
-  .svc-fig { display: grid; gap: var(--s3); }
-  .svc-fig__img { overflow: hidden; border-radius: var(--r-small); background: var(--sand); }
-  .svc-fig__img :global(img) { display: block; width: 100%; height: auto; }
-  .svc-fig figcaption { font-size: 0.9375rem; line-height: 1.4; overflow-wrap: anywhere; hyphens: auto; }
-  .svc-fig figcaption b { font-weight: 700; }
-  .c-tl { border-top-left-radius: var(--r-big); } .c-br { border-bottom-right-radius: var(--r-big); } .c-tr { border-top-right-radius: var(--r-big); }
-  .deliver__grid { display: grid; gap: var(--gutter); }
-  .deliver__lead { padding: var(--pad); display: grid; gap: var(--s4); align-content: start; border-radius: var(--r-small); }
-  .deliver__lead.c-br { border-bottom-right-radius: var(--r-big); }
-  .deliver__lead--ink { background: var(--ink); color: var(--paper); } .deliver__lead--sand { background: var(--sand); }
-  .deliver__lead--coral { background: var(--coral); color: var(--ink-deep); } .deliver__lead--slate { background: var(--slate); color: var(--paper); }
-  .deliver__lead p { max-width: 46ch; font-size: 1.125rem; }
-  .deliver__lead .deliver__note { font-size: 0.9375rem; border-top: 1px solid currentColor; padding-top: var(--s3); }
-  .deliver__list { display: grid; gap: var(--gutter); grid-template-columns: minmax(0, 1fr); }
-  .piece { padding: var(--pad); border-radius: var(--r-small); display: grid; gap: var(--s3); align-content: space-between; min-height: 9rem; font-weight: 600; font-size: 1.1875rem; line-height: 1.3; }
-  .piece__n { font-weight: 800; font-size: 0.9375rem; letter-spacing: 0.1em; opacity: 0.8; }
-  .piece--0 { background: var(--sand); } .piece--1 { background: var(--paper); box-shadow: inset 0 0 0 2px var(--ink); border-top-right-radius: 56px; }
-  .piece--2 { background: var(--paper); box-shadow: inset 0 0 0 2px var(--ink); border-bottom-left-radius: 56px; } .piece--3 { background: var(--sand); border-top-left-radius: 56px; }
-  .relplan__in { display: grid; gap: var(--s6); }
-  /* compact list: one short row per plan that includes the service (name + price, one line of summary, the plan -> audit button) */
-  .relplan__list { background: var(--sand); border-radius: var(--r-small); max-width: 62rem; overflow: hidden; }
-  .relplan__list.c-tr { border-top-right-radius: var(--r-big); }
-  .relplan__row { display: grid; gap: var(--s2) var(--s5); align-items: center; padding: var(--s4) var(--pad); border-bottom: 1px solid rgb(32 59 87 / 0.18); }
-  .relplan__row:last-child { border-bottom: 0; }
-  .relplan__name { font-size: 1.25rem; font-weight: 800; display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px var(--s3); }
-  .relplan__name a { text-underline-offset: 4px; }
-  .relplan__price { font-weight: 600; font-size: 1.0625rem; }
-  .relplan__per { font-size: 0.9375rem; font-weight: 500; margin-left: 4px; }
-  .relplan__sum { margin: 0; }
-  .relplan__cta { justify-self: start; }
-  @media (min-width: 48em) { .relplan__row { grid-template-columns: minmax(0, 13rem) minmax(0, 1fr) auto; } .relplan__cta { justify-self: end; } }
-  @media (min-width: 48em) { .deliver__list { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
-  @media (min-width: 64em) { .deliver__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); } }
-</style>

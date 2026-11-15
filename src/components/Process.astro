@@ -37,7 +37,7 @@ const tones = ['sand', 'coral', 'slate', 'ink'] as const;
   .step--ink { background: var(--ink); color: var(--paper); --acc: var(--coral-light); }
   .step:first-child { border-top-left-radius: var(--r-big); }
   .step:last-child { border-bottom-right-radius: var(--r-big); }
-  .step__num { font-family: ui-monospace, 'SFMono-Regular', 'Cascadia Mono', Menlo, Consolas, monospace; font-weight: 600; font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem); line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+  .step__num { font-family: var(--font-mono); font-weight: 600; font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem); line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
   .step__title { font-weight: 600; letter-spacing: -0.01em; text-wrap: balance; }
   .step--sand .step__num { color: var(--rust-text); }
   .step--coral .step__num { color: var(--ink-deep); }

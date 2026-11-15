@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
-import PageHero from '../../components/PageHero.astro';
 import { languages, type Lang } from '../../i18n';
+import { tr } from '../../i18n/ui';
 import { legalFor } from '../../content/legal';
 import { site } from '../../config/site';
 export function getStaticPaths() {
@@ -9,18 +9,23 @@ export function getStaticPaths() {
 }
 const lang = Astro.params.lang as Lang;
 const slug = Astro.params.legal as 'privacy' | 'cookies' | 'legal';
+const t = tr(lang);
 const copy = legalFor(lang, site.auditTransport);
 const page = copy.pages[slug];
 const { operator } = site;
 ---
 <Base lang={lang} title={`${page.title} — Odalo`} description={page.lead} noindex>
-  <PageHero lang={lang} title={{ a: page.title }} lead={page.lead} crumbs={[{ label: page.title }]} />
-  <section class="section lg">
-    <div class="wrap lg__in">
-      <p class="lg__banner" role="note">{copy.banner}</p>
-      <section class="lg__card" aria-labelledby="lg-card">
+  <div class="lp">
+    <div class="wrap lp__in">
+      <div class="lp__intro" data-legal-intro>
+        <p class="lp__tag"><span aria-hidden="true">→</span> {t.footer.legal}</p>
+        <h1 class="h-hero lp__h">{page.title}</h1>
+        <p class="lead lp__lead">{page.lead}</p>
+      </div>
+      <p class="lp__banner" role="note" data-legal-banner>{copy.banner}</p>
+      <section class="lp__card" aria-labelledby="lg-card" data-legal-card>
         <h2 id="lg-card" class="h-tile">{copy.card.h}</h2>
-        <p>{copy.card.brandLine}</p>
+        <p class="lp__brand">{copy.card.brandLine}</p>
         <dl>
           <div><dt>{copy.card.operator}</dt><dd>{operator.name}</dd></div>
           <div><dt>{copy.card.brand}</dt><dd>{operator.tradeName}</dd></div>
@@ -30,7 +35,7 @@ const { operator } = site;
           {site.vatId && <div><dt>{copy.card.vatId}</dt><dd>{site.vatId}</dd></div>}
         </dl>
       </section>
-      <ol class="lg__list">
+      <ol class="lp__list" data-legal-sections>
         {page.sections.map((s) => (
           <li>
             <h2 class="h-tile">{s.h}</h2>
@@ -47,20 +52,34 @@ const { operator } = site;
         )}
       </ol>
     </div>
-  </section>
+  </div>
 </Base>
 <style>
-  .lg { padding-top: 0; }
-  .lg__in { display: grid; gap: var(--s6); max-width: 60rem; }
-  .lg__banner { background: var(--sand); border-left: 8px solid var(--coral); padding: 16px 20px; font-weight: 600; border-radius: 4px; }
-  .lg__card { display: grid; gap: var(--s3); padding: 20px; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; }
-  .lg__card dl { display: grid; gap: var(--s3); }
-  .lg__card dl div { display: grid; gap: 2px; }
-  .lg__card dt { font-size: 0.8125rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--rust-text); }
-  .lg__card dd { overflow-wrap: anywhere; }
-  .lg__card a, .lg__list a { text-underline-offset: 3px; }
-  .lg__list p { overflow-wrap: anywhere; }
-  .lg__list { display: grid; gap: var(--s5); counter-reset: s; }
-  .lg__list li { padding-bottom: var(--s5); border-bottom: 1px solid var(--line); display: grid; gap: 8px; }
-  .lg__list h2 { font-size: 1.5rem; }
+  .lp { background: var(--paper); padding-top: 8rem; padding-bottom: 5rem; }
+  .lp__in { display: grid; gap: var(--s6); max-width: 60rem; min-width: 0; }
+  .lp__in > * { min-width: 0; margin: 0; }
+  .lp__intro { display: grid; gap: var(--s5); justify-items: start; }
+  .lp__intro > * { margin: 0; min-width: 0; }
+  .lp__tag { display: inline-flex; gap: 0.5rem; padding: 0.25rem 0.75rem; border: 1px solid var(--ink-200); border-radius: 999px; background: var(--surface); font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-700); }
+  .lp__h { font-size: var(--text-h2); overflow-wrap: anywhere; hyphens: auto; }
+  .lp__lead { max-width: var(--measure-prose); }
+  .lp__banner { border: 1px solid var(--line-strong); border-radius: var(--radius-tile); padding: var(--s4) var(--s5); color: var(--ink); font-weight: 600; background: var(--surface); }
+  .lp__card { display: grid; gap: var(--s3); padding: var(--s5); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-panel); }
+  .lp__card > * { margin: 0; }
+  .lp__card dl { display: grid; gap: var(--s4); margin: 0; }
+  .lp__card dl div { display: grid; gap: 2px; min-width: 0; }
+  .lp__card dt { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-500); }
+  .lp__card dd { margin: 0; overflow-wrap: anywhere; }
+  .lp__card a, .lp__list a { text-underline-offset: 3px; }
+  .lp__list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--s6); }
+  .lp__list li { border-top: 1px solid var(--line); padding-top: var(--s5); display: grid; gap: var(--s3); min-width: 0; }
+  .lp__list li > * { margin: 0; }
+  .lp__list h2 { font-size: var(--text-h3); }
+  .lp__list p { max-width: 75ch; overflow-wrap: anywhere; }
+  @media (min-width: 640px) {
+    .lp__card dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (min-width: 768px) {
+    .lp { padding-top: 10rem; padding-bottom: 7rem; }
+  }
 </style>

@@ -1,0 +1,43 @@
+---
+import type { Lang } from '../../i18n';
+import { tr } from '../../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = tr(lang);
+---
+<section class="sp section" data-svc-process aria-labelledby="svc-proc-h">
+  <div class="wrap sp__in">
+    <header class="sp__head">
+      <p class="sp__tag">2 — {t.nav.process}</p>
+      <h2 id="svc-proc-h" class="h-section">{t.process.h2.a} <em>{t.process.h2.em}</em></h2>
+      <p class="sp__note">{t.process.note}</p>
+    </header>
+    <ol class="sp__steps">
+      {t.process.steps.map((s, i) => (
+        <li class="sp__step">
+          <span class="sp__line" aria-hidden="true"></span>
+          <span class="sp__n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="sp__t"><span class="sr-only">{i + 1}. </span>{s.t}</h3>
+          <p>{s.d}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+<style>
+  .sp { background: var(--paper); border-top: 1px solid var(--ink-200); }
+  .sp__in { display: grid; gap: var(--s7); }
+  .sp__head { display: grid; gap: var(--s4); max-width: 60rem; }
+  .sp__head > * { margin: 0; }
+  .sp__tag { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-700); }
+  .sp__note { max-width: 52ch; color: var(--ink-700); }
+  .sp__steps { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s6); grid-template-columns: minmax(0, 1fr); }
+  .sp__step { display: grid; gap: var(--s3); align-content: start; min-width: 0; overflow-wrap: anywhere; hyphens: auto; }
+  .sp__step > * { margin: 0; }
+  .sp__line { display: block; height: 2px; background: var(--ink); }
+  .sp__n { font-family: var(--font-mono); font-weight: 600; font-size: 1.25rem; color: var(--rust-text); }
+  .sp__t { font-size: 1.25rem; font-weight: 600; }
+  .sp__step p { max-width: 36ch; line-height: 1.55; }
+  @media (min-width: 48em) { .sp__steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s6) var(--gutter); } }
+  @media (min-width: 64em) { .sp__steps { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+</style>

@@ -1,0 +1,60 @@
+---
+import { href, type Lang } from '../../i18n';
+import { tr } from '../../i18n/ui';
+import { site } from '../../config/site';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = tr(lang);
+const email = site.contact.email;
+const city = site.operator.city;
+const country = site.operator.country[lang];
+---
+<section class="ctc" id="contacto" data-home-contact aria-labelledby="contacto-h">
+  <svg class="ctc__path" viewBox="0 0 640 200" aria-hidden="true" focusable="false" preserveAspectRatio="xMaxYMin slice">
+    {[[60, 40], [200, 90], [340, 60], [470, 120], [590, 80]].map(([x, y], i) => <circle cx={x} cy={y} r={14 + i * 3} fill="none" stroke="currentColor" stroke-width="1.5" />)}
+  </svg>
+  <div class="wrap ctc__inner">
+    <p class="ctc__eyebrow">{t.contact.eyebrow}</p>
+    <h2 id="contacto-h" class="ctc__h">{t.contact.h2.a} <em>{t.contact.h2.em}</em></h2>
+    <div class="ctc__grid">
+      <div class="ctc__main">
+        <p class="ctc__text">{t.contact.text}</p>
+        <p><a class="ctc__btn" href={href(lang, 'audit/')}>{t.contact.cta}</a></p>
+      </div>
+      <dl class="ctc__meta">
+        {email && (
+          <div>
+            <dt>{t.contact.writeUs}</dt>
+            <dd><a href={`mailto:${email}`}>{email}</a></dd>
+          </div>
+        )}
+        <div>
+          <dt>{t.contact.location}</dt>
+          <dd>{city}, {country}</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+<style>
+  .ctc { position: relative; overflow: hidden; padding-block: var(--section); background: var(--ink); color: rgb(255 255 255 / 0.75); }
+  .ctc__path { position: absolute; top: 0; right: 0; width: 100%; max-width: 640px; height: auto; color: rgb(255 255 255 / 0.12); pointer-events: none; }
+  .ctc__inner { position: relative; display: grid; gap: var(--s5); }
+  .ctc__eyebrow { margin: 0; font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgb(255 255 255 / 0.75); }
+  .ctc__h { margin: 0; color: #fff; font-weight: 300; font-size: clamp(2.25rem, 6vw, 4.5rem); line-height: 1.05; text-wrap: balance; overflow-wrap: anywhere; }
+  .ctc__grid { display: grid; gap: var(--s6); grid-template-columns: minmax(0, 1fr); margin-top: var(--s4); }
+  .ctc__main { display: grid; gap: var(--s4); justify-items: start; min-width: 0; }
+  .ctc__main > * { margin: 0; }
+  .ctc__text { max-width: 36rem; }
+  .ctc__btn { display: inline-block; padding: 0.875rem 1.75rem; border-radius: 999px; background: #fff; color: var(--ink); font-weight: 600; text-decoration: none; }
+  .ctc__btn:hover { background: rgb(255 255 255 / 0.85); }
+  .ctc__meta { margin: 0; display: grid; gap: var(--s4); min-width: 0; }
+  .ctc__meta dt { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgb(255 255 255 / 0.75); }
+  .ctc__meta dd { margin: var(--s2) 0 0; font-size: 0.9375rem; color: #fff; overflow-wrap: anywhere; }
+  .ctc__meta a { color: #fff; text-underline-offset: 4px; }
+  @media (min-width: 768px) {
+    .ctc__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: end; }
+    .ctc__main { grid-column: span 6; }
+    .ctc__meta { grid-column: 8 / span 5; }
+  }
+</style>

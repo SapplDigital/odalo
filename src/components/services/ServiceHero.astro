@@ -1,0 +1,47 @@
+---
+import ConceptImage from '../ConceptImage.astro';
+import { href, type Lang } from '../../i18n';
+import { tr } from '../../i18n/ui';
+import { serviceVisual, type Service } from '../../content/services';
+interface Props { lang: Lang; s: Service }
+const { lang, s } = Astro.props;
+const t = tr(lang);
+const vis = serviceVisual(s);
+---
+<section class="sh" data-svc-hero aria-labelledby="svc-h">
+  <div class="sh__dots" aria-hidden="true"></div>
+  <div class="wrap sh__grid">
+    <div class="sh__main">
+      <p class="sh__tag">{s.number} — {s.name[lang]}</p>
+      <h1 id="svc-h" class="h-hero sh__h">{s.name[lang]}</h1>
+      <p class="lead sh__lead">{s.outcome[lang]}</p>
+      <p class="sh__cta">
+        <a class="btn btn--coral sh__btn" href={`${href(lang, 'audit/')}?service=${s.id}`} data-track="audit_cta" data-location="service">{t.common.requestAudit}</a>
+      </p>
+    </div>
+    <figure class="sh__aside svc-fig">
+      <div class="svc-fig__img"><ConceptImage image={vis.image} lang={lang} eager sizes="(min-width: 64em) 40vw, 100vw" /></div>
+      <figcaption><b>{vis.badge[lang]}</b> · {vis.label[lang]}</figcaption>
+    </figure>
+  </div>
+</section>
+<style>
+  .sh { position: relative; overflow: hidden; padding-block: calc(var(--header-h) + var(--s7)) var(--s8); background: var(--paper); border-bottom: 1px solid var(--ink-200); }
+  .sh__dots { position: absolute; inset: 0; pointer-events: none; color: var(--ink); opacity: 0.12; background-image: radial-gradient(currentColor 1px, transparent 1.5px); background-size: 24px 24px; }
+  .sh__grid { position: relative; display: grid; gap: var(--s6); grid-template-columns: minmax(0, 1fr); align-items: center; }
+  .sh__main { display: grid; gap: var(--s5); min-width: 0; justify-items: start; }
+  .sh__main > * { margin: 0; }
+  .sh__tag { display: inline-block; padding: 0.25rem 0.75rem; border: 1px solid var(--ink-200); border-radius: 999px; font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-700); overflow-wrap: anywhere; }
+  .sh__h { overflow-wrap: anywhere; hyphens: auto; }
+  .sh__btn { padding-inline: 2rem; min-height: 56px; font-size: 1.0625rem; }
+  .svc-fig { margin: 0; display: grid; gap: var(--s3); min-width: 0; }
+  .svc-fig__img { overflow: hidden; border-radius: var(--r-small); background: var(--sand); }
+  .svc-fig__img :global(img) { display: block; width: 100%; height: auto; }
+  .svc-fig figcaption { font-size: 0.9375rem; line-height: 1.4; overflow-wrap: anywhere; hyphens: auto; }
+  .svc-fig figcaption b { font-weight: 700; }
+  @media (min-width: 64em) {
+    .sh__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+    .sh__main { grid-column: span 7; }
+    .sh__aside { grid-column: 8 / span 5; }
+  }
+</style>

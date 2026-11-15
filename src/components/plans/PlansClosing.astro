@@ -1,0 +1,37 @@
+---
+import { href, type Lang } from '../../i18n';
+import { tr } from '../../i18n/ui';
+import { site } from '../../config/site';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = tr(lang);
+const email = site.contact.email;
+---
+<section class="pc on-dark" id="plans-closing" data-plans-closing aria-labelledby="pc-h">
+  <div class="wrap pc__grid">
+    <div class="pc__text">
+      <h2 id="pc-h" class="pc__h">{t.plans.page.doubtH}</h2>
+      <p class="pc__p">{t.plans.page.doubtText}</p>
+    </div>
+    <div class="pc__actions">
+      <a class="pc__btn" href={href(lang, 'audit/')} data-plans-audit-link>{t.common.requestAudit}</a>
+      {email && <a class="pc__mail" href={`mailto:${email}`}>{email}</a>}
+    </div>
+  </div>
+</section>
+<style>
+  .pc { padding-block: var(--section); background: var(--ink); color: rgb(255 255 255 / 0.75); }
+  .pc__grid { display: grid; gap: var(--s6); grid-template-columns: minmax(0, 1fr); }
+  .pc__text, .pc__actions { min-width: 0; }
+  .pc__h { margin: 0; color: #fff; font-weight: 300; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; text-wrap: balance; overflow-wrap: anywhere; }
+  .pc__p { margin: var(--s4) 0 0; max-width: 40rem; }
+  .pc__actions { display: grid; gap: var(--s4); justify-items: start; align-content: end; }
+  .pc__btn { display: inline-block; padding: 0.875rem 1.75rem; border-radius: 999px; background: #fff; color: var(--ink); font-weight: 600; text-decoration: none; }
+  .pc__btn:hover { background: rgb(255 255 255 / 0.85); }
+  .pc__mail { color: #fff; font-family: var(--font-mono); font-size: 0.8125rem; text-underline-offset: 4px; overflow-wrap: anywhere; }
+  @media (min-width: 48em) {
+    .pc__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: end; }
+    .pc__text { grid-column: span 7; }
+    .pc__actions { grid-column: 9 / span 4; justify-items: end; }
+  }
+</style>

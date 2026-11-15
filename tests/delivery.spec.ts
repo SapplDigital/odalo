@@ -42,7 +42,7 @@ test.describe('public email', () => {
         expect(await page.locator(`footer a[href="mailto:${NEW}"]`).count(), `${l}/${path} footer`).toBeGreaterThan(0);
       }
       await page.goto(`/${l}/audit/`);
-      await expect(page.locator(`.am-alt a[href="mailto:${NEW}"]`)).toBeVisible();
+      await expect(page.locator(`[data-audit-intro] a[href="mailto:${NEW}"]`)).toBeVisible();
       expect(await page.evaluate(() => [...document.querySelectorAll('noscript')].map((n) => n.textContent).join(''))).toContain(`mailto:${NEW}`); // raw <noscript> markup (rendered only with JS off, see the no-JS test)
     }
   });
@@ -124,8 +124,8 @@ test.describe('Netlify transport (intercepted)', () => {
 
   for (const l of langs) test(`${l}: accepted result uses "received/accepted" wording (no delivery guarantee), resets the form and the summary`, async ({ page }) => {
     await page.goto(`/${l}/audit/`);
-    await page.click('#am-b-ads'); await page.click('[data-piece="ads"] [data-include]');
-    await expect(page.locator('[data-selected="true"]')).toHaveCount(1);
+    await page.selectOption('#f-service', 'ads');
+    await expect(page.locator('#f-service')).toHaveValue('ads');
     await fill(page); await netlifyMode(page); await intercept(page, ok);
     await page.click('[data-submit]');
     const res = page.locator('[data-result]');
@@ -136,8 +136,6 @@ test.describe('Netlify transport (intercepted)', () => {
     await expect(page.locator('[data-retry]')).toBeHidden();
     await expect(page.locator('#f-business')).toHaveValue('');
     await expect(page.locator('#f-service')).toHaveValue('');
-    expect(await page.locator('[data-selected="true"]').count()).toBe(0); // mosaic follows the reset
-    await expect(page.locator('[data-am-focus]')).toHaveText(tr(l).audit.mosaic.none);
   });
 
   test('honeypot: empty for people, a filled value is passed through for Netlify to discard', async ({ page }) => {
@@ -158,7 +156,6 @@ test.describe('Netlify transport (intercepted)', () => {
     await expect(page.locator('[data-retry]')).toBeVisible();
     await expect(page.locator('#f-business')).toHaveValue('Sample Studio');
     await expect(page.locator('#f-service')).toHaveValue('web');
-    await expect(page.locator('[data-selected="true"]')).toHaveCount(1);
     await page.click('[data-retry]');
     await expect(page.locator('[data-result]')).toHaveAttribute('data-kind', 'delivered');
     expect(seen).toHaveLength(2);

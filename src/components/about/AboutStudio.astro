@@ -1,0 +1,43 @@
+---
+import { href, languages, languageNames, type Lang } from '../../i18n';
+import { tr } from '../../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = tr(lang);
+---
+<section class="ast" data-about-studio aria-labelledby="ast-h">
+  <div class="wrap ast__grid">
+    <div class="ast__title">
+      <p class="ast__eyebrow">{t.studio.eyebrow}</p>
+      <h2 id="ast-h" class="h-section">{t.about.languagesH}</h2>
+    </div>
+    <div class="ast__body">
+      <p class="lead">{t.studio.intro}</p>
+      <p>{t.about.languagesBody}</p>
+      <ul class="ast__langs" data-about-langs>
+        {languages.map((l) => (
+          <li>{l === lang
+            ? <span lang={l} aria-current="true">{languageNames[l].native}</span>
+            : <a lang={l} hreflang={l} href={href(l, 'about/')} data-set-lang={l}>{languageNames[l].native}</a>}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+<style>
+  .ast { padding-block: var(--section); border-top: 1px solid var(--ink-200); }
+  .ast__grid { display: grid; gap: var(--s5); grid-template-columns: minmax(0, 1fr); }
+  .ast__title { display: grid; gap: var(--s4); min-width: 0; align-content: start; }
+  .ast__title > *, .ast__body > * { margin: 0; }
+  .ast__body { display: grid; gap: var(--s4); min-width: 0; align-content: start; }
+  .ast__eyebrow { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-500); }
+  .ast__langs { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .ast__langs a, .ast__langs span { display: inline-flex; align-items: center; min-height: 44px; padding: 4px 16px; border: 1px solid var(--ink); border-radius: 999px; font-weight: 600; text-decoration: none; color: var(--ink); }
+  .ast__langs a:hover { background: var(--ink); color: var(--paper); }
+  .ast__langs [aria-current] { background: var(--ink); color: var(--paper); }
+  @media (min-width: 1024px) {
+    .ast__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+    .ast__title { grid-column: span 6; }
+    .ast__body { grid-column: 8 / span 5; }
+  }
+</style>

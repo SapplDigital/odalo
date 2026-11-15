@@ -1,0 +1,49 @@
+---
+import BuildNote from '../BuildNote.astro';
+import { href, type Lang } from '../../i18n';
+import { tr } from '../../i18n/ui';
+import { plansFrom, planPriceText } from '../../content/plans';
+import type { Service } from '../../content/services';
+interface Props { lang: Lang; s: Service }
+const { lang, s } = Astro.props;
+const t = tr(lang);
+const including = plansFrom(s.relatedPlan);
+const summaries = t.plans.summaries as Record<string, string>;
+---
+<section class="spl section" data-svc-plan aria-labelledby="svc-plan-h">
+  <div class="wrap spl__in">
+    <header class="spl__head">
+      <p class="spl__tag">3 — {t.common.examplePrices}</p>
+      <h2 id="svc-plan-h" class="h-section">{t.services.pageH2Plans}</h2>
+      {s.id === 'web' && <BuildNote lang={lang} />}
+      <p><a class="btn btn--ghost" href={href(lang, 'plans/')} data-svc-plans-link>{t.common.seePlans}</a></p>
+    </header>
+    <ul class="spl__list">
+      {including.map((p) => (
+        <li class="spl__row" data-svc-plan-row={p.id}>
+          <h3 class="spl__name"><span data-svc-plan-name>{p.name}</span> <span class="spl__price" data-svc-plan-price>{planPriceText(p, lang, '')}{p.monthly !== null && <span class="spl__per">{t.common.perMonth}</span>}</span></h3>
+          <p class="spl__sum">{summaries[p.id]}</p>
+          <a class="btn btn--ink spl__cta" href={`${href(lang, 'audit/')}?plan=${p.id}&service=${s.id}`} data-track="plan_select" data-plan={p.id}>{t.plans.ctaPlan.replace('{plan}', p.name)}</a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+<style>
+  .spl { background: var(--paper); border-top: 1px solid var(--ink-200); }
+  .spl__in { display: grid; gap: var(--s7); }
+  .spl__head { display: grid; gap: var(--s4); justify-items: start; max-width: 60rem; }
+  .spl__head > * { margin: 0; }
+  .spl__tag { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-700); }
+  .spl__list { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgb(32 59 87 / 0.15); }
+  .spl__row { display: grid; gap: var(--s2) var(--s5); align-items: center; padding: var(--s4) 0; border-bottom: 1px solid rgb(32 59 87 / 0.15); min-width: 0; }
+  .spl__row > * { margin: 0; min-width: 0; }
+  .spl__name { font-size: 1.25rem; font-weight: 800; display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px var(--s3); }
+  .spl__price { font-weight: 600; font-size: 1.0625rem; }
+  .spl__per { font-size: 0.9375rem; font-weight: 500; margin-left: 4px; }
+  .spl__cta { justify-self: start; }
+  @media (min-width: 48em) {
+    .spl__row { grid-template-columns: minmax(0, 15rem) minmax(0, 1fr) auto; }
+    .spl__cta { justify-self: end; }
+  }
+</style>
