@@ -48,3 +48,33 @@ Severity: H/M/L. "Match" = how close to Ale.
 - L: Work thumbnails crop text at the left edge (Tidewell).
 - L: Nav labels differ from Ale ("Proyectos/Estudio" vs "Proceso/Nosotros").
 - Not tested: en/de visual copy review, hover/animation, cookie banner, form submit, real-device Safari, Lighthouse/contrast measurements.
+
+## Round 2 (7d65ccd)
+Method: regenerated screens (92 tests passed), compared es home/plans/services-video at 390+1440 and en/de home at 390 against `screens/ale/`. Full-page PNGs are downscaled when viewed; crops of hero and projects inspected at 1:1. No console/network capture this round.
+
+**Verdict: mostly closer, but not yet Ale's design.** Palette, serif-italic accents, terrazzo shapes, accordion and plan grid now match in structure; the signature image/dot layer and page-specific visuals are still missing.
+
+| Gap (round 1) | Status |
+|---|---|
+| Image layer (dot field, phone mockups, hero art) | PARTLY. Terrazzo shapes + faint dot grid present. Ale's dotted hero cloud, dot-matrix price numerals, phone mockup in services, 9:16 / calendar / process visuals are absent. |
+| Typography | MOSTLY FIXED. Light sans + Instrument-style italic accent in terracotta matches. Ale accents are blue/navy italic, ours are terracotta; hero headline is larger than Ale's. |
+| Services accordion | PARTLY. Accordion and numbering match; Ale has the phone mockup card beside it (ours is single column, no visual) and shorter copy. |
+| Plan cards / dot prices | PARTLY. Layout, dark Captacion card, 360 row match. Prices are plain mono, not dot-matrix; plans page has no dot hero block; extra "Condiciones" and FAQ sections not in Ale. |
+| Imagery | PARTLY. Services-video cards use real photos like Ale; Ale hero phone video is missing (ours has a filmstrip), "Una pieza, cada pantalla" and calendar block missing. Home project cards: 2 of 3 render as empty grey boxes. |
+
+New defects
+- High: Home "Ejemplos" cards Casa Almina and Brindle Pantry render blank grey (en/de/es, 390 and 1440). Files exist in public/work/concepts, the spec scrolls the page, so likely lazy/reveal/srcset problem; Tidewell loads. Not verified in a live browser. Check the home project card component and `src/content/projects.ts` card image paths.
+- Medium: 390 hero: floating nav pill overlaps the eyebrow label ("ESTUDIO DIGITAL..."). The sticky bottom bar (Menú/Planes/Auditoría) overlaps the "01 SERVICIOS" label in the full-page shot (probably screenshot artifact; verify in real scroll).
+- Medium: de home 390: headline "Wir verbinden Websites, Anzeigen und Geschäft..." overlapped by the sticky bar in shot; same artifact check.
+- Medium: Tidewell card image is cropped at left edge (text cut) at 1440.
+- Low: footer on contact band: terrazzo shapes overlap the "gratuita." headline at 390 and 1440 (Ale places them to the side). Mobile footer brand lockup is large.
+- Low: nav labels (Servicios/Planes/Proceso/Nosotros) differ from Ale's (Servicios/Proyectos/Planes/Estudio). Plans page hero shapes sit over the subcopy at 1440.
+- Copy: en/de home at 390 are fully translated, no untranslated strings seen. "Consultar" and placeholder tags in mono are consistent. No horizontal overflow visible in any viewed shot.
+
+Remaining gaps ranked
+- High: fix blank project cards (home projects component, projects.ts image paths).
+- High: dot-matrix price numerals + dotted hero cloud (hero component, plans price cell); this is the brand signature.
+- Medium: phone mockup beside services accordion (home services section); hero phone/video visual on services-video; 9:16 format and calendar blocks.
+- Medium: terracotta vs navy italic accent; nav labels.
+- Low: terrazzo/heading overlap in contact band; remove extra Condiciones/FAQ on plans if Ale's lean layout is the target.
+- Not tested: hover/animation, reduced motion, real sticky-bar scrolling, contrast measurement, console/network errors, other pages (work, legal) in detail.
