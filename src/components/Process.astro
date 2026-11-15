@@ -37,18 +37,19 @@ const tones = ['sand', 'coral', 'slate', 'ink'] as const;
   .step--ink { background: var(--ink); color: var(--paper); --acc: var(--coral-light); }
   .step:first-child { border-top-left-radius: var(--r-big); }
   .step:last-child { border-bottom-right-radius: var(--r-big); }
-  .step__num { font-weight: 800; font-size: clamp(2.25rem, 1.8rem + 1.4vw, 3rem); line-height: 1; letter-spacing: -0.03em; }
+  .step__num { font-family: ui-monospace, 'SFMono-Regular', 'Cascadia Mono', Menlo, Consolas, monospace; font-weight: 600; font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem); line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+  .step__title { font-weight: 600; letter-spacing: -0.01em; text-wrap: balance; }
   .step--sand .step__num { color: var(--rust-text); }
   .step--coral .step__num { color: var(--ink-deep); }
   .step--slate .step__num { color: var(--sand); }
   .step--ink .step__num { color: var(--coral-light); }
-  .step p { max-width: 34ch; }
+  .step p { max-width: 36ch; line-height: 1.55; }
 
   /* Progress accent: a thin bar along the bottom edge of each panel, drawn once, in order, on first entry (the existing is-in reveal).
      It is painted as part of the panel's own background, so it follows the panel's rounded silhouette exactly while drawing and when
      finished, and needs no clipping of the panel's content. Decoration only: panels, numbers and text are fully visible and never move. */
   @property --draw { syntax: '<percentage>'; inherits: false; initial-value: 100%; }
-  .step { --draw: 100%; background-image: linear-gradient(var(--acc), var(--acc)); background-repeat: no-repeat; background-position: left bottom; background-size: var(--draw) 6px; transition: --draw 0.6s ease calc(0.35s * var(--i)); }
+  .step { --draw: 100%; background-image: linear-gradient(var(--acc), var(--acc)); background-repeat: no-repeat; background-position: left bottom; background-size: var(--draw) 6px; transition: --draw 0.4s var(--ease-glass) calc(0.1s * var(--i)); }
   :global(.js) .steps:not(.is-in) .step { --draw: 0%; }
   @media (prefers-reduced-motion: reduce) { .step { transition: none !important; --draw: 100% !important; } }
 

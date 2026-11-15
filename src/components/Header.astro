@@ -41,9 +41,9 @@ const tone = ['slate', 'coral', 'slate', 'coral', 'slate'];
   </div>
 </header>
 <style>
-  .hdr { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--line); }
+  .hdr { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--line); box-shadow: var(--shadow-hair); }
   /* homepage field: no bar of its own, the page-wide mosaic is the ground; scrolls away so the polygons stay continuous with the page */
-  .hdr--field { position: relative; background: none; border-bottom: 0; }
+  .hdr--field { position: relative; background: none; border-bottom: 0; box-shadow: none; }
   .hdr--field .hdr__links a { padding-inline: clamp(8px, 1vw, 14px); }
   .hdr--field .hdr__nav, .hdr--field .hdr__tools { padding: 0 6px; }
   .hdr__lang, .hdr__ctaw { display: inline-flex; align-items: center; }
@@ -63,15 +63,16 @@ const tone = ['slate', 'coral', 'slate', 'coral', 'slate'];
   .hdr__toggle[aria-expanded='true'] .hdr__bars::after { top: 0; transform: rotate(-45deg); }
   .hdr__panel { display: flex; align-items: center; gap: clamp(16px, 2.4vw, 40px); flex: 1; justify-content: flex-end; }
   .hdr__links { display: flex; gap: clamp(2px, 1vw, 12px); flex-wrap: wrap; justify-content: flex-end; }
-  .hdr__links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 clamp(6px, 0.9vw, 12px); text-decoration: none; font-weight: 500; font-size: 1.0625rem; border-radius: 8px; }
-  .hdr__links a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 8px; text-decoration-color: var(--coral); }
-  .hdr__links a[aria-current='page'] { box-shadow: inset 0 -3px 0 var(--coral); }
+  .hdr__links a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 clamp(8px, 1.1vw, 16px); text-decoration: none; font-weight: 500; font-size: 1.0625rem; border-radius: 999px; color: var(--ink-600); transition: background-color 0.2s var(--ease-glass), color 0.2s var(--ease-glass); }
+  .hdr__links a:hover { background: color-mix(in srgb, var(--ink) 5%, transparent); color: var(--ink); }
+  .hdr__links a[aria-current='page'] { color: var(--ink); }
+  .hdr__links a[aria-current='page']::before { content: ''; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--coral); box-shadow: 0 0 0 1px var(--ink); }
   .hdr__tools { display: flex; align-items: center; gap: 12px; }
   .hdr__cta { min-height: 48px; padding-inline: 24px; white-space: nowrap; }
 
   @media (max-width: 69.99em) {
     :global(.js) .hdr__toggle { display: inline-flex; }
-    :global(.js) .hdr__panel { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 8px; background: var(--paper); color: var(--ink); padding: 12px var(--margin) 24px; border-bottom: 1px solid var(--line); box-shadow: 0 18px 30px -20px rgb(19 35 56 / 0.35); max-height: calc(100dvh - var(--header-h)); overflow-y: auto; }
+    :global(.js) .hdr__panel { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 8px; background: var(--paper); color: var(--ink); padding: 12px var(--margin) 24px; border-bottom: 1px solid var(--line); border-radius: 0 0 var(--radius-card) var(--radius-card); box-shadow: var(--shadow-soft); max-height: calc(100dvh - var(--header-h)); overflow-y: auto; }
     :global(.js) .hdr__panel[hidden] { display: none; }
     :global(.js) .hdr__links { flex-direction: column; align-items: stretch; }
     :global(.js) .hdr__links a { font-size: 1.25rem; padding-inline: 4px; border-bottom: 1px solid var(--line); border-radius: 0; }
@@ -79,6 +80,9 @@ const tone = ['slate', 'coral', 'slate', 'coral', 'slate'];
     :global(.js) .hdr__tools { justify-content: space-between; flex-wrap: wrap; padding-top: 8px; }
     :global(.no-js) .hdr__in { flex-wrap: wrap; padding-block: 8px; }
     :global(.no-js) .hdr__panel { flex-wrap: wrap; justify-content: flex-start; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hdr__links a, .hdr__bars, .hdr__bars::before, .hdr__bars::after { transition: none; }
   }
 </style>
 <script>

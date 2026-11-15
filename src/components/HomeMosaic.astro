@@ -112,7 +112,8 @@ const links = [
   .hm-cell--c.is-hot { filter: brightness(1.06); }
 
   /* text pieces: placed by the runtime inside the inscribed rectangle of their polygon */
-  .hm-box { position: static; padding: 24px; border-radius: 10px; font-size: 1.0625rem; display: flex; flex-direction: column; justify-content: center; min-width: 0; line-height: 1.4; overflow-wrap: break-word; hyphens: manual; text-wrap: pretty; }
+  .hm-box { position: static; padding: 24px; border-radius: var(--radius-card); font-size: 1.0625rem; display: flex; flex-direction: column; justify-content: center; min-width: 0; line-height: 1.4; overflow-wrap: break-word; hyphens: manual; text-wrap: pretty; }
+  .pg:not(.hm-live) .hm-box { box-shadow: var(--shadow-soft); }
   .hm-live .hm-box { position: absolute; padding: 0; border-radius: 0; font-size: max(17px, calc(var(--k, 1) * var(--fs) * 1px)); }
   .hm-th-sand { color: var(--ink); background: var(--sand); } .hm-th-slate { color: var(--paper); background: var(--slate); } .hm-th-coral { color: var(--ink-deep); background: var(--coral); }
   .hm-live .hm-box { background: none; }
@@ -147,7 +148,7 @@ const links = [
   .hm-more { display: grid; gap: 8px; align-content: start; } .hm-more p, .hm-more ul { margin: 0; } .hm-more ul { padding-left: 1.2em; } .hm-more li { margin-block: 2px; }
   .hm-note { font-size: .85em; opacity: .9; margin: 0; }
   .hm-fig { margin: 0; display: grid; gap: 4px; } .hm-fig figcaption { font-size: .8em; }
-  .hm-pic { width: 100%; height: auto; max-height: 220px; object-fit: cover; border-radius: 8px; display: block; }
+  .hm-pic { width: 100%; height: auto; max-height: 220px; object-fit: cover; border-radius: var(--radius-tile); display: block; }
   .hm-live .hm-box .hm-detail { display: none; }
   .hm-live .hm-box.is-open .hm-detail { display: grid; }
   .hm-box.is-open { cursor: default; }
@@ -160,18 +161,18 @@ const links = [
   .hm-below { max-width: 1200px; margin-inline: auto; padding: var(--s3) var(--margin) var(--s4); }
   .hm-paths { display: none; gap: var(--s2); }
   @media (max-width: 63.99em) { .hm-live .hm-paths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  .hm-path { display: flex; flex-direction: column; justify-content: center; min-height: 76px; padding: 10px 20px; border-radius: 22px; font-size: 1.3rem; font-weight: 800; letter-spacing: -.02em; text-decoration: none; line-height: 1.12; }
+  .hm-path { display: flex; flex-direction: column; justify-content: center; min-height: 76px; padding: 10px 20px; border-radius: var(--radius-card); box-shadow: var(--shadow-soft); font-size: 1.3rem; font-weight: 800; letter-spacing: -.02em; text-decoration: none; line-height: 1.12; }
   .hm-path small { font-weight: 500; font-size: .8125rem; opacity: .9; }
 
   /* Process and FAQ: native disclosures */
   .hm-fold { display: grid; gap: var(--s3); scroll-margin-top: calc(var(--header-h) + 8px); }
   .hm-paths:not([hidden]) + .hm-fold { margin-top: var(--s3); }
   .hm-disc, .hm-disc[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
-  .hm-disc > summary { display: inline-flex; align-items: center; gap: var(--s4); min-height: 56px; padding: 8px var(--s5); border-radius: 10px; cursor: pointer; list-style: none; font-weight: 800; font-size: 1.25rem; letter-spacing: -.02em; }
+  .hm-disc > summary { display: inline-flex; align-items: center; gap: var(--s4); min-height: 56px; padding: 8px var(--s5); border-radius: var(--radius-card); cursor: pointer; list-style: none; font-weight: 800; font-size: 1.25rem; letter-spacing: -.02em; }
   .hm-disc > summary::-webkit-details-marker { display: none; }
   .hm-sico::before { content: '+'; font-size: 1.5rem; font-weight: 600; }
   .hm-disc[open] > summary .hm-sico::before { content: '\00d7'; }
-  .hm-panel { margin-top: var(--s2); padding: var(--s4) var(--s5); border-radius: 10px; display: grid; gap: var(--s3); max-width: 62rem; }
+  .hm-panel { margin-top: var(--s2); padding: var(--s4) var(--s5); border-radius: var(--radius-panel); box-shadow: var(--shadow-soft); display: grid; gap: var(--s3); max-width: 62rem; }
   .hm-steps { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--s4); grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); counter-reset: s; }
   .hm-steps li { counter-increment: s; } .hm-steps li::before { content: counter(s, decimal-leading-zero); font-weight: 800; color: var(--rust-text); }
   .hm-steps h3 { margin: 0 0 4px; font-size: 1.125rem; } .hm-steps p { margin: 0; }

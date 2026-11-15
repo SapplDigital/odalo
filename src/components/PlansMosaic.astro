@@ -45,7 +45,7 @@ const summaries = t.plans.summaries as Record<string, string>;
     --tone-warm: color-mix(in srgb, var(--paper) 45%, var(--sand));
     --tone-cool: color-mix(in srgb, var(--paper) 86%, var(--slate));
     display: grid; grid-template-columns: minmax(0, 1fr); gap: 0;
-    border-radius: var(--r-plan) var(--r-small) var(--r-plan) var(--r-small); overflow: hidden;
+    border-radius: var(--radius-hero); overflow: hidden; box-shadow: var(--shadow-float);
   }
   .plan { --p: clamp(24px, 2.4vw, 40px); background: var(--paper); color: var(--ink); padding: var(--p); display: flex; flex-direction: column; gap: var(--s3); min-width: 0; overflow-wrap: break-word; hyphens: auto; scroll-margin-top: calc(var(--header-h) + 16px); }
   .plan--local { background: var(--tone-warm); }
@@ -66,7 +66,7 @@ const summaries = t.plans.summaries as Record<string, string>;
   .plan__list { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; font-size: 1.0625rem; }
   .plan__list li, .plan__built { overflow-wrap: anywhere; }
   .plan__list li { position: relative; padding-left: 26px; line-height: 1.4; }
-  .plan__list li::before { content: ''; position: absolute; left: 0; top: 0.4em; width: 12px; height: 12px; background: var(--coral); border-radius: 0 6px 0 6px; }
+  .plan__list li::before { content: ''; position: absolute; left: 0; top: 0.4em; width: 12px; height: 12px; background: var(--coral); border-radius: 0 var(--radius-tile) 0 var(--radius-tile); }
   .plan__list--no li::before { background: none; border-radius: 0; height: 2px; top: 0.7em; background: var(--slate); width: 12px; }
   .plan--feat .plan__list--no li::before { background: var(--sand); }
   .plan__cta { margin-top: auto; align-self: flex-start; }

@@ -23,8 +23,25 @@ const t = tr(lang);
   .hero { padding-block: var(--s6) var(--s8); }
   .hero__grid { display: grid; grid-template-columns: minmax(0, 1fr); }
   .hero__text { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s5); align-content: center; padding-block: var(--s4); }
-  .hero__body { font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.375rem); color: var(--ink); }
-  .hero__cta { display: flex; flex-wrap: wrap; gap: var(--s3) var(--s4); margin-top: var(--s2); }
+  .hero .eyebrow {
+    font-family: ui-monospace, 'Geist Mono', SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .hero__body {
+    font-size: 1.1875rem; line-height: 1.5; color: var(--ink);
+    max-width: var(--measure-narrow); text-wrap: balance;
+  }
+  .hero__cta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s3) var(--s5); margin-top: var(--s2); }
+  .hero__cta .btn--coral { padding: 1.1rem 2rem; font-size: 1.125rem; }
+  .hero__cta .btn--ghost {
+    border-color: transparent; background: transparent; color: var(--ink);
+    padding-inline: 0; text-decoration: underline; text-underline-offset: 0.3em;
+    text-decoration-color: var(--ink-300);
+    transition: text-decoration-color 200ms var(--ease-glass);
+  }
+  .hero__cta .btn--ghost:hover { background: transparent; color: var(--ink); text-decoration-color: var(--ink); }
+  @media (min-width: 48em) { .hero__body { font-size: 1.375rem; } }
+  @media (prefers-reduced-motion: reduce) { .hero__cta .btn--ghost { transition: none; } }
 
   /* Calm text-only hero; the old word-art block is gone (Wordmark.astro and its assets stay for recovery). The M3 mosaic lands here next. */
   @media (min-width: 64em) {

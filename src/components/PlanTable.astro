@@ -61,7 +61,7 @@ const t = tr(lang);
   ))}
 </div>
 <style>
-  .cmp { position: relative; overflow-x: auto; background: var(--paper); border-radius: var(--r-small); border-bottom-right-radius: clamp(24px, 4vw, 56px); }
+  .cmp { position: relative; overflow-x: auto; background: var(--paper); border-radius: var(--radius-panel); box-shadow: var(--shadow-soft); }
   table { width: 100%; border-collapse: collapse; font-size: 1rem; }
   th, td { padding: 14px 16px; text-align: center; border-bottom: 1px solid var(--line); line-height: 1.35; }
   thead th { font-weight: 800; font-size: 1.125rem; background: var(--paper); position: sticky; top: 0; border-bottom: 2px solid var(--ink); }
@@ -78,7 +78,7 @@ const t = tr(lang);
   .cmpd { display: none; }
   @media (max-width: 47.99em) {
     .cmp { display: none; }
-    .cmpd { display: block; border-radius: var(--r-small) var(--r-small) clamp(40px, 6vw, 96px) var(--r-small); overflow: hidden; background: var(--paper); }
+    .cmpd { display: block; border-radius: var(--radius-panel); overflow: hidden; background: var(--paper); box-shadow: var(--shadow-soft); }
   }
   .cmpd__item { border-bottom: 1px solid var(--line); }
   .cmpd__item:last-child { border-bottom: 0; }

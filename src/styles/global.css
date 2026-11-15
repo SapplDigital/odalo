@@ -6,24 +6,67 @@
 @font-face { font-family: 'Instrument Serif Fallback'; src: local('Times New Roman'); size-adjust: 92%; ascent-override: 98%; descent-override: 26%; line-gap-override: 0%; }
 
 /*
- * Brand tokens. The first five are sampled flat pixels of the owner-supplied logo and flyer (OWNER-LOGO-odalo-dot.png,
- * OWNER-BRAND-FLYER.png): ink #223f63, sand #efe8d5, coral #d5946e, slate #516c8b, paper #f8fafa.
- * rust and the derived block are contrast-safe text companions (ink/coral is only 4.2:1, so text on coral uses ink-deep 6.3:1).
+ * Brand tokens, ported from Ale's design (odalo-web, src/app/globals.css @theme): paper #f8f9fa, sand #f3e5d1,
+ * ink #004066, slate #416c8d, coral/accent #e78f65. Existing token names are kept so components inherit the palette.
+ * ink-deep and rust-text are the AA-safe text companions (text on coral, small accent text on paper/sand).
+ * Follow-up (needs no code here, no new dependency yet): swap Outfit/Instrument Serif for Ale's Inter Tight / Geist Mono.
  */
 :root {
-  --ink: #223f63;
-  --coral: #d5946e;
-  --sand: #efe8d5;
-  --paper: #f8fafa;
-  --slate: #516c8b;
+  --ink: #004066;
+  --coral: #e78f65;
+  --accent: var(--coral);
+  --sand: #f3e5d1;
+  --paper: #f8f9fa;
+  --surface: #ffffff;
+  --slate: #416c8d;
   --rust: #b65a40;
 
-  /* Derived, contrast-safe companions (all >= 4.5:1 for the pairing noted) */
-  --ink-deep: #132338; /* text on coral: 6.3:1 */
-  --coral-light: #efa58c; /* small coral text on ink: 5.3:1 */
-  --rust-text: #9a4630; /* small accent text on paper/sand: 6.1 / 5.2:1 */
-  --slate-text: #3f6079; /* slate text on sand: 5.4:1 */
-  --line: rgb(34 63 99 / 0.18);
+  /* Ink scale (Ale's --color-ink-50..950) */
+  --ink-950: #004066;
+  --ink-900: #0e4a6e;
+  --ink-800: #1f5577;
+  --ink-700: #2f6082;
+  --ink-600: #416c8d;
+  --ink-500: #3d6886;
+  --ink-450: #5b7f9a;
+  --ink-400: #7f9db0;
+  --ink-300: #a1b8c6;
+  --ink-200: #c4d3dc;
+  --ink-100: #dbe4ea;
+  --ink-50: #eaeff2;
+
+  /* Derived, contrast-safe companions */
+  --ink-deep: #002a44; /* text on coral */
+  --coral-light: #efa58c; /* small coral text on ink */
+  --rust-text: #9a4a28; /* small accent text on paper/sand */
+  --slate-text: #3f6079; /* slate text on sand */
+  --line: rgb(0 64 102 / 0.18);
+  --line-strong: rgb(0 64 102 / 0.22);
+
+  /* Radius (Ale) */
+  --radius-tile: 16px;
+  --radius-card: 20px;
+  --radius-panel: 24px;
+  --radius-hero: 28px;
+
+  /* Shadows (Ale) */
+  --shadow-hair: 0 1px 0 rgb(0 40 64 / 0.04);
+  --shadow-soft: 0 1px 2px rgb(0 40 64 / 0.04), 0 8px 24px -12px rgb(0 40 64 / 0.12);
+  --shadow-float: 0 2px 6px rgb(0 40 64 / 0.04), 0 24px 60px -24px rgb(0 40 64 / 0.22);
+  --shadow-lift: 0 4px 12px rgb(0 40 64 / 0.05), 0 40px 90px -30px rgb(0 40 64 / 0.3);
+
+  /* Easing (use with durations of 150-400 ms) */
+  --ease-glass: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Type scale (Ale) and measures */
+  --text-display: clamp(3.25rem, 1rem + 8.6vw, 9rem);
+  --text-h1: clamp(2.75rem, 1rem + 5.4vw, 6rem);
+  --text-h2: clamp(2.25rem, 1rem + 3.4vw, 4rem);
+  --text-h3: clamp(1.375rem, 1rem + 0.9vw, 1.75rem);
+  --text-lead: clamp(1.125rem, 1rem + 0.4vw, 1.3125rem);
+  --text-micro: 0.6875rem;
+  --measure-prose: 62ch;
+  --measure-narrow: 60ch;
 
   --font-sans: 'Outfit Variable', 'Outfit', 'Outfit Fallback', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-serif: 'Instrument Serif', 'Instrument Serif Fallback', 'Iowan Old Style', Georgia, serif;
@@ -41,8 +84,8 @@
   --focus: var(--ink);
 
   --fs-hero: clamp(2.75rem, 1.55rem + 4.4vw, 6.25rem);
-  --fs-h2: clamp(2rem, 1.35rem + 2.5vw, 4rem);
-  --fs-h3: clamp(1.5rem, 1.3rem + 0.7vw, 2.125rem);
+  --fs-h2: var(--text-h2);
+  --fs-h3: var(--text-h3);
   --fs-body: clamp(1.0625rem, 1.02rem + 0.18vw, 1.25rem);
 }
 @media (min-width: 48em) { :root { --margin: 32px; --gutter: 12px; --pad: 32px; --section: 96px; --header-h: 80px; } }
@@ -105,9 +148,9 @@ a, button, summary, input, select, textarea { scroll-margin-block: calc(var(--he
 }
 .btn:active { transform: translateY(1px); }
 .btn--coral { background: var(--coral); color: var(--ink-deep); }
-.btn--coral:hover { background: #e39278; }
+.btn--coral:hover { background: color-mix(in srgb, var(--coral) 84%, white); }
 .btn--ink { background: var(--ink); color: var(--paper); }
-.btn--ink:hover { background: #2c4d6f; }
+.btn--ink:hover { background: var(--ink-800); }
 .btn--ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
 .btn--ghost:hover { background: var(--ink); color: var(--paper); }
 .on-dark .btn--ghost { color: var(--paper); border-color: var(--paper); }
@@ -133,7 +176,7 @@ a, button, summary, input, select, textarea { scroll-margin-block: calc(var(--he
 .s-ink { stroke: var(--ink); } .s-coral { stroke: var(--coral); } .s-paper { stroke: var(--paper); } .s-slate { stroke: var(--slate); }
 
 /* Progressive enhancement: essential content is visible without JS or motion */
-.js [data-reveal] { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.js [data-reveal] { opacity: 0; transform: translateY(14px); transition: opacity 0.4s var(--ease-glass), transform 0.4s var(--ease-glass); }
 .js [data-reveal].is-in { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {

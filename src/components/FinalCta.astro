@@ -40,7 +40,7 @@ const button = demo ? t.cta.buttonDemo : t.cta.button;
   .fin { padding-block: var(--section); }
   /* One joined composition: no gutter, flat shared edge; the curves are on the outer silhouette only. */
   .fin__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; }
-  .fin__main { background: var(--ink); color: var(--paper); padding: calc(var(--pad) + 8px) var(--pad); display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s5); align-content: center; border-top-left-radius: var(--r-big); border-top-right-radius: var(--r-small); min-width: 0; overflow-wrap: anywhere; hyphens: auto; }
+  .fin__main { box-shadow: var(--shadow-float); background: var(--ink); color: var(--paper); padding: calc(var(--pad) + 8px) var(--pad); display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s5); align-content: center; border-top-left-radius: var(--r-big); border-top-right-radius: var(--r-small); min-width: 0; overflow-wrap: anywhere; hyphens: auto; }
   .fin__body { font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.375rem); max-width: 44ch; }
   /* keyboard focus scrolls the button in with room around it, so its focus ring is never cut by the window edge or the sticky header */
   .fin a.btn { scroll-margin-block: calc(var(--header-h) + 3rem) 6rem; }
