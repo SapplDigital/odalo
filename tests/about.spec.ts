@@ -19,8 +19,8 @@ const tiles = (page: Page) =>
 
 test.describe('about: copy and content', () => {
   for (const l of langs) {
-    test(`${l}: homepage section and About page carry the approved copy, the four service links, language and concept panels; no unconfirmed claims`, async ({ page }) => {
-      for (const url of [`/${l}/`, `/${l}/about/`]) {
+    test(`${l}: About page carries the approved copy, the four service links, language and concept panels; no unconfirmed claims`, async ({ page }) => {
+      for (const url of [`/${l}/about/`]) {
         await page.setViewportSize({ width: 1440, height: 900 });
         await page.goto(url);
         const h = page.locator('#about-h');
@@ -59,21 +59,26 @@ test.describe('about: copy and content', () => {
       expect(outline[0]).toBe(1);
       expect(outline.filter((n) => n === 1)).toHaveLength(1);
       for (let i = 1; i < outline.length; i++) expect(outline[i]! - outline[i - 1]!, `heading jump ${outline.join('')}`).toBeLessThanOrEqual(1);
-      // global FAQ content is unchanged elsewhere: the homepage still has its FAQ
+      // the homepage (HomeMosaic) keeps its FAQ as native disclosures
       await page.goto(`/${l}/`);
       await expect(page.locator('#faq details').first()).toBeAttached();
     });
   }
-  test('home: the section has exactly one h2 and the About page exactly one h1', async ({ page }) => {
+  test('about page: the section heading is the only h1; panel headings are h2', async ({ page }) => {
+    await page.goto('/en/about/');
+    await expect(page.locator('main h1')).toHaveCount(1);
+    await expect(page.locator('#about h1')).toHaveCount(1);
+    await expect(page.locator('#about h2')).toHaveCount(2);
+  });
+  test('home: the homepage no longer carries the About section (it lives on /about/)', async ({ page }) => {
     await page.goto('/en/');
-    await expect(page.locator('#about h2')).toHaveCount(1);
-    await expect(page.locator('#about h1')).toHaveCount(0);
+    await expect(page.locator('#about')).toHaveCount(0);
   });
 });
 
 test.describe('about: one connected mosaic', () => {
-  for (const l of langs) for (const [vw, vh] of [[1440, 900], [1024, 768], [834, 1112], [390, 844], [320, 700]] as const) for (const url of ['', 'about/']) {
-    test(`${l} ${vw}px ${url || 'home'}: tiles join without gaps or holes; only the outer corners are curved; no sideways scroll`, async ({ page }) => {
+  for (const l of langs) for (const [vw, vh] of [[1440, 900], [1024, 768], [834, 1112], [390, 844], [320, 700]] as const) for (const url of ['about/']) {
+    test(`${l} ${vw}px ${url}: tiles join without gaps or holes; only the outer corners are curved; no sideways scroll`, async ({ page }) => {
       await page.setViewportSize({ width: vw, height: vh });
       await page.goto(`/${l}/${url}`);
       const { grid, items } = await tiles(page);
@@ -125,7 +130,7 @@ test.describe('about: behaviour', () => {
     for (const opts of [{ javaScriptEnabled: false }, { reducedMotion: 'reduce' as const }]) {
       const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, ...opts });
       const page = await ctx.newPage();
-      await page.goto('/de/');
+      await page.goto('/de/about/');
       await expect(page.locator('#about-h')).toBeVisible();
       await expect(page.locator('#about .story__list a')).toHaveCount(4);
       await expect(page.locator('#about .concept')).toHaveCount(0);
@@ -136,7 +141,7 @@ test.describe('about: behaviour', () => {
   });
 
   test('the decorative composition is hidden from assistive technology and carries no text', async ({ page }) => {
-    await page.goto('/en/');
+    await page.goto('/en/about/');
     const art = page.locator('#about .art');
     await expect(art).toHaveAttribute('aria-hidden', 'true');
     expect((await art.innerText()).trim()).toBe('');
