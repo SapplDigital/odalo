@@ -146,3 +146,20 @@ Remaining gaps
 - LOW: services-video hero has a large empty gap above the h1 at 1440 (h1 bottom-aligned in 100vh); Ale's h1 sits near the top.
 - LOW: terracotta italic on /services/video "Un enfoque conectado".
 - Not tested: de 1440, forms, reduced-motion, real Netlify CSP headers, video autoplay.
+
+
+## Round 4 (1cf0a98) - QA Tester 2026-11-16
+
+Run: `QA_SHOTS=1 playwright test tests/qa-shots.spec.ts` = 92 passed, 0 failed (the 6 services-video failures are gone). Live Edge check on `astro preview` :4350: es home/plans/video at 390 + 1440, en/de home at 390: no console errors/warnings, no failed requests or HTTP >= 400, no horizontal overflow. Evidence: %TEMP%\qa4\*.png (es-video-1440-full.png, es-home-1440-full.png, cards.png) vs screens/ale/.
+
+Round-4 items
+- Video hero reel: PASS. Three `<video>` in `.rp`, readyState 4, two playing; phone shows the real clip (no blurred mini).
+- Full-width hero dot scatter (home): PASS, dots span the hero like Ale's. Denser/less structured than Ale's swoosh, fine.
+- Video page format picker (9:16 / 1:1 / 16:9), "De la idea a tu perfil", calendar: PASS, all present at 390 + 1440. Differences: "De la idea" is a plain 4-column list (Ale: step list + dot-animation panel at right, LOW); format picker panel is stacked above a full-width picker instead of Ale's 2-column layout (LOW).
+- Gap above video h1: PASS (h1 top 243 px at 1440, 118 px at 390).
+- Accents navy: PASS (h1 italic computes rgb(0, 64, 102) on es home/plans/video, en/de home).
+- Home project cards: live check shows real previews (Casa Almina, Tidewell, Brindle) - blank in fullPage shots is lazy-load capture artifact, not a bug. Ale shows an empty "Trabajo real" state (content decision).
+
+New defects: none above LOW. Not tested: de 1440, forms, reduced-motion, real Netlify CSP, video behaviour on slow networks.
+
+Verdict: matches Ale's design closely. Ready for owner review: yes.
