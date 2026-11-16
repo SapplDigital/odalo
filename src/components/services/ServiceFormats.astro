@@ -5,6 +5,11 @@ interface Props { lang: Lang }
 const { lang } = Astro.props;
 const t = tr(lang).formats;
 const first = t.list[0];
+const pauseLabel = {
+  es: 'Pausar rotación automática',
+  en: 'Pause automatic rotation',
+  de: 'Automatischen Wechsel pausieren',
+}[lang];
 ---
 <section class="sf section" data-svc-formats data-ratio={first.ratio} aria-labelledby="svc-formats-h">
   <div class="wrap sf__in">
@@ -43,6 +48,9 @@ const first = t.list[0];
           </button>
         ))}
       </div>
+      <button type="button" class="sf__pause" data-sf-pause aria-pressed="false" aria-label={pauseLabel}>
+        <span class="sf__pico" aria-hidden="true"></span>
+      </button>
     </div>
   </div>
 </section>
@@ -91,6 +99,18 @@ const first = t.list[0];
   .sf__btn:hover { border-color: var(--ink-700); }
   .sf__btn[aria-pressed='true'] { border-color: var(--ink); background: #fff; color: var(--ink); }
   .sf__btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .sf__pause {
+    justify-self: start; display: inline-flex; align-items: center; justify-content: center;
+    min-width: 44px; min-height: 44px; padding: 0; cursor: pointer; color: var(--ink);
+    border: 1px solid var(--ink-200); border-radius: 0.5rem; background: transparent;
+  }
+  .sf__pause:hover { border-color: var(--ink-700); }
+  .sf__pause:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .sf__pico { display: block; width: 12px; height: 14px; border-left: 4px solid currentColor; border-right: 4px solid currentColor; box-sizing: border-box; }
+  .sf__pause[aria-pressed='true'] .sf__pico {
+    width: 0; height: 0; border-left: 12px solid currentColor; border-right: 0;
+    border-top: 7px solid transparent; border-bottom: 7px solid transparent;
+  }
   .sf__bratio { font-family: var(--font-mono); font-size: 0.8125rem; }
   .sf__buse { font-size: 0.875rem; overflow-wrap: anywhere; }
   @media (min-width: 48em) {
@@ -115,7 +135,14 @@ const first = t.list[0];
     let active = 0;
     let inView = false;
     let paused = false;
+    let userPaused = false;
     let timer: number | undefined;
+    const pauseBtn = root.querySelector<HTMLButtonElement>('[data-sf-pause]')!;
+    const setUser = (v: boolean) => {
+      userPaused = v;
+      pauseBtn.setAttribute('aria-pressed', v ? 'true' : 'false');
+    };
+    const onPauseBtn = (e: Event) => pauseBtn.contains(e.target as Node);
 
     const select = (i: number) => {
       active = i;
@@ -128,14 +155,20 @@ const first = t.list[0];
     };
     const sync = () => {
       if (timer !== undefined) { window.clearInterval(timer); timer = undefined; }
-      if (inView && !paused && !reduce.matches) {
+      if (inView && !paused && !userPaused && !reduce.matches) {
         timer = window.setInterval(() => select((active + 1) % btns.length), 3000);
       }
     };
     btns.forEach((b, i) => b.addEventListener('click', () => { select(i); sync(); }));
     picker.addEventListener('mouseenter', () => { paused = true; sync(); });
     picker.addEventListener('mouseleave', () => { paused = false; sync(); });
-    picker.addEventListener('focusin', () => { paused = true; sync(); });
+    pauseBtn.addEventListener('click', () => { setUser(!userPaused); sync(); });
+    picker.addEventListener('pointerdown', (e) => { if (onPauseBtn(e)) return; setUser(true); sync(); });
+    picker.addEventListener('focusin', (e) => {
+      paused = true;
+      if (!onPauseBtn(e)) setUser(true);
+      sync();
+    });
     picker.addEventListener('focusout', () => { paused = false; sync(); });
     reduce.addEventListener('change', sync);
     if ('IntersectionObserver' in window) {

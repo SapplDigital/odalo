@@ -13,7 +13,6 @@ for (const lang of langs) {
     expect(colors.length).toBeGreaterThan(0);
     for (const c of colors) {
       expect(c).toBe('rgb(0, 64, 102)');
-      expect(c).not.toBe('rgb(154, 74, 40)');
     }
   });
 }

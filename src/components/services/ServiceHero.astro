@@ -16,6 +16,7 @@ const reelCopy = {
   en: { tag: 'Illustrative example', place: 'Fictional ice-cream shop', account: '@example.icecream', alt: 'Illustrative example. A phone showing a vertical reel of a fictional ice-cream shop, with three short looping shots.', shots: ['Ice cream day', 'Handmade, every day', 'Come and try it'] },
   de: { tag: 'Beispiel zur Illustration', place: 'Fiktive Eisdiele', account: '@beispiel.eis', alt: 'Beispiel zur Illustration. Ein Handy mit einem Hochformat-Reel einer fiktiven Eisdiele, mit drei kurzen Szenen in Schleife.', shots: ['Heute gibt es Eis', 'Handgemacht, jeden Tag', 'Probier es im Laden'] },
 }[lang];
+const pauseLabel = { es: 'Pausar reel automático', en: 'Pause automatic reel', de: 'Automatisches Reel pausieren' }[lang];
 ---
 <section class="sh" data-svc-hero aria-labelledby="svc-h">
   <div class="sh__dots" aria-hidden="true"></div>
@@ -69,6 +70,9 @@ const reelCopy = {
           </div>
           <p class="rp__tag" aria-hidden="true"><span class="rp__pill">{reelCopy.tag}</span><span>{reelCopy.place}</span></p>
         </div>
+        <button type="button" class="rp__pause" data-reel-pause aria-pressed="false" aria-label={pauseLabel}>
+          <span class="rp__pico" aria-hidden="true"></span>
+        </button>
         <figure class="svc-fig">
           <div class="svc-fig__img"><ConceptImage image={vis.image} lang={lang} eager sizes="(min-width: 64em) 40vw, 100vw" /></div>
           <figcaption><b>{vis.badge[lang]}</b> · {vis.label[lang]}</figcaption>
@@ -85,7 +89,9 @@ const reelCopy = {
 {isVideo && (
   <script>
     const root = document.querySelector<HTMLElement>('[data-reel]');
-    if (root && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (root) {
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+      const pauseBtn = document.querySelector<HTMLButtonElement>('[data-reel-pause]');
       const clips = Array.from(root.querySelectorAll<HTMLElement>('[data-clip]'));
       const bars = Array.from(root.querySelectorAll<HTMLElement>('[data-bar]'));
       const caps = Array.from(root.querySelectorAll<HTMLElement>('[data-cap]'));
@@ -93,7 +99,10 @@ const reelCopy = {
       let active = 0;
       let visible = false;
       let loaded = false;
+      let touched = false;
+      let userPaused = false;
       let timer = 0;
+      const running = () => visible && !userPaused && !reduce.matches;
       const sync = () => {
         clips.forEach((c, i) => c.classList.toggle('is-active', i === active));
         bars.forEach((b, i) => {
@@ -101,22 +110,30 @@ const reelCopy = {
           b.classList.toggle('is-done', i < active);
         });
         caps.forEach((c, i) => c.classList.toggle('is-on', i === active));
+        const go = running();
         vids.forEach((v, i) => {
           if (!v) return;
-          if (visible && i === active) { v.currentTime = 0; v.play().catch(() => {}); } else v.pause();
+          v.preload = i === active ? 'auto' : 'metadata';
+          if (go && i === active) { v.currentTime = 0; v.play().catch(() => {}); } else v.pause();
         });
-        root.classList.toggle('is-running', visible);
+        root.classList.toggle('is-running', go);
       };
       const stop = () => { clearInterval(timer); timer = 0; };
       const start = () => { if (!timer) timer = window.setInterval(() => { active = (active + 1) % clips.length; sync(); }, 3200); };
+      const refresh = () => { stop(); if (running()) start(); sync(); };
+      const setUser = (v: boolean) => {
+        userPaused = v;
+        pauseBtn?.setAttribute('aria-pressed', v ? 'true' : 'false');
+        refresh();
+      };
       const load = () => {
-        if (loaded) return;
+        if (loaded || reduce.matches) return;
         loaded = true;
         clips.forEach((c, i) => {
           const v = document.createElement('video');
           v.muted = true; v.defaultMuted = true; v.loop = true; v.playsInline = true;
           v.setAttribute('muted', ''); v.setAttribute('loop', ''); v.setAttribute('playsinline', '');
-          v.preload = 'auto';
+          v.preload = i === active ? 'auto' : 'metadata';
           v.className = 'rp__video';
           v.addEventListener('playing', () => v.setAttribute('data-ready', ''));
           for (const [src, type] of [[c.dataset.webm!, 'video/webm'], [c.dataset.mp4!, 'video/mp4']]) {
@@ -130,12 +147,19 @@ const reelCopy = {
         sync();
       };
       const events = ['pointermove', 'pointerdown', 'touchstart', 'scroll', 'keydown', 'wheel'];
-      const onFirst = () => { events.forEach((e) => window.removeEventListener(e, onFirst)); load(); };
+      const onFirst = () => { events.forEach((e) => window.removeEventListener(e, onFirst)); touched = true; load(); };
       events.forEach((e) => window.addEventListener(e, onFirst, { passive: true }));
+      const onBtn = (e: Event) => !!pauseBtn && pauseBtn.contains(e.target as Node);
+      pauseBtn?.addEventListener('click', () => setUser(!userPaused));
+      root.addEventListener('pointerdown', (e) => { if (!onBtn(e)) setUser(true); });
+      root.addEventListener('focusin', (e) => { if (!onBtn(e)) setUser(true); });
+      reduce.addEventListener('change', () => {
+        if (!reduce.matches && touched) load();
+        refresh();
+      });
       new IntersectionObserver((entries) => {
         visible = entries[entries.length - 1].isIntersecting;
-        if (visible) start(); else stop();
-        sync();
+        refresh();
       }, { threshold: 0.3 }).observe(root);
     }
   </script>
@@ -193,6 +217,11 @@ const reelCopy = {
   .rp__glass { position: absolute; inset: 0; z-index: 5; pointer-events: none; background: linear-gradient(115deg, rgb(255 255 255 / 0.1) 0%, rgb(255 255 255 / 0) 38%); }
   .rp__tag { margin: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25rem 0.75rem; align-items: center; font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-700); }
   .rp__pill { padding: 0.25rem 0.625rem; border: 1px solid var(--ink-200); border-radius: 999px; background: var(--paper); }
+  .rp__pause { justify-self: center; display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 0; cursor: pointer; color: var(--ink); border: 1px solid var(--ink-200); border-radius: 0.5rem; background: transparent; }
+  .rp__pause:hover { border-color: var(--ink-700); }
+  .rp__pause:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .rp__pico { display: block; width: 12px; height: 14px; border-left: 4px solid currentColor; border-right: 4px solid currentColor; box-sizing: border-box; }
+  .rp__pause[aria-pressed='true'] .rp__pico { width: 0; height: 0; border-left: 12px solid currentColor; border-right: 0; border-top: 7px solid transparent; border-bottom: 7px solid transparent; }
   @media (min-width: 64em) { .rp__phone { width: 270px; } .rp__frame { border-radius: 48px; } .rp__bezel { border-radius: 45px; } .rp__screen { border-radius: 38px; } }
   @media (prefers-reduced-motion: no-preference) {
     .rp__cap { transition: opacity 0.4s ease 0.2s; }
@@ -201,6 +230,7 @@ const reelCopy = {
   }
   @media (prefers-reduced-motion: reduce) {
     .rp__mini { display: none; }
+    .rp__pause { display: none; }
   }
   @media (min-width: 64em) {
     .sh__grid { align-items: start; }

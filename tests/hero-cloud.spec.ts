@@ -40,6 +40,23 @@ for (const lang of langs) {
     });
   }
 
+  test(`hero cloud is static with designed offsets /${lang}/`, async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto(`/${lang}/`);
+    const res = await page.evaluate(() => {
+      const root = document.querySelector('[data-hero-cloud]')!;
+      const running = [root, ...Array.from(root.querySelectorAll('*'))]
+        .map((el) => getComputedStyle(el).animationName)
+        .filter((n) => n && n !== 'none');
+      const pos = (s: string) => getComputedStyle(root.querySelector(s)!).backgroundPosition;
+      return { running, d1: pos('.cloud__d1'), d2: pos('.cloud__d2'), d3: pos('.cloud__d3') };
+    });
+    expect(res.running).toEqual([]);
+    expect(res.d1).toBe('4px 6px');
+    expect(res.d2).toBe('13px 21px');
+    expect(res.d3).toBe('40px 9px');
+  });
+
   test(`hero pill does not cover eyebrow /${lang}/ @390`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(`/${lang}/`);

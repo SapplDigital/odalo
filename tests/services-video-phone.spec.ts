@@ -38,6 +38,44 @@ for (const l of langs) {
       }
     });
 
+    test(`/${l}/services/video/ reel pause button, pointerdown stop, preload`, async ({ page }) => {
+      await page.setViewportSize({ width: 1440, height: 900 });
+      await page.goto(`/${l}/services/video/`, { waitUntil: 'networkidle' });
+      const reel = page.locator('[data-svc-hero] [data-reel]');
+      const btn = page.locator('[data-reel-pause]');
+      await expect(btn).toBeVisible();
+      expect(await reel.locator('[data-reel-pause]').count()).toBe(0);
+      expect(((await btn.getAttribute('aria-label')) ?? '').length).toBeGreaterThan(5);
+      await expect(btn).toHaveAttribute('aria-pressed', 'false');
+      await page.mouse.move(100, 100);
+      await page.mouse.move(300, 300);
+      await expect(reel.locator('video')).toHaveCount(3);
+      await reel.scrollIntoViewIfNeeded();
+      const activeIdx = () => reel.locator('.rp__clip').evaluateAll((cs) => cs.findIndex((c) => c.classList.contains('is-active')));
+      const preloads = () => reel.locator('.rp__clip').evaluateAll((cs) => cs.map((c) => (c.querySelector('video') as HTMLVideoElement).preload));
+      const first = await activeIdx();
+      const pl = await preloads();
+      if (first === 0) expect(pl).toEqual(['auto', 'metadata', 'metadata']);
+      await btn.click();
+      await expect(btn).toHaveAttribute('aria-pressed', 'true');
+      const idx = await activeIdx();
+      await page.waitForTimeout(3800);
+      expect(await activeIdx()).toBe(idx);
+      await btn.click();
+      await expect(btn).toHaveAttribute('aria-pressed', 'false');
+      await expect.poll(activeIdx, { timeout: 6000 }).not.toBe(idx);
+      expect((await preloads()).filter((p) => p === 'auto').length).toBe(1);
+      // pointerdown on the phone pauses
+      const box = (await reel.locator('.rp__phone').boundingBox())!;
+      await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+      await page.mouse.down();
+      await page.mouse.up();
+      await expect(btn).toHaveAttribute('aria-pressed', 'true');
+      const idx2 = await activeIdx();
+      await page.waitForTimeout(3800);
+      expect(await activeIdx()).toBe(idx2);
+    });
+
     test(`/${l}/services/video/ reduced motion: poster only, no video`, async ({ browser }) => {
       const ctx = await browser.newContext({ reducedMotion: 'reduce', viewport: { width: 1440, height: 900 } });
       const page = await ctx.newPage();

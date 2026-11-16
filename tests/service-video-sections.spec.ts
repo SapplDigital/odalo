@@ -4,6 +4,8 @@ import { test, expect } from '@playwright/test';
 
 const labels = { es: 'Ver formato', en: 'See format', de: 'Format ansehen' } as const;
 
+const pauseLabels = { es: 'Pausar rotación automática', en: 'Pause automatic rotation', de: 'Automatischen Wechsel pausieren' } as const;
+
 for (const lang of ['es', 'en', 'de'] as const) {
   test.describe(`${lang} formats`, () => {
     test('order, heading accent, buttons', async ({ page }) => {
@@ -49,7 +51,7 @@ for (const lang of ['es', 'en', 'de'] as const) {
       const aspect = () => sec.locator('[data-sf-frame]').evaluate((e) => { const r = e.getBoundingClientRect(); return r.width / r.height; });
       await btns.nth(1).click();
       await expect(btns.nth(1)).toHaveAttribute('aria-pressed', 'true');
-      await expect(sec.locator('button[aria-pressed="true"]')).toHaveCount(1);
+      await expect(sec.locator('.sf__btn[aria-pressed="true"]')).toHaveCount(1);
       await expect(sec.locator('[data-sf-ratio]')).toHaveText('1:1');
       await expect(sec.locator('[data-sf-size]')).toContainText('1080 × 1080');
       expect(Math.abs((await aspect()) - 1)).toBeLessThan(0.05);
@@ -85,6 +87,51 @@ for (const lang of ['es', 'en', 'de'] as const) {
       const before = await sec.locator('[data-sf-ratio]').textContent();
       await page.waitForTimeout(3800);
       expect(await sec.locator('[data-sf-ratio]').textContent()).toBe(before);
+    });
+
+    test('pause button: label, toggle, stops auto-advance', async ({ page }) => {
+      await page.emulateMedia({ reducedMotion: 'no-preference' });
+      await page.goto(`/${lang}/services/video/`);
+      const sec = page.locator('[data-svc-formats]');
+      const pause = sec.locator('[data-sf-picker] > button[data-sf-pause]');
+      await expect(pause).toHaveCount(1);
+      await expect(pause).toBeVisible();
+      await expect(pause).toHaveAccessibleName(pauseLabels[lang]);
+      await expect(pause).toHaveAttribute('aria-pressed', 'false');
+      await sec.locator('[data-sf-picker]').scrollIntoViewIfNeeded();
+      await pause.click();
+      await expect(pause).toHaveAttribute('aria-pressed', 'true');
+      await page.mouse.move(0, 0);
+      await page.waitForTimeout(3800);
+      await expect(sec.locator('.sf__btn').nth(0)).toHaveAttribute('aria-pressed', 'true');
+      await expect(sec.locator('[data-sf-ratio]')).toHaveText('9:16');
+      await pause.click();
+      await expect(pause).toHaveAttribute('aria-pressed', 'false');
+      await page.mouse.move(0, 0);
+      await expect(sec.locator('.sf__btn').nth(1)).toHaveAttribute('aria-pressed', 'true', { timeout: 6000 });
+    });
+
+    test('pointerdown and focusin stop auto-advance', async ({ page }) => {
+      await page.emulateMedia({ reducedMotion: 'no-preference' });
+      await page.goto(`/${lang}/services/video/`);
+      const sec = page.locator('[data-svc-formats]');
+      const pause = sec.locator('[data-sf-pause]');
+      await sec.locator('[data-sf-picker]').scrollIntoViewIfNeeded();
+      await page.mouse.move(0, 0);
+      await sec.locator('.sf__stage').dispatchEvent('pointerdown');
+      await expect(pause).toHaveAttribute('aria-pressed', 'true');
+      await page.waitForTimeout(3800);
+      await expect(sec.locator('[data-sf-ratio]')).toHaveText('9:16');
+
+      await page.reload();
+      await sec.locator('[data-sf-picker]').scrollIntoViewIfNeeded();
+      await page.mouse.move(0, 0);
+      await sec.locator('.sf__btn').nth(0).focus();
+      await expect(pause).toHaveAttribute('aria-pressed', 'true');
+      await sec.locator('.sf__btn').nth(0).blur();
+      await page.waitForTimeout(3800);
+      await expect(sec.locator('[data-sf-ratio]')).toHaveText('9:16');
+      await expect(pause).toHaveAttribute('aria-pressed', 'true');
     });
 
     test('no horizontal overflow', async ({ page }) => {
