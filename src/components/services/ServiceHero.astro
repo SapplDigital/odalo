@@ -152,7 +152,6 @@ const pauseLabel = { es: 'Pausar reel automático', en: 'Pause automatic reel', 
       const onBtn = (e: Event) => !!pauseBtn && pauseBtn.contains(e.target as Node);
       pauseBtn?.addEventListener('click', () => setUser(!userPaused));
       root.addEventListener('pointerdown', (e) => { if (!onBtn(e)) setUser(true); });
-      root.addEventListener('focusin', (e) => { if (!onBtn(e)) setUser(true); });
       reduce.addEventListener('change', () => {
         if (!reduce.matches && touched) load();
         refresh();

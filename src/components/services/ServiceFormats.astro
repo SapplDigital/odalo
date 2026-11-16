@@ -134,7 +134,6 @@ const pauseLabel = {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
     let active = 0;
     let inView = false;
-    let paused = false;
     let userPaused = false;
     let timer: number | undefined;
     const pauseBtn = root.querySelector<HTMLButtonElement>('[data-sf-pause]')!;
@@ -155,21 +154,14 @@ const pauseLabel = {
     };
     const sync = () => {
       if (timer !== undefined) { window.clearInterval(timer); timer = undefined; }
-      if (inView && !paused && !userPaused && !reduce.matches) {
+      if (inView && !userPaused && !reduce.matches) {
         timer = window.setInterval(() => select((active + 1) % btns.length), 3000);
       }
     };
     btns.forEach((b, i) => b.addEventListener('click', () => { select(i); sync(); }));
-    picker.addEventListener('mouseenter', () => { paused = true; sync(); });
-    picker.addEventListener('mouseleave', () => { paused = false; sync(); });
     pauseBtn.addEventListener('click', () => { setUser(!userPaused); sync(); });
     picker.addEventListener('pointerdown', (e) => { if (onPauseBtn(e)) return; setUser(true); sync(); });
-    picker.addEventListener('focusin', (e) => {
-      paused = true;
-      if (!onPauseBtn(e)) setUser(true);
-      sync();
-    });
-    picker.addEventListener('focusout', () => { paused = false; sync(); });
+    picker.addEventListener('focusin', (e) => { if (!onPauseBtn(e)) setUser(true); sync(); });
     reduce.addEventListener('change', sync);
     if ('IntersectionObserver' in window) {
       new IntersectionObserver((entries) => {

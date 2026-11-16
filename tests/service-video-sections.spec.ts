@@ -76,17 +76,13 @@ for (const lang of ['es', 'en', 'de'] as const) {
       expect(st.an).toBe('none');
     });
 
-    test('motion allowed: auto-advance while in view, pauses on hover', async ({ page }) => {
+    test('motion allowed: auto-advance while in view', async ({ page }) => {
       await page.emulateMedia({ reducedMotion: 'no-preference' });
       await page.goto(`/${lang}/services/video/`);
       const sec = page.locator('[data-svc-formats]');
       await sec.locator('[data-sf-picker]').scrollIntoViewIfNeeded();
       await page.mouse.move(0, 0);
       await expect(sec.locator('.sf__btn').nth(1)).toHaveAttribute('aria-pressed', 'true', { timeout: 6000 });
-      await sec.locator('.sf__stage').hover();
-      const before = await sec.locator('[data-sf-ratio]').textContent();
-      await page.waitForTimeout(3800);
-      expect(await sec.locator('[data-sf-ratio]').textContent()).toBe(before);
     });
 
     test('pause button: label, toggle, stops auto-advance', async ({ page }) => {
@@ -101,13 +97,26 @@ for (const lang of ['es', 'en', 'de'] as const) {
       await sec.locator('[data-sf-picker]').scrollIntoViewIfNeeded();
       await pause.click();
       await expect(pause).toHaveAttribute('aria-pressed', 'true');
-      await page.mouse.move(0, 0);
       await page.waitForTimeout(3800);
       await expect(sec.locator('.sf__btn').nth(0)).toHaveAttribute('aria-pressed', 'true');
       await expect(sec.locator('[data-sf-ratio]')).toHaveText('9:16');
       await pause.click();
       await expect(pause).toHaveAttribute('aria-pressed', 'false');
-      await page.mouse.move(0, 0);
+      await expect(sec.locator('.sf__btn').nth(1)).toHaveAttribute('aria-pressed', 'true', { timeout: 6000 });
+    });
+
+    test('pause button: keyboard resume without mouse', async ({ page }) => {
+      await page.emulateMedia({ reducedMotion: 'no-preference' });
+      await page.goto(`/${lang}/services/video/`);
+      const sec = page.locator('[data-svc-formats]');
+      const pause = sec.locator('[data-sf-pause]');
+      await sec.locator('[data-sf-picker]').scrollIntoViewIfNeeded();
+      await pause.focus();
+      await page.keyboard.press('Space');
+      await expect(pause).toHaveAttribute('aria-pressed', 'true');
+      await page.keyboard.press('Space');
+      await expect(pause).toHaveAttribute('aria-pressed', 'false');
+      await expect(pause).toBeFocused();
       await expect(sec.locator('.sf__btn').nth(1)).toHaveAttribute('aria-pressed', 'true', { timeout: 6000 });
     });
 
