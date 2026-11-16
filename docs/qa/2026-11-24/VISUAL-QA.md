@@ -123,3 +123,26 @@ Remaining gaps ranked
   - services, plans unchanged and already equal to Ale's; process unchanged (no Ale counterpart).
 - Spec string updates: none. Existing specs read labels from `t.nav.*`. New guard: `tests/nav-labels.spec.ts` (es/en/de: header labels and hrefs, hero italic accent computes to rgb(0, 64, 102)).
 - No screenshots were regenerated. This note is text only.
+
+
+## Round 3 (68031da) - QA Tester 2026-11-16
+
+Run: `QA_SHOTS=1 playwright test tests/qa-shots.spec.ts` = 86 passed, 6 failed (all `services-video`, es/en/de at 390 and 1440, "every img complete" wait times out). Live check with Edge against `astro preview` (:4340): es/en home, es plans, es services-video at 390 and 1440. Console errors/warnings: none. Request failures / HTTP >= 400: none. Only origin contacted: localhost. The preview does not send the Netlify CSP, so CSP was not enforced; instead `dist/` was grepped for external URLs: only example/legal text links (example.com, odalo.example, odalo.sappl-digital.de, datenschutz.de), no external src/href loads, no external fonts/scripts. Inline scripts/styles are allowed by the CSP (`'unsafe-inline'`); video/media would be blocked by `default-src 'self'` only if cross-origin (they are same-origin).
+
+Verdict: MOSTLY looks like Ale's design.
+
+Checked (evidence: docs/qa/2026-11-24/screens/{es,en,de}-*.png vs screens/ale/):
+- Dot-matrix prices (home planes, /plans): visible, PASS.
+- Project card images on home (Casa Almina, Tidewell, Brindle Pantry): visible, Tidewell headline no longer cropped, PASS.
+- Italic accents: navy on light surfaces, PASS (the plans h1 "Elige tus piezas" and the video "Un enfoque conectado" are terracotta/navy mixed: video process heading still terracotta, LOW).
+- 390 home (es/en): no real overlaps. The nav pill drawn mid-page in fullPage shots is a fixed-header capture artifact, not a bug.
+- Home services demo frame at 1440: present.
+
+Remaining gaps
+- HIGH: services/video hero phone shows only a blurred 24 px placeholder ("mini"), never the reel. Live DOM: all three `.rp__poster` computed `display:none`, `naturalWidth` 0, and no `<video>` element exists in `.rp` after 4 s (1440 and 390). Probable cause: CSS `.rp__clip:first-child .rp__poster {display:block}` does not match (the mini `<img>` is the first child), and video is not injected. This also causes the 6 spec failures (lazy images that are display:none never load). Repro: open /es/services/video/ at 1440 and look at the phone.
+- MEDIUM: home hero dot cloud is a small boxed art tile on the right; Ale's is a full-width dot scatter across the hero with stones along the bottom right. Our hero is flatter and text-only on the left.
+- MEDIUM: home "Proyectos" has 3 cards on beige; Ale's home shows an honest empty "Trabajo real" state with 2 placeholder cards (content decision, not a defect). Our cards look finished.
+- MEDIUM: video service page lacks Ale's sections "Una pieza, cada pantalla" (9:16 picker) and "De la idea a tu perfil" and the calendar block (listed as out of scope earlier).
+- LOW: services-video hero has a large empty gap above the h1 at 1440 (h1 bottom-aligned in 100vh); Ale's h1 sits near the top.
+- LOW: terracotta italic on /services/video "Un enfoque conectado".
+- Not tested: de 1440, forms, reduced-motion, real Netlify CSP headers, video autoplay.
