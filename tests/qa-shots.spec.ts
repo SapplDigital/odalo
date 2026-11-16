@@ -41,6 +41,16 @@ async function shoot(page: import('@playwright/test').Page, url: string, file: s
       window.scrollTo(0, y);
       await new Promise((r) => setTimeout(r, 60));
     }
+    window.scrollTo(0, document.documentElement.scrollHeight);
+    await new Promise((r) => setTimeout(r, 150));
+  });
+  // Lazy images below the fold must be loaded before a fullPage capture.
+  await page.waitForFunction(
+    () => Array.from(document.images).every((img) => img.complete && img.naturalWidth > 0),
+    undefined,
+    { timeout: 15000 },
+  );
+  await page.evaluate(async () => {
     window.scrollTo(0, 0);
     await new Promise((r) => setTimeout(r, 150));
   });

@@ -51,8 +51,15 @@ const phone = (id: string) => `<div class="ph" aria-hidden="true"><div class="ph
       </div>
       <div class="sv__side" aria-hidden="true">
         <div class="sv__sticky">
-          {services.map((s) => <div class="sv__demo" data-demo={s.id} set:html={phone(s.id)} />)}
-          <p class="sv__cap">{sv.demoLabel}</p>
+          <div class="sv__frame" data-sv-frame>
+            <div class="sv__fhead"><span class="sv__fdots"><i></i><i></i><i></i></span>
+              {services.map((s) => <span class="sv__flabel" data-label={s.id}>{s.number} · {s.name[lang]}</span>)}
+            </div>
+            <div class="sv__fbody">
+              {services.map((s) => <div class="sv__demo" data-demo={s.id} set:html={phone(s.id)} />)}
+            </div>
+            <p class="sv__cap sv__ffoot">{sv.demoLabel}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -124,30 +131,30 @@ const phone = (id: string) => `<div class="ph" aria-hidden="true"><div class="ph
   .sv__cap { margin: var(--s2) 0 0; font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-500); text-align: center; }
   .sv__pp { margin-top: var(--s4); }
   .sv__pp .sv__cap { max-width: none; }
-  .ph { width: 100%; max-width: 15rem; margin-inline: auto; aspect-ratio: 9 / 17; border: 6px solid var(--ink); border-radius: 2rem; background: #fff; position: relative; overflow: hidden; box-sizing: border-box; }
-  .ph__notch { position: absolute; top: 0.4rem; left: 50%; width: 28%; height: 0.5rem; margin-left: -14%; border-radius: 1rem; background: var(--ink); }
-  .ph__screen { position: absolute; inset: 1.4rem 0.6rem 0.6rem; display: flex; flex-direction: column; gap: 0.5rem; overflow: hidden; }
-  .ph__bar { display: block; height: 0.45rem; border-radius: 0.25rem; background: var(--ink-200); }
-  .ph__bar.ph__ink { background: var(--ink); }
-  .ph__bar.ph__lg { height: 0.9rem; background: var(--ink); }
-  .ph__nav { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
-  .ph__nav .ph__bar { flex: none; }
-  .ph__dot { width: 0.7rem; height: 0.7rem; border-radius: 50%; background: var(--ink-300); }
-  .ph__hero { display: flex; flex-direction: column; gap: 0.5rem; padding: 0.8rem 0.5rem; border-radius: 0.6rem; background: var(--ink-100, #eef2f5); }
-  .ph__btn { width: 40%; height: 0.9rem; border-radius: 1rem; background: #e8742a; }
-  .ph__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
-  .ph__cards i { display: block; aspect-ratio: 1; border-radius: 0.5rem; background: var(--ink-200); }
-  .ph__pin { width: 1.2rem; height: 1.2rem; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: #e8742a; margin: 0.6rem auto 0.4rem; }
-  .ph__stars { display: flex; gap: 0.25rem; }
-  .ph__stars i { width: 0.7rem; height: 0.7rem; background: #e8a82a; clip-path: polygon(50% 0, 62% 36%, 100% 38%, 70% 60%, 80% 100%, 50% 76%, 20% 100%, 30% 60%, 0 38%, 38% 36%); }
-  .ph__row { display: flex; gap: 0.4rem; }
-  .ph__chip { flex: 1; height: 1.1rem; border-radius: 1rem; background: var(--ink-200); }
-  .ph__reel { position: relative; flex: 1; min-height: 5rem; border-radius: 0.6rem; background: var(--ink); }
-  .ph__play { position: absolute; left: 50%; top: 50%; width: 0; height: 0; margin: -0.7rem 0 0 -0.4rem; border-style: solid; border-width: 0.7rem 0 0.7rem 1.1rem; border-color: transparent transparent transparent #fff; }
-  .ph__prog { height: 0.3rem; border-radius: 0.2rem; background: var(--ink-200); }
-  .ph__prog i { display: block; width: 40%; height: 100%; border-radius: 0.2rem; background: #e8742a; }
-  .ph__chart { display: flex; align-items: flex-end; gap: 0.4rem; flex: 1; min-height: 5rem; padding: 0.4rem; border-radius: 0.6rem; background: var(--ink-100, #eef2f5); }
-  .ph__chart i { flex: 1; border-radius: 0.2rem 0.2rem 0 0; background: var(--ink); }
+  .sv :global(.ph) { width: 100%; max-width: 15rem; margin-inline: auto; aspect-ratio: 9 / 17; border: 6px solid var(--ink); border-radius: 2rem; background: #fff; position: relative; overflow: hidden; box-sizing: border-box; }
+  .sv :global(.ph__notch) { position: absolute; top: 0.4rem; left: 50%; width: 28%; height: 0.5rem; margin-left: -14%; border-radius: 1rem; background: var(--ink); }
+  .sv :global(.ph__screen) { position: absolute; inset: 1.4rem 0.6rem 0.6rem; display: flex; flex-direction: column; gap: 0.5rem; overflow: hidden; }
+  .sv :global(.ph__bar) { display: block; height: 0.45rem; border-radius: 0.25rem; background: var(--ink-200); }
+  .sv :global(.ph__bar.ph__ink) { background: var(--ink); }
+  .sv :global(.ph__bar.ph__lg) { height: 0.9rem; background: var(--ink); }
+  .sv :global(.ph__nav) { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+  .sv :global(.ph__nav .ph__bar) { flex: none; }
+  .sv :global(.ph__dot) { width: 0.7rem; height: 0.7rem; border-radius: 50%; background: var(--ink-300); }
+  .sv :global(.ph__hero) { display: flex; flex-direction: column; gap: 0.5rem; padding: 0.8rem 0.5rem; border-radius: 0.6rem; background: var(--ink-100, #eef2f5); }
+  .sv :global(.ph__btn) { width: 40%; height: 0.9rem; border-radius: 1rem; background: #e8742a; }
+  .sv :global(.ph__cards) { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+  .sv :global(.ph__cards i) { display: block; aspect-ratio: 1; border-radius: 0.5rem; background: var(--ink-200); }
+  .sv :global(.ph__pin) { width: 1.2rem; height: 1.2rem; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: #e8742a; margin: 0.6rem auto 0.4rem; }
+  .sv :global(.ph__stars) { display: flex; gap: 0.25rem; }
+  .sv :global(.ph__stars i) { width: 0.7rem; height: 0.7rem; background: #e8a82a; clip-path: polygon(50% 0, 62% 36%, 100% 38%, 70% 60%, 80% 100%, 50% 76%, 20% 100%, 30% 60%, 0 38%, 38% 36%); }
+  .sv :global(.ph__row) { display: flex; gap: 0.4rem; }
+  .sv :global(.ph__chip) { flex: 1; height: 1.1rem; border-radius: 1rem; background: var(--ink-200); }
+  .sv :global(.ph__reel) { position: relative; flex: 1; min-height: 5rem; border-radius: 0.6rem; background: var(--ink); }
+  .sv :global(.ph__play) { position: absolute; left: 50%; top: 50%; width: 0; height: 0; margin: -0.7rem 0 0 -0.4rem; border-style: solid; border-width: 0.7rem 0 0.7rem 1.1rem; border-color: transparent transparent transparent #fff; }
+  .sv :global(.ph__prog) { height: 0.3rem; border-radius: 0.2rem; background: var(--ink-200); }
+  .sv :global(.ph__prog i) { display: block; width: 40%; height: 100%; border-radius: 0.2rem; background: #e8742a; }
+  .sv :global(.ph__chart) { display: flex; align-items: flex-end; gap: 0.4rem; flex: 1; min-height: 5rem; padding: 0.4rem; border-radius: 0.6rem; background: var(--ink-100, #eef2f5); }
+  .sv :global(.ph__chart i) { flex: 1; border-radius: 0.2rem 0.2rem 0 0; background: var(--ink); }
   @media (min-width: 1024px) {
     .sv__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); }
     .sv__main { grid-column: 1 / span 7; }
@@ -155,7 +162,17 @@ const phone = (id: string) => `<div class="ph" aria-hidden="true"><div class="ph
     .sv__side { display: none; grid-column: 8 / span 5; }
     .sv.js .sv__side { display: block; }
     .sv__sticky { position: sticky; top: 6rem; }
-    .sv__demo { display: none; }
+    .sv__demo, .sv__flabel { display: none; }
+    .sv__frame { border: 1px solid var(--ink-200); border-radius: 1.25rem; background: var(--ink-100, #eef2f5); overflow: hidden; }
+    .sv__fhead { display: flex; align-items: center; gap: var(--s3); padding: 0.75rem 1rem; border-bottom: 1px solid var(--ink-200); background: #fff; font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-500); }
+    .sv__fdots { display: inline-flex; gap: 0.3rem; }
+    .sv__fdots i { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--ink-300); }
+    .sv__fbody { padding: var(--s5) var(--s4); }
+    .sv__ffoot { margin: 0; padding: 0.75rem 1rem; border-top: 1px solid var(--ink-200); background: #fff; }
+    .sv[data-active='web'] .sv__flabel[data-label='web'],
+    .sv[data-active='local'] .sv__flabel[data-label='local'],
+    .sv[data-active='video'] .sv__flabel[data-label='video'],
+    .sv[data-active='ads'] .sv__flabel[data-label='ads'] { display: inline; }
     .sv[data-active='web'] .sv__demo[data-demo='web'],
     .sv[data-active='local'] .sv__demo[data-demo='local'],
     .sv[data-active='video'] .sv__demo[data-demo='video'],

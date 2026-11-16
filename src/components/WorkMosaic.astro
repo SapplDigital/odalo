@@ -126,6 +126,7 @@ const tallOf = (p: (typeof projects)[number]) => p.images?.find((i) => i.role ==
     .work:not(.work--joined) .proj--sup:nth-of-type(2) { grid-row: 1; border-top-right-radius: var(--r-small); }
     .work:not(.work--joined) .proj--sup .proj__art { aspect-ratio: 4 / 5; width: 42%; flex: none; }
     .work:not(.work--joined) .proj--sup .proj__art--shot :global(img) { object-position: 50% 0; }
+    .work:not(.work--joined) .proj--sup[data-p='sample-clinic'] .proj__art--shot :global(img) { object-position: 0% 0; }
     .work:not(.work--joined) .proj--sup[data-p='sample-shop'] .proj__art--shot :global(img) { object-position: 50% 100%; }
     .work:not(.work--joined) .proj--sup .proj__body { align-content: center; }
     .work:not(.work--joined) .explain { grid-column: 8 / -1; grid-row: 3; }
@@ -184,6 +185,7 @@ const tallOf = (p: (typeof projects)[number]) => p.images?.find((i) => i.role ==
     .grid--field .proj--sup[data-p='sample-shop'] { grid-row: 2; }
     .grid--field .proj--sup .proj__art { aspect-ratio: 4 / 5; width: 41%; flex: none; }
     .grid--field .proj--sup .proj__art--shot :global(img) { object-position: 50% 0; }
+    .grid--field .proj--sup[data-p='sample-clinic'] .proj__art--shot :global(img) { object-position: 0% 0; }
     .grid--field .proj--sup[data-p='sample-shop'] .proj__art--shot :global(img) { object-position: 50% 100%; }
     .grid--field .proj--sup .proj__body { align-content: center; }
     }

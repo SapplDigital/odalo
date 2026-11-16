@@ -8,6 +8,14 @@ interface Props { lang: Lang; s: Service }
 const { lang, s } = Astro.props;
 const t = tr(lang);
 const vis = serviceVisual(s);
+const isVideo = s.id === 'video';
+const RB = '/services/video/reel-';
+const reelClips = ['charco', 'hecho', 'probar'];
+const reelCopy = {
+  es: { tag: 'Ejemplo ilustrativo', place: 'Heladería ficticia', account: '@heladeria.ejemplo', alt: 'Ejemplo ilustrativo. Un móvil con un reel vertical de una heladería ficticia, con tres planos cortos en bucle.', shots: ['Hoy toca helado', 'Hecho a mano, cada día', 'Pruébalo en la tienda'] },
+  en: { tag: 'Illustrative example', place: 'Fictional ice-cream shop', account: '@example.icecream', alt: 'Illustrative example. A phone showing a vertical reel of a fictional ice-cream shop, with three short looping shots.', shots: ['Ice cream day', 'Handmade, every day', 'Come and try it'] },
+  de: { tag: 'Beispiel zur Illustration', place: 'Fiktive Eisdiele', account: '@beispiel.eis', alt: 'Beispiel zur Illustration. Ein Handy mit einem Hochformat-Reel einer fiktiven Eisdiele, mit drei kurzen Szenen in Schleife.', shots: ['Heute gibt es Eis', 'Handgemacht, jeden Tag', 'Probier es im Laden'] },
+}[lang];
 ---
 <section class="sh" data-svc-hero aria-labelledby="svc-h">
   <div class="sh__dots" aria-hidden="true"></div>
@@ -21,12 +29,117 @@ const vis = serviceVisual(s);
         <a class="btn btn--coral sh__btn" href={`${href(lang, 'audit/')}?service=${s.id}`} data-track="audit_cta" data-location="service">{t.common.requestAudit}</a>
       </p>
     </div>
-    <figure class="sh__aside svc-fig">
-      <div class="svc-fig__img"><ConceptImage image={vis.image} lang={lang} eager sizes="(min-width: 64em) 40vw, 100vw" /></div>
-      <figcaption><b>{vis.badge[lang]}</b> · {vis.label[lang]}</figcaption>
-    </figure>
+    {isVideo ? (
+      <div class="sh__aside sh__stack">
+        <div class="rp" data-reel role="img" aria-label={reelCopy.alt}>
+          <div class="rp__phone" aria-hidden="true">
+            <span class="rp__btn rp__btn--l" style="top:17%;height:5%"></span>
+            <span class="rp__btn rp__btn--l" style="top:25%;height:9%"></span>
+            <span class="rp__btn rp__btn--l" style="top:36%;height:9%"></span>
+            <span class="rp__btn rp__btn--r" style="top:27%;height:13%"></span>
+            <span class="rp__btn rp__btn--r" style="top:58%;height:8%"></span>
+            <div class="rp__frame">
+              <div class="rp__bezel">
+                <div class="rp__screen">
+                  {reelClips.map((n, i) => (
+                    <div class={`rp__clip${i === 0 ? ' is-active' : ''}`} data-clip data-webm={`${RB}${n}.webm`} data-mp4={`${RB}${n}.mp4`}>
+                      {i === 0 && (
+                        <>
+                          <img class="rp__mini" src={`${RB}${n}-mini.webp`} alt="" width="24" height="43" />
+                          <img class="rp__poster" src={`${RB}${n}.webp`} alt="" width="480" height="854" loading="lazy" decoding="async" />
+                        </>
+                      )}
+                      {i !== 0 && <img class="rp__poster rp__poster--still" src={`${RB}${n}.webp`} alt="" width="480" height="854" loading="lazy" decoding="async" />}
+                    </div>
+                  ))}
+                  <div class="rp__shade rp__shade--t"></div>
+                  <div class="rp__shade rp__shade--b"></div>
+                  <div class="rp__status"><span>9:41</span><span class="rp__batt"></span></div>
+                  <div class="rp__island"></div>
+                  <div class="rp__bars">
+                    {reelClips.map((_, i) => <span class={`rp__bar${i === 0 ? ' is-on' : ''}`} data-bar><i></i></span>)}
+                  </div>
+                  {reelCopy.shots.map((txt, i) => <p class={`rp__cap${i === 0 ? ' is-on' : ''}`} data-cap>{txt}</p>)}
+                  <div class="rp__acct"><span>{reelCopy.account}</span><span class="rp__dots"><i></i><i></i><i></i></span></div>
+                  <span class="rp__home"></span>
+                  <span class="rp__glass"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="rp__tag" aria-hidden="true"><span class="rp__pill">{reelCopy.tag}</span><span>{reelCopy.place}</span></p>
+        </div>
+        <figure class="svc-fig">
+          <div class="svc-fig__img"><ConceptImage image={vis.image} lang={lang} eager sizes="(min-width: 64em) 40vw, 100vw" /></div>
+          <figcaption><b>{vis.badge[lang]}</b> · {vis.label[lang]}</figcaption>
+        </figure>
+      </div>
+    ) : (
+      <figure class="sh__aside svc-fig">
+        <div class="svc-fig__img"><ConceptImage image={vis.image} lang={lang} eager sizes="(min-width: 64em) 40vw, 100vw" /></div>
+        <figcaption><b>{vis.badge[lang]}</b> · {vis.label[lang]}</figcaption>
+      </figure>
+    )}
   </div>
 </section>
+{isVideo && (
+  <script>
+    const root = document.querySelector<HTMLElement>('[data-reel]');
+    if (root && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const clips = Array.from(root.querySelectorAll<HTMLElement>('[data-clip]'));
+      const bars = Array.from(root.querySelectorAll<HTMLElement>('[data-bar]'));
+      const caps = Array.from(root.querySelectorAll<HTMLElement>('[data-cap]'));
+      const vids: (HTMLVideoElement | null)[] = clips.map(() => null);
+      let active = 0;
+      let visible = false;
+      let loaded = false;
+      let timer = 0;
+      const sync = () => {
+        clips.forEach((c, i) => c.classList.toggle('is-active', i === active));
+        bars.forEach((b, i) => {
+          b.classList.toggle('is-on', i === active);
+          b.classList.toggle('is-done', i < active);
+        });
+        caps.forEach((c, i) => c.classList.toggle('is-on', i === active));
+        vids.forEach((v, i) => {
+          if (!v) return;
+          if (visible && i === active) { v.currentTime = 0; v.play().catch(() => {}); } else v.pause();
+        });
+        root.classList.toggle('is-running', visible);
+      };
+      const stop = () => { clearInterval(timer); timer = 0; };
+      const start = () => { if (!timer) timer = window.setInterval(() => { active = (active + 1) % clips.length; sync(); }, 3200); };
+      const load = () => {
+        if (loaded) return;
+        loaded = true;
+        clips.forEach((c, i) => {
+          const v = document.createElement('video');
+          v.muted = true; v.defaultMuted = true; v.loop = true; v.playsInline = true;
+          v.setAttribute('muted', ''); v.setAttribute('loop', ''); v.setAttribute('playsinline', '');
+          v.preload = 'auto';
+          v.className = 'rp__video';
+          v.addEventListener('playing', () => v.setAttribute('data-ready', ''));
+          for (const [src, type] of [[c.dataset.webm!, 'video/webm'], [c.dataset.mp4!, 'video/mp4']]) {
+            const so = document.createElement('source');
+            so.src = src; so.type = type;
+            v.appendChild(so);
+          }
+          c.appendChild(v);
+          vids[i] = v;
+        });
+        sync();
+      };
+      const events = ['pointermove', 'pointerdown', 'touchstart', 'scroll', 'keydown', 'wheel'];
+      const onFirst = () => { events.forEach((e) => window.removeEventListener(e, onFirst)); load(); };
+      events.forEach((e) => window.addEventListener(e, onFirst, { passive: true }));
+      new IntersectionObserver((entries) => {
+        visible = entries[entries.length - 1].isIntersecting;
+        if (visible) start(); else stop();
+        sync();
+      }, { threshold: 0.3 }).observe(root);
+    }
+  </script>
+)}
 <style>
   .sh { position: relative; overflow: hidden; padding-block: calc(var(--header-h) + var(--s7)) var(--s8); background: var(--paper); border-bottom: 1px solid var(--ink-200); }
   .sh__dots { position: absolute; inset: 0; pointer-events: none; z-index: 0; background-image: radial-gradient(rgb(0 64 102 / 0.1) 1px, transparent 1px); background-size: 8px 8px; }
@@ -43,6 +156,53 @@ const vis = serviceVisual(s);
   .svc-fig__img :global(img) { display: block; width: 100%; height: auto; }
   .svc-fig figcaption { font-size: 0.9375rem; line-height: 1.4; overflow-wrap: anywhere; hyphens: auto; }
   .svc-fig figcaption b { font-weight: 700; }
+  .sh__stack { display: grid; gap: var(--s6); min-width: 0; }
+  .rp { position: relative; width: 100%; max-width: 420px; margin-inline: auto; display: grid; justify-items: center; gap: 1.25rem; min-width: 0; }
+  .rp__phone { position: relative; aspect-ratio: 9 / 19.5; width: min(64vw, 250px); }
+  .rp__btn { position: absolute; width: 3px; background: linear-gradient(135deg, #e4e1db, #a7a29a 22%, #d6d2cb 45%, #8c877f 70%, #cbc6be); }
+  .rp__btn--l { left: -2px; border-radius: 2px 0 0 2px; }
+  .rp__btn--r { right: -2px; border-radius: 0 2px 2px 0; }
+  .rp__frame { width: 100%; height: 100%; padding: 3px; border-radius: 44px; box-shadow: 0 18px 40px rgb(0 0 0 / 0.22); background: linear-gradient(135deg, #e4e1db 0%, #a7a29a 22%, #d6d2cb 45%, #8c877f 70%, #cbc6be 100%); }
+  .rp__bezel { width: 100%; height: 100%; padding: 7px; border-radius: 41px; background: #000; box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.08); }
+  .rp__screen { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 34px; background: #000; color: #fff; }
+  .rp__clip { position: absolute; inset: 0; opacity: 0; }
+  .rp__clip.is-active { opacity: 1; z-index: 1; }
+  .rp__clip img, .rp__clip :global(video) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .rp__mini { transform: scale(1.1); filter: blur(12px); }
+  .rp__poster { display: none !important; }
+  .rp__clip :global(video) { opacity: 0; transition: opacity 0.4s ease; }
+  .rp__clip :global(video[data-ready]) { opacity: 1; }
+  .rp__shade { position: absolute; inset-inline: 0; z-index: 2; pointer-events: none; }
+  .rp__shade--t { top: 0; height: 6rem; background: linear-gradient(to bottom, rgb(0 0 0 / 0.45), transparent); }
+  .rp__shade--b { bottom: 0; height: 33%; background: linear-gradient(to top, rgb(0 0 0 / 0.6), transparent); }
+  .rp__status { position: absolute; inset-inline: 0; top: 0; z-index: 3; height: 38px; display: flex; align-items: center; justify-content: space-between; padding-inline: 22px; font-size: 12px; font-weight: 600; line-height: 1; }
+  .rp__batt { width: 21px; height: 10px; border: 1px solid rgb(255 255 255 / 0.45); border-radius: 3px; background: linear-gradient(to right, #fff 75%, transparent 75%) content-box; padding: 1.5px; }
+  .rp__island { position: absolute; top: 9px; left: 50%; z-index: 4; width: 31%; height: 22px; transform: translateX(-50%); border-radius: 999px; background: #000; }
+  .rp__bars { position: absolute; inset-inline: 12px; top: 42px; z-index: 3; display: flex; gap: 4px; }
+  .rp__bar { flex: 1; height: 3px; border-radius: 999px; overflow: hidden; background: rgb(255 255 255 / 0.3); }
+  .rp__bar i { display: block; height: 100%; background: #fff; transform: scaleX(0); transform-origin: left; }
+  .rp__bar.is-done i { transform: scaleX(1); }
+  .rp__bar.is-on i { background: var(--coral, #fff); transform: scaleX(1); }
+  .rp__cap { position: absolute; left: 1rem; bottom: 5rem; z-index: 3; max-width: 80%; margin: 0; padding: 0.375rem 0.625rem; border-radius: 6px; background: #fff; color: var(--ink, #111); font-size: 14px; font-weight: 500; line-height: 1.2; opacity: 0; }
+  .rp__cap.is-on { opacity: 1; }
+  .rp__acct { position: absolute; inset-inline: 1rem; bottom: 1.5rem; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; font-family: var(--font-mono); font-size: 10px; color: rgb(255 255 255 / 0.85); }
+  .rp__acct span:first-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .rp__dots { display: flex; gap: 4px; flex-shrink: 0; }
+  .rp__dots i { width: 16px; height: 16px; border: 1px solid rgb(255 255 255 / 0.5); border-radius: 50%; }
+  .rp__home { position: absolute; bottom: 7px; left: 50%; z-index: 3; width: 36%; height: 4px; transform: translateX(-50%); border-radius: 999px; background: rgb(255 255 255 / 0.85); }
+  .rp__glass { position: absolute; inset: 0; z-index: 5; pointer-events: none; background: linear-gradient(115deg, rgb(255 255 255 / 0.1) 0%, rgb(255 255 255 / 0) 38%); }
+  .rp__tag { margin: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25rem 0.75rem; align-items: center; font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-700); }
+  .rp__pill { padding: 0.25rem 0.625rem; border: 1px solid var(--ink-200); border-radius: 999px; background: var(--paper); }
+  @media (min-width: 64em) { .rp__phone { width: 270px; } .rp__frame { border-radius: 48px; } .rp__bezel { border-radius: 45px; } .rp__screen { border-radius: 38px; } }
+  @media (prefers-reduced-motion: no-preference) {
+    .rp__cap { transition: opacity 0.4s ease 0.2s; }
+    .rp.is-running .rp__bar.is-on i { transform: scaleX(0); animation: rp-fill 3.2s linear forwards; }
+    @keyframes rp-fill { to { transform: scaleX(1); } }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rp__mini { display: none; }
+    .rp__clip:first-child .rp__poster { display: block !important; }
+  }
   @media (min-width: 64em) {
     .sh__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); }
     .sh__main { grid-column: span 7; }

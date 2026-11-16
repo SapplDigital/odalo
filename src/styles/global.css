@@ -41,6 +41,7 @@
   /* Derived, contrast-safe companions */
   --ink-deep: #002a44; /* text on coral */
   --coral-light: #efa58c; /* small coral text on ink */
+  --accent-italic: var(--ink); /* serif italic headline accent on light surfaces (Ale's navy) */
   --rust-text: #9a4a28; /* small accent text on paper/sand */
   --slate-text: #3f6079; /* slate text on sand */
   --line: rgb(0 64 102 / 0.18);
@@ -134,7 +135,7 @@ a, button, summary, input, select, textarea { scroll-margin-block: calc(var(--he
 .h-tile { font-size: var(--fs-h3); font-weight: 400; line-height: 1.12; letter-spacing: -0.02em; }
 .h-hero em, .h-section em, .h-tile em {
   font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em;
-  font-size: 1.1em; line-height: 0.9; color: var(--rust-text);
+  font-size: 1.1em; line-height: 0.9; color: var(--accent-italic);
 }
 .on-dark .h-hero em, .on-dark .h-section em, .on-dark .h-tile em { color: var(--coral-light); }
 .lead { max-width: 62ch; text-wrap: pretty; }

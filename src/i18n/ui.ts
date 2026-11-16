@@ -41,7 +41,7 @@ const en = {
     breadcrumb: 'Breadcrumb',
     langFallback: 'This page is not available in the selected language. Showing English.',
   },
-  nav: { services: 'Services', plans: 'Plans', process: 'Process', work: 'Work', about: 'About', audit: 'Free audit', faq: 'FAQ' },
+  nav: { services: 'Services', plans: 'Plans', process: 'Process', work: 'Work', about: 'Studio', audit: 'Free audit', faq: 'FAQ' },
   common: {
     explore: 'Explore',
     closeDetails: 'Close details',
@@ -379,7 +379,7 @@ const es: Dict = {
     breadcrumb: 'Ruta de navegación',
     langFallback: 'Esta página no está disponible en el idioma elegido. Se muestra en inglés.',
   },
-  nav: { services: 'Servicios', plans: 'Planes', process: 'Proceso', work: 'Trabajo', about: 'Nosotros', audit: 'Auditoría gratis', faq: 'Preguntas' },
+  nav: { services: 'Servicios', plans: 'Planes', process: 'Proceso', work: 'Proyectos', about: 'Estudio', audit: 'Auditoría gratis', faq: 'Preguntas' },
   common: {
     explore: 'Explorar',
     closeDetails: 'Cerrar detalles',
@@ -706,7 +706,7 @@ const de: Dict = {
     breadcrumb: 'Brotkrumennavigation',
     langFallback: 'Diese Seite ist in der gewählten Sprache nicht verfügbar. Es wird Englisch angezeigt.',
   },
-  nav: { services: 'Leistungen', plans: 'Pakete', process: 'Ablauf', work: 'Projekte', about: 'Über uns', audit: 'Gratis-Analyse', faq: 'FAQ' },
+  nav: { services: 'Leistungen', plans: 'Pakete', process: 'Ablauf', work: 'Projekte', about: 'Studio', audit: 'Gratis-Analyse', faq: 'FAQ' },
   common: {
     explore: 'Entdecken',
     closeDetails: 'Details schließen',

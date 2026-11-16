@@ -78,3 +78,48 @@ Remaining gaps ranked
 - Medium: terracotta vs navy italic accent; nav labels.
 - Low: terrazzo/heading overlap in contact band; remove extra Condiciones/FAQ on plans if Ale's lean layout is the target.
 - Not tested: hover/animation, reduced motion, real sticky-bar scrolling, contrast measurement, console/network errors, other pages (work, legal) in detail.
+
+## Round 3 / project cards (text note only, no new screenshots)
+
+- Confirmed root cause (owner decision 2026-11-16): the grey Casa Almina / Brindle Pantry cards were a screenshot artefact, not a product bug. The card images use `loading="lazy"` and sit below the fold; Playwright fullPage captures never scrolled them into view, so they were not loaded and painted grey. The image files, srcset paths and CSP (`img-src 'self' data:`) are fine, and the images load in the live page.
+- The earlier `eager` change to `SeccionProyectos.astro` was reverted; the cards are lazy again. Layout, links, alt text and i18n are unchanged.
+- `tests/qa-shots.spec.ts` `shoot()` now scrolls to the bottom and waits until every `img` is complete with naturalWidth > 0 before the fullPage screenshot, then scrolls back to the top.
+- Guard (kept): `tests/home-project-images.spec.ts` (es/en/de at 390 and 1440) scrolls each card image into view and asserts complete, naturalWidth > 0, non-zero box, visible, and non-zero effective opacity.
+
+## Round 3 / dot-matrix prices (text note only)
+
+- Finding: no defect found in source. `DotText.astro` emits an inline SVG with a `currentColor` path and sizes it by `--dot-h` x `--ar`. The consumers (SeccionPlanes, PlanStepWeb, PlanStepMonthly) set `--dot-h` through `:global()` rules, and glyphs exist for digits, the euro sign, comma and period. No CSS hides the SVG, and inline SVG is not affected by the CSP. No source fix was made, since none was evidenced; the QA observation is treated as a misread unless the new spec fails.
+- Guard: `tests/dot-text.spec.ts` (es/en/de at 390 and 1440, home `#planes` and `/{lang}/plans/`) asserts each `.dot-text` svg is visible, has a bounding box width and height > 0, and a non-empty path `d`. netlify.toml and the CSP are unchanged.
+
+## Round 3 / hero cloud + nav overlap (text note only, no new screenshots)
+
+- Hero cloud: new `src/components/home/HeroCloud.astro`, ported from Ale's `VividField` (inbox/ale-ref/src): navy gradient field, four blurred light blobs inside a drifting wrapper (22s alternate), a dot layer masked by `radial-gradient(ellipse at 50% 35%, black, transparent 70%)`, and a light grain layer. CSS only, no canvas. Root has `aria-hidden="true"`, `data-hero-cloud`, `pointer-events: none`, no focusable content, `overflow: hidden`. It fills `.hp__art`, behind the stones. The drift animation is disabled under `prefers-reduced-motion: reduce`. Ale's `.dots`/`.grain` utility rules were not found as plain CSS rules, so equivalents were written as scoped CSS. The field uses navy `--ink` as the accent, since our `--accent` is coral.
+- Nav pill vs eyebrow at 390: body already has `padding-top = pill-top + pill-h + 12px`, so the pill does not cover the eyebrow at scroll 0. The overlap in the fullPage shot is treated as an artefact of the fixed header being captured over scrolled content. No Header change. `tests/hero-cloud.spec.ts` guards it.
+- Hero copy, i18n keys, hrefs, data-track attributes, netlify.toml and CSP are unchanged.
+
+## Round 3 / Tidewell crop + contact band (text note only, no screenshots regenerated)
+
+- Tidewell crop: cause was `object-fit: cover` with the default centred position on a 16/11 box (home) and a 4/5 portrait box (Work, `50% 0`) for an image of about 1.6 ratio, trimming the left edge where the headline sits. Fix is CSS only: `object-position: left center` for `[data-project-card=sample-clinic]` in SeccionProyectos.astro, and `0% 0` for `sample-clinic` in WorkMosaic.astro (both layouts). No assets changed, `loading=lazy` kept.
+- Contact band: cause was `.ctc__path` (terrazzo, aria-hidden) absolutely positioned top right over the eyebrow and h2. Fix: on mobile it is an in-flow 6rem strip above the eyebrow; from 768px it is confined to a 28% right column and `.ctc__h` is capped at 62% width. Copy, i18n, CTA and CSP unchanged.
+- Guard: `tests/layout-390.spec.ts` (es/en/de at 390 and 1440) checks h2 vs shapes non-intersection, Tidewell image loaded with left object-position and inside the viewport, and no horizontal overflow.
+
+## Round 3 / services phones (text note only, no screenshots regenerated)
+
+- Home services demo card (MEDIUM 4a): `src/components/home/SeccionServicios.astro` now shows a framed demo card in the side column at 1024 px and up, styled after Ale's `MarcoDemo` (label and footer). It switches with the open accordion item. Below 1024 px the same demo sits inside the open panel, under its text. Accordion behaviour is unchanged: aria-expanded/aria-controls, ArrowUp/Down/Home/End, copy, i18n keys and service links. Demo animations are disabled under `prefers-reduced-motion`. Guard: `tests/services-demo.spec.ts` (es/en/de at 390 and 1440: 1440 position and switching, 390 in-panel, no overflow).
+- Video service page hero phone (MEDIUM 4b): `src/components/services/ServiceHero.astro` renders a phone frame only when `s.id === 'video'`. It is a port of Ale's `MovilReel`: a muted, playsinline, looping clip with a poster, an "illustrative example" tag and an aria-label. Videos load lazily, pause off-screen, and under `prefers-reduced-motion: reduce` only the poster shows and no video plays. Web, local and ads pages get no hero phone.
+- Assets: Ale's reel files were copied from `inbox/odalo-web-design/public/servicios/video/` into `public/services/video/`. Each copied file and its source path is listed in `docs/ASSET-SOURCES.md`.
+- Guard: `tests/services-video-phone.spec.ts` (es/en/de: phone present with aria-label, poster/video URLs return 200, reduced-motion shows poster only, absent on other services, no overflow at 390 and 1440).
+- Existing `.ph` absence checks on services, work and audit pages were not changed.
+- Out of scope: Ale's 9:16 format picker and calendar blocks.
+- Still open: LOW 6 (navy italic accent like Ale's instead of terracotta; Ale's nav labels where they are only labels, keeping our routes).
+- No screenshots were regenerated this round (QA_SHOTS unset). This note is text only.
+
+## Round 3 / LOW 6 (text note only, no screenshots regenerated)
+
+- Italic accent: token `--accent-italic` = `var(--ink)` (#004066, Ale's navy) from the earlier T11 change. Light surfaces only; dark surfaces still use `--coral-light`.
+- Nav labels (src/i18n/ui.ts, `nav` only; keys, hrefs, Header.astro unchanged):
+  - about -> Estudio (es), Studio (en), Studio (de), matching Ale's studio.
+  - work (es) -> Proyectos (was Trabajo); en/de already Work/Projekte.
+  - services, plans unchanged and already equal to Ale's; process unchanged (no Ale counterpart).
+- Spec string updates: none. Existing specs read labels from `t.nav.*`. New guard: `tests/nav-labels.spec.ts` (es/en/de: header labels and hrefs, hero italic accent computes to rgb(0, 64, 102)).
+- No screenshots were regenerated. This note is text only.

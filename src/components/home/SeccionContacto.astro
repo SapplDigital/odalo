@@ -37,8 +37,13 @@ const country = site.operator.country[lang];
 </section>
 <style>
   .ctc { position: relative; overflow: hidden; padding-block: var(--section); background: var(--ink); color: rgb(255 255 255 / 0.75); }
-  .ctc__path { position: absolute; top: 0; right: 0; width: 100%; max-width: 640px; height: 12rem; overflow: hidden; pointer-events: none; }
-  @media (min-width: 768px) { .ctc__path { height: 16rem; width: 60%; } }
+  /* In-flow strip above the eyebrow on mobile: never overlaps the headline. */
+  .ctc__path { position: relative; width: 100%; height: 6rem; margin-bottom: var(--s5); overflow: hidden; pointer-events: none; }
+  @media (min-width: 768px) {
+    /* Desktop: confined to the right column; the headline is capped to the left. */
+    .ctc__path { position: absolute; top: 0; right: 0; width: 28%; height: 100%; margin: 0; }
+    .ctc__h { max-width: 62%; }
+  }
   .ctc__inner { position: relative; display: grid; gap: var(--s5); }
   .ctc__eyebrow { margin: 0; font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgb(255 255 255 / 0.75); }
   .ctc__h { margin: 0; color: #fff; font-weight: 300; font-size: clamp(2.25rem, 6vw, 4.5rem); line-height: 1.05; text-wrap: balance; overflow-wrap: anywhere; }
