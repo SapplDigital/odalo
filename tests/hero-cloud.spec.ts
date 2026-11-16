@@ -19,6 +19,11 @@ for (const lang of langs) {
       const sw = await page.evaluate(() => document.documentElement.scrollWidth);
       expect(sw).toBeLessThanOrEqual(width);
       await expect(page.locator('.hp .h-hero')).toBeVisible();
+      const sec = await page.locator('[data-home-hero]').boundingBox();
+      expect(sec).not.toBeNull();
+      expect(box!.width).toBeGreaterThanOrEqual(sec!.width * 0.95);
+      expect(box!.height).toBeGreaterThanOrEqual(sec!.height * 0.8);
+      await page.locator('.hp .h-hero').click({ trial: true });
     });
 
     test(`hero cloud reduced motion /${lang}/ @${width}`, async ({ page }) => {

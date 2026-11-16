@@ -8,6 +8,7 @@ import Stones from '../Stones.astro';
 import HeroCloud from './HeroCloud.astro';
 ---
 <section class="hp" data-home-hero aria-labelledby="hp-h">
+  <HeroCloud />
   <div class="wrap hp__grid">
     <div class="hp__text">
       <p class="hp__eyebrow">{t.hero.eyebrow}</p>
@@ -19,14 +20,13 @@ import HeroCloud from './HeroCloud.astro';
       </div>
     </div>
     <div class="hp__art" aria-hidden="true">
-      <HeroCloud />
       <Stones from={0.1} to={0.6} />
     </div>
   </div>
 </section>
 <style>
-  .hp { padding-block: var(--s6) var(--s8); background-image: radial-gradient(rgb(0 64 102 / 0.1) 1px, transparent 1px); background-size: 8px 8px; }
-  .hp__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s6); align-items: center; }
+  .hp { position: relative; overflow: hidden; isolation: isolate; padding-block: var(--s6) var(--s8); }
+  .hp__grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s6); align-items: center; }
   .hp__text { position: relative; z-index: 1; display: grid; gap: var(--s5); align-content: center; }
   .hp__eyebrow { font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); }
   .hp__body { font-size: 1.1875rem; line-height: 1.5; color: var(--ink); max-width: 36rem; text-wrap: balance; }

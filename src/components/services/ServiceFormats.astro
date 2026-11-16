@@ -1,0 +1,148 @@
+---
+import type { Lang } from '../../i18n';
+import { tr } from '../../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = tr(lang).formats;
+const first = t.list[0];
+---
+<section class="sf section" data-svc-formats data-ratio={first.ratio} aria-labelledby="svc-formats-h">
+  <div class="wrap sf__in">
+    <header class="sf__head">
+      <p class="eyebrow">{t.eyebrow}</p>
+      <h2 id="svc-formats-h" class="h-section">{t.h2.a} <em>{t.h2.em}</em></h2>
+      <p class="sf__intro">{t.intro}</p>
+    </header>
+    <div class="sf__picker" data-sf-picker>
+      <div class="sf__stage">
+        <div class="sf__frame" data-sf-frame>
+          <span class="sf__x sf__x--tl" aria-hidden="true"></span>
+          <span class="sf__x sf__x--tr" aria-hidden="true"></span>
+          <span class="sf__x sf__x--bl" aria-hidden="true"></span>
+          <span class="sf__x sf__x--br" aria-hidden="true"></span>
+          <div class="sf__txt">
+            <p class="sf__ratio" data-sf-ratio>{first.ratio}</p>
+            <p class="sf__nets" data-sf-networks>{first.networks}</p>
+          </div>
+          <p class="sf__size" data-sf-size>{first.w} × {first.h}</p>
+        </div>
+      </div>
+      <div class="sf__btns" role="group" aria-label={t.pick}>
+        {t.list.map((f, i) => (
+          <button
+            type="button"
+            class="sf__btn"
+            aria-pressed={i === 0 ? 'true' : 'false'}
+            data-ratio={f.ratio}
+            data-w={f.w}
+            data-h={f.h}
+            data-networks={f.networks}
+          >
+            <span class="sf__bratio">{f.ratio}</span>
+            <span class="sf__buse">{f.use}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .sf { background: var(--paper); border-top: 1px solid var(--ink-200); }
+  .sf__in { display: grid; gap: var(--s6); }
+  .sf__head { display: grid; gap: var(--s4); max-width: 60rem; }
+  .sf__head > * { margin: 0; }
+  .sf__intro { max-width: 52ch; color: var(--ink-700); }
+  .sf__picker { display: grid; gap: var(--s4); min-width: 0; }
+  .sf__stage {
+    position: relative; overflow: hidden; aspect-ratio: 1 / 1;
+    border: 1px solid var(--ink-200); border-radius: 1rem;
+    background-color: #f1f4f6;
+    background-image: radial-gradient(rgba(0, 64, 102, 0.14) 1px, transparent 1.5px);
+    background-size: 16px 16px;
+  }
+  .sf__frame {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    display: grid; place-items: center; box-sizing: border-box;
+    border: 1px solid var(--ink); border-radius: 0.5rem; background: #fff;
+    transition: width 0.6s ease, height 0.6s ease, aspect-ratio 0.6s ease;
+  }
+  [data-ratio='9:16'] .sf__frame { height: 88%; width: auto; aspect-ratio: 9 / 16; }
+  [data-ratio='1:1'] .sf__frame { height: 80%; width: auto; aspect-ratio: 1 / 1; }
+  [data-ratio='16:9'] .sf__frame { width: 92%; height: auto; aspect-ratio: 16 / 9; }
+  .sf__txt { text-align: center; padding: 0 0.5rem; display: grid; gap: 0.5rem; min-width: 0; }
+  .sf__txt > * { margin: 0; }
+  .sf__ratio { font-size: clamp(2rem, 7vw, 4.5rem); font-weight: 300; line-height: 1; letter-spacing: -0.04em; color: var(--ink); }
+  .sf__nets { font-size: 0.875rem; font-weight: 500; color: var(--ink); overflow-wrap: anywhere; }
+  .sf__size { position: absolute; left: 0.75rem; bottom: 0.5rem; margin: 0; font-family: var(--font-mono); font-size: 0.6875rem; color: var(--ink-700); }
+  .sf__x { position: absolute; width: 11px; height: 11px; }
+  .sf__x::before, .sf__x::after { content: ''; position: absolute; background: var(--ink); }
+  .sf__x::before { left: 0; top: 50%; width: 100%; height: 1px; }
+  .sf__x::after { top: 0; left: 50%; height: 100%; width: 1px; }
+  .sf__x--tl { top: -6px; left: -6px; }
+  .sf__x--tr { top: -6px; right: -6px; }
+  .sf__x--bl { bottom: -6px; left: -6px; }
+  .sf__x--br { bottom: -6px; right: -6px; }
+  .sf__btns { display: grid; gap: 0.5rem; grid-template-columns: minmax(0, 1fr); }
+  .sf__btn {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 0.75rem; min-width: 0;
+    padding: 0.75rem 1rem; text-align: left; cursor: pointer; font: inherit;
+    border: 1px solid var(--ink-200); border-radius: 0.5rem; background: transparent; color: var(--ink-700);
+  }
+  .sf__btn:hover { border-color: var(--ink-700); }
+  .sf__btn[aria-pressed='true'] { border-color: var(--ink); background: #fff; color: var(--ink); }
+  .sf__btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .sf__bratio { font-family: var(--font-mono); font-size: 0.8125rem; }
+  .sf__buse { font-size: 0.875rem; overflow-wrap: anywhere; }
+  @media (min-width: 48em) {
+    .sf__stage { aspect-ratio: 16 / 10; }
+    .sf__btns { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    [data-ratio='1:1'] .sf__frame { height: 88%; }
+    [data-ratio='16:9'] .sf__frame { width: 70%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sf__frame { transition: none; animation: none; }
+  }
+</style>
+<script>
+  const root = document.querySelector<HTMLElement>('[data-svc-formats]');
+  if (root) {
+    const picker = root.querySelector<HTMLElement>('[data-sf-picker]')!;
+    const btns = Array.from(root.querySelectorAll<HTMLButtonElement>('.sf__btn'));
+    const rEl = root.querySelector<HTMLElement>('[data-sf-ratio]')!;
+    const nEl = root.querySelector<HTMLElement>('[data-sf-networks]')!;
+    const sEl = root.querySelector<HTMLElement>('[data-sf-size]')!;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let active = 0;
+    let inView = false;
+    let paused = false;
+    let timer: number | undefined;
+
+    const select = (i: number) => {
+      active = i;
+      const b = btns[i];
+      btns.forEach((x, k) => x.setAttribute('aria-pressed', k === i ? 'true' : 'false'));
+      root.dataset.ratio = b.dataset.ratio;
+      rEl.textContent = b.dataset.ratio ?? '';
+      nEl.textContent = b.dataset.networks ?? '';
+      sEl.textContent = `${b.dataset.w} × ${b.dataset.h}`;
+    };
+    const sync = () => {
+      if (timer !== undefined) { window.clearInterval(timer); timer = undefined; }
+      if (inView && !paused && !reduce.matches) {
+        timer = window.setInterval(() => select((active + 1) % btns.length), 3000);
+      }
+    };
+    btns.forEach((b, i) => b.addEventListener('click', () => { select(i); sync(); }));
+    picker.addEventListener('mouseenter', () => { paused = true; sync(); });
+    picker.addEventListener('mouseleave', () => { paused = false; sync(); });
+    picker.addEventListener('focusin', () => { paused = true; sync(); });
+    picker.addEventListener('focusout', () => { paused = false; sync(); });
+    reduce.addEventListener('change', sync);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((entries) => {
+        inView = entries.some((e) => e.isIntersecting);
+        sync();
+      }, { threshold: 0.4 }).observe(picker);
+    }
+  }
+</script>

@@ -138,6 +138,35 @@ const en = {
       videoFallback: 'Your browser cannot play this video. The still image above shows one frame.',
     },
   },
+  formats: {
+    eyebrow: 'Formats',
+    h2: { a: 'One piece,', em: 'every screen.' } as Head,
+    intro: 'We shoot and edit with the screen in mind. The same idea, adapted to each platform.',
+    pick: 'See format',
+    list: [
+      { ratio: '9:16', w: 1080, h: 1920, networks: 'Reels · TikTok · Shorts', use: 'Vertical, for phones' },
+      { ratio: '1:1', w: 1080, h: 1080, networks: 'Instagram · Facebook', use: 'Square, for the feed' },
+      { ratio: '16:9', w: 1920, h: 1080, networks: 'YouTube · Your website', use: 'Horizontal, for large screens' },
+    ],
+  },
+  planMonth: {
+    eyebrow: 'Part of a plan',
+    h2: { a: 'Video every month,', em: 'no effort.' } as Head,
+    texto: 'The {plan} plan includes 2 reels a month with your footage, along with your Google profile and one ad channel.',
+    ver: 'See plans',
+    mes: 'One month of the {plan} plan',
+    reel: 'Reel',
+    dias: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+  },
+  videoProcess: {
+    h2: { a: 'From idea to your', em: 'profile.' } as Head,
+    steps: [
+      { t: 'Idea', d: 'We work out what you want to say, to whom and where.' },
+      { t: 'Script', d: 'We write the script and the shots before filming anything.' },
+      { t: 'AI production and editing', d: 'We film or generate with AI, then edit with subtitles and music.' },
+      { t: 'Publishing', d: 'You get it adapted to each platform, ready to post.' },
+    ],
+  },
   process: {
     h2: { a: 'Four steps.', em: 'One connected approach.' } as Head,
     note: 'Proposed workflow for this demo. Scope, timing and reporting are agreed before work starts.',
@@ -476,6 +505,35 @@ const es: Dict = {
       videoFallback: 'Tu navegador no puede reproducir este vídeo. La imagen de arriba muestra un fotograma.',
     },
   },
+  formats: {
+    eyebrow: 'Formatos',
+    h2: { a: 'Una pieza,', em: 'cada pantalla.' },
+    intro: 'Grabamos y montamos pensando en dónde se va a ver. La misma idea, adaptada a cada red.',
+    pick: 'Ver formato',
+    list: [
+      { ratio: '9:16', w: 1080, h: 1920, networks: 'Reels · TikTok · Shorts', use: 'Vertical, para el móvil' },
+      { ratio: '1:1', w: 1080, h: 1080, networks: 'Instagram · Facebook', use: 'Cuadrado, para el feed' },
+      { ratio: '16:9', w: 1920, h: 1080, networks: 'YouTube · Tu web', use: 'Horizontal, para pantallas grandes' },
+    ],
+  },
+  planMonth: {
+    eyebrow: 'Dentro de un plan',
+    h2: { a: 'Vídeo cada mes,', em: 'sin pensarlo.' },
+    texto: 'El plan {plan} incluye 2 reels al mes con tu material, junto a tu ficha de Google y un canal de anuncios.',
+    ver: 'Ver planes',
+    mes: 'Un mes del plan {plan}',
+    reel: 'Reel',
+    dias: ['L', 'M', 'X', 'J', 'V', 'S', 'D'],
+  },
+  videoProcess: {
+    h2: { a: 'De la idea a tu', em: 'perfil.' },
+    steps: [
+      { t: 'Idea', d: 'Vemos qué quieres contar, a quién y en qué red.' },
+      { t: 'Guion', d: 'Escribimos el guion y los planos antes de grabar nada.' },
+      { t: 'Producción con IA y edición', d: 'Grabamos o generamos con IA, y montamos con subtítulos y música.' },
+      { t: 'Publicación', d: 'Te lo entregamos adaptado a cada red, listo para publicar.' },
+    ],
+  },
   process: {
     h2: { a: 'Cuatro pasos.', em: 'Un enfoque conectado.' },
     note: 'Flujo de trabajo propuesto para esta demo. El alcance, los plazos y los informes se acuerdan antes de empezar.',
@@ -802,6 +860,35 @@ const de: Dict = {
       videoNote: 'Ohne Ton: es gibt kein Audio. Der Text im Bild ist englisch. Illustration und Motion Design, kein gefilmtes Material.',
       videoFallback: 'Dein Browser kann dieses Video nicht abspielen. Das Bild darüber zeigt ein Einzelbild.',
     },
+  },
+  formats: {
+    eyebrow: 'Formate',
+    h2: { a: 'Ein Video,', em: 'jeder Bildschirm.' },
+    intro: 'Wir drehen und schneiden für den Ort, an dem es gesehen wird. Dieselbe Idee, für jede Plattform angepasst.',
+    pick: 'Format ansehen',
+    list: [
+      { ratio: '9:16', w: 1080, h: 1920, networks: 'Reels · TikTok · Shorts', use: 'Hochformat, fürs Handy' },
+      { ratio: '1:1', w: 1080, h: 1080, networks: 'Instagram · Facebook', use: 'Quadratisch, für den Feed' },
+      { ratio: '16:9', w: 1920, h: 1080, networks: 'YouTube · Ihre Website', use: 'Querformat, für große Bildschirme' },
+    ],
+  },
+  planMonth: {
+    eyebrow: 'Teil eines Plans',
+    h2: { a: 'Jeden Monat Video,', em: 'ohne Aufwand.' },
+    texto: 'Der Plan {plan} enthält 2 Reels im Monat mit Ihrem Material, dazu Ihr Google-Profil und einen Anzeigenkanal.',
+    ver: 'Pläne ansehen',
+    mes: 'Ein Monat im Plan {plan}',
+    reel: 'Reel',
+    dias: ['M', 'D', 'M', 'D', 'F', 'S', 'S'],
+  },
+  videoProcess: {
+    h2: { a: 'Von der Idee in Ihr', em: 'Profil.' },
+    steps: [
+      { t: 'Idee', d: 'Wir klären, was Sie erzählen wollen, wem und auf welcher Plattform.' },
+      { t: 'Skript', d: 'Wir schreiben Skript und Einstellungen, bevor gedreht wird.' },
+      { t: 'KI-Produktion und Schnitt', d: 'Wir drehen oder erzeugen mit KI und schneiden mit Untertiteln und Musik.' },
+      { t: 'Veröffentlichung', d: 'Sie erhalten es für jede Plattform angepasst, bereit zum Posten.' },
+    ],
   },
   process: {
     h2: { a: 'Vier Schritte.', em: 'Ein verbundener Ansatz.' },

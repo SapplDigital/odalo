@@ -1,45 +1,47 @@
 ---
-// Decorative dotted cloud, ported from Ale's VividField (inbox/ale-ref/src): navy gradient field,
-// blurred light blobs inside a drifting wrapper, radial-masked dot layer, grain. CSS only.
+// Decorative full-bleed dot scatter (after Ale's HeroSenal): fine dot grid plus denser ink dots
+// at different sizes/offsets, faded under the text. CSS only, no script.
 ---
 <div class="cloud" data-hero-cloud aria-hidden="true">
-  <div class="cloud__drift">
-    <span class="b b1"></span>
-    <span class="b b2"></span>
-    <span class="b b3"></span>
-    <span class="b b4"></span>
-  </div>
-  <div class="cloud__dots"></div>
-  <div class="cloud__grain"></div>
+  <div class="cloud__layer cloud__grid"></div>
+  <div class="cloud__layer cloud__d1"></div>
+  <div class="cloud__layer cloud__d2"></div>
+  <div class="cloud__layer cloud__d3"></div>
 </div>
 <style>
-  .cloud {
-    position: absolute; inset: 0; overflow: hidden; pointer-events: none; border-radius: 28px;
-    background: linear-gradient(165deg, color-mix(in oklab, var(--ink) 40%, white) 0%, var(--ink) 55%, color-mix(in oklab, var(--ink) 55%, black) 100%);
-  }
-  /* inset keeps every blob (even mid-drift) inside the viewport; blur supplies the soft overflow look */
-  .cloud__drift { position: absolute; inset: 8%; animation: cloud-drift 22s ease-in-out infinite alternate; }
-  .b { position: absolute; border-radius: 9999px; display: block; }
-  .b1 { top: -10%; left: 0; width: 60%; height: 70%; background: #fff; opacity: 0.6; filter: blur(60px); }
-  .b2 { top: 30%; left: 15%; width: 70%; height: 22%; transform: rotate(-8deg); background: color-mix(in oklab, var(--ink) 25%, white); opacity: 0.7; filter: blur(32px); }
-  .b3 { top: 42%; left: 45%; width: 45%; height: 10%; transform: rotate(-8deg); background: #fff; opacity: 0.5; filter: blur(20px); }
-  .b4 { right: 0; bottom: -10%; width: 60%; height: 80%; background: color-mix(in oklab, var(--ink) 45%, black); opacity: 0.8; filter: blur(60px); }
-  .cloud__dots {
+  .cloud { position: absolute; inset: 0; overflow: hidden; pointer-events: none; border-radius: 0; background: none; }
+  .cloud__layer {
     position: absolute; inset: 0;
-    background-image: radial-gradient(rgb(255 255 255 / 0.85) 1.2px, transparent 1.6px);
-    background-size: 10px 10px;
-    -webkit-mask-image: radial-gradient(ellipse at 50% 35%, black, transparent 70%);
-    mask-image: radial-gradient(ellipse at 50% 35%, black, transparent 70%);
+    /* mobile: text spans full width, keep faint and denser toward the bottom (art) */
+    -webkit-mask-image: linear-gradient(180deg, rgb(0 0 0 / 0.12) 0%, rgb(0 0 0 / 0.2) 55%, #000 100%);
+    mask-image: linear-gradient(180deg, rgb(0 0 0 / 0.12) 0%, rgb(0 0 0 / 0.2) 55%, #000 100%);
+    animation: cloud-drift 28s ease-in-out infinite alternate;
   }
-  .cloud__grain {
-    position: absolute; inset: 0; opacity: 0.12; mix-blend-mode: overlay;
-    background-image: radial-gradient(rgb(0 0 0 / 0.9) 0.5px, transparent 0.7px), radial-gradient(rgb(255 255 255 / 0.9) 0.5px, transparent 0.7px);
-    background-size: 3px 3px, 5px 5px; background-position: 0 0, 1px 2px;
+  .cloud__grid {
+    background-image: radial-gradient(rgb(0 64 102 / 0.18) 1px, transparent 1.4px);
+    background-size: 8px 8px;
+  }
+  .cloud__d1 {
+    background-image: radial-gradient(rgb(0 64 102 / 0.5) 1.4px, transparent 1.9px);
+    background-size: 24px 24px; background-position: 4px 6px;
+  }
+  .cloud__d2 {
+    background-image: radial-gradient(rgb(0 64 102 / 0.4) 2px, transparent 2.6px);
+    background-size: 47px 47px; background-position: 13px 21px;
+  }
+  .cloud__d3 {
+    background-image: radial-gradient(rgb(0 64 102 / 0.55) 2.6px, transparent 3.2px);
+    background-size: 89px 89px; background-position: 40px 9px;
+  }
+  @media (min-width: 1024px) {
+    .cloud__layer {
+      -webkit-mask-image: linear-gradient(90deg, rgb(0 0 0 / 0) 0%, rgb(0 0 0 / 0.06) 40%, rgb(0 0 0 / 0.6) 62%, #000 85%);
+      mask-image: linear-gradient(90deg, rgb(0 0 0 / 0) 0%, rgb(0 0 0 / 0.06) 40%, rgb(0 0 0 / 0.6) 62%, #000 85%);
+    }
   }
   @keyframes cloud-drift {
-    0% { transform: translate3d(0, 0, 0) scale(1); }
-    50% { transform: translate3d(4%, -3%, 0) scale(1.06); }
-    100% { transform: translate3d(-3%, 4%, 0) scale(0.97); }
+    0% { background-position-y: 0; }
+    100% { background-position-y: 12px; }
   }
   @media (prefers-reduced-motion: reduce) {
     .cloud, .cloud * { animation: none !important; }

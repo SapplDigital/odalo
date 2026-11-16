@@ -54,6 +54,16 @@ for (const l of langs) {
     });
 
     for (const w of [390, 1440]) {
+      test(`/${l}/services/video/ shows a loaded reel poster at ${w}`, async ({ page }) => {
+        await page.setViewportSize({ width: w, height: 900 });
+        await page.goto(`/${l}/services/video/`, { waitUntil: 'networkidle' });
+        const poster = page.locator('[data-reel] .rp__clip.is-active .rp__poster');
+        await expect(poster).toHaveCount(1);
+        expect(await poster.evaluate((i) => getComputedStyle(i).display)).not.toBe('none');
+        await expect(poster).toBeVisible();
+        await expect.poll(() => poster.evaluate((i) => (i as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+      });
+
       test(`/${l}/services/video/ has no horizontal overflow at ${w}`, async ({ page }) => {
         await page.setViewportSize({ width: w, height: 900 });
         await page.goto(`/${l}/services/video/`, { waitUntil: 'networkidle' });

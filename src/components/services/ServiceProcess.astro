@@ -1,19 +1,20 @@
 ---
 import type { Lang } from '../../i18n';
 import { tr } from '../../i18n/ui';
-interface Props { lang: Lang }
-const { lang } = Astro.props;
+interface Props { lang: Lang; variant?: 'video' }
+const { lang, variant } = Astro.props;
 const t = tr(lang);
+const c = variant === 'video' ? t.videoProcess : t.process;
 ---
 <section class="sp section" data-svc-process aria-labelledby="svc-proc-h">
   <div class="wrap sp__in">
     <header class="sp__head">
       <p class="sp__tag">2 — {t.nav.process}</p>
-      <h2 id="svc-proc-h" class="h-section">{t.process.h2.a} <em>{t.process.h2.em}</em></h2>
-      <p class="sp__note">{t.process.note}</p>
+      <h2 id="svc-proc-h" class="h-section">{c.h2.a} <em>{c.h2.em}</em></h2>
+      {'note' in c && c.note && <p class="sp__note">{c.note}</p>}
     </header>
     <ol class="sp__steps">
-      {t.process.steps.map((s, i) => (
+      {c.steps.map((s, i) => (
         <li class="sp__step">
           <span class="sp__line" aria-hidden="true"></span>
           <span class="sp__n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>

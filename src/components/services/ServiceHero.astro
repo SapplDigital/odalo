@@ -169,8 +169,8 @@ const reelCopy = {
   .rp__clip.is-active { opacity: 1; z-index: 1; }
   .rp__clip img, .rp__clip :global(video) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
   .rp__mini { transform: scale(1.1); filter: blur(12px); }
-  .rp__poster { display: none !important; }
-  .rp__clip :global(video) { opacity: 0; transition: opacity 0.4s ease; }
+  .rp__poster { z-index: 1; }
+  .rp__clip :global(video) { z-index: 2; opacity: 0; transition: opacity 0.4s ease; }
   .rp__clip :global(video[data-ready]) { opacity: 1; }
   .rp__shade { position: absolute; inset-inline: 0; z-index: 2; pointer-events: none; }
   .rp__shade--t { top: 0; height: 6rem; background: linear-gradient(to bottom, rgb(0 0 0 / 0.45), transparent); }
@@ -201,9 +201,9 @@ const reelCopy = {
   }
   @media (prefers-reduced-motion: reduce) {
     .rp__mini { display: none; }
-    .rp__clip:first-child .rp__poster { display: block !important; }
   }
   @media (min-width: 64em) {
+    .sh__grid { align-items: start; }
     .sh__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); }
     .sh__main { grid-column: span 7; }
     .sh__aside { grid-column: 8 / span 5; }

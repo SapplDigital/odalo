@@ -3,7 +3,9 @@ import Base from '../../../../layouts/Base.astro';
 import ServiceHero from '../../../../components/services/ServiceHero.astro';
 import ServiceDeliver from '../../../../components/services/ServiceDeliver.astro';
 import ServiceVisuals from '../../../../components/services/ServiceVisuals.astro';
+import ServiceFormats from '../../../../components/services/ServiceFormats.astro';
 import ServiceProcess from '../../../../components/services/ServiceProcess.astro';
+import ServicePlanMonth from '../../../../components/services/ServicePlanMonth.astro';
 import ServicePlan from '../../../../components/services/ServicePlan.astro';
 import ServiceFaq from '../../../../components/services/ServiceFaq.astro';
 import ServiceClosing from '../../../../components/services/ServiceClosing.astro';
@@ -20,7 +22,9 @@ const s = serviceById(Astro.params.service!)!;
   <ServiceHero lang={lang} s={s} />
   {s.id === 'video' && <ServiceVisuals lang={lang} s={s} />}
   <ServiceDeliver lang={lang} s={s} />
-  <ServiceProcess lang={lang} />
+  {s.id === 'video' && <ServiceFormats lang={lang} />}
+  <ServiceProcess lang={lang} variant={s.id === 'video' ? 'video' : undefined} />
+  {s.id === 'video' && <ServicePlanMonth lang={lang} />}
   <ServicePlan lang={lang} s={s} />
   <ServiceFaq lang={lang} ids={s.faqIds} />
   <ServiceClosing lang={lang} />

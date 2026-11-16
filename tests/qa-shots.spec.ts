@@ -46,7 +46,7 @@ async function shoot(page: import('@playwright/test').Page, url: string, file: s
   });
   // Lazy images below the fold must be loaded before a fullPage capture.
   await page.waitForFunction(
-    () => Array.from(document.images).every((img) => img.complete && img.naturalWidth > 0),
+    () => Array.from(document.images).filter((img) => img.getClientRects().length > 0).every((img) => img.complete && img.naturalWidth > 0),
     undefined,
     { timeout: 15000 },
   );
