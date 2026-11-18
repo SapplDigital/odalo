@@ -58,6 +58,10 @@ const country = site.operator.country[lang];
   .ctc__meta dd { margin: var(--s2) 0 0; font-size: 0.9375rem; color: #fff; overflow-wrap: anywhere; }
   .ctc__meta a { color: #fff; text-underline-offset: 4px; }
   @media (min-width: 768px) {
+    /* Keep text clear of the art column (28% wide, right edge). */
+    .ctc__grid { margin-right: calc(28vw + var(--s4)); }
+  }
+  @media (min-width: 1024px) {
     .ctc__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: end; }
     .ctc__main { grid-column: span 6; }
     .ctc__meta { grid-column: 8 / span 5; }
