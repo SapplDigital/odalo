@@ -51,8 +51,6 @@ const ogImage = `${origin}${base}/og.png`;
   <body>
     <a class="skip-link" href="#main">{t.a11y.skip}</a>
     <div class:list={['pg', { 'pg--home': home }]} data-hm-root>
-      {/* home only: src/mosaic/home/runtime.js still queries .pg-field; remove with the home port */}
-      {home && <svg class="pg-field" aria-hidden="true" focusable="false" preserveAspectRatio="none"></svg>}
       <Header lang={lang} home={home} rest={rest} />
       <main id="main" tabindex="-1">
         <slot />

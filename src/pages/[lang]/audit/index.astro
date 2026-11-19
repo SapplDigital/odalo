@@ -1,7 +1,6 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import AuditForm from '../../../components/AuditForm.astro';
-import Stones from '../../../components/Stones.astro';
 import { languages, type Lang } from '../../../i18n';
 import { tr } from '../../../i18n/ui';
 import { site } from '../../../config/site';
@@ -14,7 +13,7 @@ const { email, phone } = site.contact;
 ---
 <Base lang={lang} title={t.meta.audit.title} description={t.meta.audit.description}>
   <section class="ad" data-audit-page aria-labelledby="audit-h">
-    <div class="ad__grid" data-audit-decor aria-hidden="true"><div class="ad__stones"><Stones from={0.1} to={0.6} /></div></div>
+    <div class="ad__grid" data-audit-decor aria-hidden="true"></div>
     <div class="wrap ad__layout">
       <div class="ad__intro" data-audit-intro>
         <p class="ad__tag"><span aria-hidden="true">→</span> {t.audit.eyebrow}</p>
@@ -46,8 +45,6 @@ const { email, phone } = site.contact;
     background-image: radial-gradient(rgb(0 64 102 / 0.1) 1px, transparent 1px);
     background-size: 8px 8px;
   }
-  .ad__stones { display: none; position: absolute; top: var(--header-h); right: 0; width: 34%; max-width: 520px; height: 18rem; overflow: hidden; pointer-events: none; }
-  @media (min-width: 64em) { .ad__stones { display: block; } }
   .ad__layout { position: relative; z-index: 1; display: grid; gap: var(--s8); grid-template-columns: minmax(0, 1fr); align-items: start; }
   .ad__intro { display: grid; gap: var(--s5); min-width: 0; justify-items: start; }
   .ad__intro > * { margin: 0; min-width: 0; }
@@ -57,7 +54,7 @@ const { email, phone } = site.contact;
   .ad__label { font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-500); }
   .ad__list { list-style: none; padding: 0; margin: var(--s4) 0 0; display: grid; gap: var(--s3); }
   .ad__list li { display: flex; gap: var(--s4); font-size: 1rem; color: var(--ink); overflow-wrap: anywhere; }
-  .ad__n { padding-top: 2px; font-family: var(--font-mono); font-size: var(--text-micro); color: var(--ink-500); }
+  .ad__n { flex: none; padding-top: 2px; font-family: var(--font-mono); font-size: var(--text-micro); color: var(--ink-500); }
   .ad__alt { display: grid; gap: var(--s2); font-size: 0.9375rem; color: var(--ink-600); margin-top: var(--s4); }
   .ad__altH { font-weight: 600; color: var(--ink); }
   .ad__alt ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0 var(--s4); }

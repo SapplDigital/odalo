@@ -1,13 +1,11 @@
 ---
 import type { Lang } from '../../i18n';
 import { tr } from '../../i18n/ui';
-import Stones from '../Stones.astro';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const t = tr(lang);
 ---
 <section class="ph" data-plans-header aria-labelledby="plans-h">
-  <div class="ph__art" aria-hidden="true"><Stones from={0.1} to={0.6} /></div>
   <div class="wrap ph__grid">
     <p class="eyebrow ph__eyebrow">→ {t.nav.plans}</p>
     <h1 id="plans-h" class="h-hero ph__h">{t.plans.h2.a} <em>{t.plans.h2.em}</em></h1>
@@ -19,14 +17,12 @@ const t = tr(lang);
 </section>
 <style>
   .ph { position: relative; overflow: hidden; padding-block: calc(var(--header-h) + var(--s7)) var(--s8); background-color: var(--paper); background-image: radial-gradient(rgb(0 64 102 / 0.1) 1px, transparent 1px); background-size: 8px 8px; border-bottom: 1px solid var(--ink-200); }
-  .ph__art { display: none; position: absolute; top: var(--header-h); right: 0; width: 30%; max-width: 480px; height: 14rem; overflow: hidden; pointer-events: none; z-index: 0; }
   .ph__grid { position: relative; z-index: 1; display: grid; gap: var(--s5); grid-template-columns: minmax(0, 1fr); }
   .ph__eyebrow, .ph__h, .ph__side, .ph__side > * { margin: 0; min-width: 0; }
   .ph__h { overflow-wrap: anywhere; hyphens: auto; text-wrap: balance; }
   .ph__side { display: grid; gap: var(--s4); align-content: end; }
   .ph__note { max-width: 62ch; color: var(--ink-700); font-size: 0.9375rem; }
   @media (min-width: 64em) {
-    .ph__art { display: block; }
     .ph__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: end; }
     .ph__eyebrow { grid-column: 1 / -1; }
     .ph__h { grid-column: span 7; }

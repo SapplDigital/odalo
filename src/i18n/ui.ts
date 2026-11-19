@@ -77,6 +77,8 @@ const en = {
     primary: 'Request your free audit',
     secondary: 'Explore our services',
     pieces: { web: 'Website', video: 'Video', search: 'Search', ads: 'Ads', languages: 'Spanish · English · German' },
+    lines: { desktop: ['We bring you', 'closer to', 'your customers.'], mobile: ['We bring', 'you closer', 'to your', 'customers.'] },
+    cardinals: { n: 'N', w: 'W' },
   },
   services: {
     visuals: {
@@ -279,6 +281,7 @@ const en = {
     legalNotice: 'Legal notice',
     demo: 'Preview site. Sample projects are fictional concepts; some commercial and legal details are still being confirmed.',
     rights: 'Odalo is a brand of Sappl Digital Services.',
+    map: 'Map of the Canary Islands: © OpenStreetMap contributors (ODbL)',
   },
   audit: {
     h1: { a: 'Free', em: 'audit' } as Head,
@@ -444,6 +447,8 @@ const es: Dict = {
     primary: 'Pide tu auditoría gratis',
     secondary: 'Explora nuestros servicios',
     pieces: { web: 'Web', video: 'Vídeo', search: 'Búsqueda', ads: 'Anuncios', languages: 'Español · Inglés · Alemán' },
+    lines: { desktop: ['Te llevamos', 'hasta tus', 'clientes.'], mobile: ['Te llevamos', 'hasta', 'tus', 'clientes.'] },
+    cardinals: { n: 'N', w: 'O' },
   },
   services: {
     visuals: {
@@ -644,6 +649,7 @@ const es: Dict = {
     legalNotice: 'Aviso legal',
     demo: 'Sitio de vista previa. Los proyectos de ejemplo son conceptos ficticios; algunos datos comerciales y legales siguen por confirmar.',
     rights: 'Odalo es una marca de Sappl Digital Services.',
+    map: 'Mapa de Canarias: © OpenStreetMap contributors (ODbL)',
   },
   audit: {
     h1: { a: 'Auditoría', em: 'gratis' } as Head,
@@ -800,6 +806,8 @@ const de: Dict = {
     primary: 'Kostenlose Analyse anfragen',
     secondary: 'Leistungen entdecken',
     pieces: { web: 'Website', video: 'Video', search: 'Suche', ads: 'Anzeigen', languages: 'Spanisch · Englisch · Deutsch' },
+    lines: { desktop: ['Wir bringen dich', 'näher an', 'deine Kunden.'], mobile: ['Wir bringen', 'dich näher', 'an deine', 'Kunden.'] },
+    cardinals: { n: 'N', w: 'W' },
   },
   services: {
     visuals: {
@@ -1000,6 +1008,7 @@ const de: Dict = {
     legalNotice: 'Impressum',
     demo: 'Vorschau-Website. Beispielprojekte sind fiktive Konzepte; einige kaufmännische und rechtliche Angaben werden noch bestätigt.',
     rights: 'Odalo ist eine Marke von Sappl Digital Services.',
+    map: 'Karte der Kanaren: © OpenStreetMap contributors (ODbL)',
   },
   audit: {
     h1: { a: 'Kostenlose', em: 'Analyse' } as Head,

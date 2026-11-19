@@ -1,40 +1,230 @@
 ---
+// Home hero, ported from Ale's HeroSenal (odalo-web @ f137d06): a 2D canvas where the headline and the map of the
+// seven Canary Islands are made of square dots on a grid. Dots arrive from random positions and the mouse pushes
+// them aside. Ale's scattered "piedras" mosaic is deliberately NOT ported (owner 2026-11-19: no mosaic in the hero).
 import { href, type Lang } from '../../i18n';
 import { tr } from '../../i18n/ui';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const t = tr(lang);
-import Stones from '../Stones.astro';
-import HeroCloud from './HeroCloud.astro';
+const data = JSON.stringify({ lines: t.hero.lines, cardinals: t.hero.cardinals, lang });
 ---
-<section class="hp" data-home-hero aria-labelledby="hp-h">
-  <HeroCloud />
-  <div class="wrap hp__grid">
-    <div class="hp__text">
-      <p class="hp__eyebrow">{t.hero.eyebrow}</p>
-      <h1 id="hp-h" class="h-hero">{t.hero.h1.a} <em>{t.hero.h1.em}</em></h1>
-      <p class="hp__body">{t.hero.body}</p>
-      <div class="hp__cta">
-        <a class="btn btn--coral" href={href(lang, 'audit/')} data-track="audit_cta" data-location="hero">{t.hero.primary}</a>
-        <a class="hp__link" href="#services">{t.hero.secondary}</a>
+<section class="hs" data-home-hero aria-labelledby="hs-h" data-hero-signal={data}>
+  <canvas class="hs__cv" aria-hidden="true"></canvas>
+  <div class="hs__cross" aria-hidden="true">
+    <svg viewBox="0 0 16 16" width="16" height="16"><path d="M8 1v14M1 8h14" stroke="currentColor" stroke-width="1.25" stroke-linecap="square" fill="none" /></svg>
+    <span class="hs__coords"></span>
+  </div>
+  <h1 id="hs-h" class="sr-only">{t.hero.h1.a} {t.hero.h1.em}</h1>
+  <div class="hs__grid">
+    <div class="hs__left">
+      <div class="hs__title" data-zona="titular" aria-hidden="true"></div>
+      <div class="hs__phrase" data-zona="frase">
+        <p class="hs__body">{t.hero.body}</p>
+        <div class="hs__cta">
+          <a class="btn btn--coral" href={href(lang, 'audit/')} data-track="audit_cta" data-location="hero">{t.hero.primary}</a>
+          <a class="hs__link" href="#services">{t.hero.secondary}</a>
+        </div>
       </div>
     </div>
-    <div class="hp__art" aria-hidden="true">
-      <Stones from={0.1} to={0.6} />
-    </div>
+    <div class="hs__map" data-zona="mapa" aria-hidden="true"></div>
   </div>
+  <div class="hs__foot"><p class="hs__eyebrow">{t.hero.eyebrow}</p></div>
 </section>
 <style>
-  .hp { position: relative; overflow: hidden; isolation: isolate; padding-block: var(--s6) var(--s8); }
-  .hp__grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s6); align-items: center; }
-  .hp__text { position: relative; z-index: 1; display: grid; gap: var(--s5); align-content: center; }
-  .hp__eyebrow { font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); }
-  .hp__body { font-size: 1.1875rem; line-height: 1.5; color: var(--ink); max-width: 36rem; text-wrap: balance; }
-  .hp__cta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s3) var(--s5); }
-  .hp__link { color: var(--ink); text-decoration: underline; text-underline-offset: 0.3em; text-decoration-color: var(--ink-300); font-weight: 500; }
-  .hp__link:hover { text-decoration-color: var(--ink); }
-  .hp__art { position: relative; overflow: hidden; display: block; max-width: 100%; aspect-ratio: 5 / 3; pointer-events: none; }
-  @media (min-width: 1024px) {
-    .hp__grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s8); }
+  .hs { position: relative; display: flex; flex-direction: column; min-height: max(100svh, 640px); overflow: hidden; background: var(--paper); color: var(--ink); }
+  .hs__cv { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .hs__grid { position: relative; flex: 1; display: grid; grid-template-rows: auto minmax(150px, 1fr); padding: 96px 16px 0; pointer-events: none; }
+  .hs__grid a { pointer-events: auto; }
+  .hs__left { display: flex; flex-direction: column; min-width: 0; }
+  .hs__title { height: 30svh; max-height: 300px; min-height: 180px; }
+  .hs__phrase { position: relative; margin-top: 24px; max-width: 34rem; }
+  .hs__body { font-size: 19px; line-height: 1.375; text-wrap: balance; }
+  .hs__cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 20px; }
+  .hs__cta .btn--coral { height: 48px; padding: 0 24px; font-size: 15px; }
+  .hs__link { font-size: 15px; font-weight: 500; text-decoration: underline; text-underline-offset: 0.3em; text-decoration-color: var(--ink-300); }
+  .hs__link:hover { text-decoration-color: var(--ink); }
+  .hs__map { margin-top: 24px; }
+  .hs__foot { position: relative; padding: 16px 16px 112px; }
+  .hs__eyebrow { width: fit-content; background: rgb(248 249 250 / 0.85); font-family: var(--font-mono); font-size: 11px; line-height: 1.6; letter-spacing: 0.08em; text-transform: uppercase; }
+  .hs__cross { position: absolute; top: 0; left: 0; z-index: 20; opacity: 0; pointer-events: none; transition: opacity 150ms; color: var(--ink); }
+  .hs__cross svg { position: absolute; top: -8px; left: -8px; overflow: visible; }
+  .hs__coords { position: absolute; top: 10px; left: 12px; font-family: var(--font-mono); font-size: 9px; line-height: 1; letter-spacing: 0.04em; white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--ink-500); }
+  @media (min-width: 40em) { .hs__grid { padding-inline: 24px; } .hs__foot { padding-inline: 24px; } }
+  @media (min-width: 48em) {
+    .hs__grid { grid-template-columns: 1fr 1fr; grid-template-rows: none; gap: 40px; padding: 112px 40px 0; }
+    .hs__left { justify-content: center; }
+    .hs__title { height: 46svh; max-height: 520px; }
+    .hs__phrase { margin-top: 32px; }
+    .hs__body { font-size: 22px; }
+    .hs__cta .btn--coral { height: 56px; padding: 0 28px; font-size: 16px; }
+    .hs__map { margin: 6svh 0; }
+    .hs__foot { padding: 16px 40px 32px; }
   }
+  @media (hover: hover) and (pointer: fine) { .hs { cursor: none; } .hs a { cursor: pointer; } }
 </style>
+<script>
+  import { dotLines } from '../../mosaic/dotGlyphs';
+  import { ISLAS, PUNTO_REF } from '../../mosaic/canarias';
+
+  const BAYER = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5].map((v) => (v + 0.5) / 16);
+  const TINTA = '#004066';
+  const FONDO = '#F8F9FA';
+  const RADIUS = { desktop: 56, mobile: 40 };
+  const ENTRY = { k: 0.055, damp: 0.8 };
+  const SPRING = { k: 0.16, damp: 0.68 };
+  const PUSH = 5;
+
+  const sec = document.querySelector<HTMLElement>('[data-hero-signal]');
+  const cv = sec?.querySelector<HTMLCanvasElement>('.hs__cv');
+  const cross = sec?.querySelector<HTMLElement>('.hs__cross');
+  const coordsEl = sec?.querySelector<HTMLElement>('.hs__coords');
+  if (sec && cv && cross && coordsEl) init(sec, cv, cross, coordsEl);
+
+  function init(sec: HTMLElement, cv: HTMLCanvasElement, cross: HTMLElement, coordsEl: HTMLElement) {
+    const { lines, cardinals, lang } = JSON.parse(sec.dataset.heroSignal!) as {
+      lines: { desktop: string[]; mobile: string[] }; cardinals: { n: string; w: string }; lang: string;
+    };
+    const ctx = cv.getContext('2d')!;
+    const nav = navigator as Navigator & { deviceMemory?: number };
+    const lowEnd = (nav.hardwareConcurrency ?? 8) <= 2 || (nav.deviceMemory ?? 8) <= 2;
+    const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches || lowEnd;
+    const fmt = new Intl.NumberFormat(lang, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const text = ([lon, lat]: [number, number]) =>
+      `${fmt.format(Math.abs(lat))} ${lat >= 0 ? cardinals.n : 'S'} · ${fmt.format(Math.abs(lon))} ${lon <= 0 ? cardinals.w : 'E'}`;
+    coordsEl.textContent = text(PUNTO_REF);
+
+    let W = 0, H = 0, raf = 0, visible = true, n = 0, settled = Infinity;
+    let px = new Float32Array(0), py = px, tx = px, ty = px, vx = px, vy = px, size = px;
+    let bg: HTMLCanvasElement | null = null;
+    const mouse = { x: -9999, y: -9999, active: false };
+    let toCoords = (_x: number, _y: number): [number, number] => PUNTO_REF;
+
+    const rect = (sel: string, base: DOMRect) => {
+      const r = sec.querySelector(sel)!.getBoundingClientRect();
+      return { x: r.left - base.left, y: r.top - base.top, w: r.width, h: r.height };
+    };
+
+    const draw = () => {
+      if (bg) ctx.drawImage(bg, 0, 0, W, H);
+      ctx.fillStyle = TINTA;
+      for (let i = 0; i < n; i++) ctx.fillRect(px[i] - size[i] / 2, py[i] - size[i] / 2, size[i], size[i]);
+    };
+
+    const build = async () => {
+      await document.fonts.ready;
+      W = sec.clientWidth; H = sec.clientHeight;
+      const dpr = Math.min(2, window.devicePixelRatio || 1);
+      cv.width = W * dpr; cv.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const mobile = W < 768;
+      const base = sec.getBoundingClientRect();
+      const zt = rect('[data-zona="titular"]', base);
+      const box = rect('[data-zona="mapa"]', base);
+
+      // 1) Headline in the dot alphabet: the largest grid step (half-pixel steps) that fits its zone.
+      const head = dotLines(mobile ? lines.mobile : lines.desktop);
+      const step = Math.min(mobile ? 6 : 9, Math.max(2.5, Math.floor(Math.min(zt.w / head.cols, zt.h / head.rows) * 2) / 2));
+      const c0 = Math.ceil((zt.x - step / 2) / step);
+      const r0 = Math.floor((zt.y + zt.h - step / 2) / step) - head.rows + 1;
+      const ax: number[] = [], ay: number[] = [], asz: number[] = [];
+      for (const [x, y] of head.cells) { ax.push((c0 + x) * step + step / 2); ay.push((r0 + y) * step + step / 2); asz.push(step * 0.78); }
+
+      // 2) Map: simple projection keeping proportions inside its zone.
+      const all = ISLAS.flatMap((i) => i.contorno);
+      const lons = all.map((p) => p[0]), lats = all.map((p) => p[1]);
+      const minLon = Math.min(...lons), maxLat = Math.max(...lats);
+      const k = Math.cos((28.3 * Math.PI) / 180);
+      const mw = (Math.max(...lons) - minLon) * k, mh = maxLat - Math.min(...lats);
+      const esc = Math.min(box.w / mw, box.h / mh);
+      const ox = box.x + (box.w - mw * esc) / 2, oy = box.y + (box.h - mh * esc) / 2;
+      const proj = ([lon, lat]: [number, number]) => [ox + (lon - minLon) * k * esc, oy + (maxLat - lat) * esc];
+      toCoords = (x, y) => [minLon + (x - ox) / (k * esc), maxLat - (y - oy) / esc];
+      const mapCv = document.createElement('canvas');
+      mapCv.width = W; mapCv.height = H;
+      const mc = mapCv.getContext('2d', { willReadFrequently: true })!;
+      // Dither is denser toward each island's centre (rough relief).
+      const centres = ISLAS.map((isla) => {
+        mc.beginPath();
+        isla.contorno.forEach((p, i) => { const [x, y] = proj(p); if (i) mc.lineTo(x, y); else mc.moveTo(x, y); });
+        mc.closePath(); mc.fill();
+        const xs = isla.contorno.map((p) => proj(p)[0]), ys = isla.contorno.map((p) => proj(p)[1]);
+        return {
+          x: (Math.min(...xs) + Math.max(...xs)) / 2, y: (Math.min(...ys) + Math.max(...ys)) / 2,
+          r: Math.max(Math.max(...xs) - Math.min(...xs), Math.max(...ys) - Math.min(...ys)) * 0.6,
+        };
+      });
+      const md = mc.getImageData(0, 0, W, H).data;
+
+      bg = document.createElement('canvas');
+      bg.width = W * dpr; bg.height = H * dpr;
+      const fc = bg.getContext('2d')!;
+      fc.scale(dpr, dpr);
+      fc.fillStyle = FONDO; fc.fillRect(0, 0, W, H);
+      fc.fillStyle = 'rgb(0 64 102 / 0.1)';
+      for (let y = step / 2; y < H; y += step) for (let x = step / 2; x < W; x += step) fc.fillRect(x - 0.5, y - 0.5, 1, 1);
+      const pm = (mobile ? 5 : 8) * 0.6;
+      for (let gy = 0, y = box.y + pm / 2; y < box.y + box.h; gy++, y += pm) {
+        for (let gx = 0, x = box.x + pm / 2; x < box.x + box.w; gx++, x += pm) {
+          if (md[((y | 0) * W + (x | 0)) * 4 + 3] <= 128) continue;
+          const high = Math.max(...centres.map((c) => 1 - Math.min(1, Math.hypot(x - c.x, y - c.y) / c.r)));
+          if (0.5 + 0.5 * high > BAYER[(gx % 4) + (gy % 4) * 4]) { ax.push(x); ay.push(y); asz.push(pm * 0.62); }
+        }
+      }
+      n = ax.length;
+      tx = Float32Array.from(ax); ty = Float32Array.from(ay); size = Float32Array.from(asz);
+      vx = new Float32Array(n); vy = new Float32Array(n);
+      px = new Float32Array(n); py = new Float32Array(n);
+      for (let i = 0; i < n; i++) { px[i] = still ? tx[i] : Math.random() * W; py[i] = still ? ty[i] : Math.random() * H; }
+      draw();
+      settled = performance.now() + 1600;
+      if (!still) { cancelAnimationFrame(raf); raf = requestAnimationFrame(loop); }
+    };
+
+    const loop = () => {
+      if (!visible) return;
+      const R = W < 768 ? RADIUS.mobile : RADIUS.desktop;
+      const m = performance.now() > settled ? SPRING : ENTRY;
+      const push = PUSH * (m.k / ENTRY.k);
+      for (let i = 0; i < n; i++) {
+        let ax = (tx[i] - px[i]) * m.k, ay = (ty[i] - py[i]) * m.k;
+        if (mouse.active) {
+          const dx = px[i] - mouse.x, dy = py[i] - mouse.y, d2 = dx * dx + dy * dy;
+          if (d2 < R * R && d2 > 0.01) { const d = Math.sqrt(d2), f = (1 - d / R) * push; ax += (dx / d) * f; ay += (dy / d) * f; }
+        }
+        vx[i] = vx[i] * m.damp + ax; vy[i] = vy[i] * m.damp + ay;
+        px[i] += vx[i]; py[i] += vy[i];
+      }
+      draw();
+      raf = requestAnimationFrame(loop);
+    };
+
+    const move = (e: PointerEvent) => {
+      const r = cv.getBoundingClientRect();
+      mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+      mouse.active = e.pointerType === 'mouse' && mouse.y >= 0 && mouse.y <= r.height;
+      const onLink = e.target instanceof Element && !!e.target.closest('a, button');
+      const show = mouse.active && !onLink;
+      cross.style.opacity = show ? '1' : '0';
+      if (show) { cross.style.transform = `translate3d(${mouse.x}px, ${mouse.y}px, 0)`; coordsEl.textContent = text(toCoords(mouse.x, mouse.y)); }
+      if (still) draw();
+    };
+    const leave = () => { mouse.active = false; cross.style.opacity = '0'; };
+
+    const io = new IntersectionObserver(([e]) => {
+      visible = e.isIntersecting;
+      cancelAnimationFrame(raf);
+      if (visible && !still && n) raf = requestAnimationFrame(loop);
+    });
+    io.observe(sec);
+    let wait = 0;
+    // Rebuild only when the hero really changes size (mobile address bar fires resize without changing it).
+    window.addEventListener('resize', () => {
+      clearTimeout(wait);
+      wait = window.setTimeout(() => { if (sec.clientWidth !== W || sec.clientHeight !== H) build(); }, 200);
+    });
+    window.addEventListener('pointermove', move, { passive: true });
+    document.documentElement.addEventListener('pointerleave', leave);
+    build();
+  }
+</script>

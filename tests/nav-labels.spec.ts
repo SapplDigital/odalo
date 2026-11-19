@@ -21,9 +21,9 @@ for (const lang of ['es', 'en', 'de'] as const) {
       await expect(nav.nth(3)).toHaveAttribute('href', `/${lang}/about/`);
     });
 
-    test('hero italic accent is Ale navy', async ({ page }) => {
+    test('home italic accent is Ale navy (hero headline is dots now)', async ({ page }) => {
       await page.goto(`/${lang}/`);
-      const em = page.locator('.hm-h1 em, .h-hero em').first();
+      const em = page.locator('.h-section em').first();
       await expect(em).toBeVisible();
       expect(await em.evaluate((e) => getComputedStyle(e).color)).toBe('rgb(0, 64, 102)');
     });

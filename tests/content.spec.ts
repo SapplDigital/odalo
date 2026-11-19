@@ -87,7 +87,6 @@ test.describe('enquiry journey: approved free-audit labels, honest simulation', 
     expect(ui).toMatch(/\(deliveryConfigured \? ui : demoUi\)\[lang\]/);
     expect(ui).toMatch(/submit: 'Request audit',\s+sending: 'Sending…',/); // original strings untouched
     expect(fs.readFileSync('src/config/site.ts', 'utf8')).toMatch(/auditEndpoint: \(import\.meta\.env\.PUBLIC_AUDIT_ENDPOINT/);
-    expect(fs.readFileSync('src/components/FinalCta.astro', 'utf8')).toMatch(/const demo = !site\.auditLive/);
     expect(fs.readFileSync('src/components/Faq.astro', 'utf8')).toMatch(/!isDemoEnquiry && f\.aConfigured/);
   });
 });

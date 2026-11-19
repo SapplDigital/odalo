@@ -2,14 +2,12 @@
 import { href, type Lang } from '../../i18n';
 import { tr } from '../../i18n/ui';
 import { site } from '../../config/site';
-import Stones from '../Stones.astro';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const t = tr(lang);
 const email = site.contact.email;
 ---
 <section class="pc on-dark" id="plans-closing" data-plans-closing aria-labelledby="pc-h">
-  <div class="pc__art" aria-hidden="true"><Stones from={0.1} to={0.45} /></div>
   <div class="wrap pc__grid">
     <div class="pc__text">
       <h2 id="pc-h" class="pc__h">{t.plans.page.doubtH}</h2>
@@ -23,7 +21,6 @@ const email = site.contact.email;
 </section>
 <style>
   .pc { position: relative; overflow: hidden; padding-block: var(--section); background: var(--ink); color: rgb(255 255 255 / 0.75); }
-  .pc__art { display: none; position: absolute; top: 0; right: 0; width: 60%; max-width: 640px; height: 16rem; overflow: hidden; pointer-events: none; z-index: 0; }
   .pc__grid { position: relative; z-index: 1; display: grid; gap: var(--s6); grid-template-columns: minmax(0, 1fr); }
   .pc__text, .pc__actions { min-width: 0; }
   .pc__h { margin: 0; color: #fff; font-weight: 300; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; text-wrap: balance; overflow-wrap: anywhere; }
@@ -33,7 +30,6 @@ const email = site.contact.email;
   .pc__btn:hover { background: rgb(255 255 255 / 0.85); }
   .pc__mail { color: #fff; font-family: var(--font-mono); font-size: 0.8125rem; text-underline-offset: 4px; overflow-wrap: anywhere; }
   @media (min-width: 48em) {
-    .pc__art { display: block; }
     .pc__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: end; }
     .pc__text { grid-column: span 7; }
     .pc__actions { grid-column: 9 / span 4; justify-items: end; }

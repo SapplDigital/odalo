@@ -145,3 +145,15 @@ export function dotCells(text: string) {
     }
   return { cols: width * 2, rows: HEIGHT * 2, cells: out };
 }
+
+/** Several lines stacked (line gap = 1 source row, as in the original): { cols, rows, cells }. */
+export function dotLines(lines: string[]) {
+  const cells: [number, number][] = [];
+  let cols = 0;
+  lines.forEach((l, i) => {
+    const r = dotCells(l.trim());
+    cols = Math.max(cols, r.cols);
+    for (const [x, y] of r.cells) cells.push([x, y + i * (HEIGHT + 1) * 2]);
+  });
+  return { cols, rows: ((lines.length - 1) * (HEIGHT + 1) + HEIGHT) * 2, cells };
+}
