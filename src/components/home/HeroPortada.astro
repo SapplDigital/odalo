@@ -15,7 +15,7 @@ const data = JSON.stringify({ lines: t.hero.lines, cardinals: t.hero.cardinals, 
     <svg viewBox="0 0 16 16" width="16" height="16"><path d="M8 1v14M1 8h14" stroke="currentColor" stroke-width="1.25" stroke-linecap="square" fill="none" /></svg>
     <span class="hs__coords"></span>
   </div>
-  <h1 id="hs-h" class="sr-only">{t.hero.h1.a} {t.hero.h1.em}</h1>
+  <h1 id="hs-h" class="hs__h1 sr-only">{t.hero.h1.a} {t.hero.h1.em}</h1>
   <div class="hs__grid">
     <div class="hs__left">
       <div class="hs__title" data-zona="titular" aria-hidden="true"></div>
@@ -31,8 +31,14 @@ const data = JSON.stringify({ lines: t.hero.lines, cardinals: t.hero.cardinals, 
   </div>
   <div class="hs__foot"><p class="hs__eyebrow">{t.hero.eyebrow}</p></div>
 </section>
+<noscript><style is:inline>
+  [data-home-hero] .hs__h1 { position: static; width: auto; height: auto; margin: 96px 16px 0; padding: 0; overflow: visible; clip: auto; white-space: normal; font-size: clamp(2rem, 6vw, 4rem); line-height: 1.1; }
+  [data-home-hero] .hs__title { display: none; }
+</style></noscript>
 <style>
   .hs { position: relative; display: flex; flex-direction: column; min-height: max(100svh, 640px); overflow: hidden; background: var(--paper); color: var(--ink); }
+  .hs--plain .hs__h1 { position: static; width: auto; height: auto; margin: 96px 16px 0; padding: 0; overflow: visible; clip: auto; white-space: normal; font-size: clamp(2rem, 6vw, 4rem); line-height: 1.1; }
+  .hs--plain .hs__title { display: none; }
   .hs__cv { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
   .hs__grid { position: relative; flex: 1; display: grid; grid-template-rows: auto minmax(150px, 1fr); padding: 96px 16px 0; pointer-events: none; }
   .hs__grid a { pointer-events: auto; }
@@ -85,7 +91,8 @@ const data = JSON.stringify({ lines: t.hero.lines, cardinals: t.hero.cardinals, 
     const { lines, cardinals, lang } = JSON.parse(sec.dataset.heroSignal!) as {
       lines: { desktop: string[]; mobile: string[] }; cardinals: { n: string; w: string }; lang: string;
     };
-    const ctx = cv.getContext('2d')!;
+    const ctx = cv.getContext('2d');
+    if (!ctx) { sec.classList.add('hs--plain'); return; }
     const nav = navigator as Navigator & { deviceMemory?: number };
     const lowEnd = (nav.hardwareConcurrency ?? 8) <= 2 || (nav.deviceMemory ?? 8) <= 2;
     const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches || lowEnd;
@@ -178,14 +185,20 @@ const data = JSON.stringify({ lines: t.hero.lines, cardinals: t.hero.cardinals, 
       for (let i = 0; i < n; i++) { px[i] = still ? tx[i] : Math.random() * W; py[i] = still ? ty[i] : Math.random() * H; }
       draw();
       settled = performance.now() + 1600;
-      if (!still) { cancelAnimationFrame(raf); raf = requestAnimationFrame(loop); }
+      cancelAnimationFrame(raf); raf = 0;
+      kick();
     };
 
+    // The loop sleeps once every dot is at rest and no mouse is active; pointer, resize and intersection wake it.
+    const kick = () => { if (!raf && visible && !still && n) raf = requestAnimationFrame(loop); };
+
     const loop = () => {
+      raf = 0;
       if (!visible) return;
       const R = W < 768 ? RADIUS.mobile : RADIUS.desktop;
       const m = performance.now() > settled ? SPRING : ENTRY;
       const push = PUSH * (m.k / ENTRY.k);
+      let moving = mouse.active;
       for (let i = 0; i < n; i++) {
         let ax = (tx[i] - px[i]) * m.k, ay = (ty[i] - py[i]) * m.k;
         if (mouse.active) {
@@ -194,9 +207,10 @@ const data = JSON.stringify({ lines: t.hero.lines, cardinals: t.hero.cardinals, 
         }
         vx[i] = vx[i] * m.damp + ax; vy[i] = vy[i] * m.damp + ay;
         px[i] += vx[i]; py[i] += vy[i];
+        if (Math.abs(vx[i]) + Math.abs(vy[i]) + Math.abs(tx[i] - px[i]) + Math.abs(ty[i] - py[i]) > 0.02) moving = true;
       }
       draw();
-      raf = requestAnimationFrame(loop);
+      if (moving) raf = requestAnimationFrame(loop);
     };
 
     const move = (e: PointerEvent) => {
@@ -207,14 +221,14 @@ const data = JSON.stringify({ lines: t.hero.lines, cardinals: t.hero.cardinals, 
       const show = mouse.active && !onLink;
       cross.style.opacity = show ? '1' : '0';
       if (show) { cross.style.transform = `translate3d(${mouse.x}px, ${mouse.y}px, 0)`; coordsEl.textContent = text(toCoords(mouse.x, mouse.y)); }
-      if (still) draw();
+      if (still) draw(); else kick();
     };
     const leave = () => { mouse.active = false; cross.style.opacity = '0'; };
 
     const io = new IntersectionObserver(([e]) => {
       visible = e.isIntersecting;
-      cancelAnimationFrame(raf);
-      if (visible && !still && n) raf = requestAnimationFrame(loop);
+      cancelAnimationFrame(raf); raf = 0;
+      kick();
     });
     io.observe(sec);
     let wait = 0;

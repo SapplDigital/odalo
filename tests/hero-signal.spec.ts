@@ -37,3 +37,13 @@ for (const lang of langs) {
     expect(pill!.y + pill!.height).toBeLessThanOrEqual(title!.y);
   });
 }
+
+// Without JavaScript the canvas never paints: the h1 must be a visible headline.
+test.describe('hero without JavaScript', () => {
+  test.use({ javaScriptEnabled: false });
+  test('h1 is visible, empty dot container hidden', async ({ page }) => {
+    await page.goto('/en/');
+    await expect(page.locator('[data-home-hero] h1')).toBeVisible();
+    await expect(page.locator('[data-home-hero] .hs__title')).toBeHidden();
+  });
+});
