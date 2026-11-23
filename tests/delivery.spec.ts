@@ -17,11 +17,12 @@ const fill = async (page: Page, o: { marketing?: boolean } = {}) => {
   await page.fill('#f-email', 'sample@example.com'); await page.fill('#f-website', 'https://sample.example'); await page.fill('#f-country', 'Sampleland'); await page.fill('#f-phone', '000');
   await page.check('#f-privacy'); if (o.marketing) await page.check('#f-marketing');
 };
-const netlifyMode = (page: Page) => page.evaluate(() => document.querySelector('[data-audit]')!.setAttribute('data-transport', 'netlify'));
+const ORIGIN = `http://localhost:${Number(process.env.TEST_PORT || 4322)}`; // same derivation as playwright.config.ts
+const netlifyMode =(page: Page) => page.evaluate(() => document.querySelector('[data-audit]')!.setAttribute('data-transport', 'netlify'));
 type Seen = { method: string; url: string; type: string | undefined; body: string };
 const intercept = async (page: Page, handler: (r: Route, n: number) => Promise<void> | void) => {
   const seen: Seen[] = []; let n = 0;
-  await page.route('http://localhost:4322/', async (route) => {
+  await page.route(`${ORIGIN}/`,async (route) => {
     const req = route.request();
     if (req.method() !== 'POST') return route.continue();
     seen.push({ method: req.method(), url: req.url(), type: req.headers()['content-type'], body: req.postData() ?? '' });
@@ -98,13 +99,13 @@ test.describe('Netlify transport (intercepted)', () => {
     await page.selectOption('#f-service', 'video'); await page.selectOption('#f-plan', 'captacion'); await page.selectOption('#f-language', 'de');
     await fill(page, { marketing: true });
     await netlifyMode(page);
-    await page.evaluate(() => document.querySelector('[data-audit]')!.setAttribute('data-endpoint', 'http://localhost:4322/__json-endpoint-must-not-be-used'));
+    await page.evaluate((o) => document.querySelector('[data-audit]')!.setAttribute('data-endpoint', `${o}/__json-endpoint-must-not-be-used`), ORIGIN);
     let jsonHit = 0; await page.route('**/__json-endpoint-must-not-be-used', (r) => { jsonHit++; return r.abort(); });
     const seen = await intercept(page, ok);
     await page.click('[data-submit]');
     await expect(page.locator('[data-result]')).toHaveAttribute('data-kind', 'delivered');
     expect(seen).toHaveLength(1); expect(jsonHit).toBe(0);
-    const s = seen[0]!; expect(s.url).toBe('http://localhost:4322/'); expect(s.type).toMatch(/^application\/x-www-form-urlencoded/);
+    const s = seen[0]!; expect(s.url).toBe(`${ORIGIN}/`); expect(s.type).toMatch(/^application\/x-www-form-urlencoded/);
     const p = new URLSearchParams(s.body);
     expect(Object.fromEntries(p)).toEqual({
       'form-name': 'audit', 'bot-field': '', name: 'Sample Name', email: 'sample@example.com', business: 'Sample Studio', need: 'Sample need', website: 'https://sample.example', country: 'Sampleland',

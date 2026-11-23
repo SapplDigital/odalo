@@ -18,7 +18,7 @@ export default defineConfig({
     launchOptions: exe ? { executablePath: exe } : {},
   },
   webServer: {
-    command: `npm run build && npx astro preview --host --port ${port}`,
+    command: `npm run build && npx astro preview --ignore-lock --host --port ${port}`,
     url: `${origin}/en/`,
     reuseExistingServer: false,
     timeout: 180_000,
