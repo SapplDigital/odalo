@@ -28,8 +28,9 @@ test.describe('netlify.toml', () => {
 
   test('CSP and no secret-looking keys', () => {
     expect(toml).toContain(
-      "Content-Security-Policy = \"default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self'; form-action 'self'; frame-ancestors 'none'\"",
+      "Content-Security-Policy = \"default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'\"",
     );
+    expect(toml).toMatch(/Strict-Transport-Security\s*=\s*"max-age=31536000"/);
     expect(toml).not.toMatch(/^\s*[A-Za-z_]*(TOKEN|SECRET|KEY|PASSWORD|AUTH(?!_))[A-Za-z_]*\s*=/im);
   });
 

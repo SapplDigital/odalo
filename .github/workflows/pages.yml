@@ -1,10 +1,9 @@
+# DISABLED (security audit 2026-11-24): manual run only (workflow_dispatch); no push trigger.
 # Publishes the demo to GitHub Pages: https://sappldigital.github.io/odalo/
 # One-time setup: repo Settings → Pages → Build and deployment → Source: "GitHub Actions".
 name: Deploy demo to GitHub Pages
 
 on:
-  push:
-    branches: [master]
   workflow_dispatch:
 
 permissions:

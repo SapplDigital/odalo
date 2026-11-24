@@ -19,3 +19,7 @@ Method: file read only (Bash was denied in this run). Not verified: git history 
 
 ## To verify
 Run `npm audit --omit=dev`; run gitleaks over full history; check live response headers after deploy; confirm Netlify form notification email goes to the owner.
+
+
+## Follow-ups done on 2026-11-24
+GitHub Pages demo workflow (.github/workflows/pages.yml) disabled (workflow_dispatch only, no push trigger); netlify.toml CSP gained base-uri/object-src and Strict-Transport-Security max-age=31536000 was added.
