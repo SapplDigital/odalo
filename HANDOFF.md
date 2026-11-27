@@ -181,3 +181,5 @@ The free audit is an approved Odalo offer, so the free-audit labels stay in navi
 
 ## Session handoff
 See `docs/review/session-handoff/SESSION-HANDOFF.md` for the current position, workspace state, verification workflow, evidence map and next actions (Task 18).
+
+2026-11-27: canonical domain is odalo.sappl-digital-services.com; odalo.sappl-digital.de stays as alias (Netlify redirects aliases to the primary domain).

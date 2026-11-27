@@ -17,7 +17,7 @@ export const site = {
   vatId: null as string | null,
   /** Kleinunternehmer under § 19 UStG: the Impressum shows the note only while this is true. */
   smallBusiness: true,
-  url: 'https://odalo.sappl-digital.de',
+  url: 'https://odalo.sappl-digital-services.com',
   /** Verified contact details. Phone is unset: none has been supplied. */
   contact: {
     email: 'info@sappl-digital-services.com' as string | null,

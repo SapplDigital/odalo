@@ -10,7 +10,7 @@ test.describe('netlify.toml', () => {
   });
 
   test('build environment', () => {
-    expect(toml).toMatch(/SITE_URL\s*=\s*"https:\/\/odalo\.sappl-digital\.de"/);
+    expect(toml).toMatch(/SITE_URL\s*=\s*"https:\/\/odalo\.sappl-digital-services\.com"/);
     expect(toml).toMatch(/SITE_BASE\s*=\s*"\/"/);
     expect(toml).toMatch(/PUBLIC_NOINDEX\s*=\s*"true"/);
     expect(toml).toMatch(/PUBLIC_AUDIT_TRANSPORT\s*=\s*"netlify"/);
